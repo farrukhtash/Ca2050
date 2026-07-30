@@ -1,0 +1,16 @@
+title: "Марказий Осиё давлатлари 2050 — Минтақавий форсайт-мулоқот"
+description: "Минтақавий форсайт-мулоқот натижаси — 2050 йилгача бўлган келажак манзаралари"
+url: "https://ca2050.uz"
+
+footer_uz: "Марказий Осиё давлатлари 2050 — Минтақавий форсайт-мулоқот · Тошкент, 2026"
+footer_en: "Central Asia States 2050 — Regional Foresight Dialogue · Tashkent, 2026"
+
+markdown: kramdown
+plugins: []
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .claude
+  - media/README.txt

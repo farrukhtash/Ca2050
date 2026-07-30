@@ -1,0 +1,30 @@
+<header class="site-header">
+  <div class="wrap">
+    <a href="{{ '/' | relative_url }}" class="brand-mark">
+      <span class="uz">Марказий Осиё 2050</span><span class="en">Central Asia 2050</span>
+      <span class="accent uz">Форсайт-платформа</span><span class="accent en">Foresight platform</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" onclick="toggleNav()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="site-nav" id="siteNav">
+      <a href="{{ '/#about' | relative_url }}" class="uz">О китоб</a><a href="{{ '/#about' | relative_url }}" class="en">The book</a>
+      <a href="{{ '/#themes' | relative_url }}" class="uz">Йўналишлар</a><a href="{{ '/#themes' | relative_url }}" class="en">Themes</a>
+      <a href="{{ '/#youth' | relative_url }}" class="uz">Ёшлар</a><a href="{{ '/#youth' | relative_url }}" class="en">Youth</a>
+      <a href="{{ '/forsayt-seminar-2025.html' | relative_url }}" class="{% if page.nav_active == 'seminar' %}active {% endif %}uz">Семинар 2025</a><a href="{{ '/forsayt-seminar-2025.html' | relative_url }}" class="{% if page.nav_active == 'seminar' %}active {% endif %}en">Seminar 2025</a>
+      <a href="{{ '/#countries' | relative_url }}" class="uz">Мамлакатлар</a><a href="{{ '/#countries' | relative_url }}" class="en">Countries</a>
+      <a href="{{ '/#feedback' | relative_url }}" class="uz">Алоқа</a><a href="{{ '/#feedback' | relative_url }}" class="en">Contact</a>
+    </nav>
+    <div class="header-right">
+      {% if page.header_pdf %}
+      <a href="{{ '/markaziy-osiyo-2050_uz.pdf' | relative_url }}" class="header-download" download>
+        <span class="uz">PDF</span><span class="en">PDF</span>
+      </a>
+      {% endif %}
+      <div class="langswitch">
+        <button id="btn-uz" class="active" onclick="setLang('uz')">ЎЗ</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
