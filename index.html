@@ -2,40 +2,42 @@
 layout: default
 title: "Марказий Осиё давлатлари 2050 — Минтақавий форсайт-мулоқот"
 header_pdf: true
+hero_full: true
 ---
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow uz">Минтақавий форсайт-мулоқот · Тошкент, 2026</span>
-      <span class="eyebrow en">Regional Foresight Dialogue · Tashkent, 2026</span>
-      <h1 class="uz">Марказий Осиё давлатлари 2050</h1>
-      <h1 class="en">Central Asia States 2050</h1>
-      <p class="sub uz">Минтақа тарихидаги биринчи форсайт-мулоқотининг натижаси — 2050 йилгача бўлган келажак манзаралари: иқлим, сув, энергетика, транспорт ва демография бўйича таҳлил ва тавсиялар.</p>
-      <p class="sub en">The result of the region's first foresight dialogue — visions of the future through 2050 across climate, water, energy, transport, and demography.</p>
-      <div class="cta-row">
-        <a href="markaziy-osiyo-2050_uz.pdf" class="btn-gold" download>
-          <span class="uz">Китобни юклаб олиш</span><span class="en">Download the book</span>
-        </a>
-        <span class="meta-note uz">217 бет · PDF · ўзбек ва инглиз тилидаги қисқа шарҳ</span>
-        <span class="meta-note en">217 pages · PDF · summary in Uzbek and English</span>
-      </div>
+<!-- HERO (fullscreen background carousel) -->
+<section class="home-hero" id="top">
+  <div class="home-hero-bg" aria-hidden="true">
+    <picture class="hero-slide is-active">
+      <source media="(max-width:700px)" srcset="{{ '/assets/hero/hero-1-mobile.jpg' | relative_url }}">
+      <img src="{{ '/assets/hero/hero-1.jpg' | relative_url }}" alt="" loading="eager" fetchpriority="high">
+    </picture>
+    <picture class="hero-slide">
+      <source media="(max-width:700px)" srcset="{{ '/assets/hero/hero-2-mobile.jpg' | relative_url }}">
+      <img src="{{ '/assets/hero/hero-2.jpg' | relative_url }}" alt="" loading="lazy">
+    </picture>
+  </div>
+  <div class="home-hero-overlay" aria-hidden="true"></div>
+
+  <div class="wrap home-hero-content">
+    <span class="eyebrow uz">Минтақавий форсайт-мулоқот · Тошкент, 2026</span>
+    <span class="eyebrow en">Regional Foresight Dialogue · Tashkent, 2026</span>
+    <h1 class="uz">Марказий Осиё давлатлари 2050</h1>
+    <h1 class="en">Central Asia States 2050</h1>
+    <p class="sub uz">Минтақа тарихидаги биринчи форсайт-мулоқотининг натижаси — 2050 йилгача бўлган келажак манзаралари: иқлим, сув, энергетика, транспорт ва демография бўйича таҳлил ва тавсиялар.</p>
+    <p class="sub en">The result of the region's first foresight dialogue — visions of the future through 2050 across climate, water, energy, transport, and demography.</p>
+    <div class="cta-row">
+      <a href="markaziy-osiyo-2050_uz.pdf" class="btn-gold" download>
+        <span class="uz">Китобни юклаб олиш</span><span class="en">Download the book</span>
+      </a>
+      <span class="meta-note uz">217 бет · PDF · ўзбек ва инглиз тилидаги қисқа шарҳ</span>
+      <span class="meta-note en">217 pages · PDF · summary in Uzbek and English</span>
     </div>
   </div>
-  <div class="horizon">
-    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="horizonGrad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#141d38"/>
-          <stop offset="65%" stop-color="#c9a227" stop-opacity=".5"/>
-          <stop offset="100%" stop-color="#e3cd85"/>
-        </linearGradient>
-      </defs>
-      <path d="M0,90 L120,60 L260,95 L400,50 L560,88 L720,40 L900,80 L1040,55 L1200,90 L1200,120 L0,120 Z" fill="#0e1530"/>
-      <path d="M0,95 L150,70 L300,98 L470,65 L640,92 L820,55 L980,85 L1200,68" fill="none" stroke="url(#horizonGrad)" stroke-width="2"/>
-      <rect x="0" y="118" width="1200" height="2" fill="#eee6d3"/>
-    </svg>
-  </div>
+
+  <a href="#about" class="scroll-hint" aria-label="Пастга суринг / Scroll down">
+    <span class="uz">Пастга</span><span class="en">Scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
 </section>
 
 <!-- ABOUT (teaser) -->

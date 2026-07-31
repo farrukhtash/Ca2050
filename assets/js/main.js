@@ -63,3 +63,27 @@ const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
 }, {threshold:.15});
 document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+
+// Transparent header over the fullscreen hero -> solid on scroll
+if(document.body.classList.contains('has-hero-full')){
+  const header = document.querySelector('.site-header');
+  if(header){
+    const onScroll = ()=>{ header.classList.toggle('scrolled', window.scrollY > 80); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, {passive:true});
+  }
+}
+
+// Hero background carousel (cross-fade)
+(function(){
+  const slides = document.querySelectorAll('.home-hero .hero-slide');
+  if(slides.length < 2) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return; // keep the first slide static
+  let i = 0;
+  setInterval(()=>{
+    slides[i].classList.remove('is-active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('is-active');
+  }, 6000);
+})();
