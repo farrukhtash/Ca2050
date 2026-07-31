@@ -8,6 +8,18 @@ footer_en: "Central Asia States 2050 — Regional Foresight Dialogue · Tashkent
 markdown: kramdown
 plugins: []
 
+collections:
+  directions:
+    output: true
+    permalink: /directions/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: directions
+    values:
+      nav_active: directions
+
 exclude:
   - README.md
   - Gemfile

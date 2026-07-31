@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="wrap">
+    <a class="back-link" href="{{ '/directions/' | relative_url }}">
+      <span class="uz">← Барча йўналишлар</span><span class="en">← All directions</span>
+    </a>
+    <span class="eyebrow uz">Тадқиқот йўналиши</span>
+    <span class="eyebrow en">Research direction</span>
+    <h1 class="uz">{{ page.title_uz }}</h1>
+    <h1 class="en">{{ page.title_en }}</h1>
+  </div>
+  <div class="horizon">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="horizonGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#141d38"/>
+          <stop offset="65%" stop-color="#c9a227" stop-opacity=".5"/>
+          <stop offset="100%" stop-color="#e3cd85"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,90 L120,60 L260,95 L400,50 L560,88 L720,40 L900,80 L1040,55 L1200,90 L1200,120 L0,120 Z" fill="#0e1530"/>
+      <path d="M0,95 L150,70 L300,98 L470,65 L640,92 L820,55 L980,85 L1200,68" fill="none" stroke="url(#horizonGrad)" stroke-width="2"/>
+      <rect x="0" y="118" width="1200" height="2" fill="#eee6d3"/>
+    </svg>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    {{ content }}
+    <div class="placeholder-note" data-reveal>
+      <span class="uz">Контент тайёрланмоқда</span>
+      <span class="en">Content in preparation</span>
+    </div>
+  </div>
+</section>
