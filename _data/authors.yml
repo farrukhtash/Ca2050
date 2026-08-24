@@ -1,23 +1,22 @@
 # Авторы книги «Марказий Осиё давлатлари 2050».
-# Каждая запись = карточка автора. Заполните реальными данными и удалите placeholder: true.
-# Поля: name_uz/en, role_uz/en, country_uz/en, contribution_uz/en
-
-- placeholder: true
-  name_uz: "Муаллиф Ф.И.Ш."
-  name_en: "Author Name"
-  role_uz: "Лавозими / таҳлилий марказ"
-  role_en: "Position / analytical center"
-  country_uz: "Ўзбекистон"
-  country_en: "Uzbekistan"
-  contribution_uz: "Китобдаги ҳисса — намунавий ёзув, тўлдирилиши керак."
-  contribution_en: "Contribution to the book — sample entry, to be filled in."
-
-- placeholder: true
-  name_uz: "Муаллиф Ф.И.Ш."
-  name_en: "Author Name"
-  role_uz: "Лавозими / таҳлилий марказ"
-  role_en: "Position / analytical center"
-  country_uz: "Қозоғистон"
-  country_en: "Kazakhstan"
-  contribution_uz: "Китобдаги ҳисса — намунавий ёзув, тўлдирилиши керак."
-  contribution_en: "Contribution to the book — sample entry, to be filled in."
+# Редактируется через CMS (/admin) — коллекция «Муаллифлар».
+# Заполните реальными данными и снимите флажок placeholder.
+authors:
+  - placeholder: true
+    name_uz: "Муаллиф Ф.И.Ш."
+    name_en: "Author Name"
+    role_uz: "Лавозими / таҳлилий марказ"
+    role_en: "Position / analytical center"
+    country_uz: "Ўзбекистон"
+    country_en: "Uzbekistan"
+    contribution_uz: "Китобдаги ҳисса — намунавий ёзув, тўлдирилиши керак."
+    contribution_en: "Contribution to the book — sample entry, to be filled in."
+  - placeholder: true
+    name_uz: "Муаллиф Ф.И.Ш."
+    name_en: "Author Name"
+    role_uz: "Лавозими / таҳлилий марказ"
+    role_en: "Position / analytical center"
+    country_uz: "Қозоғистон"
+    country_en: "Kazakhstan"
+    contribution_uz: "Китобдаги ҳисса — намунавий ёзув, тўлдирилиши керак."
+    contribution_en: "Contribution to the book — sample entry, to be filled in."

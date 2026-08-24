@@ -42,16 +42,14 @@ header_pdf: true
     </div>
     <div class="about-body">
       <div data-reveal>
-        <p class="uz">Ушбу китоб — мустақил Марказий Осиё мамлакатлари тарихидаги биринчи минтақавий форсайт-мулоқотининг якуни. Беш давлатнинг таҳлилий марказлари вакиллари ва мустақил экспертлар биринчи марта бир стол атрофида йиғилиб, минтақанинг асосий муаммолари ва имкониятларини таҳлил қилиб, 2050 йилгача бўлган келажак манзараларини таклиф этишди.</p>
-        <p class="uz">Китоб тўртта устувор йўналиш атрофида қурилган — сув ва иқлим ўзгариши, энергетика, транспорт алоқалари ҳамда демография — ва уларга алоҳида боб бағишланган ёшлар овозини қўшади.</p>
-        <p class="en">This book is the outcome of the first regional foresight dialogue in the history of independent Central Asia. Representatives of the five countries' leading analytical centers and independent experts gathered for the first time around one table to analyse the region's key challenges and opportunities and propose visions of its future through 2050.</p>
-        <p class="en">The book is built around four priority tracks — water and climate change, energy, transport links, and demography — and adds a dedicated chapter giving voice to the region's youth.</p>
+        {% for p in site.data.about.intro %}<p class="uz">{{ p.uz }}</p>{% endfor %}
+        {% for p in site.data.about.intro %}<p class="en">{{ p.en }}</p>{% endfor %}
       </div>
       <blockquote data-reveal>
-        <span class="uz">«Форсайт – бу башорат қилиш эмас. Бу тўғри саволлар қўя билиш ва бугунги қадриятлар, мақсадлар ҳамда имкониятлардан келиб чиққан ҳолда келажак манзарасини шакллантириш санъатидир.»</span>
-        <span class="en">"Foresight is not prediction. It is the art of asking the right questions and shaping tomorrow's picture from today's values, goals, and choices."</span>
-        <cite class="uz">Китобдан, муқаддима</cite>
-        <cite class="en">From the book's preface</cite>
+        <span class="uz">{{ site.data.about.quote_uz }}</span>
+        <span class="en">{{ site.data.about.quote_en }}</span>
+        <cite class="uz">{{ site.data.about.quote_cite_uz }}</cite>
+        <cite class="en">{{ site.data.about.quote_cite_en }}</cite>
       </blockquote>
     </div>
   </div>
@@ -67,30 +65,17 @@ header_pdf: true
       <h2 class="en">Project partners</h2>
     </div>
     <div class="agency-grid" data-reveal>
+      {% for ag in site.data.agencies.agencies %}
       <div class="agency-card">
-        <h3>АСР</h3>
-        <p class="uz">Стратегик ислоҳотлар агентлиги (Ўзбекистон)</p>
-        <p class="en">Agency for Strategic Reforms (Uzbekistan)</p>
+        {% if ag.short_uz %}<h3 class="uz">{{ ag.short_uz }}</h3><h3 class="en">{{ ag.short_en }}</h3>{% else %}<h3>{{ ag.short }}</h3>{% endif %}
+        <p class="uz">{{ ag.name_uz }}</p>
+        <p class="en">{{ ag.name_en }}</p>
       </div>
-      <div class="agency-card">
-        <h3>ИСМИ</h3>
-        <p class="uz">Президент ҳузуридаги Стратегик ва минтақалараро тадқиқотлар институти</p>
-        <p class="en">Institute for Strategic and Regional Studies (ISMI)</p>
-      </div>
-      <div class="agency-card">
-        <h3>МИЦА</h3>
-        <p class="uz">Марказий Осиё халқаро институти</p>
-        <p class="en">International Institute for Central Asia (MICA)</p>
-      </div>
-      <div class="agency-card">
-        <h3 class="uz">Қозоғистон агентлиги</h3><h3 class="en">Kazakhstan Agency</h3>
-        <p class="uz">Қозоғистон Республикасининг Стратегик режалаштириш ва ислоҳотлар агентлиги</p>
-        <p class="en">Agency for Strategic Planning and Reforms of the Republic of Kazakhstan</p>
-      </div>
+      {% endfor %}
     </div>
     <p class="agency-support">
-      <span class="uz">Лойиҳа Европа Иттифоқи кўмагида амалга оширилди.</span>
-      <span class="en">The project was carried out with the support of the European Union.</span>
+      <span class="uz">{{ site.data.agencies.support_uz }}</span>
+      <span class="en">{{ site.data.agencies.support_en }}</span>
     </p>
   </div>
 </section>
@@ -105,7 +90,7 @@ header_pdf: true
       <h2 class="en">Authors of the book</h2>
     </div>
     <div class="author-grid" data-reveal>
-      {% for a in site.data.authors %}
+      {% for a in site.data.authors.authors %}
       <div class="author-card{% if a.placeholder %} is-placeholder{% endif %}">
         <span class="a-name uz">{{ a.name_uz }}</span><span class="a-name en">{{ a.name_en }}</span>
         <span class="a-role uz">{{ a.role_uz }}</span><span class="a-role en">{{ a.role_en }}</span>

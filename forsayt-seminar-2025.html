@@ -126,139 +126,38 @@ footer_en: "Central Asia States 2050 — Foresight Seminar 2025 · Tashkent"
     </div>
 
     <div data-reveal>
-      <!-- Articles -->
+      {% assign articles = site.data.press.press | where: "type", "article" %}
+      {% if articles.size > 0 %}
       <div class="press-group">
         <div class="press-group-title uz">Матбуотда</div>
         <div class="press-group-title en">Press articles</div>
         <div class="press-list">
-          <a class="press-item" href="https://kun.uz/kr/23065177" target="_blank" rel="noopener">
-            <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
-            <span class="p-body">
-              <span class="p-source">Kun.uz</span>
-              <span class="p-title uz">Марказий Осиё келажаги форсайт-семинарда муҳокама қилинди</span>
-              <span class="p-title en">Central Asia's future discussed at the foresight seminar</span>
-            </span>
-            <span class="p-date">27–28.05.2025</span>
-            <span class="p-arrow">↗</span>
-          </a>
-          <a class="press-item" href="https://kun.uz/kr/77560550" target="_blank" rel="noopener">
-            <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
-            <span class="p-body">
-              <span class="p-source">Kun.uz</span>
-              <span class="p-title uz">Тошкентда форсайт-семинар: 2050 йилга назар</span>
-              <span class="p-title en">Foresight seminar in Tashkent: a look toward 2050</span>
-            </span>
-            <span class="p-date">27–28.05.2025</span>
-            <span class="p-arrow">↗</span>
-          </a>
-          <a class="press-item" href="https://www.gazeta.uz/ru/2025/05/28/foresight-central-asia/" target="_blank" rel="noopener">
-            <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
-            <span class="p-body">
-              <span class="p-source">Gazeta.uz</span>
-              <span class="p-title uz">Марказий Осиё келажаги ҳақида форсайт-диалог</span>
-              <span class="p-title en">A foresight dialogue on Central Asia's future</span>
-            </span>
-            <span class="p-date">28.05.2025</span>
-            <span class="p-arrow">↗</span>
-          </a>
-          <a class="press-item" href="https://zamin.uz/ru/obshchestvo/150976-analitiki-o-buduschem-centralnoy-azii-skoro-voda-stanet-doroje-nefti.html" target="_blank" rel="noopener">
-            <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
-            <span class="p-body">
-              <span class="p-source">Zamin.uz</span>
-              <span class="p-title uz">Аналитиклар минтақа келажаги ҳақида: сув нефтдан қиммат бўлади</span>
-              <span class="p-title en">Analysts on the region's future: water will become pricier than oil</span>
-            </span>
-            <span class="p-date">05.2025</span>
-            <span class="p-arrow">↗</span>
-          </a>
-          <a class="press-item" href="https://yuz.uz/a/ru/124717" target="_blank" rel="noopener">
-            <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
-            <span class="p-body">
-              <span class="p-source">Yuz.uz</span>
-              <span class="p-title uz">Экспертлар минтақа ривожланиш сценарийларини муҳокама қилди</span>
-              <span class="p-title en">Experts discussed the region's development scenarios</span>
-            </span>
-            <span class="p-date">05.2025</span>
-            <span class="p-arrow">↗</span>
-          </a>
-          <a class="press-item" href="https://nuz.uz/2025/05/27/forsajt-dialog-v-tashkente-strany-czentralnoj-azii-obsuzhdayut-sovmestnoe-budushhee/" target="_blank" rel="noopener">
-            <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
-            <span class="p-body">
-              <span class="p-source">NUZ.uz</span>
-              <span class="p-title uz">Тошкентдаги форсайт-диалог: Марказий Осиё давлатлари умумий келажакни муҳокама қилмоқда</span>
-              <span class="p-title en">Foresight dialogue in Tashkent: Central Asian states discuss a shared future</span>
-            </span>
-            <span class="p-date">27.05.2025</span>
-            <span class="p-arrow">↗</span>
-          </a>
+          {% for p in articles %}{% include press-item.html item=p %}{% endfor %}
         </div>
       </div>
+      {% endif %}
 
-      <!-- Video / YouTube -->
+      {% assign videos = site.data.press.press | where: "type", "youtube" %}
+      {% if videos.size > 0 %}
       <div class="press-group">
         <div class="press-group-title uz">Видео (YouTube)</div>
         <div class="press-group-title en">Video (YouTube)</div>
         <div class="press-list">
-          <a class="press-item" href="https://www.youtube.com/watch?v=s4lE2FdQCTA" target="_blank" rel="noopener">
-            <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg></span>
-            <span class="p-body">
-              <span class="p-source">YouTube</span>
-              <span class="p-title uz">Форсайт-семинар видеорепортажи</span>
-              <span class="p-title en">Foresight seminar — video report</span>
-            </span>
-            <span class="p-date">05.2025</span>
-            <span class="p-arrow">↗</span>
-          </a>
-          <a class="press-item" href="https://youtu.be/Wz9hccZGRL0" target="_blank" rel="noopener">
-            <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg></span>
-            <span class="p-body">
-              <span class="p-source">YouTube</span>
-              <span class="p-title uz">Тадбир ҳақида видеоматериал</span>
-              <span class="p-title en">Video coverage of the event</span>
-            </span>
-            <span class="p-date">05.2025</span>
-            <span class="p-arrow">↗</span>
-          </a>
-          <a class="press-item" href="https://www.youtube.com/shorts/RbNH0hl8SBY" target="_blank" rel="noopener">
-            <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg></span>
-            <span class="p-body">
-              <span class="p-source">YouTube Shorts</span>
-              <span class="p-title uz">Қисқа видеолавҳа</span>
-              <span class="p-title en">Short video clip</span>
-            </span>
-            <span class="p-date">05.2025</span>
-            <span class="p-arrow">↗</span>
-          </a>
+          {% for p in videos %}{% include press-item.html item=p %}{% endfor %}
         </div>
       </div>
+      {% endif %}
 
-      <!-- Telegram -->
+      {% assign tg = site.data.press.press | where: "type", "telegram" %}
+      {% if tg.size > 0 %}
       <div class="press-group">
         <div class="press-group-title uz">Telegram</div>
         <div class="press-group-title en">Telegram</div>
         <div class="press-list">
-          <a class="press-item" href="https://t.me/uzbekistan24_tvnews/251487" target="_blank" rel="noopener">
-            <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg></span>
-            <span class="p-body">
-              <span class="p-source">Uzbekistan 24</span>
-              <span class="p-title uz">Телеканал репортажи</span>
-              <span class="p-title en">TV channel report</span>
-            </span>
-            <span class="p-date">05.2025</span>
-            <span class="p-arrow">↗</span>
-          </a>
-          <a class="press-item" href="https://t.me/siauzbekistan/1942" target="_blank" rel="noopener">
-            <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg></span>
-            <span class="p-body">
-              <span class="p-source">SIA Uzbekistan</span>
-              <span class="p-title uz">Агентлик хабари</span>
-              <span class="p-title en">Agency post</span>
-            </span>
-            <span class="p-date">05.2025</span>
-            <span class="p-arrow">↗</span>
-          </a>
+          {% for p in tg %}{% include press-item.html item=p %}{% endfor %}
         </div>
       </div>
+      {% endif %}
     </div>
   </div>
 </section>

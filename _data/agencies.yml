@@ -1,0 +1,18 @@
+# Страница «Китоб ҳақида» — блок «Иштирокчи ташкилотлар».
+# Редактируется через CMS (/admin) — файл «Агентства-участники».
+support_uz: "Лойиҳа Европа Иттифоқи кўмагида амалга оширилди."
+support_en: "The project was carried out with the support of the European Union."
+agencies:
+  - short: "АСР"
+    name_uz: "Стратегик ислоҳотлар агентлиги (Ўзбекистон)"
+    name_en: "Agency for Strategic Reforms (Uzbekistan)"
+  - short: "ИСМИ"
+    name_uz: "Президент ҳузуридаги Стратегик ва минтақалараро тадқиқотлар институти"
+    name_en: "Institute for Strategic and Regional Studies (ISMI)"
+  - short: "МИЦА"
+    name_uz: "Марказий Осиё халқаро институти"
+    name_en: "International Institute for Central Asia (MICA)"
+  - short_uz: "Қозоғистон агентлиги"
+    short_en: "Kazakhstan Agency"
+    name_uz: "Қозоғистон Республикасининг Стратегик режалаштириш ва ислоҳотлар агентлиги"
+    name_en: "Agency for Strategic Planning and Reforms of the Republic of Kazakhstan"

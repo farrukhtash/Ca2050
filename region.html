@@ -53,21 +53,13 @@ nav_active: region
       <h2 class="en">Key statements by Central Asian leaders</h2>
     </div>
     <div class="quote-grid" data-reveal>
+      {% for l in site.data.leaders.leaders %}
       <blockquote class="quote-card">
-        <span class="uz">«[Давлат раҳбарининг иқтибоси шу ерга қўйилади]»</span>
-        <span class="en">"[A head of state's statement will be placed here]"</span>
-        <cite><span class="uz">Қозоғистон</span><span class="en">Kazakhstan</span></cite>
+        <span class="uz">{{ l.quote_uz }}</span>
+        <span class="en">{{ l.quote_en }}</span>
+        <cite><span class="uz">{{ l.country_uz }}</span><span class="en">{{ l.country_en }}</span></cite>
       </blockquote>
-      <blockquote class="quote-card">
-        <span class="uz">«[Давлат раҳбарининг иқтибоси шу ерга қўйилади]»</span>
-        <span class="en">"[A head of state's statement will be placed here]"</span>
-        <cite><span class="uz">Ўзбекистон</span><span class="en">Uzbekistan</span></cite>
-      </blockquote>
-      <blockquote class="quote-card">
-        <span class="uz">«[Давлат раҳбарининг иқтибоси шу ерга қўйилади]»</span>
-        <span class="en">"[A head of state's statement will be placed here]"</span>
-        <cite><span class="uz">Қирғизистон</span><span class="en">Kyrgyzstan</span></cite>
-      </blockquote>
+      {% endfor %}
     </div>
     <div class="placeholder-note" data-reveal>
       <span class="uz">Контент тайёрланмоқда — раҳбарларнинг расмий баёнотлари қўшилади.</span>
@@ -86,14 +78,11 @@ nav_active: region
       <h2 class="en">News on regional integration</h2>
     </div>
     <div class="news-list" data-reveal>
+      {% for n in site.data.integration_news.news %}
       <div class="news-item">
-        <span class="uz">[Янгилик сарлавҳаси ва қисқа мазмуни — тайёрланмоқда]</span>
-        <span class="en">[News headline and summary — in preparation]</span>
+        {% if n.url and n.url != "" %}<a href="{{ n.url }}" target="_blank" rel="noopener"><span class="uz">{{ n.uz }}</span><span class="en">{{ n.en }}</span></a>{% else %}<span class="uz">{{ n.uz }}</span><span class="en">{{ n.en }}</span>{% endif %}
       </div>
-      <div class="news-item">
-        <span class="uz">[Янгилик сарлавҳаси ва қисқа мазмуни — тайёрланмоқда]</span>
-        <span class="en">[News headline and summary — in preparation]</span>
-      </div>
+      {% endfor %}
     </div>
     <div class="placeholder-note" data-reveal>
       <span class="uz">Контент тайёрланмоқда — минтақавий интеграция бўйича материаллар жойлаштирилади.</span>

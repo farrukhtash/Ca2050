@@ -61,9 +61,23 @@ nav_active: youth
       <h2 class="uz">Эсселар</h2>
       <h2 class="en">Essays &amp; compositions</h2>
     </div>
+    {% if site.data.essays.essays and site.data.essays.essays.size > 0 %}
+    <div class="quote-grid" data-reveal>
+      {% for e in site.data.essays.essays %}
+      <blockquote class="quote-card">
+        <span class="uz">{{ e.excerpt_uz | default: e.title_uz }}</span>
+        <span class="en">{{ e.excerpt_en | default: e.title_en }}</span>
+        <cite>
+          {% if e.url and e.url != "" %}<a href="{{ e.url }}" target="_blank" rel="noopener">{{ e.author }}</a>{% else %}{{ e.author }}{% endif %}{% if e.country_uz %} · <span class="uz">{{ e.country_uz }}</span><span class="en">{{ e.country_en }}</span>{% endif %}
+        </cite>
+      </blockquote>
+      {% endfor %}
+    </div>
+    {% else %}
     <div class="placeholder-note" data-reveal>
       <span class="uz">Контент тайёрланмоқда — ёшларнинг эсселар тўплами шу ерда жойлаштирилади.</span>
       <span class="en">Content in preparation — the collection of youth essays will be published here.</span>
     </div>
+    {% endif %}
   </div>
 </section>

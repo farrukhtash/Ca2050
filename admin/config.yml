@@ -1,0 +1,180 @@
+# Sveltia CMS configuration — CA2050 (Jekyll site)
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+#
+# Аутентификация: один пользователь через Personal Access Token (PAT).
+# На экране входа нажмите «Sign in with Token», создайте fine-grained PAT
+# с доступом Contents: Read and write к репозиторию farrukhtash/Ca2050 и вставьте его.
+# Cloudflare Worker / OAuth-приложение НЕ требуются.
+
+backend:
+  name: github
+  repo: farrukhtash/Ca2050
+  branch: main
+
+site_url: https://ca2050.uz
+display_url: https://ca2050.uz
+
+# Загрузки медиа складываются в существующую структуру assets/
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+# Двуязычность (uz/en) реализована суффиксами полей _uz/_en — как во всём проекте.
+# Нативный i18n Sveltia не используется, чтобы не менять структуру файлов и шаблоны.
+
+collections:
+  # ---- Направления (коллекция _directions/*.md) ----
+  - name: directions
+    label: "Йўналишлар"
+    label_singular: "Йўналиш"
+    folder: "_directions"
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    identifier_field: title_uz
+    slug: "{{title_en}}"
+    summary: "{{fields.order}}. {{fields.title_uz}}"
+    sortable_fields: [order, title_uz]
+    fields:
+      - { name: layout, label: "Layout", widget: hidden, default: direction }
+      - { name: title, label: "SEO-заголовок (<title>)", widget: string, required: false }
+      - { name: title_uz, label: "Заголовок (ЎЗ)", widget: string }
+      - { name: title_en, label: "Заголовок (EN)", widget: string }
+      - { name: order, label: "Порядок", widget: number, value_type: int, default: 99, min: 1 }
+      - { name: icon, label: "SVG-иконка (path d)", widget: string, required: false }
+      - { name: body, label: "Контент", widget: markdown, required: false }
+
+  # ---- Авторы книги (_data/authors.yml) ----
+  - name: authors
+    label: "Муаллифлар"
+    files:
+      - name: authors
+        label: "Китоб муаллифлари"
+        file: "_data/authors.yml"
+        fields:
+          - name: authors
+            label: "Авторы"
+            label_singular: "Автор"
+            widget: list
+            summary: "{{fields.name_uz}} — {{fields.country_uz}}"
+            fields:
+              - { name: name_uz, label: "ФИО (ЎЗ)", widget: string }
+              - { name: name_en, label: "ФИО (EN)", widget: string }
+              - { name: role_uz, label: "Должность (ЎЗ)", widget: string, required: false }
+              - { name: role_en, label: "Должность (EN)", widget: string, required: false }
+              - { name: country_uz, label: "Страна (ЎЗ)", widget: string, required: false }
+              - { name: country_en, label: "Страна (EN)", widget: string, required: false }
+              - { name: contribution_uz, label: "Вклад в книгу (ЎЗ)", widget: text, required: false }
+              - { name: contribution_en, label: "Вклад в книгу (EN)", widget: text, required: false }
+              - { name: placeholder, label: "Черновик (заглушка-стиль)", widget: boolean, default: false, required: false }
+
+  # ---- Страница «Китоб ҳақида»: инфо о книге + агентства ----
+  - name: about_page
+    label: "Китоб ҳақида"
+    files:
+      - name: about_intro
+        label: "Блок: инфо о книге"
+        file: "_data/about.yml"
+        fields:
+          - name: intro
+            label: "Абзацы"
+            label_singular: "Абзац"
+            widget: list
+            fields:
+              - { name: uz, label: "Текст (ЎЗ)", widget: text }
+              - { name: en, label: "Текст (EN)", widget: text }
+          - { name: quote_uz, label: "Цитата (ЎЗ)", widget: text }
+          - { name: quote_en, label: "Цитата (EN)", widget: text }
+          - { name: quote_cite_uz, label: "Подпись цитаты (ЎЗ)", widget: string }
+          - { name: quote_cite_en, label: "Подпись цитаты (EN)", widget: string }
+      - name: agencies
+        label: "Блок: агентства-участники"
+        file: "_data/agencies.yml"
+        fields:
+          - { name: support_uz, label: "Строка поддержки (ЎЗ)", widget: string }
+          - { name: support_en, label: "Строка поддержки (EN)", widget: string }
+          - name: agencies
+            label: "Агентства"
+            label_singular: "Агентство"
+            widget: list
+            summary: "{{fields.short}}{{fields.short_uz}} — {{fields.name_uz}}"
+            fields:
+              - { name: short, label: "Аббревиатура (общая)", widget: string, required: false }
+              - { name: short_uz, label: "Краткое название (ЎЗ)", widget: string, required: false }
+              - { name: short_en, label: "Краткое название (EN)", widget: string, required: false }
+              - { name: name_uz, label: "Полное название (ЎЗ)", widget: string }
+              - { name: name_en, label: "Полное название (EN)", widget: string }
+
+  # ---- Пресса о семинаре (_data/press.yml) ----
+  - name: press
+    label: "Пресса о семинаре"
+    files:
+      - name: press
+        label: "ОАВ нигоҳида"
+        file: "_data/press.yml"
+        fields:
+          - name: press
+            label: "Материалы"
+            label_singular: "Материал"
+            widget: list
+            summary: "{{fields.source}} — {{fields.title_uz}}"
+            fields:
+              - { name: source, label: "Издание", widget: string }
+              - { name: type, label: "Тип", widget: select, default: article, options: ["article", "youtube", "telegram"] }
+              - { name: title_uz, label: "Заголовок (ЎЗ)", widget: string }
+              - { name: title_en, label: "Заголовок (EN)", widget: string }
+              - { name: date, label: "Дата", widget: string, required: false }
+              - { name: url, label: "URL", widget: string }
+
+  # ---- Регион: высказывания глав государств + новости интеграции ----
+  - name: region
+    label: "Беш давлат — бир минтақа"
+    files:
+      - name: leaders
+        label: "Раҳбарлар фикри"
+        file: "_data/leaders.yml"
+        fields:
+          - name: leaders
+            label: "Высказывания"
+            label_singular: "Высказывание"
+            widget: list
+            summary: "{{fields.country_uz}}"
+            fields:
+              - { name: country_uz, label: "Страна (ЎЗ)", widget: string }
+              - { name: country_en, label: "Страна (EN)", widget: string }
+              - { name: quote_uz, label: "Цитата (ЎЗ)", widget: text }
+              - { name: quote_en, label: "Цитата (EN)", widget: text }
+      - name: integration_news
+        label: "Интеграция: янгиликлар"
+        file: "_data/integration_news.yml"
+        fields:
+          - name: news
+            label: "Новости"
+            label_singular: "Новость"
+            widget: list
+            fields:
+              - { name: uz, label: "Текст (ЎЗ)", widget: text }
+              - { name: en, label: "Текст (EN)", widget: text }
+              - { name: url, label: "Ссылка (необязательно)", widget: string, required: false }
+
+  # ---- Ёшлар: эссе (_data/essays.yml) ----
+  - name: essays
+    label: "Ёшлар эсселари"
+    files:
+      - name: essays
+        label: "Сборник эссе"
+        file: "_data/essays.yml"
+        fields:
+          - name: essays
+            label: "Эссе"
+            label_singular: "Эссе"
+            widget: list
+            summary: "{{fields.title_uz}} — {{fields.author}}"
+            fields:
+              - { name: title_uz, label: "Заголовок (ЎЗ)", widget: string }
+              - { name: title_en, label: "Заголовок (EN)", widget: string }
+              - { name: author, label: "Автор", widget: string, required: false }
+              - { name: country_uz, label: "Страна (ЎЗ)", widget: string, required: false }
+              - { name: country_en, label: "Страна (EN)", widget: string, required: false }
+              - { name: url, label: "Ссылка (необязательно)", widget: string, required: false }
+              - { name: excerpt_uz, label: "Отрывок (ЎЗ)", widget: text, required: false }
+              - { name: excerpt_en, label: "Отрывок (EN)", widget: text, required: false }

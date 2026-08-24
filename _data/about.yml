@@ -1,0 +1,12 @@
+# Страница «Китоб ҳақида» — блок «Умумий маълумот».
+# Редактируется через CMS (/admin) — файл «Китоб ҳақида (блок инфо)».
+intro:
+  - uz: "Ушбу китоб — мустақил Марказий Осиё мамлакатлари тарихидаги биринчи минтақавий форсайт-мулоқотининг якуни. Беш давлатнинг таҳлилий марказлари вакиллари ва мустақил экспертлар биринчи марта бир стол атрофида йиғилиб, минтақанинг асосий муаммолари ва имкониятларини таҳлил қилиб, 2050 йилгача бўлган келажак манзараларини таклиф этишди."
+    en: "This book is the outcome of the first regional foresight dialogue in the history of independent Central Asia. Representatives of the five countries' leading analytical centers and independent experts gathered for the first time around one table to analyse the region's key challenges and opportunities and propose visions of its future through 2050."
+  - uz: "Китоб тўртта устувор йўналиш атрофида қурилган — сув ва иқлим ўзгариши, энергетика, транспорт алоқалари ҳамда демография — ва уларга алоҳида боб бағишланган ёшлар овозини қўшади."
+    en: "The book is built around four priority tracks — water and climate change, energy, transport links, and demography — and adds a dedicated chapter giving voice to the region's youth."
+quote_uz: "«Форсайт – бу башорат қилиш эмас. Бу тўғри саволлар қўя билиш ва бугунги қадриятлар, мақсадлар ҳамда имкониятлардан келиб чиққан ҳолда келажак манзарасини шакллантириш санъатидир.»"
+quote_en: >-
+  "Foresight is not prediction. It is the art of asking the right questions and shaping tomorrow's picture from today's values, goals, and choices."
+quote_cite_uz: "Китобдан, муқаддима"
+quote_cite_en: "From the book's preface"
