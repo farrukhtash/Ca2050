@@ -1,22 +1,37 @@
-# Авторы книги «Марказий Осиё давлатлари 2050».
-# Редактируется через CMS (/admin) — коллекция «Муаллифлар».
-# Заполните реальными данными и снимите флажок placeholder.
 authors:
-  - placeholder: true
-    name_uz: "Муаллиф Ф.И.Ш."
-    name_en: "Author Name"
-    role_uz: "Лавозими / таҳлилий марказ"
-    role_en: "Position / analytical center"
-    country_uz: "Ўзбекистон"
-    country_en: "Uzbekistan"
-    contribution_uz: "Китобдаги ҳисса — намунавий ёзув, тўлдирилиши керак."
-    contribution_en: "Contribution to the book — sample entry, to be filled in."
-  - placeholder: true
-    name_uz: "Муаллиф Ф.И.Ш."
-    name_en: "Author Name"
-    role_uz: "Лавозими / таҳлилий марказ"
-    role_en: "Position / analytical center"
-    country_uz: "Қозоғистон"
-    country_en: "Kazakhstan"
-    contribution_uz: "Китобдаги ҳисса — намунавий ёзув, тўлдирилиши керак."
-    contribution_en: "Contribution to the book — sample entry, to be filled in."
+  - name_uz: Азиза Умарова
+    name_en: Aziza Umarova
+    role_uz: Ўзбекистон Республикаси Президенти ҳузуридаги Стратегик ислоҳотлар агентлигининг “Бюрократияни бартараф этиш – 2030” ва инновациялар офиси раҳбари
+    role_en: Head of Zero Bureaucracy-2030 & Innovations Office at the Agency for Strategic Development and Reforms under the President of the Repulic of Uzbekistan
+    country_uz: ''
+    country_en: ''
+    contribution_uz: Муҳаррир
+    contribution_en: Editor
+    placeholder: false
+  - name_uz: Нариман Ахатов
+    name_en: Nariman Akhatov
+    role_uz: Ўзбекистон Республикаси Президенти ҳузуридаги Стратегик ислоҳотлар агентлигининг “Бюрократияни бартараф этиш – 2030” ва инновациялар офиси
+    role_en: Zero Bureaucracy-2030 & Innovations Office at the Agency for Strategic Development and Reforms under the President of the Repulic of Uzbekistan
+    country_uz: ''
+    country_en: ''
+    contribution_uz: Editor
+    contribution_en: Editor
+    placeholder: false
+  - name_uz: Александр Воинов
+    name_en: Alexander Voynov
+    role_uz: ''
+    role_en: ''
+    country_uz: ''
+    country_en: ''
+    contribution_uz: Дизайнер
+    contribution_en: Designer
+    placeholder: false
+  - name_uz: Тимур Джалилов
+    name_en: Temur Djalilov
+    role_uz: ''
+    role_en: ''
+    country_uz: ''
+    country_en: ''
+    contribution_uz: Саҳифаловчи
+    contribution_en: Typesetter
+    placeholder: false
