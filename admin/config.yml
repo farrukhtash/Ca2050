@@ -34,6 +34,7 @@ collections:
   # ---- Направления: заголовки (переводимые) ----
   - name: directions_text
     label: "Йўналишлар — заголовки"
+    i18n: true
     files:
       - name: directions_text
         label: "Названия направлений"
@@ -63,6 +64,7 @@ collections:
   # ---- Авторы книги ----
   - name: authors
     label: "Муаллифлар"
+    i18n: true
     files:
       - name: authors
         label: "Китоб муаллифлари"
@@ -85,6 +87,7 @@ collections:
   # ---- Страница «Китоб ҳақида» ----
   - name: about_page
     label: "Китоб ҳақида"
+    i18n: true
     files:
       - name: about_intro
         label: "Блок: инфо о книге"
@@ -112,6 +115,7 @@ collections:
   # ---- Пресса о семинаре ----
   - name: press
     label: "Пресса о семинаре"
+    i18n: true
     files:
       - name: press
         label: "ОАВ нигоҳида"
@@ -134,6 +138,7 @@ collections:
   # ---- Регион ----
   - name: region
     label: "Беш давлат — бир минтақа"
+    i18n: true
     files:
       - name: leaders
         label: "Раҳбарлар фикри"
@@ -164,6 +169,7 @@ collections:
   # ---- Ёшлар эсселари ----
   - name: essays
     label: "Ёшлар эсселари"
+    i18n: true
     files:
       - name: essays
         label: "Сборник эссе"
