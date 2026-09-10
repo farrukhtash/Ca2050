@@ -1,19 +1,23 @@
 ---
 layout: default
 permalink: /about/
+page_id: about
 title: "Китоб ҳақида — Марказий Осиё давлатлари 2050"
 nav_active: about
 header_pdf: true
 ---
+{% assign L = site.active_lang %}{% assign D = site.default_lang %}
+{% assign t = site.data[L].ui | default: site.data[D].ui %}
+{% assign about = site.data[L].about | default: site.data[D].about %}
+{% assign ag = site.data[L].agencies | default: site.data[D].agencies %}
+{% assign authors = site.data[L].authors.authors | default: site.data[D].authors.authors %}
+
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow uz">Китоб ҳақида</span>
-    <span class="eyebrow en">About the book</span>
-    <h1 class="uz">Биринчи минтақавий форсайт-мулоқоти</h1>
-    <h1 class="en">The region's first foresight dialogue</h1>
-    <p class="sub uz">Мустақил Марказий Осиё тарихидаги биринчи минтақавий форсайт-мулоқоти якуни — 2050 йилгача бўлган келажак манзаралари.</p>
-    <p class="sub en">The outcome of the first regional foresight dialogue in the history of independent Central Asia — visions of the future through 2050.</p>
+    <span class="eyebrow">{{ t.about.hero_eyebrow }}</span>
+    <h1>{{ t.about.hero_title }}</h1>
+    <p class="sub">{{ t.about.hero_sub }}</p>
   </div>
   <div class="horizon">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -35,21 +39,16 @@ header_pdf: true
 <section class="section" id="overview">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand uz">Умумий маълумот</span>
-      <span class="eyebrow on-sand en">Overview</span>
-      <h2 class="uz">Китоб нима ҳақида</h2>
-      <h2 class="en">What the book is about</h2>
+      <span class="eyebrow on-sand">{{ t.about.overview_eyebrow }}</span>
+      <h2>{{ t.about.overview_h2 }}</h2>
     </div>
     <div class="about-body">
       <div data-reveal>
-        {% for p in site.data.about.intro %}<p class="uz">{{ p.uz }}</p>{% endfor %}
-        {% for p in site.data.about.intro %}<p class="en">{{ p.en }}</p>{% endfor %}
+        {% for p in about.intro %}<p>{{ p }}</p>{% endfor %}
       </div>
       <blockquote data-reveal>
-        <span class="uz">{{ site.data.about.quote_uz }}</span>
-        <span class="en">{{ site.data.about.quote_en }}</span>
-        <cite class="uz">{{ site.data.about.quote_cite_uz }}</cite>
-        <cite class="en">{{ site.data.about.quote_cite_en }}</cite>
+        <span>{{ about.quote }}</span>
+        <cite>{{ about.quote_cite }}</cite>
       </blockquote>
     </div>
   </div>
@@ -59,24 +58,18 @@ header_pdf: true
 <section class="section tint" id="agencies">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand uz">Иштирокчи ташкилотлар</span>
-      <span class="eyebrow on-sand en">Participating organizations</span>
-      <h2 class="uz">Лойиҳа қатнашчилари</h2>
-      <h2 class="en">Project partners</h2>
+      <span class="eyebrow on-sand">{{ t.about.agencies_eyebrow }}</span>
+      <h2>{{ t.about.agencies_h2 }}</h2>
     </div>
     <div class="agency-grid" data-reveal>
-      {% for ag in site.data.agencies.agencies %}
+      {% for a in ag.agencies %}
       <div class="agency-card">
-        {% if ag.short_uz %}<h3 class="uz">{{ ag.short_uz }}</h3><h3 class="en">{{ ag.short_en }}</h3>{% else %}<h3>{{ ag.short }}</h3>{% endif %}
-        <p class="uz">{{ ag.name_uz }}</p>
-        <p class="en">{{ ag.name_en }}</p>
+        <h3>{{ a.short }}</h3>
+        <p>{{ a.name }}</p>
       </div>
       {% endfor %}
     </div>
-    <p class="agency-support">
-      <span class="uz">{{ site.data.agencies.support_uz }}</span>
-      <span class="en">{{ site.data.agencies.support_en }}</span>
-    </p>
+    <p class="agency-support">{{ ag.support }}</p>
   </div>
 </section>
 
@@ -84,18 +77,16 @@ header_pdf: true
 <section class="section" id="authors">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand uz">Муаллифлар</span>
-      <span class="eyebrow on-sand en">Authors</span>
-      <h2 class="uz">Китоб муаллифлари</h2>
-      <h2 class="en">Authors of the book</h2>
+      <span class="eyebrow on-sand">{{ t.about.authors_eyebrow }}</span>
+      <h2>{{ t.about.authors_h2 }}</h2>
     </div>
     <div class="author-grid" data-reveal>
-      {% for a in site.data.authors.authors %}
+      {% for a in authors %}
       <div class="author-card{% if a.placeholder %} is-placeholder{% endif %}">
-        <span class="a-name uz">{{ a.name_uz }}</span><span class="a-name en">{{ a.name_en }}</span>
-        <span class="a-role uz">{{ a.role_uz }}</span><span class="a-role en">{{ a.role_en }}</span>
-        <span class="a-country uz">{{ a.country_uz }}</span><span class="a-country en">{{ a.country_en }}</span>
-        <span class="a-contrib uz">{{ a.contribution_uz }}</span><span class="a-contrib en">{{ a.contribution_en }}</span>
+        <span class="a-name">{{ a.name }}</span>
+        {% if a.role and a.role != "" %}<span class="a-role">{{ a.role }}</span>{% endif %}
+        {% if a.country and a.country != "" %}<span class="a-country">{{ a.country }}</span>{% endif %}
+        {% if a.contribution and a.contribution != "" %}<span class="a-contrib">{{ a.contribution }}</span>{% endif %}
       </div>
       {% endfor %}
     </div>

@@ -1,7 +1,7 @@
+{% assign L = site.active_lang %}{% assign D = site.default_lang %}
+{% assign t = site.data[L].ui | default: site.data[D].ui %}
+{% if page.page_id == 'seminar' %}{% assign foot = t.seminar.footer %}{% else %}{% assign foot = t.footer %}{% endif %}
 <footer>
-  <img src="{{ '/assets/images/logo-header.png' | relative_url }}" alt="CA 2050">
-  <div>
-    <span class="uz">{{ page.footer_uz | default: site.footer_uz }}</span>
-    <span class="en">{{ page.footer_en | default: site.footer_en }}</span>
-  </div>
+  <img src="{{ '/assets/images/logo-header.png' | relative_url }}" alt="{{ t.brand_name }}">
+  <div>{{ foot }}</div>
 </footer>

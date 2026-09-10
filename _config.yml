@@ -6,7 +6,18 @@ footer_uz: "Марказий Осиё давлатлари 2050 — Минтақ
 footer_en: "Central Asia States 2050 — Regional Foresight Dialogue · Tashkent, 2026"
 
 markdown: kramdown
-plugins: []
+
+# ── Multilingual (jekyll-polyglot) ──────────────────────────────
+# Add a new language by adding its code here + a _data/<code>/ folder.
+# Default language (uz) is served at the root; en/ru get a /<code>/ prefix.
+# Untranslated pages automatically fall back to default_lang.
+plugins:
+  - jekyll-polyglot
+
+languages: ["uz", "en", "ru"]
+default_lang: "uz"
+exclude_from_localization: ["assets", "admin", "media", "CNAME", "markaziy-osiyo-2050_uz.pdf", "favicon"]
+parallel_localization: false
 
 collections:
   directions:

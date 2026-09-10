@@ -1,0 +1,11 @@
+# Тексты направлений (ключ = имя файла в _directions/*.md).
+climate:
+  title: "Иқлим ўзгариши"
+water:
+  title: "Сув ресурслари"
+energy:
+  title: "Энергетика"
+transport:
+  title: "Транспорт"
+demography:
+  title: "Ижтимоий тараққиёт ва демография"

@@ -1,9 +1,15 @@
 ---
 layout: default
+page_id: home
 title: "Марказий Осиё давлатлари 2050 — Минтақавий форсайт-мулоқот"
 header_pdf: true
 hero_full: true
 ---
+{% assign L = site.active_lang %}{% assign D = site.default_lang %}
+{% assign t = site.data[L].ui | default: site.data[D].ui %}
+{% assign dirs = site.directions | sort: 'order' %}
+{% assign countries = site.data[L].ui.countries | default: site.data[D].ui.countries %}
+
 <!-- HERO (fullscreen background carousel) -->
 <section class="home-hero" id="top">
   <div class="home-hero-bg" aria-hidden="true">
@@ -19,21 +25,17 @@ hero_full: true
   <div class="home-hero-overlay" aria-hidden="true"></div>
 
   <div class="wrap home-hero-content">
-    <span class="eyebrow uz">Минтақавий форсайт-мулоқот · Тошкент, 2026</span>
-    <span class="eyebrow en">Regional Foresight Dialogue · Tashkent, 2026</span>
-    <h1 class="uz">Марказий Осиё давлатлари 2050</h1>
-    <h1 class="en">Central Asia States 2050</h1>
-    <p class="sub uz">Минтақа тарихидаги биринчи форсайт-мулоқотининг натижаси — 2050 йилгача бўлган келажак манзаралари: иқлим, сув, энергетика, транспорт ва демография бўйича таҳлил ва тавсиялар.</p>
-    <p class="sub en">The result of the region's first foresight dialogue — visions of the future through 2050 across climate, water, energy, transport, and demography.</p>
+    <span class="eyebrow">{{ t.home.hero_eyebrow }}</span>
+    <h1>{{ t.home.hero_title }}</h1>
+    <p class="sub">{{ t.home.hero_sub }}</p>
     <div class="cta-row">
-      <a href="markaziy-osiyo-2050_uz.pdf" class="btn-gold" download>
-        <span class="uz">Китобни юклаб олиш</span><span class="en">Download the book</span>
-      </a>
+      <a href="{{ '/markaziy-osiyo-2050_uz.pdf' | relative_url }}" class="btn-gold" download>{{ t.home.hero_cta }}</a>
+      <span class="meta-note">{{ t.home.hero_meta }}</span>
     </div>
   </div>
 
-  <a href="#about" class="scroll-hint" aria-label="Пастга суринг / Scroll down">
-    <span class="uz">Пастга</span><span class="en">Scroll</span>
+  <a href="#about" class="scroll-hint" aria-label="{{ t.home.more }}">
+    <span>{{ t.nav.about }}</span>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
   </a>
 </section>
@@ -42,17 +44,12 @@ hero_full: true
 <section class="section" id="about">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand uz">Китоб ҳақида</span>
-      <span class="eyebrow on-sand en">About the book</span>
-      <h2 class="uz">Биринчи минтақавий форсайт-мулоқоти</h2>
-      <h2 class="en">The region's first foresight dialogue</h2>
+      <span class="eyebrow on-sand">{{ t.home.about_eyebrow }}</span>
+      <h2>{{ t.home.about_h2 }}</h2>
     </div>
     <div class="prose" data-reveal>
-      <p class="uz">Ушбу китоб — мустақил Марказий Осиё мамлакатлари тарихидаги биринчи минтақавий форсайт-мулоқотининг якуни. Беш давлат экспертлари 2050 йилгача бўлган келажак манзараларини биргаликда таклиф этишди.</p>
-      <p class="en">This book is the outcome of the first regional foresight dialogue in the history of independent Central Asia — experts from five countries jointly proposing visions of the future through 2050.</p>
-      <a class="more-link" href="{{ '/about/' | relative_url }}">
-        <span class="uz">Батафсил →</span><span class="en">Read more →</span>
-      </a>
+      <p>{{ t.home.about_p }}</p>
+      <a class="more-link" href="{{ '/about/' | relative_url }}">{{ t.home.more }}</a>
     </div>
   </div>
 </section>
@@ -61,36 +58,18 @@ hero_full: true
 <section class="section themes" id="themes">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow uz">Тадқиқот йўналишлари</span>
-      <span class="eyebrow en">Research directions</span>
-      <h2 class="uz">Беш йўналиш бўйича чуқур таҳлил</h2>
-      <h2 class="en">In-depth analysis across five directions</h2>
+      <span class="eyebrow">{{ t.home.themes_eyebrow }}</span>
+      <h2>{{ t.home.themes_h2 }}</h2>
     </div>
     <div class="theme-grid" data-reveal>
-      <a class="theme-card" href="{{ '/directions/climate/' | relative_url }}">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 18h18M5 18V9l4-4 4 4v9M13 18v-6l4-3 4 3v6"/></svg>
-        <span class="uz">Иқлим ўзгариши</span><span class="en">Climate change</span>
+      {% for dir in dirs %}
+      <a class="theme-card" href="{{ dir.url | relative_url }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="{{ dir.icon }}"/></svg>
+        <span>{{ site.data[L].directions[dir.slug].title | default: site.data[D].directions[dir.slug].title }}</span>
       </a>
-      <a class="theme-card" href="{{ '/directions/water/' | relative_url }}">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 3s6 6.5 6 11a6 6 0 1 1-12 0c0-4.5 6-11 6-11z"/></svg>
-        <span class="uz">Сув ресурслари</span><span class="en">Water resources</span>
-      </a>
-      <a class="theme-card" href="{{ '/directions/energy/' | relative_url }}">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
-        <span class="uz">Энергетика</span><span class="en">Energy</span>
-      </a>
-      <a class="theme-card" href="{{ '/directions/transport/' | relative_url }}">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 16V7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v9M4 16h13M4 16a2 2 0 1 0 4 0M15 16a2 2 0 1 0 4 0M17 9h3l2 3v4h-2"/></svg>
-        <span class="uz">Транспорт</span><span class="en">Transport</span>
-      </a>
-      <a class="theme-card" href="{{ '/directions/demography/' | relative_url }}">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M17 20a4 4 0 0 0-10 0M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM21 20a3 3 0 0 0-4-2.8M3 20a3 3 0 0 1 4-2.8M17 9a3 3 0 1 0 0-6M7 9a3 3 0 1 1 0-6"/></svg>
-        <span class="uz">Ижтимоий тараққиёт ва демография</span><span class="en">Social development &amp; demography</span>
-      </a>
+      {% endfor %}
     </div>
-    <a class="more-link" href="{{ '/directions/' | relative_url }}" data-reveal>
-      <span class="uz">Барча йўналишлар →</span><span class="en">All directions →</span>
-    </a>
+    <a class="more-link" href="{{ '/directions/' | relative_url }}" data-reveal>{{ t.home.themes_all }}</a>
   </div>
 </section>
 
@@ -98,23 +77,15 @@ hero_full: true
 <section class="section youth" id="youth">
   <div class="wrap youth-body">
     <div data-reveal>
-      <span class="eyebrow on-sand uz">Алоҳида боб</span>
-      <span class="eyebrow on-sand en">Featured chapter</span>
-      <h2 class="uz">Кейинги авлод гапиради</h2>
-      <h2 class="en">The next generation speaks</h2>
+      <span class="eyebrow on-sand">{{ t.home.youth_eyebrow }}</span>
+      <h2>{{ t.home.youth_h2 }}</h2>
       <div class="youth-tags">
-        <span class="uz">Ўзлик</span><span class="en">Identity</span>
-        <span class="uz">Гендер</span><span class="en">Gender</span>
-        <span class="uz">Экология</span><span class="en">Ecology</span>
-        <span class="uz">Технология</span><span class="en">Technology</span>
+        {% for tag in t.home.youth_tags %}<span>{{ tag }}</span>{% endfor %}
       </div>
     </div>
     <div data-reveal>
-      <p class="uz">Минтақа ёшларидан 2050 йилгача ўз ҳудудлари келажагини эссе шаклида баён этиш сўралди — уларнинг фикрлари китобнинг энг ўзига хос бобларидан бирини ташкил қилади.</p>
-      <p class="en">Young people from across the region were invited to describe, in essay form, what their homelands could look like by 2050 — forming one of the book's most distinctive chapters.</p>
-      <a class="more-link" href="{{ '/youth/' | relative_url }}">
-        <span class="uz">Батафсил →</span><span class="en">Read more →</span>
-      </a>
+      <p>{{ t.home.youth_p }}</p>
+      <a class="more-link" href="{{ '/youth/' | relative_url }}">{{ t.home.more }}</a>
     </div>
   </div>
 </section>
@@ -123,21 +94,16 @@ hero_full: true
 <section class="section" id="seminar-2025">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand uz">Тадбир</span>
-      <span class="eyebrow on-sand en">Event</span>
-      <h2 class="uz">Форсайт-семинар 2025</h2>
-      <h2 class="en">Foresight Seminar 2025</h2>
+      <span class="eyebrow on-sand">{{ t.home.seminar_eyebrow }}</span>
+      <h2>{{ t.home.seminar_h2 }}</h2>
     </div>
     <div class="about-body">
       <div data-reveal>
-        <p class="uz">2025 йил 27–28 май кунлари Тошкентда минтақа таҳлилий марказлари ва мустақил экспертларини бирлаштирган Форсайт-семинар бўлиб ўтди. Тадбир суратлари, иштирокчилар фикрлари ва ОАВ материаллари алоҳида саҳифада.</p>
-        <p class="en">On 27–28 May 2025, Tashkent hosted a Foresight Seminar bringing together the region's analytical centers and independent experts. Photos, participants' reflections and media coverage are on a dedicated page.</p>
-        <a href="{{ '/seminar-2025/' | relative_url }}" class="btn-gold">
-          <span class="uz">Батафсил ва фотолавҳалар</span><span class="en">Details &amp; photos</span>
-        </a>
+        <p>{{ t.home.seminar_p }}</p>
+        <a href="{{ '/seminar-2025/' | relative_url }}" class="btn-gold">{{ t.home.seminar_cta }}</a>
       </div>
       <div class="seminar-photo" data-reveal>
-        <img src="{{ '/media/seminar-01.jpg' | relative_url }}" alt="Форсайт-семинар 2025">
+        <img src="{{ '/media/seminar-01.jpg' | relative_url }}" alt="{{ t.home.seminar_h2 }}">
       </div>
     </div>
   </div>
@@ -147,21 +113,13 @@ hero_full: true
 <section class="countries" id="countries">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand uz">Минтақа</span>
-      <span class="eyebrow on-sand en">The region</span>
-      <h2 class="uz">Беш давлат — бир минтақа</h2>
-      <h2 class="en">Five countries — one region</h2>
+      <span class="eyebrow on-sand">{{ t.home.region_eyebrow }}</span>
+      <h2>{{ t.home.region_h2 }}</h2>
     </div>
     <div class="country-grid" data-reveal>
-      <div class="country-card"><span class="uz">Қозоғистон</span><span class="en">Kazakhstan</span></div>
-      <div class="country-card"><span class="uz">Қирғизистон</span><span class="en">Kyrgyzstan</span></div>
-      <div class="country-card"><span class="uz">Тожикистон</span><span class="en">Tajikistan</span></div>
-      <div class="country-card"><span class="uz">Туркманистон</span><span class="en">Turkmenistan</span></div>
-      <div class="country-card"><span class="uz">Ўзбекистон</span><span class="en">Uzbekistan</span></div>
+      {% for c in countries %}<div class="country-card"><span>{{ c }}</span></div>{% endfor %}
     </div>
-    <a class="more-link" href="{{ '/region/' | relative_url }}" data-reveal>
-      <span class="uz">Раҳбарлар фикри ва интеграция →</span><span class="en">Leaders &amp; integration →</span>
-    </a>
+    <a class="more-link" href="{{ '/region/' | relative_url }}" data-reveal>{{ t.home.region_more }}</a>
   </div>
 </section>
 
@@ -169,24 +127,16 @@ hero_full: true
 <section class="section platform-cta" id="feedback">
   <div class="wrap platform-cta-grid">
     <div data-reveal>
-      <span class="eyebrow on-sand uz">Китоб</span><span class="eyebrow on-sand en">The book</span>
-      <h2 class="uz">Китобни юклаб олинг</h2>
-      <h2 class="en">Download the book</h2>
-      <p class="uz">217 бет · PDF · ўзбек ва инглиз тилидаги қисқа шарҳ.</p>
-      <p class="en">217 pages · PDF · summary in Uzbek and English.</p>
-      <a href="markaziy-osiyo-2050_uz.pdf" class="btn-gold" download>
-        <span class="uz">PDF юклаб олиш</span><span class="en">Download PDF</span>
-      </a>
+      <span class="eyebrow on-sand">{{ t.home.book_eyebrow }}</span>
+      <h2>{{ t.home.book_h2 }}</h2>
+      <p>{{ t.home.book_p }}</p>
+      <a href="{{ '/markaziy-osiyo-2050_uz.pdf' | relative_url }}" class="btn-gold" download>{{ t.home.book_cta }}</a>
     </div>
     <div data-reveal>
-      <span class="eyebrow on-sand uz">Алоқа</span><span class="eyebrow on-sand en">Feedback</span>
-      <h2 class="uz">Фикрингизни қолдиринг</h2>
-      <h2 class="en">Leave your feedback</h2>
-      <p class="uz">Китоб бўйича фикр-мулоҳаза ва таклифларингизни кутиб қоламиз.</p>
-      <p class="en">We welcome your comments and suggestions about the book.</p>
-      <a href="{{ '/feedback/' | relative_url }}" class="btn-gold">
-        <span class="uz">Фикр билдириш</span><span class="en">Share feedback</span>
-      </a>
+      <span class="eyebrow on-sand">{{ t.home.feedback_eyebrow }}</span>
+      <h2>{{ t.home.feedback_h2 }}</h2>
+      <p>{{ t.home.feedback_p }}</p>
+      <a href="{{ '/feedback/' | relative_url }}" class="btn-gold">{{ t.home.feedback_cta }}</a>
     </div>
   </div>
 </section>

@@ -1,24 +1,22 @@
 ---
 layout: default
 permalink: /seminar-2025/
+page_id: seminar
 title: "Форсайт-семинар 2025 — Марказий Осиё давлатлари 2050"
 nav_active: seminar
-footer_uz: "Марказий Осиё давлатлари 2050 — Форсайт-семинар 2025 · Тошкент"
-footer_en: "Central Asia States 2050 — Foresight Seminar 2025 · Tashkent"
 ---
+{% assign L = site.active_lang %}{% assign D = site.default_lang %}
+{% assign t = site.data[L].ui | default: site.data[D].ui %}
+{% assign press = site.data[L].press.press | default: site.data[D].press.press %}
+{% assign quotes = t.seminar.quotes %}
+
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow uz">Минтақавий тадбир · Тошкент</span>
-    <span class="eyebrow en">Regional event · Tashkent</span>
-    <h1 class="uz">Форсайт-семинар 2025</h1>
-    <h1 class="en">Foresight Seminar 2025</h1>
-    <p class="sub uz">27–28 май 2025 йил, Тошкент шаҳри</p>
-    <p class="sub en">27–28 May 2025, Tashkent</p>
-    <div class="organizers">
-      <span class="uz">Ташкилотчилар: Стратегик ислоҳотлар агентлиги, ИСМИ, МИЦА, Қозоғистон Республикасининг тегишли агентлиги · Европа Иттифоқи кўмагида</span>
-      <span class="en">Organizers: Agency for Strategic Reforms, ISMI, MICA, the relevant agency of the Republic of Kazakhstan · Supported by the European Union</span>
-    </div>
+    <span class="eyebrow">{{ t.seminar.hero_eyebrow }}</span>
+    <h1>{{ t.seminar.hero_title }}</h1>
+    <p class="sub">{{ t.seminar.hero_dates }}</p>
+    <div class="organizers">{{ t.seminar.organizers }}</div>
   </div>
   <div class="horizon">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -40,16 +38,12 @@ footer_en: "Central Asia States 2050 — Foresight Seminar 2025 · Tashkent"
 <section class="section about-seminar" id="about">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand uz">Семинар ҳақида</span>
-      <span class="eyebrow on-sand en">About the seminar</span>
-      <h2 class="uz">Минтақа экспертларининг биргаликдаги мулоқоти</h2>
-      <h2 class="en">A joint dialogue among regional experts</h2>
+      <span class="eyebrow on-sand">{{ t.seminar.about_eyebrow }}</span>
+      <h2>{{ t.seminar.about_h2 }}</h2>
     </div>
     <div data-reveal>
-      <p class="uz">Форсайт-семинар доирасида беш давлатнинг таҳлилий марказлари вакиллари ва мустақил экспертлари Тошкентда икки кун давомида йиғилиб, минтақанинг 2050 йилгача бўлган келажаги бўйича сценарийларни муҳокама қилишди. Тадбир «Марказий Осиё давлатлари 2050» китобининг тайёрланиш жараёнидаги асосий босқичлардан бирига айланди.</p>
-      <p class="uz">Иштирокчилар сув ва иқлим ўзгариши, энергетика, транспорт алоқалари ҳамда демография бўйича гуруҳли сессияларда ишлаб, ҳар бир йўналиш учун асосий хулоса ва тавсияларни шакллантиришди.</p>
-      <p class="en">As part of the Foresight Seminar, representatives of analytical centers and independent experts from the five countries gathered in Tashkent for two days to discuss scenarios for the region's future through 2050. The event became one of the key stages in preparing the book "Central Asia States 2050."</p>
-      <p class="en">Participants worked in group sessions on water and climate change, energy, transport links, and demography, shaping the key findings and recommendations for each track.</p>
+      <p>{{ t.seminar.about_p1 }}</p>
+      <p>{{ t.seminar.about_p2 }}</p>
     </div>
   </div>
 </section>
@@ -58,20 +52,14 @@ footer_en: "Central Asia States 2050 — Foresight Seminar 2025 · Tashkent"
 <section class="section gallery">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand uz">Медиатека</span>
-      <span class="eyebrow on-sand en">Media gallery</span>
-      <h2 class="uz">Тадбир суратларда</h2>
-      <h2 class="en">The seminar in photos</h2>
+      <span class="eyebrow on-sand">{{ t.seminar.gallery_eyebrow }}</span>
+      <h2>{{ t.seminar.gallery_h2 }}</h2>
     </div>
     <div class="gallery-grid" data-reveal>
-      <img src="media/seminar-01.jpg" alt="Форсайт-семинар 2025 — 1" loading="lazy">
-      <img src="media/seminar-02.jpg" alt="Форсайт-семинар 2025 — 2" loading="lazy">
-      <img src="media/seminar-03.jpg" alt="Форсайт-семинар 2025 — 3" loading="lazy">
-      <img src="media/seminar-04.jpg" alt="Форсайт-семинар 2025 — 4" loading="lazy">
-      <img src="media/seminar-05.jpg" alt="Форсайт-семинар 2025 — 5" loading="lazy">
-      <img src="media/seminar-06.jpg" alt="Форсайт-семинар 2025 — 6" loading="lazy">
-      <img src="media/seminar-07.jpg" alt="Форсайт-семинар 2025 — 7" loading="lazy">
-      <img src="media/seminar-08.jpg" alt="Форсайт-семинар 2025 — 8" loading="lazy">
+      {% for i in (1..7) %}
+      {% assign n = i | prepend: '0' | slice: -2, 2 %}
+      <img src="{{ '/media/seminar-' | append: n | append: '.jpg' | relative_url }}" alt="{{ t.seminar.hero_title }} — {{ i }}" loading="lazy">
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -80,37 +68,16 @@ footer_en: "Central Asia States 2050 — Foresight Seminar 2025 · Tashkent"
 <section class="section quotes">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow uz">Иштирокчилар фикри</span>
-      <span class="eyebrow en">Voices from the seminar</span>
-      <h2 class="uz">Асосий иқтибослар</h2>
-      <h2 class="en">Key quotes</h2>
+      <span class="eyebrow">{{ t.seminar.quotes_eyebrow }}</span>
+      <h2>{{ t.seminar.quotes_h2 }}</h2>
     </div>
     <div class="quote-grid" data-reveal>
+      {% for q in quotes %}
       <blockquote class="quote-card">
-        <span class="uz">«[Неъматовнинг иқтибос матнини шу ерга қўйинг]»</span>
-        <span class="en">"[Insert Nematov's quote here]"</span>
-        <cite><span class="uz">Неъматов</span><span class="en">Nematov</span></cite>
+        <span>{{ q.text }}</span>
+        <cite>{{ q.name }}</cite>
       </blockquote>
-      <blockquote class="quote-card">
-        <span class="uz">«[Файзиевнинг иқтибос матнини шу ерга қўйинг]»</span>
-        <span class="en">"[Insert Fayziev's quote here]"</span>
-        <cite><span class="uz">Файзиев</span><span class="en">Fayziev</span></cite>
-      </blockquote>
-      <blockquote class="quote-card">
-        <span class="uz">«[Клаарнинг иқтибос матнини шу ерга қўйинг]»</span>
-        <span class="en">"[Insert Klaar's quote here]"</span>
-        <cite><span class="uz">Клаар</span><span class="en">Klaar</span></cite>
-      </blockquote>
-      <blockquote class="quote-card">
-        <span class="uz">«[Каражанованинг иқтибос матнини шу ерга қўйинг]»</span>
-        <span class="en">"[Insert Karazhanova's quote here]"</span>
-        <cite><span class="uz">Каражанова</span><span class="en">Karazhanova</span></cite>
-      </blockquote>
-      <blockquote class="quote-card">
-        <span class="uz">«[Умарованинг иқтибос матнини шу ерга қўйинг]»</span>
-        <span class="en">"[Insert Umarova's quote here]"</span>
-        <cite><span class="uz">Умарова</span><span class="en">Umarova</span></cite>
-      </blockquote>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -119,43 +86,31 @@ footer_en: "Central Asia States 2050 — Foresight Seminar 2025 · Tashkent"
 <section class="section tint" id="press">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand uz">ОАВ нигоҳида</span>
-      <span class="eyebrow on-sand en">In the media</span>
-      <h2 class="uz">Форсайт-семинар ОАВ нигоҳида</h2>
-      <h2 class="en">The Foresight Seminar in the media</h2>
+      <span class="eyebrow on-sand">{{ t.seminar.press_eyebrow }}</span>
+      <h2>{{ t.seminar.press_h2 }}</h2>
     </div>
-
     <div data-reveal>
-      {% assign articles = site.data.press.press | where: "type", "article" %}
+      {% assign articles = press | where: "type", "article" %}
       {% if articles.size > 0 %}
       <div class="press-group">
-        <div class="press-group-title uz">Матбуотда</div>
-        <div class="press-group-title en">Press articles</div>
-        <div class="press-list">
-          {% for p in articles %}{% include press-item.html item=p %}{% endfor %}
-        </div>
+        <div class="press-group-title">{{ t.seminar.press_group_articles }}</div>
+        <div class="press-list">{% for p in articles %}{% include press-item.html item=p %}{% endfor %}</div>
       </div>
       {% endif %}
 
-      {% assign videos = site.data.press.press | where: "type", "youtube" %}
+      {% assign videos = press | where: "type", "youtube" %}
       {% if videos.size > 0 %}
       <div class="press-group">
-        <div class="press-group-title uz">Видео (YouTube)</div>
-        <div class="press-group-title en">Video (YouTube)</div>
-        <div class="press-list">
-          {% for p in videos %}{% include press-item.html item=p %}{% endfor %}
-        </div>
+        <div class="press-group-title">{{ t.seminar.press_group_video }}</div>
+        <div class="press-list">{% for p in videos %}{% include press-item.html item=p %}{% endfor %}</div>
       </div>
       {% endif %}
 
-      {% assign tg = site.data.press.press | where: "type", "telegram" %}
+      {% assign tg = press | where: "type", "telegram" %}
       {% if tg.size > 0 %}
       <div class="press-group">
-        <div class="press-group-title uz">Telegram</div>
-        <div class="press-group-title en">Telegram</div>
-        <div class="press-list">
-          {% for p in tg %}{% include press-item.html item=p %}{% endfor %}
-        </div>
+        <div class="press-group-title">{{ t.seminar.press_group_telegram }}</div>
+        <div class="press-list">{% for p in tg %}{% include press-item.html item=p %}{% endfor %}</div>
       </div>
       {% endif %}
     </div>
@@ -165,10 +120,7 @@ footer_en: "Central Asia States 2050 — Foresight Seminar 2025 · Tashkent"
 <!-- BACK TO BOOK -->
 <section class="final-cta">
   <div class="wrap">
-    <h2 class="uz">Китоб билан танишинг</h2>
-    <h2 class="en">Explore the book</h2>
-    <a href="{{ '/about/' | relative_url }}" class="btn-gold">
-      <span class="uz">Китоб ҳақида →</span><span class="en">About the book →</span>
-    </a>
+    <h2>{{ t.seminar.back_h2 }}</h2>
+    <a href="{{ '/about/' | relative_url }}" class="btn-gold">{{ t.seminar.back_cta }}</a>
   </div>
 </section>

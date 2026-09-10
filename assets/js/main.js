@@ -1,9 +1,3 @@
-function setLang(lang){
-  document.documentElement.classList.toggle('lang-en', lang==='en');
-  document.getElementById('btn-uz').classList.toggle('active', lang==='uz');
-  document.getElementById('btn-en').classList.toggle('active', lang==='en');
-}
-
 function toggleNav(){
   const nav = document.getElementById('siteNav');
   const btn = document.getElementById('navToggle');
