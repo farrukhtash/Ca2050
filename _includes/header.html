@@ -36,8 +36,8 @@
       {% endif %}
       <div class="langswitch">
         {% for lang in site.languages %}
-          {% if lang == D %}{% assign target = page.url %}{% else %}{% assign target = page.url | prepend: lang | prepend: '/' %}{% endif %}
-          {% static_href %}<a class="lang-btn{% if lang == L %} active{% endif %}" href="{{ target }}" hreflang="{{ lang }}" lang="{{ lang }}">{{ site.data.langmeta[lang].short }}</a>{% endstatic_href %}
+          {% if lang == D %}{% assign lp = '' %}{% else %}{% assign lp = lang | prepend: '/' %}{% endif %}
+          <a class="lang-btn{% if lang == L %} active{% endif %}" href="{{ site.url }}{{ lp }}{{ page.url }}" hreflang="{{ lang }}" lang="{{ lang }}">{{ site.data.langmeta[lang].short }}</a>
         {% endfor %}
       </div>
     </div>
