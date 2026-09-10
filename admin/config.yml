@@ -98,19 +98,19 @@ collections:
           - { name: quote, label: "Цитата", widget: text, i18n: true }
           - { name: quote_cite, label: "Подпись цитаты", widget: string, i18n: true }
       - name: agencies
-        label: "Блок: агентства"
+        label: "Блок: организаторы"
         file: "_data/{{locale}}/agencies.yml"
         i18n: true
         fields:
-          - { name: support, label: "Строка поддержки", widget: string, i18n: true }
           - name: agencies
-            label: "Агентства"
+            label: "Организаторы"
+            label_singular: "Организация"
             widget: list
             i18n: true
-            summary: "{{fields.short}} — {{fields.name}}"
+            summary: "{{fields.name}}"
             fields:
-              - { name: short, label: "Краткое название", widget: string, i18n: true }
-              - { name: name, label: "Полное название", widget: string, i18n: true }
+              - { name: logo, label: "Логотип", widget: image, required: false, media_folder: "/assets/images/uploads", public_folder: "/assets/images/uploads", i18n: duplicate }
+              - { name: name, label: "Название", widget: string, i18n: true }
 
   # ---- Пресса о семинаре ----
   - name: press
@@ -137,7 +137,7 @@ collections:
 
   # ---- Регион ----
   - name: region
-    label: "Беш давлат — бир минтақа"
+    label: "Бир минтақа"
     i18n: true
     files:
       - name: leaders

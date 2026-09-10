@@ -3,9 +3,7 @@
 {% assign dirs = site.directions | sort: 'order' %}
 <header class="site-header">
   <div class="wrap">
-    <a href="{{ '/' | relative_url }}" class="brand-mark" aria-label="{{ t.brand_name }}">
-      <img src="{{ '/assets/images/logo-mark.png' | relative_url }}" alt="{{ t.brand_name }}">
-    </a>
+    <a href="{{ '/' | relative_url }}" class="brand-mark" aria-label="CA2050">CA2050</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav" onclick="toggleNav()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
@@ -18,7 +16,6 @@
           <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="nav-dropdown" id="dd-directions" role="menu">
-          <a role="menuitem" href="{{ '/directions/' | relative_url }}">{{ t.nav.all_directions }}</a>
           {% for dir in dirs %}
           <a role="menuitem" href="{{ dir.url | relative_url }}">{{ site.data[L].directions[dir.slug].title | default: site.data[D].directions[dir.slug].title }}</a>
           {% endfor %}
@@ -31,9 +28,6 @@
       <a href="{{ '/feedback/' | relative_url }}" class="nav-link{% if page.nav_active == 'feedback' %} active{% endif %}">{{ t.nav.feedback }}</a>
     </nav>
     <div class="header-right">
-      {% if page.header_pdf %}
-      <a href="{{ '/markaziy-osiyo-2050_uz.pdf' | relative_url }}" class="header-download" download>PDF</a>
-      {% endif %}
       <div class="langswitch" data-default="{{ D }}" data-canon="{{ include.canon }}">
         {% for lang in site.languages %}
           {% if lang == D %}{% assign href = include.canon %}{% else %}{% assign href = include.canon | prepend: lang | prepend: '/' %}{% endif %}

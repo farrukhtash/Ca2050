@@ -54,22 +54,22 @@ header_pdf: true
   </div>
 </section>
 
-<!-- BLOCK 2: agencies -->
+<!-- BLOCK 2: organizers -->
 <section class="section tint" id="agencies">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand">{{ t.about.agencies_eyebrow }}</span>
       <h2>{{ t.about.agencies_h2 }}</h2>
     </div>
     <div class="agency-grid" data-reveal>
       {% for a in ag.agencies %}
       <div class="agency-card">
-        <h3>{{ a.short }}</h3>
-        <p>{{ a.name }}</p>
+        {% if a.logo and a.logo != "" %}
+        <div class="agency-logo"><img src="{{ a.logo | relative_url }}" alt="{{ a.name }}" loading="lazy"></div>
+        {% endif %}
+        <p class="agency-name">{{ a.name }}</p>
       </div>
       {% endfor %}
     </div>
-    <p class="agency-support">{{ ag.support }}</p>
   </div>
 </section>
 

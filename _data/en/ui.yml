@@ -8,7 +8,7 @@ nav:
   directions: "Directions"
   all_directions: "All directions"
   youth: "Youth"
-  region: "The region"
+  region: "One region"
   seminar: "Foresight Seminar"
   feedback: "Leave feedback"
 
@@ -36,7 +36,7 @@ home:
   seminar_p: "On 27–28 May 2025, Tashkent hosted a Foresight Seminar bringing together the region's analytical centers and independent experts. Photos, participants' reflections and media coverage are on a dedicated page."
   seminar_cta: "Details & photos"
   region_eyebrow: "The region"
-  region_h2: "Five countries — one region"
+  region_h2: "One region"
   region_more: "Leaders & integration →"
   book_eyebrow: "The book"
   book_h2: "Download the book"
@@ -53,8 +53,8 @@ about:
   hero_sub: "The outcome of the first regional foresight dialogue in the history of independent Central Asia — visions of the future through 2050."
   overview_eyebrow: "Overview"
   overview_h2: "What the book is about"
-  agencies_eyebrow: "Participating organizations"
-  agencies_h2: "Project partners"
+  agencies_eyebrow: "Organizers"
+  agencies_h2: "Organizers"
   authors_eyebrow: "Authors"
   authors_h2: "Authors of the book"
 
@@ -81,7 +81,7 @@ youth:
 
 region:
   hero_eyebrow: "The region"
-  hero_title: "Five countries — one region"
+  hero_title: "One region"
   hero_sub: "Key statements by the leaders of Central Asia and news on regional integration."
   leaders_eyebrow: "Heads of state"
   leaders_h2: "Key statements by Central Asian leaders"

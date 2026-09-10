@@ -1,10 +1,13 @@
-support: "The project was carried out with the support of the European Union."
+# Organizers block on /about/.
+# logo — path to an uploaded logo (via CMS, i18n: duplicate). If empty — name only.
 agencies:
-  - short: "АСР"
+  - logo: ""
     name: "Agency for Strategic Reforms (Uzbekistan)"
-  - short: "ИСМИ"
+  - logo: ""
     name: "Institute for Strategic and Regional Studies (ISMI)"
-  - short: "МИЦА"
+  - logo: ""
     name: "International Institute for Central Asia (MICA)"
-  - short: "Kazakhstan Agency"
+  - logo: ""
     name: "Agency for Strategic Planning and Reforms of the Republic of Kazakhstan"
+  - logo: ""
+    name: "European Union"
