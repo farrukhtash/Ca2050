@@ -25,6 +25,8 @@ jobs:
         with:
           ruby-version: "3.3"
           bundler-cache: true
+      - name: Validate CMS config YAML
+        run: ruby -ryaml -e "YAML.load_file('admin/config.yml'); puts 'admin/config.yml OK'"
       - name: Build with Jekyll
         run: bundle exec jekyll build --trace
         env:

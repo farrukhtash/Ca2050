@@ -1,10 +1,9 @@
-# Sveltia CMS configuration — CA2050 (Jekyll site)
+# Sveltia CMS configuration — CA2050 (Jekyll + jekyll-polyglot)
 # yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
 #
 # Аутентификация: один пользователь через Personal Access Token (PAT).
-# На экране входа нажмите «Sign in with Token», создайте fine-grained PAT
-# с доступом Contents: Read and write к репозиторию farrukhtash/Ca2050 и вставьте его.
-# Cloudflare Worker / OAuth-приложение НЕ требуются.
+# На экране входа — «Sign in with Token», fine-grained PAT с правом
+# Contents: Read and write к farrukhtash/Ca2050. Без Cloudflare Worker.
 
 backend:
   name: github
@@ -14,167 +13,171 @@ backend:
 site_url: https://ca2050.uz
 display_url: https://ca2050.uz
 
-# Загрузки медиа складываются в существующую структуру assets/
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
-# Двуязычность (uz/en) реализована суффиксами полей _uz/_en — как во всём проекте.
-# Нативный i18n Sveltia не используется, чтобы не менять структуру файлов и шаблоны.
+# ── Нативная i18n Sveltia ──────────────────────────────────────
+# Каждая локаль хранится в своей папке: _data/<locale>/<name>.yml.
+# В редакторе языки переключаются вкладками. Дефолт (uz) — в _data/uz/.
+# Добавление локали: добавить код в locales + папку _data/<code>/.
+i18n:
+  structure: multiple_folders
+  locales: [uz, en, ru]
+  default_locale: uz
+  omit_default_locale_from_file_path: false
 
 collections:
-  # ---- Направления (коллекция _directions/*.md) ----
-  - name: directions
-    label: "Йўналишлар"
-    label_singular: "Йўналиш"
+  # NB: строки интерфейса страниц (заголовки секций, кнопки) хранятся в
+  # _data/<locale>/ui.yml и правятся напрямую. В CMS они не заведены намеренно:
+  # неполное описание всех полей привело бы к перезаписи файла при сохранении.
+
+  # ---- Направления: заголовки (переводимые) ----
+  - name: directions_text
+    label: "Йўналишлар — заголовки"
+    files:
+      - name: directions_text
+        label: "Названия направлений"
+        file: "_data/{{locale}}/directions.yml"
+        i18n: true
+        fields:
+          - { name: climate, label: "Иқлим", widget: object, i18n: true, fields: [{ name: title, label: "Заголовок", widget: string, i18n: true }] }
+          - { name: water, label: "Сув", widget: object, i18n: true, fields: [{ name: title, label: "Заголовок", widget: string, i18n: true }] }
+          - { name: energy, label: "Энергетика", widget: object, i18n: true, fields: [{ name: title, label: "Заголовок", widget: string, i18n: true }] }
+          - { name: transport, label: "Транспорт", widget: object, i18n: true, fields: [{ name: title, label: "Заголовок", widget: string, i18n: true }] }
+          - { name: demography, label: "Демография", widget: object, i18n: true, fields: [{ name: title, label: "Заголовок", widget: string, i18n: true }] }
+
+  # ---- Направления: структура (порядок, иконка) — не переводится ----
+  - name: directions_meta
+    label: "Йўналишлар — структура"
     folder: "_directions"
     create: true
     extension: md
     format: yaml-frontmatter
-    identifier_field: title_uz
-    slug: "{{title_en}}"
-    summary: "{{fields.order}}. {{fields.title_uz}}"
-    sortable_fields: [order, title_uz]
+    identifier_field: title
     fields:
       - { name: layout, label: "Layout", widget: hidden, default: direction }
-      - { name: title, label: "SEO-заголовок (<title>)", widget: string, required: false }
-      - { name: title_uz, label: "Заголовок (ЎЗ)", widget: string }
-      - { name: title_en, label: "Заголовок (EN)", widget: string }
-      - { name: order, label: "Порядок", widget: number, value_type: int, default: 99, min: 1 }
-      - { name: icon, label: "SVG-иконка (path d)", widget: string, required: false }
-      - { name: body, label: "Контент", widget: markdown, required: false }
+      - { name: title, label: "SEO-заголовок", widget: string }
+      - { name: order, label: "Порядок", widget: number, value_type: int, default: 99 }
+      - { name: icon, label: "SVG-иконка (path d)", widget: string }
 
-  # ---- Авторы книги (_data/authors.yml) ----
+  # ---- Авторы книги ----
   - name: authors
     label: "Муаллифлар"
     files:
       - name: authors
         label: "Китоб муаллифлари"
-        file: "_data/authors.yml"
+        file: "_data/{{locale}}/authors.yml"
+        i18n: true
         fields:
           - name: authors
             label: "Авторы"
             label_singular: "Автор"
             widget: list
-            summary: "{{fields.name_uz}} — {{fields.country_uz}}"
+            i18n: true
+            summary: "{{fields.name}}"
             fields:
-              - { name: name_uz, label: "ФИО (ЎЗ)", widget: string }
-              - { name: name_en, label: "ФИО (EN)", widget: string }
-              - { name: role_uz, label: "Должность (ЎЗ)", widget: string, required: false }
-              - { name: role_en, label: "Должность (EN)", widget: string, required: false }
-              - { name: country_uz, label: "Страна (ЎЗ)", widget: string, required: false }
-              - { name: country_en, label: "Страна (EN)", widget: string, required: false }
-              - { name: contribution_uz, label: "Вклад в книгу (ЎЗ)", widget: text, required: false }
-              - { name: contribution_en, label: "Вклад в книгу (EN)", widget: text, required: false }
-              - { name: placeholder, label: "Черновик (заглушка-стиль)", widget: boolean, default: false, required: false }
+              - { name: name, label: "ФИО", widget: string, i18n: true }
+              - { name: role, label: "Должность", widget: string, i18n: true, required: false }
+              - { name: country, label: "Страна", widget: string, i18n: true, required: false }
+              - { name: contribution, label: "Вклад в книгу", widget: string, i18n: true, required: false }
+              - { name: placeholder, label: "Черновик (стиль-заглушка)", widget: boolean, default: false, required: false, i18n: duplicate }
 
-  # ---- Страница «Китоб ҳақида»: инфо о книге + агентства ----
+  # ---- Страница «Китоб ҳақида» ----
   - name: about_page
     label: "Китоб ҳақида"
     files:
       - name: about_intro
         label: "Блок: инфо о книге"
-        file: "_data/about.yml"
+        file: "_data/{{locale}}/about.yml"
+        i18n: true
         fields:
-          - name: intro
-            label: "Абзацы"
-            label_singular: "Абзац"
-            widget: list
-            fields:
-              - { name: uz, label: "Текст (ЎЗ)", widget: text }
-              - { name: en, label: "Текст (EN)", widget: text }
-          - { name: quote_uz, label: "Цитата (ЎЗ)", widget: text }
-          - { name: quote_en, label: "Цитата (EN)", widget: text }
-          - { name: quote_cite_uz, label: "Подпись цитаты (ЎЗ)", widget: string }
-          - { name: quote_cite_en, label: "Подпись цитаты (EN)", widget: string }
+          - { name: intro, label: "Абзацы", widget: list, i18n: true, field: { name: text, label: "Абзац", widget: text } }
+          - { name: quote, label: "Цитата", widget: text, i18n: true }
+          - { name: quote_cite, label: "Подпись цитаты", widget: string, i18n: true }
       - name: agencies
-        label: "Блок: агентства-участники"
-        file: "_data/agencies.yml"
+        label: "Блок: агентства"
+        file: "_data/{{locale}}/agencies.yml"
+        i18n: true
         fields:
-          - { name: support_uz, label: "Строка поддержки (ЎЗ)", widget: string }
-          - { name: support_en, label: "Строка поддержки (EN)", widget: string }
+          - { name: support, label: "Строка поддержки", widget: string, i18n: true }
           - name: agencies
             label: "Агентства"
-            label_singular: "Агентство"
             widget: list
-            summary: "{{fields.short}}{{fields.short_uz}} — {{fields.name_uz}}"
+            i18n: true
+            summary: "{{fields.short}} — {{fields.name}}"
             fields:
-              - { name: short, label: "Аббревиатура (общая)", widget: string, required: false }
-              - { name: short_uz, label: "Краткое название (ЎЗ)", widget: string, required: false }
-              - { name: short_en, label: "Краткое название (EN)", widget: string, required: false }
-              - { name: name_uz, label: "Полное название (ЎЗ)", widget: string }
-              - { name: name_en, label: "Полное название (EN)", widget: string }
+              - { name: short, label: "Краткое название", widget: string, i18n: true }
+              - { name: name, label: "Полное название", widget: string, i18n: true }
 
-  # ---- Пресса о семинаре (_data/press.yml) ----
+  # ---- Пресса о семинаре ----
   - name: press
     label: "Пресса о семинаре"
     files:
       - name: press
         label: "ОАВ нигоҳида"
-        file: "_data/press.yml"
+        file: "_data/{{locale}}/press.yml"
+        i18n: true
         fields:
           - name: press
             label: "Материалы"
             label_singular: "Материал"
             widget: list
-            summary: "{{fields.source}} — {{fields.title_uz}}"
+            i18n: true
+            summary: "{{fields.source}} — {{fields.title}}"
             fields:
-              - { name: source, label: "Издание", widget: string }
-              - { name: type, label: "Тип", widget: select, default: article, options: ["article", "youtube", "telegram"] }
-              - { name: title_uz, label: "Заголовок (ЎЗ)", widget: string }
-              - { name: title_en, label: "Заголовок (EN)", widget: string }
-              - { name: date, label: "Дата", widget: string, required: false }
-              - { name: url, label: "URL", widget: string }
+              - { name: source, label: "Издание", widget: string, i18n: duplicate }
+              - { name: type, label: "Тип", widget: select, options: ["article", "youtube", "telegram"], default: article, i18n: duplicate }
+              - { name: title, label: "Заголовок", widget: string, i18n: true }
+              - { name: date, label: "Дата", widget: string, required: false, i18n: duplicate }
+              - { name: url, label: "URL", widget: string, i18n: duplicate }
 
-  # ---- Регион: высказывания глав государств + новости интеграции ----
+  # ---- Регион ----
   - name: region
     label: "Беш давлат — бир минтақа"
     files:
       - name: leaders
         label: "Раҳбарлар фикри"
-        file: "_data/leaders.yml"
+        file: "_data/{{locale}}/leaders.yml"
+        i18n: true
         fields:
           - name: leaders
             label: "Высказывания"
-            label_singular: "Высказывание"
             widget: list
-            summary: "{{fields.country_uz}}"
+            i18n: true
+            summary: "{{fields.country}}"
             fields:
-              - { name: country_uz, label: "Страна (ЎЗ)", widget: string }
-              - { name: country_en, label: "Страна (EN)", widget: string }
-              - { name: quote_uz, label: "Цитата (ЎЗ)", widget: text }
-              - { name: quote_en, label: "Цитата (EN)", widget: text }
+              - { name: country, label: "Страна", widget: string, i18n: true }
+              - { name: quote, label: "Цитата", widget: text, i18n: true }
       - name: integration_news
         label: "Интеграция: янгиликлар"
-        file: "_data/integration_news.yml"
+        file: "_data/{{locale}}/integration_news.yml"
+        i18n: true
         fields:
           - name: news
             label: "Новости"
-            label_singular: "Новость"
             widget: list
+            i18n: true
             fields:
-              - { name: uz, label: "Текст (ЎЗ)", widget: text }
-              - { name: en, label: "Текст (EN)", widget: text }
-              - { name: url, label: "Ссылка (необязательно)", widget: string, required: false }
+              - { name: text, label: "Текст", widget: text, i18n: true }
+              - { name: url, label: "Ссылка", widget: string, required: false, i18n: duplicate }
 
-  # ---- Ёшлар: эссе (_data/essays.yml) ----
+  # ---- Ёшлар эсселари ----
   - name: essays
     label: "Ёшлар эсселари"
     files:
       - name: essays
         label: "Сборник эссе"
-        file: "_data/essays.yml"
+        file: "_data/{{locale}}/essays.yml"
+        i18n: true
         fields:
           - name: essays
             label: "Эссе"
-            label_singular: "Эссе"
             widget: list
-            summary: "{{fields.title_uz}} — {{fields.author}}"
+            i18n: true
+            summary: "{{fields.title}} — {{fields.author}}"
             fields:
-              - { name: title_uz, label: "Заголовок (ЎЗ)", widget: string }
-              - { name: title_en, label: "Заголовок (EN)", widget: string }
-              - { name: author, label: "Автор", widget: string, required: false }
-              - { name: country_uz, label: "Страна (ЎЗ)", widget: string, required: false }
-              - { name: country_en, label: "Страна (EN)", widget: string, required: false }
-              - { name: url, label: "Ссылка (необязательно)", widget: string, required: false }
-              - { name: excerpt_uz, label: "Отрывок (ЎЗ)", widget: text, required: false }
-              - { name: excerpt_en, label: "Отрывок (EN)", widget: text, required: false }
+              - { name: title, label: "Заголовок", widget: string, i18n: true }
+              - { name: author, label: "Автор", widget: string, required: false, i18n: duplicate }
+              - { name: country, label: "Страна", widget: string, required: false, i18n: true }
+              - { name: url, label: "Ссылка", widget: string, required: false, i18n: duplicate }
+              - { name: excerpt, label: "Отрывок", widget: text, required: false, i18n: true }
