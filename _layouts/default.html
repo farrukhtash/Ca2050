@@ -1,9 +1,22 @@
+{% assign L = site.active_lang %}{% assign D = site.default_lang %}
+{% assign ui = site.data[L].ui | default: site.data[D].ui %}
+{% assign canon = page.url %}
+{% if L != D %}{% assign pfx = '/' | append: L %}{% assign canon = page.url | remove_first: pfx %}{% endif %}
+{% if canon == '' %}{% assign canon = '/' %}{% endif %}
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="{{ site.active_lang }}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% if page.page_id and ui[page.page_id].hero_title %}
+<title>{{ ui[page.page_id].hero_title }} — {{ ui.brand_name }}</title>
+{% else %}
 <title>{{ page.title | default: site.title }}</title>
+{% endif %}
+{% I18n_Headers %}
+{% comment %}I18n_Headers covers default + x-default; add the non-default alternates (already locale-prefixed, so not re-localized).{% endcomment %}
+{% for lang in site.languages %}{% if lang != D %}<link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}/{{ lang }}{{ canon }}">
+{% endif %}{% endfor %}
 <link rel="icon" href="{{ '/assets/favicon/favicon.ico' | relative_url }}" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon/favicon-32.png' | relative_url }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon/favicon-16.png' | relative_url }}">
@@ -15,7 +28,7 @@
 </head>
 <body{% if page.hero_full %} class="has-hero-full"{% endif %}>
 
-{% include header.html %}
+{% include header.html canon=canon %}
 
 {{ content }}
 

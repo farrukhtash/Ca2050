@@ -1,17 +1,19 @@
 ---
 layout: default
 permalink: /directions/
+page_id: directions
 title: "Йўналишлар — Марказий Осиё давлатлари 2050"
 nav_active: directions
 ---
+{% assign L = site.active_lang %}{% assign D = site.default_lang %}
+{% assign t = site.data[L].ui | default: site.data[D].ui %}
+{% assign dirs = site.directions | sort: 'order' %}
+
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow uz">Тадқиқот йўналишлари</span>
-    <span class="eyebrow en">Research directions</span>
-    <h1 class="uz">Беш йўналиш бўйича чуқур таҳлил</h1>
-    <h1 class="en">In-depth analysis across five directions</h1>
-    <p class="sub uz">Китоб тўртта устувор йўналиш ва ёшлар боби атрофида қурилган: иқлим, сув, энергетика, транспорт ҳамда ижтимоий тараққиёт ва демография.</p>
-    <p class="sub en">The book is built around priority tracks: climate, water, energy, transport, and social development & demography.</p>
+    <span class="eyebrow">{{ t.directions.hero_eyebrow }}</span>
+    <h1>{{ t.directions.hero_title }}</h1>
+    <p class="sub">{{ t.directions.hero_sub }}</p>
   </div>
   <div class="horizon">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -32,14 +34,11 @@ nav_active: directions
 <section class="section">
   <div class="wrap">
     <div class="dir-grid" data-reveal>
-      {% assign dirs = site.directions | sort: 'order' %}
       {% for dir in dirs %}
       <a class="dir-card" href="{{ dir.url | relative_url }}">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="{{ dir.icon }}"/></svg>
-        <span class="dir-card-title uz">{{ dir.title_uz }}</span>
-        <span class="dir-card-title en">{{ dir.title_en }}</span>
-        <span class="dir-card-more uz">Батафсил →</span>
-        <span class="dir-card-more en">Read more →</span>
+        <span class="dir-card-title">{{ site.data[L].directions[dir.slug].title | default: site.data[D].directions[dir.slug].title }}</span>
+        <span class="dir-card-more">{{ t.directions.card_more }}</span>
       </a>
       {% endfor %}
     </div>

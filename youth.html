@@ -1,18 +1,19 @@
 ---
 layout: default
 permalink: /youth/
+page_id: youth
 title: "Кейинги авлод гапиради — Марказий Осиё давлатлари 2050"
 nav_active: youth
 ---
-<!-- HERO -->
+{% assign L = site.active_lang %}{% assign D = site.default_lang %}
+{% assign t = site.data[L].ui | default: site.data[D].ui %}
+{% assign essays = site.data[L].essays.essays | default: site.data[D].essays.essays %}
+
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow uz">Алоҳида боб</span>
-    <span class="eyebrow en">Featured chapter</span>
-    <h1 class="uz">Кейинги авлод гапиради</h1>
-    <h1 class="en">The next generation speaks</h1>
-    <p class="sub uz">Минтақа ёшларининг 2050 йилгача бўлган келажак ҳақидаги эсселар тўплами.</p>
-    <p class="sub en">A collection of essays and reflections by the region's youth on the future through 2050.</p>
+    <span class="eyebrow">{{ t.youth.hero_eyebrow }}</span>
+    <h1>{{ t.youth.hero_title }}</h1>
+    <p class="sub">{{ t.youth.hero_sub }}</p>
   </div>
   <div class="horizon">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -30,54 +31,38 @@ nav_active: youth
   </div>
 </section>
 
-<!-- INTRO -->
 <section class="section" id="intro">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand uz">Ғоя</span>
-      <span class="eyebrow on-sand en">The idea</span>
-      <h2 class="uz">Ёшлар овози</h2>
-      <h2 class="en">The voice of youth</h2>
+      <span class="eyebrow on-sand">{{ t.youth.intro_eyebrow }}</span>
+      <h2>{{ t.youth.intro_h2 }}</h2>
     </div>
     <div class="prose" data-reveal>
-      <p class="uz">Минтақа бўйлаб хоҳиш билдирган ёшлардан 2050 йилгача ўз ҳудудлари келажагини эссе шаклида баён этиш сўралди. Уларнинг фуқаролик маданияти, ўзлик, соғлиқни сақлаш ва минтақавий интеграция ҳақидаги фикрлари китобнинг энг ўзига хос бобларидан бирини ташкил қилади.</p>
-      <p class="en">Young people from across the region were invited to describe, in essay form, what their homelands could look like by 2050. Their reflections on civic culture, identity, health, and regional integration form one of the book's most distinctive chapters.</p>
+      <p>{{ t.youth.intro_p }}</p>
       <div class="youth-tags">
-        <span class="uz">Ўзлик</span><span class="en">Identity</span>
-        <span class="uz">Гендер</span><span class="en">Gender</span>
-        <span class="uz">Экология</span><span class="en">Ecology</span>
-        <span class="uz">Технология</span><span class="en">Technology</span>
+        {% for tag in t.youth.intro_tags %}<span>{{ tag }}</span>{% endfor %}
       </div>
     </div>
   </div>
 </section>
 
-<!-- ESSAYS -->
 <section class="section tint" id="essays">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand uz">Тўплам</span>
-      <span class="eyebrow on-sand en">Collection</span>
-      <h2 class="uz">Эсселар</h2>
-      <h2 class="en">Essays &amp; compositions</h2>
+      <span class="eyebrow on-sand">{{ t.youth.essays_eyebrow }}</span>
+      <h2>{{ t.youth.essays_h2 }}</h2>
     </div>
-    {% if site.data.essays.essays and site.data.essays.essays.size > 0 %}
+    {% if essays and essays.size > 0 %}
     <div class="quote-grid" data-reveal>
-      {% for e in site.data.essays.essays %}
+      {% for e in essays %}
       <blockquote class="quote-card">
-        <span class="uz">{{ e.excerpt_uz | default: e.title_uz }}</span>
-        <span class="en">{{ e.excerpt_en | default: e.title_en }}</span>
-        <cite>
-          {% if e.url and e.url != "" %}<a href="{{ e.url }}" target="_blank" rel="noopener">{{ e.author }}</a>{% else %}{{ e.author }}{% endif %}{% if e.country_uz %} · <span class="uz">{{ e.country_uz }}</span><span class="en">{{ e.country_en }}</span>{% endif %}
-        </cite>
+        <span>{{ e.excerpt | default: e.title }}</span>
+        <cite>{% if e.url and e.url != "" %}<a href="{{ e.url }}" target="_blank" rel="noopener">{{ e.author }}</a>{% else %}{{ e.author }}{% endif %}{% if e.country and e.country != "" %} · {{ e.country }}{% endif %}</cite>
       </blockquote>
       {% endfor %}
     </div>
     {% else %}
-    <div class="placeholder-note" data-reveal>
-      <span class="uz">Контент тайёрланмоқда — ёшларнинг эсселар тўплами шу ерда жойлаштирилади.</span>
-      <span class="en">Content in preparation — the collection of youth essays will be published here.</span>
-    </div>
+    <div class="placeholder-note" data-reveal>{{ t.youth.essays_placeholder }}</div>
     {% endif %}
   </div>
 </section>

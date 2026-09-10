@@ -1,9 +1,3 @@
-function setLang(lang){
-  document.documentElement.classList.toggle('lang-en', lang==='en');
-  document.getElementById('btn-uz').classList.toggle('active', lang==='uz');
-  document.getElementById('btn-en').classList.toggle('active', lang==='en');
-}
-
 function toggleNav(){
   const nav = document.getElementById('siteNav');
   const btn = document.getElementById('navToggle');
@@ -57,6 +51,19 @@ document.getElementById('siteNav').querySelectorAll('a').forEach(a=>{
     closeAllDropdowns();
   });
 });
+
+// Language switcher: build correct hrefs from the canonical path.
+// (data-canon is a data attribute, so it is never locale-rewritten by polyglot.)
+(function(){
+  const sw = document.querySelector('.langswitch');
+  if(!sw) return;
+  const def = sw.dataset.default;
+  const canon = sw.dataset.canon || '/';
+  sw.querySelectorAll('a[data-lang]').forEach(a=>{
+    const l = a.dataset.lang;
+    a.setAttribute('href', l === def ? canon : '/' + l + canon);
+  });
+})();
 
 // Scroll-reveal
 const io = new IntersectionObserver((entries)=>{

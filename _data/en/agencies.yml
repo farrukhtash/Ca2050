@@ -1,0 +1,10 @@
+support: "The project was carried out with the support of the European Union."
+agencies:
+  - short: "АСР"
+    name: "Agency for Strategic Reforms (Uzbekistan)"
+  - short: "ИСМИ"
+    name: "Institute for Strategic and Regional Studies (ISMI)"
+  - short: "МИЦА"
+    name: "International Institute for Central Asia (MICA)"
+  - short: "Kazakhstan Agency"
+    name: "Agency for Strategic Planning and Reforms of the Republic of Kazakhstan"

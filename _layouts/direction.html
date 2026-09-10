@@ -1,15 +1,14 @@
 ---
 layout: default
 ---
+{% assign L = site.active_lang %}{% assign D = site.default_lang %}
+{% assign t = site.data[L].ui | default: site.data[D].ui %}
+{% assign dtitle = site.data[L].directions[page.slug].title | default: site.data[D].directions[page.slug].title %}
 <section class="hero">
   <div class="wrap">
-    <a class="back-link" href="{{ '/directions/' | relative_url }}">
-      <span class="uz">← Барча йўналишлар</span><span class="en">← All directions</span>
-    </a>
-    <span class="eyebrow uz">Тадқиқот йўналиши</span>
-    <span class="eyebrow en">Research direction</span>
-    <h1 class="uz">{{ page.title_uz }}</h1>
-    <h1 class="en">{{ page.title_en }}</h1>
+    <a class="back-link" href="{{ '/directions/' | relative_url }}">{{ t.directions.back }}</a>
+    <span class="eyebrow">{{ t.directions.detail_eyebrow }}</span>
+    <h1>{{ dtitle }}</h1>
   </div>
   <div class="horizon">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -30,9 +29,6 @@ layout: default
 <section class="section">
   <div class="wrap">
     {{ content }}
-    <div class="placeholder-note" data-reveal>
-      <span class="uz">Контент тайёрланмоқда</span>
-      <span class="en">Content in preparation</span>
-    </div>
+    <div class="placeholder-note" data-reveal>{{ t.directions.placeholder }}</div>
   </div>
 </section>

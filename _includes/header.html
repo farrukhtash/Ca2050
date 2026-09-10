@@ -1,53 +1,44 @@
+{% assign L = site.active_lang %}{% assign D = site.default_lang %}
+{% assign t = site.data[L].ui | default: site.data[D].ui %}
+{% assign dirs = site.directions | sort: 'order' %}
 <header class="site-header">
   <div class="wrap">
-    <a href="{{ '/' | relative_url }}" class="brand-mark" aria-label="CA 2050 — Марказий Осиё 2050">
-      <img src="{{ '/assets/images/logo-mark.png' | relative_url }}" alt="CA 2050">
+    <a href="{{ '/' | relative_url }}" class="brand-mark" aria-label="{{ t.brand_name }}">
+      <img src="{{ '/assets/images/logo-mark.png' | relative_url }}" alt="{{ t.brand_name }}">
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav" onclick="toggleNav()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
-    <nav class="site-nav" id="siteNav" aria-label="Асосий навигация">
-      <a href="{{ '/about/' | relative_url }}" class="nav-link{% if page.nav_active == 'about' %} active{% endif %}">
-        <span class="uz">Китоб ҳақида</span><span class="en">The book</span>
-      </a>
+    <nav class="site-nav" id="siteNav" aria-label="{{ t.nav.about }}">
+      <a href="{{ '/about/' | relative_url }}" class="nav-link{% if page.nav_active == 'about' %} active{% endif %}">{{ t.nav.about }}</a>
 
       <div class="nav-item has-dropdown">
         <button type="button" class="nav-link nav-dropdown-toggle{% if page.nav_active == 'directions' %} active{% endif %}" aria-expanded="false" aria-haspopup="true" aria-controls="dd-directions">
-          <span class="uz">Йўналишлар</span><span class="en">Directions</span>
+          {{ t.nav.directions }}
           <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="nav-dropdown" id="dd-directions" role="menu">
-          <a role="menuitem" href="{{ '/directions/' | relative_url }}"><span class="uz">Барча йўналишлар</span><span class="en">All directions</span></a>
-          <a role="menuitem" href="{{ '/directions/climate/' | relative_url }}"><span class="uz">Иқлим ўзгариши</span><span class="en">Climate change</span></a>
-          <a role="menuitem" href="{{ '/directions/water/' | relative_url }}"><span class="uz">Сув ресурслари</span><span class="en">Water resources</span></a>
-          <a role="menuitem" href="{{ '/directions/energy/' | relative_url }}"><span class="uz">Энергетика</span><span class="en">Energy</span></a>
-          <a role="menuitem" href="{{ '/directions/transport/' | relative_url }}"><span class="uz">Транспорт</span><span class="en">Transport</span></a>
-          <a role="menuitem" href="{{ '/directions/demography/' | relative_url }}"><span class="uz">Ижтимоий тараққиёт ва демография</span><span class="en">Social development &amp; demography</span></a>
+          <a role="menuitem" href="{{ '/directions/' | relative_url }}">{{ t.nav.all_directions }}</a>
+          {% for dir in dirs %}
+          <a role="menuitem" href="{{ dir.url | relative_url }}">{{ site.data[L].directions[dir.slug].title | default: site.data[D].directions[dir.slug].title }}</a>
+          {% endfor %}
         </div>
       </div>
 
-      <a href="{{ '/youth/' | relative_url }}" class="nav-link{% if page.nav_active == 'youth' %} active{% endif %}">
-        <span class="uz">Кейинги авлод гапиради</span><span class="en">Youth</span>
-      </a>
-      <a href="{{ '/region/' | relative_url }}" class="nav-link{% if page.nav_active == 'region' %} active{% endif %}">
-        <span class="uz">Беш давлат — бир минтақа</span><span class="en">The region</span>
-      </a>
-      <a href="{{ '/seminar-2025/' | relative_url }}" class="nav-link{% if page.nav_active == 'seminar' %} active{% endif %}">
-        <span class="uz">Форсайт-семинар</span><span class="en">Foresight Seminar</span>
-      </a>
-      <a href="{{ '/feedback/' | relative_url }}" class="nav-link{% if page.nav_active == 'feedback' %} active{% endif %}">
-        <span class="uz">Фикрингизни қолдиринг</span><span class="en">Leave feedback</span>
-      </a>
+      <a href="{{ '/youth/' | relative_url }}" class="nav-link{% if page.nav_active == 'youth' %} active{% endif %}">{{ t.nav.youth }}</a>
+      <a href="{{ '/region/' | relative_url }}" class="nav-link{% if page.nav_active == 'region' %} active{% endif %}">{{ t.nav.region }}</a>
+      <a href="{{ '/seminar-2025/' | relative_url }}" class="nav-link{% if page.nav_active == 'seminar' %} active{% endif %}">{{ t.nav.seminar }}</a>
+      <a href="{{ '/feedback/' | relative_url }}" class="nav-link{% if page.nav_active == 'feedback' %} active{% endif %}">{{ t.nav.feedback }}</a>
     </nav>
     <div class="header-right">
       {% if page.header_pdf %}
-      <a href="{{ '/markaziy-osiyo-2050_uz.pdf' | relative_url }}" class="header-download" download>
-        <span class="uz">PDF</span><span class="en">PDF</span>
-      </a>
+      <a href="{{ '/markaziy-osiyo-2050_uz.pdf' | relative_url }}" class="header-download" download>PDF</a>
       {% endif %}
-      <div class="langswitch">
-        <button id="btn-uz" class="active" onclick="setLang('uz')">ЎЗ</button>
-        <button id="btn-en" onclick="setLang('en')">EN</button>
+      <div class="langswitch" data-default="{{ D }}" data-canon="{{ include.canon }}">
+        {% for lang in site.languages %}
+          {% if lang == D %}{% assign href = include.canon %}{% else %}{% assign href = include.canon | prepend: lang | prepend: '/' %}{% endif %}
+          <a class="lang-btn{% if lang == L %} active{% endif %}" data-lang="{{ lang }}" href="{{ href }}" hreflang="{{ lang }}" lang="{{ lang }}">{{ site.data.langmeta[lang].short }}</a>
+        {% endfor %}
       </div>
     </div>
   </div>

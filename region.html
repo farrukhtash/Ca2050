@@ -1,18 +1,21 @@
 ---
 layout: default
 permalink: /region/
+page_id: region
 title: "Беш давлат — бир минтақа — Марказий Осиё давлатлари 2050"
 nav_active: region
 ---
-<!-- HERO -->
+{% assign L = site.active_lang %}{% assign D = site.default_lang %}
+{% assign t = site.data[L].ui | default: site.data[D].ui %}
+{% assign countries = site.data[L].ui.countries | default: site.data[D].ui.countries %}
+{% assign leaders = site.data[L].leaders.leaders | default: site.data[D].leaders.leaders %}
+{% assign news = site.data[L].integration_news.news | default: site.data[D].integration_news.news %}
+
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow uz">Минтақа</span>
-    <span class="eyebrow en">The region</span>
-    <h1 class="uz">Беш давлат — бир минтақа</h1>
-    <h1 class="en">Five countries — one region</h1>
-    <p class="sub uz">Марказий Осиё давлатлари раҳбарларининг фикрлари ва минтақавий интеграция бўйича янгиликлар.</p>
-    <p class="sub en">Key statements by the leaders of Central Asia and news on regional integration.</p>
+    <span class="eyebrow">{{ t.region.hero_eyebrow }}</span>
+    <h1>{{ t.region.hero_title }}</h1>
+    <p class="sub">{{ t.region.hero_sub }}</p>
   </div>
   <div class="horizon">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -30,63 +33,43 @@ nav_active: region
   </div>
 </section>
 
-<!-- COUNTRIES STRIP -->
 <section class="countries" id="countries">
   <div class="wrap">
     <div class="country-grid" data-reveal>
-      <div class="country-card"><span class="uz">Қозоғистон</span><span class="en">Kazakhstan</span></div>
-      <div class="country-card"><span class="uz">Қирғизистон</span><span class="en">Kyrgyzstan</span></div>
-      <div class="country-card"><span class="uz">Тожикистон</span><span class="en">Tajikistan</span></div>
-      <div class="country-card"><span class="uz">Туркманистон</span><span class="en">Turkmenistan</span></div>
-      <div class="country-card"><span class="uz">Ўзбекистон</span><span class="en">Uzbekistan</span></div>
+      {% for c in countries %}<div class="country-card"><span>{{ c }}</span></div>{% endfor %}
     </div>
   </div>
 </section>
 
-<!-- SUBSECTION 1: leaders' quotes -->
 <section class="section" id="leaders">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand uz">Давлат раҳбарлари</span>
-      <span class="eyebrow on-sand en">Heads of state</span>
-      <h2 class="uz">Марказий Осиё раҳбарларининг калит фикрлари</h2>
-      <h2 class="en">Key statements by Central Asian leaders</h2>
+      <span class="eyebrow on-sand">{{ t.region.leaders_eyebrow }}</span>
+      <h2>{{ t.region.leaders_h2 }}</h2>
     </div>
     <div class="quote-grid" data-reveal>
-      {% for l in site.data.leaders.leaders %}
+      {% for l in leaders %}
       <blockquote class="quote-card">
-        <span class="uz">{{ l.quote_uz }}</span>
-        <span class="en">{{ l.quote_en }}</span>
-        <cite><span class="uz">{{ l.country_uz }}</span><span class="en">{{ l.country_en }}</span></cite>
+        <span>{{ l.quote }}</span>
+        <cite>{{ l.country }}</cite>
       </blockquote>
       {% endfor %}
     </div>
-    <div class="placeholder-note" data-reveal>
-      <span class="uz">Контент тайёрланмоқда — раҳбарларнинг расмий баёнотлари қўшилади.</span>
-      <span class="en">Content in preparation — official statements by the leaders will be added.</span>
-    </div>
+    <div class="placeholder-note" data-reveal>{{ t.region.leaders_placeholder }}</div>
   </div>
 </section>
 
-<!-- SUBSECTION 2: integration news -->
 <section class="section tint" id="integration">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand uz">Минтақавий интеграция</span>
-      <span class="eyebrow on-sand en">Regional integration</span>
-      <h2 class="uz">Интеграция бўйича янгиликлар</h2>
-      <h2 class="en">News on regional integration</h2>
+      <span class="eyebrow on-sand">{{ t.region.integration_eyebrow }}</span>
+      <h2>{{ t.region.integration_h2 }}</h2>
     </div>
     <div class="news-list" data-reveal>
-      {% for n in site.data.integration_news.news %}
-      <div class="news-item">
-        {% if n.url and n.url != "" %}<a href="{{ n.url }}" target="_blank" rel="noopener"><span class="uz">{{ n.uz }}</span><span class="en">{{ n.en }}</span></a>{% else %}<span class="uz">{{ n.uz }}</span><span class="en">{{ n.en }}</span>{% endif %}
-      </div>
+      {% for n in news %}
+      <div class="news-item">{% if n.url and n.url != "" %}<a href="{{ n.url }}" target="_blank" rel="noopener">{{ n.text }}</a>{% else %}{{ n.text }}{% endif %}</div>
       {% endfor %}
     </div>
-    <div class="placeholder-note" data-reveal>
-      <span class="uz">Контент тайёрланмоқда — минтақавий интеграция бўйича материаллар жойлаштирилади.</span>
-      <span class="en">Content in preparation — materials on regional integration will be published here.</span>
-    </div>
+    <div class="placeholder-note" data-reveal>{{ t.region.integration_placeholder }}</div>
   </div>
 </section>

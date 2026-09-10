@@ -1,0 +1,11 @@
+# Direction texts (key = filename in _directions/*.md).
+climate:
+  title: "Climate change"
+water:
+  title: "Water resources"
+energy:
+  title: "Energy"
+transport:
+  title: "Transport"
+demography:
+  title: "Social development & demography"
