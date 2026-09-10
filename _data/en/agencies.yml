@@ -1,13 +1,8 @@
-# Organizers block on /about/.
-# logo — path to an uploaded logo (via CMS, i18n: duplicate). If empty — name only.
 agencies:
-  - logo: ""
-    name: "Agency for Strategic Reforms (Uzbekistan)"
-  - logo: ""
-    name: "Institute for Strategic and Regional Studies (ISMI)"
-  - logo: ""
-    name: "International Institute for Central Asia (MICA)"
-  - logo: ""
-    name: "Agency for Strategic Planning and Reforms of the Republic of Kazakhstan"
-  - logo: ""
-    name: "European Union"
+  - logo: /assets/images/uploads/asdr-new-logo-uz.svg
+    name: International Institute for Central Asia (MICA)
+  - logo: ''
+    name: Agency for Strategic Planning and Reforms of the Republic of Kazakhstan
+  - logo: ''
+    name: European Union
+  - logo: ''
