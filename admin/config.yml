@@ -95,8 +95,6 @@ collections:
         i18n: true
         fields:
           - { name: intro, label: "Абзацы", widget: list, i18n: true, field: { name: text, label: "Абзац", widget: text } }
-          - { name: quote, label: "Цитата", widget: text, i18n: true }
-          - { name: quote_cite, label: "Подпись цитаты", widget: string, i18n: true }
       - name: agencies
         label: "Блок: организаторы"
         file: "_data/{{locale}}/agencies.yml"

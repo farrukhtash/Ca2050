@@ -42,14 +42,8 @@ header_pdf: true
       <span class="eyebrow on-sand">{{ t.about.overview_eyebrow }}</span>
       <h2>{{ t.about.overview_h2 }}</h2>
     </div>
-    <div class="about-body">
-      <div data-reveal>
-        {% for p in about.intro %}<p>{{ p }}</p>{% endfor %}
-      </div>
-      <blockquote data-reveal>
-        <span>{{ about.quote }}</span>
-        <cite>{{ about.quote_cite }}</cite>
-      </blockquote>
+    <div class="prose" data-reveal>
+      {% for p in about.intro %}<p>{{ p }}</p>{% endfor %}
     </div>
   </div>
 </section>
