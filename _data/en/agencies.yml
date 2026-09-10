@@ -5,4 +5,5 @@ agencies:
     name: Agency for Strategic Planning and Reforms of the Republic of Kazakhstan
   - logo: ''
     name: European Union
-  - logo: ''
+  - logo: /assets/images/uploads/eu-flag.png
+    name: Delegation of the European Union to Uzbekistan
