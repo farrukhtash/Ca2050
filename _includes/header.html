@@ -34,10 +34,10 @@
       {% if page.header_pdf %}
       <a href="{{ '/markaziy-osiyo-2050_uz.pdf' | relative_url }}" class="header-download" download>PDF</a>
       {% endif %}
-      <div class="langswitch">
+      <div class="langswitch" data-default="{{ D }}" data-canon="{{ include.canon }}">
         {% for lang in site.languages %}
-          {% if lang == D %}{% assign lp = '' %}{% else %}{% assign lp = lang | prepend: '/' %}{% endif %}
-          <a class="lang-btn{% if lang == L %} active{% endif %}" href="{{ site.url }}{{ lp }}{{ page.url }}" hreflang="{{ lang }}" lang="{{ lang }}">{{ site.data.langmeta[lang].short }}</a>
+          {% if lang == D %}{% assign href = include.canon %}{% else %}{% assign href = include.canon | prepend: lang | prepend: '/' %}{% endif %}
+          <a class="lang-btn{% if lang == L %} active{% endif %}" data-lang="{{ lang }}" href="{{ href }}" hreflang="{{ lang }}" lang="{{ lang }}">{{ site.data.langmeta[lang].short }}</a>
         {% endfor %}
       </div>
     </div>
