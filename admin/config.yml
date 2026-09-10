@@ -144,13 +144,19 @@ collections:
         i18n: true
         fields:
           - name: leaders
-            label: "Высказывания"
+            label: "Раҳбарлар"
+            label_singular: "Раҳбар"
             widget: list
             i18n: true
-            summary: "{{fields.country}}"
+            summary: "{{fields.country}} — {{fields.name}}"
             fields:
-              - { name: country, label: "Страна", widget: string, i18n: true }
+              - { name: photo, label: "Фото (крупно)", widget: image, required: false, media_folder: "/assets/images/uploads", public_folder: "/assets/images/uploads", i18n: duplicate }
+              - { name: flag, label: "Флаг (маленький)", widget: image, required: false, media_folder: "/assets/images/uploads", public_folder: "/assets/images/uploads", i18n: duplicate }
               - { name: quote, label: "Цитата", widget: text, i18n: true }
+              - { name: name, label: "Имя президента", widget: string, i18n: true }
+              - { name: position, label: "Должность", widget: string, i18n: true }
+              - { name: country, label: "Страна", widget: string, i18n: true }
+              - { name: order, label: "Порядок", widget: number, value_type: int, default: 99, i18n: duplicate }
       - name: integration_news
         label: "Интеграция: янгиликлар"
         file: "_data/{{locale}}/integration_news.yml"
@@ -158,11 +164,17 @@ collections:
         fields:
           - name: news
             label: "Новости"
+            label_singular: "Новость"
             widget: list
             i18n: true
+            summary: "{{fields.title}}"
             fields:
-              - { name: text, label: "Текст", widget: text, i18n: true }
-              - { name: url, label: "Ссылка", widget: string, required: false, i18n: duplicate }
+              - { name: image, label: "Фото / обложка", widget: image, required: false, media_folder: "/assets/images/uploads", public_folder: "/assets/images/uploads", i18n: duplicate }
+              - { name: title, label: "Заголовок", widget: string, i18n: true }
+              - { name: description, label: "Краткое описание", widget: text, required: false, i18n: true }
+              - { name: url, label: "Ссылка на новость", widget: string, i18n: duplicate }
+              - { name: date, label: "Дата", widget: datetime, i18n: duplicate }
+              - { name: source, label: "Источник", widget: string, required: false, i18n: duplicate }
 
   # ---- Ёшлар эсселари ----
   - name: essays

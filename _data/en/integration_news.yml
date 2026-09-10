@@ -1,5 +1,15 @@
+# Regional integration news — card tiles.
+# Sorted by date (newest first). A placeholder shows when no image is set.
 news:
-  - text: "[News headline and summary — in preparation]"
+  - image: ""
+    title: "[News headline — in preparation]"
+    description: "[Short summary: one or two sentences.]"
     url: ""
-  - text: "[News headline and summary — in preparation]"
+    date: "2026-09-01"
+    source: ""
+  - image: ""
+    title: "[News headline — in preparation]"
+    description: "[Short summary: one or two sentences.]"
     url: ""
+    date: "2026-08-15"
+    source: ""

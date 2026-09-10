@@ -81,6 +81,55 @@ if(document.body.classList.contains('has-hero-full')){
   }
 }
 
+// Region leaders: flag row + prev/next arrows + keyboard + swipe (manual only, circular)
+document.querySelectorAll('[data-leaders]').forEach(root=>{
+  const flags = Array.from(root.querySelectorAll('.leader-flag'));
+  const panels = Array.from(root.querySelectorAll('.leader-panel'));
+  if(!flags.length || !panels.length) return;
+  let cur = 0;
+  const show = (i, focusFlag)=>{
+    cur = (i + panels.length) % panels.length;
+    flags.forEach((f,idx)=>{
+      const on = idx === cur;
+      f.classList.toggle('is-active', on);
+      f.setAttribute('aria-selected', on ? 'true' : 'false');
+      f.tabIndex = on ? 0 : -1;
+    });
+    panels.forEach((p,idx)=>{
+      const on = idx === cur;
+      p.classList.toggle('is-active', on);
+      p.hidden = !on;
+    });
+    if(focusFlag) flags[cur].focus();
+  };
+  flags.forEach((f,idx)=>{
+    f.addEventListener('click', ()=>show(idx));
+    f.addEventListener('keydown', (e)=>{
+      if(e.key === 'ArrowRight'){ e.preventDefault(); show(cur + 1, true); }
+      else if(e.key === 'ArrowLeft'){ e.preventDefault(); show(cur - 1, true); }
+      else if(e.key === 'Home'){ e.preventDefault(); show(0, true); }
+      else if(e.key === 'End'){ e.preventDefault(); show(panels.length - 1, true); }
+    });
+  });
+  const prev = root.querySelector('[data-prev]');
+  const next = root.querySelector('[data-next]');
+  if(prev) prev.addEventListener('click', ()=>show(cur - 1));
+  if(next) next.addEventListener('click', ()=>show(cur + 1));
+  // Swipe (mobile)
+  const stage = root.querySelector('.leader-panels');
+  if(stage){
+    let x0 = null;
+    stage.addEventListener('touchstart', (e)=>{ x0 = e.touches[0].clientX; }, {passive:true});
+    stage.addEventListener('touchend', (e)=>{
+      if(x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if(Math.abs(dx) > 40) show(dx < 0 ? cur + 1 : cur - 1);
+      x0 = null;
+    }, {passive:true});
+  }
+  show(0);
+});
+
 // Hero background carousel (cross-fade)
 (function(){
   const slides = document.querySelectorAll('.home-hero .hero-slide');

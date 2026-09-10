@@ -47,15 +47,67 @@ nav_active: region
       <span class="eyebrow on-sand">{{ t.region.leaders_eyebrow }}</span>
       <h2>{{ t.region.leaders_h2 }}</h2>
     </div>
-    <div class="quote-grid" data-reveal>
-      {% for l in leaders %}
-      <blockquote class="quote-card">
-        <span>{{ l.quote }}</span>
-        <cite>{{ l.country }}</cite>
-      </blockquote>
-      {% endfor %}
+
+    {% assign leaders_sorted = leaders | sort: 'order' %}
+    <div class="leaders" data-leaders data-reveal>
+      <div class="leader-flags" role="tablist" aria-label="{{ t.region.leaders_h2 }}">
+        {% for l in leaders_sorted %}
+        <button type="button" class="leader-flag{% if forloop.first %} is-active{% endif %}"
+                id="leader-tab-{{ forloop.index0 }}" role="tab"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                aria-controls="leader-panel-{{ forloop.index0 }}"
+                tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+                data-index="{{ forloop.index0 }}" title="{{ l.country }}">
+          {% if l.flag and l.flag != "" %}
+          <img class="leader-flag-img" src="{{ l.flag | relative_url }}" alt="{{ l.country }}" loading="lazy">
+          {% else %}
+          <span class="flag-ph" aria-hidden="true">{{ l.country }}</span>
+          {% endif %}
+          <span class="leader-flag-name">{{ l.country }}</span>
+        </button>
+        {% endfor %}
+      </div>
+
+      <div class="leader-stage">
+        <button type="button" class="leader-nav prev" data-prev aria-label="←">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="leader-panels">
+          {% for l in leaders_sorted %}
+          <article class="leader-panel{% if forloop.first %} is-active{% endif %}"
+                   id="leader-panel-{{ forloop.index0 }}" role="tabpanel"
+                   aria-labelledby="leader-tab-{{ forloop.index0 }}"
+                   data-index="{{ forloop.index0 }}"{% unless forloop.first %} hidden{% endunless %}>
+            <div class="leader-photo">
+              {% if l.photo and l.photo != "" %}
+              <img src="{{ l.photo | relative_url }}" alt="{{ l.name }} — {{ l.country }}">
+              {% else %}
+              <div class="leader-photo-ph" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              </div>
+              {% endif %}
+            </div>
+            <div class="leader-flag-divider">
+              {% if l.flag and l.flag != "" %}
+              <img src="{{ l.flag | relative_url }}" alt="{{ l.country }}">
+              {% else %}
+              <span class="flag-ph-sm" aria-hidden="true">{{ l.country }}</span>
+              {% endif %}
+            </div>
+            <blockquote class="leader-quote">{{ l.quote }}</blockquote>
+            <div class="leader-meta">
+              <span class="leader-name">{{ l.name }}</span>
+              <span class="leader-position">{{ l.position }}</span>
+              <span class="leader-country">{{ l.country }}</span>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+        <button type="button" class="leader-nav next" data-next aria-label="→">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
     </div>
-    <div class="placeholder-note" data-reveal>{{ t.region.leaders_placeholder }}</div>
   </div>
 </section>
 
@@ -65,11 +117,29 @@ nav_active: region
       <span class="eyebrow on-sand">{{ t.region.integration_eyebrow }}</span>
       <h2>{{ t.region.integration_h2 }}</h2>
     </div>
-    <div class="news-list" data-reveal>
-      {% for n in news %}
-      <div class="news-item">{% if n.url and n.url != "" %}<a href="{{ n.url }}" target="_blank" rel="noopener">{{ n.text }}</a>{% else %}{{ n.text }}{% endif %}</div>
+
+    {% assign news_sorted = news | sort: 'date' | reverse %}
+    <div class="news-grid" data-reveal>
+      {% for n in news_sorted %}
+      {% assign has_url = false %}{% if n.url and n.url != "" %}{% assign has_url = true %}{% endif %}
+      {% if has_url %}<a class="news-card" href="{{ n.url }}" target="_blank" rel="noopener">{% else %}<div class="news-card is-static">{% endif %}
+        <div class="news-cover">
+          {% if n.image and n.image != "" %}
+          <img src="{{ n.image | relative_url }}" alt="" loading="lazy">
+          {% else %}
+          <div class="news-cover-ph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5-5-9 9"/></svg>
+          </div>
+          {% endif %}
+        </div>
+        <div class="news-body">
+          {% if n.date and n.date != "" %}<time class="news-date" datetime="{{ n.date }}">{{ n.date | date: "%d.%m.%Y" }}</time>{% endif %}
+          <h3 class="news-title">{{ n.title }}</h3>
+          {% if n.description and n.description != "" %}<p class="news-desc">{{ n.description }}</p>{% endif %}
+          {% if n.source and n.source != "" %}<span class="news-source">{{ n.source }}</span>{% endif %}
+        </div>
+      {% if has_url %}</a>{% else %}</div>{% endif %}
       {% endfor %}
     </div>
-    <div class="placeholder-note" data-reveal>{{ t.region.integration_placeholder }}</div>
   </div>
 </section>
