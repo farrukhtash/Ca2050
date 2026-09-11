@@ -1,69 +1,60 @@
-# Foresight Seminar page (/seminar-2025/) — the whole content lives here,
-# edited in Sveltia as a single collection (admin/config.yml →
-# seminar_page). Block headings live here too (not in ui.yml), so the
-# whole page is managed from one place.
-hero_eyebrow: "Regional event · Tashkent"
-hero_title: "Foresight Seminar 2025"
-hero_dates: "27–28 May 2025, Tashkent"
-hero_organizers: "Organizers: Agency for Strategic Reforms, ISMI, MICA, the relevant agency of the Republic of Kazakhstan · Supported by the European Union"
-
-about_eyebrow: "About the seminar"
-about_h2: "A joint dialogue among regional experts"
+hero_eyebrow: Regional event · Tashkent
+hero_title: Foresight Seminar 2025
+hero_dates: 27–28 May 2025, Tashkent
+hero_organizers: 'Organizers: Agency for Strategic Reforms, ISMI, MICA, the relevant agency of the Republic of Kazakhstan · Supported by the European Union'
+about_eyebrow: About the seminar
+about_h2: A joint dialogue among regional experts
 about_paragraphs:
-  - text: "As part of the Foresight Seminar, representatives of analytical centers and independent experts from the five countries gathered in Tashkent for two days to discuss scenarios for the region's future through 2050. The event became one of the key stages in preparing the book \"Central Asia States 2050.\""
-  - text: "Participants worked in group sessions on water and climate change, energy, transport links, and demography, shaping the key findings and recommendations for each track."
-
-quotes_eyebrow: "Voices from the seminar"
-quotes_h2: "Key quotes"
+  - text: As part of the Foresight Seminar, representatives of analytical centers and independent experts from the five countries gathered in Tashkent for two days to discuss scenarios for the region's future through 2050. The event became one of the key stages in preparing the book "Central Asia States 2050."
+  - text: Participants worked in group sessions on water and climate change, energy, transport links, and demography, shaping the key findings and recommendations for each track.
+quotes_eyebrow: Voices from the seminar
+quotes_h2: Key quotes
 quotes:
-  - photo: ""
-    name: "Nematov"
-    position: ""
-    quote: "\"[Insert Nematov's quote here]\""
-  - photo: ""
-    name: "Fayziev"
-    position: ""
-    quote: "\"[Insert Fayziev's quote here]\""
-  - photo: ""
-    name: "Klaar"
-    position: ""
-    quote: "\"[Insert Klaar's quote here]\""
-  - photo: ""
-    name: "Karazhanova"
-    position: ""
-    quote: "\"[Insert Karazhanova's quote here]\""
-  - photo: ""
-    name: "Umarova"
-    position: ""
-    quote: "\"[Insert Umarova's quote here]\""
-
-gallery_eyebrow: "Media gallery"
-gallery_h2: "The seminar in photos"
+  - photo: ''
+    name: Nematov
+    position: ''
+    quote: '"[Insert Nematov''s quote here]"'
+  - photo: ''
+    name: Fayziev
+    position: ''
+    quote: '"[Insert Fayziev''s quote here]"'
+  - photo: ''
+    name: Klaar
+    position: ''
+    quote: '"[Insert Klaar''s quote here]"'
+  - photo: ''
+    name: Karazhanova
+    position: ''
+    quote: '"[Insert Karazhanova''s quote here]"'
+  - photo: ''
+    name: Umarova
+    position: ''
+    quote: '"[Insert Umarova''s quote here]"'
+gallery_eyebrow: Media gallery
+gallery_h2: The seminar in photos
 photos:
-  - image: "/media/seminar-01.jpg"
-  - image: "/media/seminar-02.jpg"
-  - image: "/media/seminar-03.jpg"
-  - image: "/media/seminar-04.jpg"
-  - image: "/media/seminar-05.jpg"
-  - image: "/media/seminar-06.jpg"
-  - image: "/media/seminar-07.jpg"
-
-press_eyebrow: "In the media"
-press_h2: "The Foresight Seminar in the media"
+  - image: /media/seminar-01.jpg
+  - image: /media/seminar-02.jpg
+  - image: /media/seminar-03.jpg
+  - image: /media/seminar-04.jpg
+  - image: /media/seminar-05.jpg
+  - image: /media/seminar-06.jpg
+  - image: /media/seminar-07.jpg
+press_eyebrow: In the media
+press_h2: The Foresight Seminar in the media
 press:
-  - image: ""
-    title: "The Foresight Seminar draws attention from regional analysts"
-    description: "A short overview of the topics and conclusions discussed at the event — shown here as a sample."
-    url: "https://example.com/"
-    date: "2025-05-28"
-    source: "[Outlet name — sample]"
-  - image: ""
-    title: "Coverage of the \"Central Asia States 2050\" book in progress"
-    description: "A brief note on the book taking shape from the Foresight Seminar's outcomes — shown here as a sample."
-    url: "https://example.com/"
-    date: "2025-05-29"
-    source: "[Outlet name — sample]"
-
-final_h2: "Explore the book"
-final_cta: "About the book →"
-footer: "Central Asia States 2050 — Foresight Seminar 2025 · Tashkent"
+  - image: ''
+    title: The Foresight Seminar draws attention from regional analysts
+    description: A short overview of the topics and conclusions discussed at the event — shown here as a sample.
+    url: https://example.com/
+    date: 2025-05-28
+    source: '[Нашр номи — намуна]'
+  - image: ''
+    title: Coverage of the "Central Asia States 2050" book in progress
+    description: A brief note on the book taking shape from the Foresight Seminar's outcomes — shown here as a sample.
+    url: https://example.com/
+    date: 2025-05-29
+    source: '[Нашр номи — намуна]'
+final_h2: Explore the book
+final_cta: About the book →
+footer: Central Asia States 2050 — Foresight Seminar 2025 · Tashkent
