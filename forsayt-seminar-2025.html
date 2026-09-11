@@ -59,7 +59,7 @@ nav_active: seminar
     </div>
     <div class="quote-cards" data-reveal>
       {% for q in quotes %}
-      <div class="quote-card-item" tabindex="0" data-quote-card>
+      <div class="quote-card-item" tabindex="0" role="button" aria-expanded="false" data-quote-card>
         <div class="quote-card-compact">
           <div class="qc-photo">
             {% if q.photo and q.photo != "" %}
@@ -72,6 +72,9 @@ nav_active: seminar
           {% if q.position and q.position != "" %}<span class="qc-position">{{ q.position }}</span>{% endif %}
         </div>
         <div class="quote-card-expanded">
+          <button type="button" class="qc-close" data-quote-close aria-label="{{ t.directions.lightbox_close_label }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
           <div class="qc-photo-lg">
             {% if q.photo and q.photo != "" %}
             <img src="{{ q.photo | relative_url }}" alt="">

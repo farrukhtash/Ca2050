@@ -402,12 +402,14 @@ a.theme-card:hover{background:var(--navy-2);}
 @media (max-width:600px){ .carousel-item{flex-basis:100%;} }
 
 /* PARTICIPANT QUOTE CARDS (seminar page) — compact grid; expands to fill
-   the whole grid area on hover/focus (desktop+keyboard) or tap via
-   .is-expanded (touch, added by JS only on no-hover devices) */
+   the whole grid area on click/tap (same behavior on desktop and mobile),
+   toggled via .is-expanded by JS. Hover no longer expands — only a subtle
+   lift hints that the card is clickable. */
 .quote-cards{
   position:relative; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:20px; min-height:300px;
 }
+.quote-card-item{ cursor:pointer; }
 .quote-card-compact{
   height:100%; background:var(--white); border:1px solid rgba(25,26,34,.12); border-radius:10px;
   padding:22px 18px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px;
@@ -433,13 +435,19 @@ a.theme-card:hover{background:var(--navy-2);}
   text-align:center; gap:14px;
   opacity:0; visibility:hidden; transform:scale(.97);
   transition:opacity .3s ease, transform .3s ease, visibility .3s;
-  pointer-events:none;
+  pointer-events:none; cursor:auto;
 }
-.quote-card-item:hover .quote-card-expanded,
-.quote-card-item:focus-visible .quote-card-expanded,
 .quote-card-item.is-expanded .quote-card-expanded{
   opacity:1; visibility:visible; transform:scale(1); pointer-events:auto;
 }
+.qc-close{
+  position:absolute; top:14px; right:14px; width:34px; height:34px; padding:0;
+  display:flex; align-items:center; justify-content:center;
+  background:none; border:1px solid rgba(25,26,34,.15); border-radius:50%;
+  color:var(--ink-soft); cursor:pointer; transition:background .2s ease, color .2s ease;
+}
+.qc-close:hover, .qc-close:focus-visible{ background:var(--sand-2); color:var(--ink); }
+.qc-close svg{ width:16px; height:16px; }
 .qc-quote{
   border:none; padding:0; margin:0; max-width:62ch;
   font-family:'PT Serif',serif; font-style:italic; color:var(--ink);

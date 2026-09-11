@@ -203,24 +203,53 @@ document.querySelectorAll('[data-carousel]').forEach(root=>{
   if(next) next.addEventListener('click', ()=>scrollByItem(1));
 });
 
-// Participant quote cards (seminar page): hover/focus already expand the
-// card via CSS on devices with real hover; on touch devices (no hover),
-// tap toggles the expanded state instead.
-document.querySelectorAll('[data-quote-card]').forEach(item=>{
-  item.addEventListener('click', ()=>{
-    if(window.matchMedia('(hover: hover)').matches) return;
+// Participant quote cards (seminar page): click/tap expands the card to
+// fill the whole section (same behavior on desktop and mobile — hover no
+// longer expands). Closes via: repeat click on the card, the close button,
+// a click outside, or Escape.
+(function(){
+  const cards = Array.from(document.querySelectorAll('[data-quote-card]'));
+  if(!cards.length) return;
+
+  const setExpanded = (item, expanded)=>{
+    item.classList.toggle('is-expanded', expanded);
+    item.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  };
+  const closeAll = (except)=>{
+    cards.forEach(el=>{ if(el !== except) setExpanded(el, false); });
+  };
+  const toggle = (item)=>{
     const willExpand = !item.classList.contains('is-expanded');
-    document.querySelectorAll('[data-quote-card].is-expanded').forEach(el=>{
-      if(el !== item) el.classList.remove('is-expanded');
+    closeAll(item);
+    setExpanded(item, willExpand);
+  };
+
+  cards.forEach(item=>{
+    item.addEventListener('click', (e)=>{
+      if(e.target.closest('[data-quote-close]')) return;
+      toggle(item);
     });
-    item.classList.toggle('is-expanded', willExpand);
+    item.addEventListener('keydown', (e)=>{
+      if(e.target.closest('[data-quote-close]')) return;
+      if(e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){
+        e.preventDefault();
+        toggle(item);
+      }
+    });
+    const closeBtn = item.querySelector('[data-quote-close]');
+    if(closeBtn) closeBtn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      setExpanded(item, false);
+    });
   });
-});
-document.addEventListener('click', (e)=>{
-  if(!e.target.closest('[data-quote-card]')){
-    document.querySelectorAll('[data-quote-card].is-expanded').forEach(el=>el.classList.remove('is-expanded'));
-  }
-});
+
+  document.addEventListener('click', (e)=>{
+    if(!e.target.closest('[data-quote-card]')) closeAll();
+  });
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape') closeAll();
+  });
+})();
 
 // Hero background carousel (cross-fade)
 (function(){
