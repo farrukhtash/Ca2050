@@ -10,26 +10,30 @@ about_paragraphs:
 quotes_eyebrow: Voices from the seminar
 quotes_h2: Key quotes
 quotes:
-  - photo: ''
+  - photo: /assets/images/uploads/wlmiNr17484131524319_b.jpg
     name: Nematov
     position: ''
     quote: '"[Insert Nematov''s quote here]"'
-  - photo: ''
+  - photo: /assets/images/uploads/toivo_klaar.jpg
     name: Fayziev
     position: ''
     quote: '"[Insert Fayziev''s quote here]"'
-  - photo: ''
+  - photo: /assets/images/uploads/beIQON17484134392974_l.webp
     name: Klaar
     position: ''
     quote: '"[Insert Klaar''s quote here]"'
-  - photo: ''
+  - photo: /assets/images/uploads/lVladI17484149174974_b.jpg
     name: Karazhanova
     position: ''
     quote: '"[Insert Karazhanova''s quote here]"'
-  - photo: ''
+  - photo: /assets/images/uploads/eUh6RL17484139719633_b.jpg
     name: Umarova
     position: ''
     quote: '"[Insert Umarova''s quote here]"'
+  - photo: /assets/images/uploads/gDLkHw17484149215956_b.jpg
+    name: Аида Каражанова
+    position: ''
+    quote: «Форсайт – жорий тенденциялар таҳлили ҳамда экспертлар фикрига таянган ҳолда келажак сценарийларини яратиш ва юзага келиши мумкин бўлган хатарларни ҳисобга олишга ёрдам берадиган стратегик прогнозлаш усулидир.»
 gallery_eyebrow: Media gallery
 gallery_h2: The seminar in photos
 photos:
@@ -43,18 +47,30 @@ photos:
 press_eyebrow: In the media
 press_h2: The Foresight Seminar in the media
 press:
-  - image: ''
+  - image: /assets/images/uploads/hoN0sTMWhAXOvjmau4hfSHcl76rS_OLq.webp
     title: The Foresight Seminar draws attention from regional analysts
     description: A short overview of the topics and conclusions discussed at the event — shown here as a sample.
-    url: https://example.com/
-    date: 2025-05-28
-    source: '[Нашр номи — намуна]'
-  - image: ''
+    url: https://kun.uz/kr/news/2025/06/03/jonim-u-qonim-beshlik
+    date: 2025-06-03T05:00:00
+    source: Kun.uz
+  - image: /assets/images/uploads/sAyIIs17484129310155_l.webp
     title: Coverage of the "Central Asia States 2050" book in progress
     description: A brief note on the book taking shape from the Foresight Seminar's outcomes — shown here as a sample.
-    url: https://example.com/
-    date: 2025-05-29
-    source: '[Нашр номи — намуна]'
+    url: https://www.gazeta.uz/ru/2025/05/28/foresight-central-asia/
+    date: 2025-05-28T05:00:00
+    source: Gazeta.uz
+  - image: /assets/images/uploads/OmJnzlvH1zHqb1KPEfI51uUnJ2dGhAOA_front.jpg
+    title: Тошкентда “Марказий Осиё – 2050” форсайт-семинари ўз ишини бошлади
+    description: ''
+    url: https://uza.uz/posts/724253
+    date: 2025-05-28T05:00:00
+    source: ЎзА
+  - image: /assets/images/uploads/OmJnzlvH1zHqb1KPEfI51uUnJ2dGhAOA_front.jpg
+    title: Туркманистон Тошкентдаги биринчи минтақавий форсайт-семинарда иштирок этди
+    description: ''
+    url: https://turkmenportal.com/ru/news/91519-turkmenistan-prinyal-uchastie-v-pervom-regionalnom-forsaitseminare-v-tashkente
+    date: 2025-05-28T05:00:00
+    source: ТуркменПортал
 final_h2: Explore the book
 final_cta: About the book →
 footer: Central Asia States 2050 — Foresight Seminar 2025 · Tashkent
