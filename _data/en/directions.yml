@@ -104,10 +104,15 @@ directions:
     subtitle: ''
     stats:
       - value: 10 млн тонна
+        label: Ўрта коридор орқали юк ташиш ҳажми 2030 йилгача ўсиши прогноз қилинмоқда.
       - value: 900 км
+        label: “Хитой – Қирғизистон – Ўзбекистон” темир йўли Шарқий Осиё ва Европани боғловчи йўлни қисқартиради
       - value: 500 минг TEU
+        label: Қозоғистонда йилига қувватга эга “Хоргос” қуруқлик порти ташкил этилди
       - value: 30%
+        label: Қирғизистон ва Тожикистонда автойўлларнинг йил бўйи фойдаланиш учун яроқсиз
       - value: 4х
+        label: 2050 йилга бориб Марказий Осиё орқали транзит ташиш ҳажми баробарга ортиши
     intro: ''
     charts: []
     scenarios: []
@@ -115,8 +120,22 @@ directions:
   - slug: demography
     title: Social development & demography
     subtitle: ''
-    stats: []
+    stats:
+      - value: 144 млн
+        label: 2050 йилга келиб, минтақанинг аҳолиси нафардан ошади.
+      - value: 71 млн
+        label: Шу билан бирга, меҳнатга лаёқатли аҳоли сони (15 ёшдан 64 ёшгача) етади.
+      - value: 0–14
+        label: Ҳозирги вақтда Марказий Осиё аҳолисининг қарийб учдан бири ёшли ёшлардир
     intro: ''
-    charts: []
+    charts:
+      - image: /assets/images/uploads/1. Демография.png
+        caption: Марказий Осиё аҳолисининг жорий ва прогноз қилинган ўсиш сценарийлари (2000–2050 йиллар)
+        note: ''
+      - image: /assets/images/uploads/2. Демография.png
+      - image: /assets/images/uploads/3. Демография.png
+      - image: /assets/images/uploads/4. Демография.png
+      - image: /assets/images/uploads/5. Демография.png
+      - image: /assets/images/uploads/6. Демография.png
     scenarios: []
     recommendations: []
