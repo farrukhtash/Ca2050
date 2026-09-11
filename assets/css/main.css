@@ -58,23 +58,31 @@ body.has-hero-full .site-header.scrolled{
 .site-header .wrap{
   height:100%; display:flex; align-items:center; justify-content:space-between; gap:20px;
 }
-/* Outline wordmark: thick grotesque, gold stroke, transparent interior.
-   Fallback (no text-stroke support) is a solid gold fill so the logo
-   never disappears — @supports only flips the fill to transparent once
-   the stroke is actually there to replace it. The text-shadow keeps the
-   outline readable when the header is transparent over the photo hero
-   on the homepage (background brightness varies there); it stays subtle
-   once the header solidifies to navy on scroll / other pages. */
+/* Outline wordmark: geometric grotesque, thin gold stroke, transparent
+   interior. Two tight-stacked lines ("CA" / "2050", centered) instead of
+   one — lets each line run a bigger font-size within the same header
+   height, which is what keeps the stroke looking like a crisp outline
+   instead of smearing the counters shut. Montserrat is used specifically
+   for its wide, open counters (Inter's are too narrow at this size for a
+   stroke this thin to read cleanly). Fallback (no text-stroke support) is
+   a solid gold fill so the logo never disappears — @supports only flips
+   the fill to transparent once the stroke is actually there to replace
+   it. The text-shadow keeps the outline readable when the header is
+   transparent over the photo hero on the homepage (background brightness
+   varies there); it stays subtle once the header solidifies to navy on
+   scroll / other pages. */
 .brand-mark{
-  display:inline-flex; align-items:center; flex-shrink:0; text-decoration:none;
-  font-family:'Inter',sans-serif; font-weight:700; font-size:1.75rem;
-  letter-spacing:.04em; line-height:1;
+  display:inline-flex; flex-direction:column; align-items:center; justify-content:center;
+  flex-shrink:0; text-decoration:none;
+  font-family:'Montserrat','Inter',sans-serif; font-weight:700; font-size:22px;
+  letter-spacing:2px; line-height:.9;
   color:var(--gold);
-  -webkit-text-stroke:1.8px var(--gold);
-  text-stroke:1.8px var(--gold);
-  text-shadow:0 1px 3px rgba(0,0,0,.5);
+  -webkit-text-stroke:1.1px var(--gold);
+  text-stroke:1.1px var(--gold);
+  text-shadow:0 1px 2px rgba(0,0,0,.5);
   transition:filter .2s ease;
 }
+.brand-mark .bm-line{display:block;}
 @supports ((-webkit-text-stroke: 1px) or (text-stroke: 1px)){
   .brand-mark{ color:transparent; }
 }
