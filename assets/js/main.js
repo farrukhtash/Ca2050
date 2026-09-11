@@ -186,10 +186,66 @@ document.querySelectorAll('[data-leaders]').forEach(root=>{
 // Media carousel (seminar page): native scroll-snap track; prev/next
 // buttons scroll by one item's width. Touch swipe works natively via
 // overflow-x, no custom gesture handling needed.
+//
+// data-carousel-loop (opt-in, used by the press carousel) makes it
+// infinite in both directions. The item set is cloned once before and
+// once after the real (middle) set. A click always animates to an exact
+// item position (offsetLeft), tracked via a plain integer `pos` rather
+// than by reading scrollLeft back after the animation — reading scrollLeft
+// to decide "did we settle past the edge yet" is inherently racy (native
+// smooth-scroll + scroll-snap can still be settling when a scroll/'scroll'-
+// debounce fires). Instead, if the last click left `pos` pointing at a
+// clone, the NEXT click first re-homes scrollLeft instantly to the
+// pixel-identical spot in the real set (imperceptible, since clones are
+// exact copies) before animating the new step — correction is synchronous
+// and never races an in-flight animation.
 document.querySelectorAll('[data-carousel]').forEach(root=>{
   const viewport = root.querySelector('.carousel-viewport');
   const track = root.querySelector('.carousel-track');
   if(!viewport || !track) return;
+
+  const loop = root.hasAttribute('data-carousel-loop');
+  const realCount = track.children.length;
+  const prev = root.querySelector('[data-carousel-prev]');
+  const next = root.querySelector('[data-carousel-next]');
+
+  if(loop && realCount > 0){
+    const makeClone = (el)=>{
+      const clone = el.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.querySelectorAll('a, button').forEach(node=>{ node.tabIndex = -1; });
+      return clone;
+    };
+    const originals = Array.from(track.children);
+    track.prepend(...originals.map(makeClone));
+    track.append(...originals.map(makeClone));
+
+    // index into the real set (0..realCount-1); transiently -1 or realCount
+    // right after a wrap step, until the following click re-homes it
+    let pos = 0;
+    const targetLeft = (i)=> track.children[realCount + i].offsetLeft - track.offsetLeft;
+    const jumpTo = (left)=>{
+      const behavior = viewport.style.scrollBehavior;
+      viewport.style.scrollBehavior = 'auto';
+      viewport.scrollLeft = left;
+      viewport.style.scrollBehavior = behavior;
+    };
+    requestAnimationFrame(()=>{ jumpTo(targetLeft(0)); });
+
+    const step = (dir)=>{
+      if(pos < 0 || pos >= realCount){
+        const wrapped = ((pos % realCount) + realCount) % realCount;
+        jumpTo(targetLeft(wrapped));
+        pos = wrapped;
+      }
+      pos += dir;
+      viewport.scrollTo({ left: targetLeft(pos), behavior: 'smooth' });
+    };
+    if(prev) prev.addEventListener('click', ()=>step(-1));
+    if(next) next.addEventListener('click', ()=>step(1));
+    return;
+  }
+
   const scrollByItem = (dir)=>{
     const item = track.querySelector('.carousel-item');
     if(!item) return;
@@ -197,8 +253,6 @@ document.querySelectorAll('[data-carousel]').forEach(root=>{
     const width = item.getBoundingClientRect().width + gap;
     viewport.scrollBy({ left: dir * width, behavior: 'smooth' });
   };
-  const prev = root.querySelector('[data-carousel-prev]');
-  const next = root.querySelector('[data-carousel-next]');
   if(prev) prev.addEventListener('click', ()=>scrollByItem(-1));
   if(next) next.addEventListener('click', ()=>scrollByItem(1));
 });
