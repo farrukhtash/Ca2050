@@ -210,12 +210,16 @@ body.has-hero-full .site-header.scrolled{
 .hero-grid{
   padding-bottom:48px;
 }
-/* light-on-navy echo of the youth "mahalla" scene, sat just above the
-   horizon strip; kept behind the hero text via z-index */
+/* light-on-navy echo of the youth "mahalla" scene (/youth/ hero only,
+   which has no .horizon — this page uses the scene as its own bottom
+   edge instead). Kept behind the hero text via z-index. */
 .hero-scene{
-  position:absolute; left:0; right:0; bottom:72px; width:100%; height:auto;
+  position:absolute; left:0; right:0; bottom:0; width:100%; height:auto;
   display:block; opacity:.06; pointer-events:none; z-index:0;
 }
+/* compensates for the dropped .horizon (72px + 8px margin) so the hero
+   keeps roughly the same height/proportion as other pages */
+.hero.hero-full-scene{padding-bottom:80px;}
 .hero > .wrap{position:relative; z-index:1;}
 .hero h1{
   font-size:clamp(1.9rem, 3.4vw, 2.7rem);
