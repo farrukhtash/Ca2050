@@ -1,27 +1,27 @@
 leaders:
-  - photo: ''
-    flag: ''
+  - photo: /assets/images/uploads/kz1-3324-2_mediumThumb.jpg
+    flag: /assets/images/uploads/images (1).jpg
     quote: '"[A head of state''s statement will be placed here]"'
     name: '[President full name]'
     position: '[President of the Republic of Kazakhstan]'
     country: Kazakhstan
     order: 2
-  - photo: ''
-    flag: ''
+  - photo: /assets/images/uploads/DOS_5161.jpg
+    flag: /assets/images/uploads/new-flag-kyrgyzstan-kyrgyz-original-260nw-2409846521.webp
     quote: '"[A head of state''s statement will be placed here]"'
     name: '[President full name]'
     position: '[President of the Kyrgyz Republic]'
     country: Kyrgyzstan
     order: 3
-  - photo: ''
-    flag: ''
+  - photo: /assets/images/uploads/55512943786_a2546a7a88_b.jpg
+    flag: /assets/images/uploads/images (3).jpg
     quote: '"[A head of state''s statement will be placed here]"'
     name: '[President full name]'
     position: '[President of the Republic of Tajikistan]'
     country: Tajikistan
     order: 4
-  - photo: ''
-    flag: ''
+  - photo: /assets/images/uploads/20-09 001.jpg
+    flag: /assets/images/uploads/images (2).jpg
     quote: '"[A head of state''s statement will be placed here]"'
     name: '[President full name]'
     position: '[President of Turkmenistan]'
