@@ -72,9 +72,18 @@ directions:
   - slug: energy
     title: Energy
     subtitle: ''
-    stats: []
+    stats:
+      - value: 80% / 50%
+      - value: 155 млрд м3
+      - value: “Марказий Осиё – Хитой”
+      - value: 2,8 млрд м3
+      - value: Озарбайжон
     intro: ''
-    charts: []
+    charts:
+      - image: /assets/images/uploads/1. Энергетика.png
+      - image: /assets/images/uploads/2. энергетика.png
+      - image: /assets/images/uploads/3. энеретика.png
+      - image: /assets/images/uploads/4. Энергетика.png
     scenarios: []
     recommendations: []
   - slug: transport
