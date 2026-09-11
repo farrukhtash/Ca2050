@@ -1,0 +1,108 @@
+{% comment %}
+  Thematic hero scene for a direction page — same treatment as the /youth/
+  hero (_includes/youth-scene.html): one flat, abstract composition (not a
+  repeating tile), anchored to the bottom of the hero via the shared
+  .hero-scene CSS class, light gold/sand tones at low opacity over the
+  dark navy hero. One include picked by `slug` so each of the five
+  direction pages gets its own scene automatically without duplicating
+  markup (see _layouts/direction.html).
+  Params: svg_class, slug (climate | water | energy | transport | demography).
+{% endcomment %}<svg class="{{ include.svg_class }}" viewBox="0 0 1600 300" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+{% case include.slug %}
+
+{% when 'climate' %}
+  {% comment %} mountain ridges with a snow-white front range, sun, air-current curves {% endcomment %}
+  <path d="M0,240 L100,205 L200,245 L300,210 L400,250 L500,215 L600,245 L700,200 L800,248 L900,212 L1000,242 L1100,208 L1200,246 L1300,214 L1400,240 L1500,205 L1600,235 L1600,300 L0,300 Z" fill="#e3cd85"/>
+  <path d="M0,260 L150,150 L300,230 L480,110 L650,220 L830,140 L1000,225 L1200,120 L1380,215 L1600,160 L1600,300 L0,300 Z" fill="#faf8f2"/>
+  <circle cx="1300" cy="85" r="38" fill="#e3cd85"/>
+  <path d="M0,60 Q100,40 200,60 T400,55 T600,65 T800,50" fill="none" stroke="#faf8f2" stroke-width="3" stroke-linecap="round"/>
+  <path d="M0,105 Q120,88 240,103 T480,98 T720,108 T960,92" fill="none" stroke="#e3cd85" stroke-width="3" stroke-linecap="round"/>
+
+{% when 'water' %}
+  {% comment %} winding river, irrigated field grid, droplets, ripples {% endcomment %}
+  <path d="M0,270 Q400,240 800,255 T1600,245 L1600,300 L0,300 Z" fill="#e3cd85"/>
+  <path d="M0,200 C200,160 300,240 500,210 C700,180 800,250 1000,220 C1200,190 1300,240 1600,205" fill="none" stroke="#faf8f2" stroke-width="14" stroke-linecap="round"/>
+  <g fill="#e3cd85">
+    <rect x="1150" y="180" width="60" height="40"/><rect x="1220" y="180" width="60" height="40"/><rect x="1290" y="180" width="60" height="40"/>
+    <rect x="1150" y="230" width="60" height="40"/><rect x="1220" y="230" width="60" height="40"/><rect x="1290" y="230" width="60" height="40"/>
+  </g>
+  <path d="M60,140 C52,152 52,166 60,172 C68,166 68,152 60,140 Z" fill="#faf8f2"/>
+  <path d="M180,110 C174,120 174,131 180,136 C186,131 186,120 180,110 Z" fill="#faf8f2"/>
+  <path d="M900,95 C893,106 893,118 900,124 C907,118 907,106 900,95 Z" fill="#faf8f2"/>
+  <g fill="none" stroke="#faf8f2" stroke-width="3" stroke-linecap="round">
+    <path d="M660,283 Q680,272 700,283"/>
+    <path d="M710,288 Q730,277 750,288"/>
+  </g>
+
+{% when 'energy' %}
+  {% comment %} wind turbines, solar panel rows, transmission pylons {% endcomment %}
+  <path d="M0,280 Q400,260 800,270 T1600,265 L1600,300 L0,300 Z" fill="#e3cd85"/>
+  <g fill="#faf8f2">
+    <rect x="148" y="110" width="4" height="190"/><circle cx="150" cy="110" r="5"/>
+    <polygon points="150,110 150,52 159,107"/><polygon points="150,110 198,132 153,117"/><polygon points="150,110 104,136 147,116"/>
+    <rect x="418" y="70" width="4" height="230"/><circle cx="420" cy="70" r="5"/>
+    <polygon points="420,70 420,12 429,67"/><polygon points="420,70 468,92 423,77"/><polygon points="420,70 374,96 417,76"/>
+    <rect x="698" y="140" width="4" height="160"/><circle cx="700" cy="140" r="5"/>
+    <polygon points="700,140 700,88 708,137"/><polygon points="700,140 742,160 703,146"/><polygon points="700,140 660,163 697,147"/>
+  </g>
+  <g fill="#e3cd85">
+    <polygon points="950,225 1010,225 1000,200 945,200"/><polygon points="1020,225 1080,225 1070,200 1015,200"/><polygon points="1090,225 1150,225 1140,200 1085,200"/>
+    <polygon points="950,260 1010,260 1000,235 945,235"/><polygon points="1020,260 1080,260 1070,235 1015,235"/><polygon points="1090,260 1150,260 1140,235 1085,235"/>
+  </g>
+  <g fill="none" stroke="#faf8f2" stroke-width="2">
+    <path d="M1300,300 L1320,180 L1340,300"/><path d="M1290,220 L1350,220"/><path d="M1295,260 L1345,260"/>
+    <path d="M1450,300 L1470,190 L1490,300"/><path d="M1440,230 L1500,230"/><path d="M1445,265 L1495,265"/>
+    <path d="M1320,180 Q1385,220 1470,190"/>
+  </g>
+
+{% when 'transport' %}
+  {% comment %} road receding to a vanishing point, rail ties, bridge, route nodes {% endcomment %}
+  <path d="M200,300 L750,140 L850,140 L1400,300 Z" fill="#e3cd85"/>
+  <path d="M792,288 L798,150" fill="none" stroke="#faf8f2" stroke-width="3" stroke-dasharray="10 10"/>
+  <g stroke="#faf8f2" stroke-width="2">
+    <line x1="0" y1="268" x2="480" y2="268"/><line x1="0" y1="280" x2="480" y2="280"/>
+    <line x1="10" y1="263" x2="10" y2="285"/><line x1="50" y1="263" x2="50" y2="285"/><line x1="90" y1="263" x2="90" y2="285"/>
+    <line x1="130" y1="263" x2="130" y2="285"/><line x1="170" y1="263" x2="170" y2="285"/><line x1="210" y1="263" x2="210" y2="285"/>
+    <line x1="250" y1="263" x2="250" y2="285"/><line x1="290" y1="263" x2="290" y2="285"/><line x1="330" y1="263" x2="330" y2="285"/>
+    <line x1="370" y1="263" x2="370" y2="285"/><line x1="410" y1="263" x2="410" y2="285"/><line x1="450" y1="263" x2="450" y2="285"/>
+  </g>
+  <g fill="none" stroke="#faf8f2" stroke-width="3">
+    <path d="M1050,260 A100,70 0 0 1 1250,260"/>
+    <line x1="1030" y1="260" x2="1270" y2="260"/>
+    <line x1="1080" y1="260" x2="1080" y2="228"/><line x1="1150" y1="260" x2="1150" y2="198"/><line x1="1220" y1="260" x2="1220" y2="228"/>
+  </g>
+  <g fill="#e3cd85">
+    <rect x="1350" y="252" width="72" height="22" rx="6"/><rect x="1366" y="236" width="42" height="18" rx="4"/>
+  </g>
+  <g fill="none" stroke="#e3cd85" stroke-width="3">
+    <circle cx="1364" cy="278" r="9"/><circle cx="1408" cy="278" r="9"/>
+  </g>
+  <g fill="#faf8f2">
+    <circle cx="150" cy="90" r="6"/><circle cx="500" cy="60" r="6"/><circle cx="900" cy="100" r="6"/><circle cx="1300" cy="70" r="6"/>
+  </g>
+  <path d="M150,90 L500,60 L900,100 L1300,70" fill="none" stroke="#faf8f2" stroke-width="2" stroke-dasharray="6 8"/>
+
+{% when 'demography' %}
+  {% comment %} city-block skyline, three generations of figures, connecting lines {% endcomment %}
+  <g fill="#e3cd85">
+    <rect x="40" y="200" width="60" height="100"/><rect x="120" y="230" width="50" height="70"/><rect x="190" y="180" width="45" height="120"/>
+    <rect x="1260" y="210" width="55" height="90"/><rect x="1340" y="190" width="48" height="110"/><rect x="1410" y="235" width="60" height="65"/><rect x="1490" y="205" width="50" height="95"/>
+  </g>
+  <rect x="0" y="297" width="1600" height="3" fill="#e3cd85"/>
+  <g fill="#faf8f2" stroke="#faf8f2" stroke-linecap="round">
+    <circle cx="400" cy="255" r="7" stroke="none"/><line x1="400" y1="262" x2="400" y2="290" stroke-width="4"/>
+    <circle cx="440" cy="270" r="5" stroke="none"/><line x1="440" y1="275" x2="440" y2="292" stroke-width="3"/>
+    <circle cx="480" cy="256" r="7" stroke="none"/><line x1="480" y1="263" x2="480" y2="290" stroke-width="4"/><line x1="487" y1="270" x2="491" y2="292" stroke-width="2"/>
+    <circle cx="800" cy="255" r="7" stroke="none"/><line x1="800" y1="262" x2="800" y2="290" stroke-width="4"/>
+    <circle cx="840" cy="272" r="4.5" stroke="none"/><line x1="840" y1="276" x2="840" y2="292" stroke-width="3"/>
+    <circle cx="1100" cy="256" r="7" stroke="none"/><line x1="1100" y1="263" x2="1100" y2="290" stroke-width="4"/>
+    <circle cx="1140" cy="271" r="5" stroke="none"/><line x1="1140" y1="276" x2="1140" y2="292" stroke-width="3"/>
+  </g>
+  <g fill="none" stroke="#e3cd85" stroke-width="1.5" stroke-dasharray="4 5">
+    <path d="M400,255 L440,270 L480,256"/>
+    <path d="M800,255 L840,272"/>
+    <path d="M1100,256 L1140,271"/>
+  </g>
+
+{% endcase %}
+</svg>

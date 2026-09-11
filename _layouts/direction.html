@@ -31,26 +31,13 @@ layout: default
 {% if scenarios and scenarios.size > 0 %}{% assign has_content = true %}{% endif %}
 {% if recs and recs.size > 0 %}{% assign has_content = true %}{% endif %}
 
-<section class="hero">
+<section class="hero hero-full-scene">
+  {% include direction-scene.html svg_class="hero-scene" slug=page.slug %}
   <div class="wrap">
     <a class="back-link" href="{{ '/directions/' | relative_url }}">{{ t.directions.back }}</a>
     <span class="eyebrow">{{ t.directions.detail_eyebrow }}</span>
     <h1>{{ dtitle }}</h1>
     {% if dd.subtitle and dd.subtitle != "" %}<p class="sub">{{ dd.subtitle }}</p>{% endif %}
-  </div>
-  <div class="horizon">
-    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="horizonGrad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#141d38"/>
-          <stop offset="65%" stop-color="#c9a227" stop-opacity=".5"/>
-          <stop offset="100%" stop-color="#e3cd85"/>
-        </linearGradient>
-      </defs>
-      <path d="M0,90 L120,60 L260,95 L400,50 L560,88 L720,40 L900,80 L1040,55 L1200,90 L1200,120 L0,120 Z" fill="#0e1530"/>
-      <path d="M0,95 L150,70 L300,98 L470,65 L640,92 L820,55 L980,85 L1200,68" fill="none" stroke="url(#horizonGrad)" stroke-width="2"/>
-      <rect x="0" y="118" width="1200" height="2" fill="#eee6d3"/>
-    </svg>
   </div>
 </section>
 
