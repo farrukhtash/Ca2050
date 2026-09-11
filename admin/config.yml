@@ -131,9 +131,6 @@ collections:
             widget: object
             i18n: true
             fields:
-              - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
-              - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
-              - { name: hero_sub, label: "Hero: остки матн", widget: text, i18n: true }
               - { name: intro_eyebrow, label: "Ғоя блоки: eyebrow", widget: string, i18n: true }
               - { name: intro_h2, label: "Ғоя блоки: сарлавҳа", widget: string, i18n: true }
               - { name: intro_p, label: "Ғоя блоки: матн", widget: text, i18n: true }
@@ -452,6 +449,9 @@ collections:
         file: "_data/{{locale}}/youth.yml"
         i18n: true
         fields:
+          - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
+          - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
+          - { name: hero_subtitle, label: "Hero: остки матн", widget: text, i18n: true }
           - { name: intro_text, label: "1-блок: кириш матни (бир неча абзац)", widget: text, i18n: true }
           - { name: highlights_intro, label: "2-блок: кириш жумласи (теглар устида)", widget: string, required: false, i18n: true }
           - name: tags
