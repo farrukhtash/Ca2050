@@ -688,6 +688,18 @@ a.news-card:hover .news-title{color:var(--gold);}
 .news-desc{font-size:.9rem; color:var(--ink-soft); line-height:1.5;}
 .news-source{margin-top:auto; padding-top:8px; font-size:.76rem; color:var(--ink-soft); font-weight:600;}
 
+/* Press carousel cards only (seminar page, #press) — clamp the description
+   to 10 lines so a long description can't inflate one card past the rest;
+   .news-card/.news-desc are shared with the /region/ news grid, so this is
+   scoped to #press rather than changed globally. height:100% makes the
+   card itself (not just the invisible .carousel-item wrapper, which the
+   row's flex stretch already equalizes) fill that equal height, so photo/
+   title/date/source line up the same way across every card in the row. */
+#press .news-card{height:100%;}
+#press .news-desc{
+  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:10; overflow:hidden;
+}
+
 /* ===== DIRECTION PAGE ===== */
 
 /* key stats strip */
