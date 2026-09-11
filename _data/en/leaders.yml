@@ -1,47 +1,36 @@
-# Heads of state of Central Asia — 5 countries.
-# Order: `order` (alphabetical, neutral — no hierarchy).
-# photo/flag are uploaded via the CMS; a clean placeholder shows when empty.
-# country is used only by the flag switcher row (label, alt text); it is no
-# longer shown under the quote — that caption's `position` field carries the
-# full title, country name included, as one line.
 leaders:
-  - country: "Kazakhstan"
+  - photo: ''
+    flag: ''
+    quote: '"[A head of state''s statement will be placed here]"'
+    name: '[President full name]'
+    position: '[President of the Republic of Kazakhstan]'
+    country: Kazakhstan
     order: 1
-    photo: ""
-    flag: ""
-    name: "[President full name]"
-    position: "[President of the Republic of Kazakhstan]"
-    quote: >-
-      "[A head of state's statement will be placed here]"
-  - country: "Kyrgyzstan"
+  - photo: ''
+    flag: ''
+    quote: '"[A head of state''s statement will be placed here]"'
+    name: '[President full name]'
+    position: '[President of the Kyrgyz Republic]'
+    country: Kyrgyzstan
     order: 2
-    photo: ""
-    flag: ""
-    name: "[President full name]"
-    position: "[President of the Kyrgyz Republic]"
-    quote: >-
-      "[A head of state's statement will be placed here]"
-  - country: "Tajikistan"
+  - photo: ''
+    flag: ''
+    quote: '"[A head of state''s statement will be placed here]"'
+    name: '[President full name]'
+    position: '[President of the Republic of Tajikistan]'
+    country: Tajikistan
     order: 3
-    photo: ""
-    flag: ""
-    name: "[President full name]"
-    position: "[President of the Republic of Tajikistan]"
-    quote: >-
-      "[A head of state's statement will be placed here]"
-  - country: "Turkmenistan"
+  - photo: ''
+    flag: ''
+    quote: '"[A head of state''s statement will be placed here]"'
+    name: '[President full name]'
+    position: '[President of Turkmenistan]'
+    country: Turkmenistan
     order: 4
-    photo: ""
-    flag: ""
-    name: "[President full name]"
-    position: "[President of Turkmenistan]"
-    quote: >-
-      "[A head of state's statement will be placed here]"
-  - country: "Uzbekistan"
-    order: 5
-    photo: ""
-    flag: ""
-    name: "[President full name]"
-    position: "[President of the Republic of Uzbekistan]"
-    quote: >-
-      "[A head of state's statement will be placed here]"
+  - photo: /assets/images/uploads/14515701-a26b-2a2d-0285-bf8c09aa365a.jpg
+    flag: /assets/images/uploads/images.jpg
+    quote: '"[A head of state''s statement will be placed here]"'
+    name: '[President full name]'
+    position: '[President of the Republic of Uzbekistan]'
+    country: Uzbekistan
+    order: 1
