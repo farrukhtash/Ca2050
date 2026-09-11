@@ -10,11 +10,11 @@ about_paragraphs:
 quotes_eyebrow: Voices from the seminar
 quotes_h2: Key quotes
 quotes:
-  - photo: /assets/images/uploads/wlmiNr17484131524319_b.webp
+  - photo: /assets/images/uploads/wlmiNr17484131524319_b.jpg
     name: Nematov
     position: ''
     quote: '"[Insert Nematov''s quote here]"'
-  - photo: ''
+  - photo: /assets/images/uploads/toivo_klaar.jpg
     name: Fayziev
     position: ''
     quote: '"[Insert Fayziev''s quote here]"'
@@ -22,15 +22,18 @@ quotes:
     name: Klaar
     position: ''
     quote: '"[Insert Klaar''s quote here]"'
-  - photo: ''
+  - photo: /assets/images/uploads/lVladI17484149174974_b.jpg
     name: Karazhanova
     position: ''
     quote: '"[Insert Karazhanova''s quote here]"'
-  - photo: ''
+  - photo: /assets/images/uploads/eUh6RL17484139719633_b.jpg
     name: Umarova
     position: ''
     quote: '"[Insert Umarova''s quote here]"'
-  - photo: ''
+  - photo: /assets/images/uploads/gDLkHw17484149215956_b.jpg
+    name: Аида Каражанова
+    position: ''
+    quote: «Форсайт – жорий тенденциялар таҳлили ҳамда экспертлар фикрига таянган ҳолда келажак сценарийларини яратиш ва юзага келиши мумкин бўлган хатарларни ҳисобга олишга ёрдам берадиган стратегик прогнозлаш усулидир.»
 gallery_eyebrow: Media gallery
 gallery_h2: The seminar in photos
 photos:
