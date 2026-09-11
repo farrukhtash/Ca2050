@@ -168,40 +168,6 @@ collections:
               - { name: form_placeholder, label: "Сўровнома блоки: форма ҳали йўқлиги ҳақида изоҳ", widget: text, i18n: true }
               - { name: contacts_eyebrow, label: "Алоқа блоки: eyebrow", widget: string, i18n: true }
               - { name: contacts_h2, label: "Алоқа блоки: сарлавҳа", widget: string, i18n: true }
-          - name: seminar
-            label: "«Форсайт-семинар 2025» саҳифаси"
-            widget: object
-            i18n: true
-            fields:
-              - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
-              - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
-              - { name: hero_dates, label: "Hero: тадбир саналари", widget: string, i18n: true }
-              - { name: organizers, label: "Hero: ташкилотчилар қатори", widget: text, i18n: true }
-              - { name: about_eyebrow, label: "Семинар ҳақида блоки: eyebrow", widget: string, i18n: true }
-              - { name: about_h2, label: "Семинар ҳақида блоки: сарлавҳа", widget: string, i18n: true }
-              - { name: about_p1, label: "Семинар ҳақида блоки: 1-абзац", widget: text, i18n: true }
-              - { name: about_p2, label: "Семинар ҳақида блоки: 2-абзац", widget: text, i18n: true }
-              - { name: gallery_eyebrow, label: "Медиатека блоки: eyebrow", widget: string, i18n: true }
-              - { name: gallery_h2, label: "Медиатека блоки: сарлавҳа", widget: string, i18n: true }
-              - { name: quotes_eyebrow, label: "Иқтибослар блоки: eyebrow", widget: string, i18n: true }
-              - { name: quotes_h2, label: "Иқтибослар блоки: сарлавҳа", widget: string, i18n: true }
-              - name: quotes
-                label: "Иштирокчилар иқтибослари"
-                label_singular: "Иқтибос"
-                widget: list
-                i18n: true
-                summary: "{{fields.name}}"
-                fields:
-                  - { name: name, label: "Исм", widget: string, i18n: true }
-                  - { name: text, label: "Иқтибос матни", widget: text, i18n: true }
-              - { name: press_eyebrow, label: "ОАВ блоки: eyebrow", widget: string, i18n: true }
-              - { name: press_h2, label: "ОАВ блоки: сарлавҳа", widget: string, i18n: true }
-              - { name: press_group_articles, label: "ОАВ блоки: «Матбуотда» гуруҳ номи", widget: string, i18n: true }
-              - { name: press_group_video, label: "ОАВ блоки: «Видео» гуруҳ номи", widget: string, i18n: true }
-              - { name: press_group_telegram, label: "ОАВ блоки: «Telegram» гуруҳ номи", widget: string, i18n: true }
-              - { name: back_h2, label: "Якуний блок: сарлавҳа («Китоб билан танишинг»)", widget: string, i18n: true }
-              - { name: back_cta, label: "Якуний блок: тугма («Китоб ҳақида →»)", widget: string, i18n: true }
-              - { name: footer, label: "Семинар саҳифаси футери (асосий footerдан фарқли)", widget: string, i18n: true }
 
   # ---- Направления: контент страницы (переводимый) ----
   # ВАЖНО: список (widget: list), НЕ объект. Раньше здесь было 5 top-level
@@ -340,28 +306,79 @@ collections:
               - { name: logo, label: "Логотип", widget: image, required: false, media_folder: "/assets/images/uploads", public_folder: "/assets/images/uploads", i18n: duplicate }
               - { name: name, label: "Название", widget: string, i18n: true }
 
-  # ---- Пресса о семинаре ----
-  - name: press
-    label: "Пресса о семинаре"
+  # ---- Форсайт-семинар (саҳифа контенти, бир коллекцияда) ----
+  # Паттерн region/about_page/youth_content кабидек — фақат widget:
+  # list/string/text (object-виджет ва YAML-якор ЙЎҚ, directions_text'даги
+  # муаммони такрорламаслик учун). Бутун /seminar-2025/ саҳифаси — hero,
+  # «Семинар ҳақида», иқтибослар, медиатека, ОАВ, якуний блок — шу битта
+  # коллекциядан бошқарилади (олдин фақат ОАВ блоки таҳрирланарди, қолгани
+  # ui.yml'да эди — энди ҳаммаси бирга).
+  - name: seminar_page
+    label: "Форсайт-семинар — саҳифа контенти"
     i18n: true
     files:
-      - name: press
-        label: "ОАВ нигоҳида"
-        file: "_data/{{locale}}/press.yml"
+      - name: seminar_page
+        label: "Семинар саҳифаси: hero, семинар ҳақида, иқтибослар, медиатека, ОАВ, якуний блок"
+        file: "_data/{{locale}}/seminar.yml"
         i18n: true
         fields:
-          - name: press
-            label: "Материалы"
-            label_singular: "Материал"
+          - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
+          - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
+          - { name: hero_dates, label: "Hero: тадбир саналари", widget: string, i18n: true }
+          - { name: hero_organizers, label: "Hero: ташкилотчилар қатори", widget: text, i18n: true }
+          - { name: about_eyebrow, label: "«Семинар ҳақида» блоки: eyebrow", widget: string, i18n: true }
+          - { name: about_h2, label: "«Семинар ҳақида» блоки: сарлавҳа", widget: string, i18n: true }
+          - name: about_paragraphs
+            label: "«Семинар ҳақида» блоки: абзацлар"
+            label_singular: "Абзац"
             widget: list
             i18n: true
-            summary: "{{fields.source}} — {{fields.title}}"
+            summary: "{{fields.text}}"
             fields:
-              - { name: source, label: "Издание", widget: string, i18n: duplicate }
-              - { name: type, label: "Тип", widget: select, options: ["article", "youtube", "telegram"], default: article, i18n: duplicate }
+              - { name: text, label: "Матн", widget: text, i18n: true }
+          - { name: quotes_eyebrow, label: "Иштирокчилар фикри блоки: eyebrow", widget: string, i18n: true }
+          - { name: quotes_h2, label: "Иштирокчилар фикри блоки: сарлавҳа", widget: string, i18n: true }
+          - name: quotes
+            label: "Иштирокчилар иқтибослари"
+            label_singular: "Иқтибос"
+            widget: list
+            i18n: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: photo, label: "Спикер фотоси", widget: image, required: false, media_folder: "/assets/images/uploads", public_folder: "/assets/images/uploads", i18n: duplicate }
+              - { name: name, label: "Ф.И.Ш.", widget: string, i18n: true }
+              - { name: position, label: "Лавозими", widget: string, required: false, i18n: true }
+              - { name: quote, label: "Иқтибос матни", widget: text, i18n: true }
+          - { name: gallery_eyebrow, label: "Медиатека блоки: eyebrow", widget: string, i18n: true }
+          - { name: gallery_h2, label: "Медиатека блоки: сарлавҳа", widget: string, i18n: true }
+          - name: photos
+            label: "Медиатека: фотолар (изоҳсиз — фақат расмлар)"
+            label_singular: "Фото"
+            widget: list
+            required: false
+            i18n: true
+            summary: "{{fields.image}}"
+            fields:
+              - { name: image, label: "Расм", widget: image, media_folder: "/assets/images/uploads", public_folder: "/assets/images/uploads", i18n: duplicate }
+          - { name: press_eyebrow, label: "ОАВ блоки: eyebrow", widget: string, i18n: true }
+          - { name: press_h2, label: "ОАВ блоки: сарлавҳа", widget: string, i18n: true }
+          - name: press
+            label: "ОАВ нигоҳида: материаллар"
+            label_singular: "Материал"
+            widget: list
+            required: false
+            i18n: true
+            summary: "{{fields.title}}"
+            fields:
+              - { name: image, label: "Фото / обложка", widget: image, required: false, media_folder: "/assets/images/uploads", public_folder: "/assets/images/uploads", i18n: duplicate }
               - { name: title, label: "Заголовок", widget: string, i18n: true }
-              - { name: date, label: "Дата", widget: string, required: false, i18n: duplicate }
-              - { name: url, label: "URL", widget: string, i18n: duplicate }
+              - { name: description, label: "Краткое описание", widget: text, required: false, i18n: true }
+              - { name: url, label: "Ссылка на материал", widget: string, i18n: duplicate }
+              - { name: date, label: "Дата", widget: datetime, i18n: duplicate }
+              - { name: source, label: "Источник", widget: string, required: false, i18n: duplicate }
+          - { name: final_h2, label: "Якуний блок: сарлавҳа («Китоб билан танишинг»)", widget: string, i18n: true }
+          - { name: final_cta, label: "Якуний блок: тугма матни («Китоб ҳақида →»)", widget: string, i18n: true }
+          - { name: footer, label: "Семинар саҳифаси футери (асосий footerдан фарқли)", widget: string, i18n: true }
 
   # ---- Регион ----
   - name: region

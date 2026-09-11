@@ -130,10 +130,12 @@ document.querySelectorAll('[data-leaders]').forEach(root=>{
   show(0);
 });
 
-// Direction page: chart lightbox (self-contained, no external library)
+// Shared lightbox (self-contained, no external library). Triggers are any
+// [data-chart] (direction pages) or [data-photo] (seminar media carousel) —
+// same mechanism, same DOM/CSS, so behavior stays identical everywhere.
 (function(){
   const lightbox = document.querySelector('[data-lightbox]');
-  const triggers = Array.from(document.querySelectorAll('[data-chart]'));
+  const triggers = Array.from(document.querySelectorAll('[data-chart], [data-photo]'));
   if(!lightbox || !triggers.length) return;
 
   const imgEl = lightbox.querySelector('[data-lightbox-img]');
@@ -180,6 +182,45 @@ document.querySelectorAll('[data-leaders]').forEach(root=>{
     else if(e.key === 'ArrowLeft') render(current - 1);
   });
 })();
+
+// Media carousel (seminar page): native scroll-snap track; prev/next
+// buttons scroll by one item's width. Touch swipe works natively via
+// overflow-x, no custom gesture handling needed.
+document.querySelectorAll('[data-carousel]').forEach(root=>{
+  const viewport = root.querySelector('.carousel-viewport');
+  const track = root.querySelector('.carousel-track');
+  if(!viewport || !track) return;
+  const scrollByItem = (dir)=>{
+    const item = track.querySelector('.carousel-item');
+    if(!item) return;
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    const width = item.getBoundingClientRect().width + gap;
+    viewport.scrollBy({ left: dir * width, behavior: 'smooth' });
+  };
+  const prev = root.querySelector('[data-carousel-prev]');
+  const next = root.querySelector('[data-carousel-next]');
+  if(prev) prev.addEventListener('click', ()=>scrollByItem(-1));
+  if(next) next.addEventListener('click', ()=>scrollByItem(1));
+});
+
+// Participant quote cards (seminar page): hover/focus already expand the
+// card via CSS on devices with real hover; on touch devices (no hover),
+// tap toggles the expanded state instead.
+document.querySelectorAll('[data-quote-card]').forEach(item=>{
+  item.addEventListener('click', ()=>{
+    if(window.matchMedia('(hover: hover)').matches) return;
+    const willExpand = !item.classList.contains('is-expanded');
+    document.querySelectorAll('[data-quote-card].is-expanded').forEach(el=>{
+      if(el !== item) el.classList.remove('is-expanded');
+    });
+    item.classList.toggle('is-expanded', willExpand);
+  });
+});
+document.addEventListener('click', (e)=>{
+  if(!e.target.closest('[data-quote-card]')){
+    document.querySelectorAll('[data-quote-card].is-expanded').forEach(el=>el.classList.remove('is-expanded'));
+  }
+});
 
 // Hero background carousel (cross-fade)
 (function(){

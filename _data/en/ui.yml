@@ -110,35 +110,3 @@ feedback:
   form_placeholder: The Google Form will be embedded here (iframe). Currently in preparation.
   contacts_eyebrow: Other contacts
   contacts_h2: Get in touch
-seminar:
-  hero_eyebrow: Regional event · Tashkent
-  hero_title: Foresight Seminar 2025
-  hero_dates: 27–28 May 2025, Tashkent
-  organizers: 'Organizers: Agency for Strategic Reforms, ISMI, MICA, the relevant agency of the Republic of Kazakhstan · Supported by the European Union'
-  about_eyebrow: About the seminar
-  about_h2: A joint dialogue among regional experts
-  about_p1: As part of the Foresight Seminar, representatives of analytical centers and independent experts from the five countries gathered in Tashkent for two days to discuss scenarios for the region's future through 2050. The event became one of the key stages in preparing the book "Central Asia States 2050."
-  about_p2: Participants worked in group sessions on water and climate change, energy, transport links, and demography, shaping the key findings and recommendations for each track.
-  gallery_eyebrow: Media gallery
-  gallery_h2: The seminar in photos
-  quotes_eyebrow: Voices from the seminar
-  quotes_h2: Key quotes
-  quotes:
-    - name: Nematov
-      text: '"[Insert Nematov''s quote here]"'
-    - name: Fayziev
-      text: '"[Insert Fayziev''s quote here]"'
-    - name: Klaar
-      text: '"[Insert Klaar''s quote here]"'
-    - name: Karazhanova
-      text: '"[Insert Karazhanova''s quote here]"'
-    - name: Umarova
-      text: '"[Insert Umarova''s quote here]"'
-  press_eyebrow: In the media
-  press_h2: The Foresight Seminar in the media
-  press_group_articles: Press articles
-  press_group_video: Video (YouTube)
-  press_group_telegram: Telegram
-  back_h2: Explore the book
-  back_cta: About the book →
-  footer: Central Asia States 2050 — Foresight Seminar 2025 · Tashkent

@@ -382,33 +382,74 @@ a.theme-card:hover{background:var(--navy-2);}
 }
 .feedback-links a:hover{border-color:var(--gold); color:var(--gold-soft);}
 
-/* GALLERY (seminar page) */
-.gallery{background:var(--sand-2);}
-.gallery-grid{
-  display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
+/* MEDIA CAROUSEL (seminar page) — native scroll-snap track; prev/next
+   buttons reuse .leader-nav; touch swipe works natively via overflow-x */
+.media-carousel{display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:14px;}
+.carousel-viewport{
+  overflow-x:auto; overflow-y:hidden; scroll-snap-type:x mandatory;
+  scrollbar-width:none; -ms-overflow-style:none;
 }
-.gallery-grid img{
-  width:100%; aspect-ratio:1; object-fit:cover; border-radius:2px;
-  box-shadow:0 6px 18px rgba(20,29,56,.15);
-  transition:transform .3s ease;
+.carousel-viewport::-webkit-scrollbar{display:none;}
+.carousel-track{display:flex; gap:16px;}
+.carousel-item{flex:0 0 calc((100% - 32px)/3); scroll-snap-align:start;}
+.carousel-photo{
+  display:block; width:100%; padding:0; margin:0; border:0; background:none; cursor:zoom-in;
+  aspect-ratio:4/3; border-radius:6px; overflow:hidden; box-shadow:0 6px 18px rgba(20,29,56,.15);
 }
-.gallery-grid img:hover{transform:scale(1.03);}
+.carousel-photo img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s ease;}
+.carousel-photo:hover img{transform:scale(1.04);}
+@media (max-width:960px){ .carousel-item{flex-basis:calc((100% - 16px)/2);} }
+@media (max-width:600px){ .carousel-item{flex-basis:100%;} }
 
-/* QUOTES (seminar page) */
-.quote-grid{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:28px;
+/* PARTICIPANT QUOTE CARDS (seminar page) — compact grid; expands to fill
+   the whole grid area on hover/focus (desktop+keyboard) or tap via
+   .is-expanded (touch, added by JS only on no-hover devices) */
+.quote-cards{
+  position:relative; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px; min-height:300px;
 }
-.quote-card{
-  border-left:3px solid var(--gold);
-  padding:6px 0 6px 22px;
-  font-size:1.02rem;
-  font-style:italic;
-  color:var(--ink);
-  margin:0;
+.quote-card-compact{
+  height:100%; background:var(--white); border:1px solid rgba(25,26,34,.12); border-radius:10px;
+  padding:22px 18px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px;
+  cursor:pointer; transition:box-shadow .2s ease, border-color .2s ease;
 }
-.quote-card cite{
-  display:block; margin-top:14px; font-style:normal; font-family:'Inter',sans-serif;
-  font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-soft);
+.quote-card-item:hover .quote-card-compact,
+.quote-card-item:focus-visible .quote-card-compact{
+  box-shadow:0 10px 24px rgba(20,29,56,.12); border-color:rgba(201,162,39,.4);
+}
+.qc-photo, .qc-photo-lg{border-radius:50%; overflow:hidden; flex:none; background:var(--sand-2);}
+.qc-photo{width:64px; height:64px;}
+.qc-photo-lg{width:96px; height:96px; border:3px solid var(--sand);}
+.qc-photo img, .qc-photo-lg img{width:100%; height:100%; object-fit:cover; display:block;}
+.qc-photo-ph{width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:var(--teal);}
+.qc-photo-ph svg{width:40%; height:40%; opacity:.5;}
+.qc-name{font-family:'PT Serif',serif; font-weight:700; font-size:1rem; color:var(--ink);}
+.qc-position{font-size:.78rem; color:var(--ink-soft);}
+
+.quote-card-expanded{
+  position:absolute; inset:0; z-index:5;
+  background:var(--white); border-radius:14px; box-shadow:0 26px 60px rgba(20,29,56,.3);
+  padding:40px 48px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; gap:14px;
+  opacity:0; visibility:hidden; transform:scale(.97);
+  transition:opacity .3s ease, transform .3s ease, visibility .3s;
+  pointer-events:none;
+}
+.quote-card-item:hover .quote-card-expanded,
+.quote-card-item:focus-visible .quote-card-expanded,
+.quote-card-item.is-expanded .quote-card-expanded{
+  opacity:1; visibility:visible; transform:scale(1); pointer-events:auto;
+}
+.qc-quote{
+  border:none; padding:0; margin:0; max-width:62ch;
+  font-family:'PT Serif',serif; font-style:italic; color:var(--ink);
+  font-size:clamp(1.05rem,2vw,1.3rem); line-height:1.5;
+}
+.qc-name-lg{font-family:'PT Serif',serif; font-weight:700; font-size:1.1rem; color:var(--ink); margin-top:4px;}
+.qc-position-lg{font-size:.82rem; color:var(--teal); text-transform:uppercase; letter-spacing:.08em; font-weight:600;}
+@media (max-width:640px){
+  .quote-cards{min-height:260px;}
+  .quote-card-expanded{padding:28px 22px;}
 }
 
 /* FINAL CTA (seminar page — back to book) */
@@ -756,36 +797,11 @@ a.news-card:hover .news-title{color:var(--gold);}
   padding:48px 24px; text-align:center; color:var(--ink-soft); font-style:italic;
 }
 
-/* press coverage (seminar) */
-.press-group{margin-bottom:28px;}
-.press-group:last-child{margin-bottom:0;}
-.press-group-title{
-  font-size:.78rem; text-transform:uppercase; letter-spacing:.12em; font-weight:700;
-  color:var(--teal); margin-bottom:12px;
-}
-.press-list{display:flex; flex-direction:column; gap:8px;}
-.press-item{
-  display:flex; align-items:center; gap:14px; text-decoration:none;
-  background:var(--white); border:1px solid rgba(25,26,34,.12); border-radius:6px;
-  padding:14px 16px; transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;
-}
-.press-item:hover{border-color:rgba(201,162,39,.55); transform:translateX(3px); box-shadow:0 8px 20px rgba(20,29,56,.08);}
-.press-item .p-icon{flex-shrink:0; width:22px; height:22px; color:var(--teal);}
-.press-item .p-icon svg{width:22px; height:22px;}
-.press-item .p-body{flex:1; min-width:0;}
-.press-item .p-source{font-weight:700; font-size:.9rem; color:var(--ink);}
-.press-item .p-title{font-size:.86rem; color:var(--ink-soft);}
-.press-item .p-date{flex-shrink:0; font-size:.78rem; color:var(--ink-soft); white-space:nowrap;}
-.press-item .p-arrow{flex-shrink:0; color:var(--teal); opacity:.6;}
-
 @media (max-width:860px){
   .about-body, .youth-body, .platform-cta-grid{grid-template-columns:1fr;}
   .theme-grid{grid-template-columns:repeat(2,1fr);}
   .country-grid{grid-template-columns:repeat(2,1fr);}
-  .gallery-grid{grid-template-columns:repeat(2,1fr);}
   .dir-grid, .agency-grid, .author-grid{grid-template-columns:1fr;}
-  .press-item{flex-wrap:wrap; gap:6px 12px;}
-  .press-item .p-date{width:100%; padding-left:36px;}
 }
 
 @media (min-width:861px) and (max-width:1040px){

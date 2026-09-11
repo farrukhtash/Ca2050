@@ -7,16 +7,18 @@ nav_active: seminar
 ---
 {% assign L = site.active_lang %}{% assign D = site.default_lang %}
 {% assign t = site.data[L].ui | default: site.data[D].ui %}
-{% assign press = site.data[L].press.press | default: site.data[D].press.press %}
-{% assign quotes = t.seminar.quotes %}
+{% assign sd = site.data[L].seminar | default: site.data[D].seminar %}
+{% assign quotes = sd.quotes %}
+{% assign photos = sd.photos %}
+{% assign press = sd.press | sort: 'date' | reverse %}
 
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow">{{ t.seminar.hero_eyebrow }}</span>
-    <h1>{{ t.seminar.hero_title }}</h1>
-    <p class="sub">{{ t.seminar.hero_dates }}</p>
-    <div class="organizers">{{ t.seminar.organizers }}</div>
+    <span class="eyebrow">{{ sd.hero_eyebrow }}</span>
+    <h1>{{ sd.hero_title }}</h1>
+    <p class="sub">{{ sd.hero_dates }}</p>
+    <div class="organizers">{{ sd.hero_organizers }}</div>
   </div>
   <div class="horizon">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -38,89 +40,148 @@ nav_active: seminar
 <section class="section about-seminar" id="about">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand">{{ t.seminar.about_eyebrow }}</span>
-      <h2>{{ t.seminar.about_h2 }}</h2>
+      <span class="eyebrow on-sand">{{ sd.about_eyebrow }}</span>
+      <h2>{{ sd.about_h2 }}</h2>
     </div>
     <div data-reveal>
-      <p>{{ t.seminar.about_p1 }}</p>
-      <p>{{ t.seminar.about_p2 }}</p>
+      {% for p in sd.about_paragraphs %}<p>{{ p.text }}</p>{% endfor %}
     </div>
   </div>
 </section>
 
-<!-- MEDIA GALLERY -->
-<section class="section gallery">
+<!-- PARTICIPANT QUOTES (now above the gallery) -->
+{% if quotes and quotes.size > 0 %}
+<section class="section tint" id="quotes">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand">{{ t.seminar.gallery_eyebrow }}</span>
-      <h2>{{ t.seminar.gallery_h2 }}</h2>
+      <span class="eyebrow on-sand">{{ sd.quotes_eyebrow }}</span>
+      <h2>{{ sd.quotes_h2 }}</h2>
     </div>
-    <div class="gallery-grid" data-reveal>
-      {% for i in (1..7) %}
-      {% assign n = i | prepend: '0' | slice: -2, 2 %}
-      <img src="{{ '/media/seminar-' | append: n | append: '.jpg' | relative_url }}" alt="{{ t.seminar.hero_title }} — {{ i }}" loading="lazy">
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- KEY QUOTES -->
-<section class="section quotes">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">{{ t.seminar.quotes_eyebrow }}</span>
-      <h2>{{ t.seminar.quotes_h2 }}</h2>
-    </div>
-    <div class="quote-grid" data-reveal>
+    <div class="quote-cards" data-reveal>
       {% for q in quotes %}
-      <blockquote class="quote-card">
-        <span>{{ q.text }}</span>
-        <cite>{{ q.name }}</cite>
-      </blockquote>
+      <div class="quote-card-item" tabindex="0" data-quote-card>
+        <div class="quote-card-compact">
+          <div class="qc-photo">
+            {% if q.photo and q.photo != "" %}
+            <img src="{{ q.photo | relative_url }}" alt="">
+            {% else %}
+            <div class="qc-photo-ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+            {% endif %}
+          </div>
+          <span class="qc-name">{{ q.name }}</span>
+          {% if q.position and q.position != "" %}<span class="qc-position">{{ q.position }}</span>{% endif %}
+        </div>
+        <div class="quote-card-expanded">
+          <div class="qc-photo-lg">
+            {% if q.photo and q.photo != "" %}
+            <img src="{{ q.photo | relative_url }}" alt="">
+            {% else %}
+            <div class="qc-photo-ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+            {% endif %}
+          </div>
+          <blockquote class="qc-quote">{{ q.quote }}</blockquote>
+          <span class="qc-name-lg">{{ q.name }}</span>
+          {% if q.position and q.position != "" %}<span class="qc-position-lg">{{ q.position }}</span>{% endif %}
+        </div>
+      </div>
       {% endfor %}
     </div>
   </div>
 </section>
+{% endif %}
 
-<!-- PRESS COVERAGE -->
+<!-- MEDIA GALLERY (carousel, now below the quotes) -->
+{% if photos and photos.size > 0 %}
+<section class="section" id="gallery">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow on-sand">{{ sd.gallery_eyebrow }}</span>
+      <h2>{{ sd.gallery_h2 }}</h2>
+    </div>
+    <div class="media-carousel" data-carousel>
+      <button type="button" class="leader-nav prev" data-carousel-prev aria-label="←">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+          {% for p in photos %}
+          {% if p.image and p.image != "" %}
+          <div class="carousel-item">
+            <button type="button" class="carousel-photo" data-photo
+                    data-img="{{ p.image | relative_url }}" data-caption="" data-note=""
+                    aria-label="{{ t.directions.chart_open_label }}">
+              <img src="{{ p.image | relative_url }}" alt="" loading="lazy">
+            </button>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <button type="button" class="leader-nav next" data-carousel-next aria-label="→">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" data-lightbox hidden>
+  <button type="button" class="lightbox-close" data-lightbox-close aria-label="{{ t.directions.lightbox_close_label }}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <button type="button" class="lightbox-nav prev" data-lightbox-prev aria-label="←">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <div class="lightbox-body">
+    <img data-lightbox-img src="" alt="">
+    <div class="lightbox-caption">
+      <span data-lightbox-caption></span>
+      <span data-lightbox-note class="lightbox-note"></span>
+    </div>
+  </div>
+  <button type="button" class="lightbox-nav next" data-lightbox-next aria-label="→">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+</div>
+{% endif %}
+
+<!-- PRESS COVERAGE (card tiles, same component as /region/) -->
+{% if press and press.size > 0 %}
 <section class="section tint" id="press">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand">{{ t.seminar.press_eyebrow }}</span>
-      <h2>{{ t.seminar.press_h2 }}</h2>
+      <span class="eyebrow on-sand">{{ sd.press_eyebrow }}</span>
+      <h2>{{ sd.press_h2 }}</h2>
     </div>
-    <div data-reveal>
-      {% assign articles = press | where: "type", "article" %}
-      {% if articles.size > 0 %}
-      <div class="press-group">
-        <div class="press-group-title">{{ t.seminar.press_group_articles }}</div>
-        <div class="press-list">{% for p in articles %}{% include press-item.html item=p %}{% endfor %}</div>
-      </div>
-      {% endif %}
-
-      {% assign videos = press | where: "type", "youtube" %}
-      {% if videos.size > 0 %}
-      <div class="press-group">
-        <div class="press-group-title">{{ t.seminar.press_group_video }}</div>
-        <div class="press-list">{% for p in videos %}{% include press-item.html item=p %}{% endfor %}</div>
-      </div>
-      {% endif %}
-
-      {% assign tg = press | where: "type", "telegram" %}
-      {% if tg.size > 0 %}
-      <div class="press-group">
-        <div class="press-group-title">{{ t.seminar.press_group_telegram }}</div>
-        <div class="press-list">{% for p in tg %}{% include press-item.html item=p %}{% endfor %}</div>
-      </div>
-      {% endif %}
+    <div class="news-grid" data-reveal>
+      {% for n in press %}
+      {% assign has_url = false %}{% if n.url and n.url != "" %}{% assign has_url = true %}{% endif %}
+      {% if has_url %}<a class="news-card" href="{{ n.url }}" target="_blank" rel="noopener">{% else %}<div class="news-card is-static">{% endif %}
+        <div class="news-cover">
+          {% if n.image and n.image != "" %}
+          <img src="{{ n.image | relative_url }}" alt="" loading="lazy">
+          {% else %}
+          <div class="news-cover-ph" aria-hidden="true">
+            <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5-5-9 9"/></svg>
+          </div>
+          {% endif %}
+        </div>
+        <div class="news-body">
+          {% if n.date and n.date != "" %}<time class="news-date" datetime="{{ n.date }}">{{ n.date | date: "%d.%m.%Y" }}</time>{% endif %}
+          <h3 class="news-title">{{ n.title }}</h3>
+          {% if n.description and n.description != "" %}<p class="news-desc">{{ n.description }}</p>{% endif %}
+          {% if n.source and n.source != "" %}<span class="news-source">{{ n.source }}</span>{% endif %}
+        </div>
+      {% if has_url %}</a>{% else %}</div>{% endif %}
+      {% endfor %}
     </div>
   </div>
 </section>
+{% endif %}
 
 <!-- BACK TO BOOK -->
 <section class="final-cta">
   <div class="wrap">
-    <h2>{{ t.seminar.back_h2 }}</h2>
-    <a href="{{ '/about/' | relative_url }}" class="btn-gold">{{ t.seminar.back_cta }}</a>
+    <h2>{{ sd.final_h2 }}</h2>
+    <a href="{{ '/about/' | relative_url }}" class="btn-gold">{{ sd.final_cta }}</a>
   </div>
 </section>
