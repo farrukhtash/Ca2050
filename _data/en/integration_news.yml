@@ -1,15 +1,13 @@
-# Regional integration news — card tiles.
-# Sorted by date (newest first). A placeholder shows when no image is set.
 news:
-  - image: ""
-    title: "[News headline — in preparation]"
-    description: "[Short summary: one or two sentences.]"
-    url: ""
-    date: "2026-09-01"
-    source: ""
-  - image: ""
-    title: "[News headline — in preparation]"
-    description: "[Short summary: one or two sentences.]"
-    url: ""
-    date: "2026-08-15"
-    source: ""
+  - image: /assets/images/uploads/37539b3f-3b7f-d06d-a9db-82dd020bdf98_lists_slider_9478.jpg
+    title: '[News headline — in preparation]'
+    description: '[Short summary: one or two sentences.]'
+    url: https://president.uz/uz/lists/view/9478
+    date: 2026-07-31T05:00:00
+    source: ''
+  - image: /assets/images/uploads/7612b130-a3e4-899c-8fec-b82ed8868bce_lists_slider_8813.jpg
+    title: '[News headline — in preparation]'
+    description: '[Short summary: one or two sentences.]'
+    url: https://president.uz/uz/lists/view/8813
+    date: 2025-12-20T05:00:00
+    source: ''
