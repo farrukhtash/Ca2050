@@ -101,12 +101,3 @@ region:
   integration_eyebrow: Regional integration
   integration_h2: News on regional integration
   integration_placeholder: Content in preparation — materials on regional integration will be published here.
-feedback:
-  hero_eyebrow: Feedback
-  hero_title: Leave your feedback
-  hero_sub: Have you read the book? You can share your thoughts about the book, its findings, and the region's future. Every comment matters to us.
-  form_eyebrow: Form
-  form_h2: Feedback form
-  form_placeholder: The Google Form will be embedded here (iframe). Currently in preparation.
-  contacts_eyebrow: Other contacts
-  contacts_h2: Get in touch

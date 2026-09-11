@@ -795,21 +795,41 @@ a.news-card:hover .news-title{color:var(--gold);}
   .pager-link.next{margin-left:0;}
 }
 
-/* feedback form embed */
+/* feedback form embed — neutral card (bg/radius/shadow/padding) around the
+   Google Form iframe, so the plain Google UI doesn't clash with the site */
 .form-embed{
-  border:1px solid rgba(25,26,34,.14); border-radius:8px; overflow:hidden;
-  background:var(--white); min-height:320px;
+  background:var(--white); border:1px solid rgba(25,26,34,.08); border-radius:14px;
+  box-shadow:0 20px 48px rgba(20,29,56,.1); padding:20px;
 }
-.form-embed iframe{width:100%; border:0; display:block;}
+.form-embed iframe{
+  width:100%; display:block; border:0; border-radius:6px;
+  height:850px; min-height:800px;
+}
 .form-placeholder{
   padding:48px 24px; text-align:center; color:var(--ink-soft); font-style:italic;
 }
+.form-note{
+  margin-top:16px; max-width:60ch; color:var(--ink-soft); font-size:.9rem; font-style:italic;
+}
+
+/* feedback page: intro prose (between hero and form) + gentle full-page wash */
+.feedback-body-bg{
+  background:radial-gradient(120% 60% at 50% 0%, rgba(201,162,39,.1) 0%, rgba(201,162,39,0) 62%), var(--sand);
+}
+.feedback-intro{max-width:64ch; margin:0 auto; text-align:center;}
+.feedback-intro p{color:var(--ink-soft); font-size:1.02rem; line-height:1.7; margin-bottom:16px;}
+.feedback-intro p:first-child{font-family:'PT Serif',serif; font-size:1.2rem; color:var(--ink);}
 
 @media (max-width:860px){
   .about-body, .youth-body, .platform-cta-grid{grid-template-columns:1fr;}
   .theme-grid{grid-template-columns:repeat(2,1fr);}
   .country-grid{grid-template-columns:repeat(2,1fr);}
   .dir-grid, .agency-grid, .author-grid{grid-template-columns:1fr;}
+}
+
+@media (max-width:640px){
+  .form-embed{padding:12px; border-radius:10px;}
+  .form-embed iframe{height:1400px;}
 }
 
 @media (min-width:861px) and (max-width:1040px){

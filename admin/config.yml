@@ -155,19 +155,6 @@ collections:
               - { name: integration_eyebrow, label: "Интеграция янгиликлари блоки: eyebrow", widget: string, i18n: true }
               - { name: integration_h2, label: "Интеграция янгиликлари блоки: сарлавҳаси", widget: string, i18n: true }
               - { name: integration_placeholder, label: "Интеграция янгиликлари блоки: контент бўш бўлганда чиқадиган изоҳ", widget: text, i18n: true }
-          - name: feedback
-            label: "«Фикрингизни қолдиринг» саҳифаси"
-            widget: object
-            i18n: true
-            fields:
-              - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
-              - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
-              - { name: hero_sub, label: "Hero: остки матн", widget: text, i18n: true }
-              - { name: form_eyebrow, label: "Сўровнома блоки: eyebrow", widget: string, i18n: true }
-              - { name: form_h2, label: "Сўровнома блоки: сарлавҳа", widget: string, i18n: true }
-              - { name: form_placeholder, label: "Сўровнома блоки: форма ҳали йўқлиги ҳақида изоҳ", widget: text, i18n: true }
-              - { name: contacts_eyebrow, label: "Алоқа блоки: eyebrow", widget: string, i18n: true }
-              - { name: contacts_h2, label: "Алоқа блоки: сарлавҳа", widget: string, i18n: true }
 
   # ---- Направления: контент страницы (переводимый) ----
   # ВАЖНО: список (widget: list), НЕ объект. Раньше здесь было 5 top-level
@@ -379,6 +366,36 @@ collections:
           - { name: final_h2, label: "Якуний блок: сарлавҳа («Китоб билан танишинг»)", widget: string, i18n: true }
           - { name: final_cta, label: "Якуний блок: тугма матни («Китоб ҳақида →»)", widget: string, i18n: true }
           - { name: footer, label: "Семинар саҳифаси футери (асосий footerдан фарқли)", widget: string, i18n: true }
+
+  # ---- Фикрингизни қолдиринг ----
+  # Паттерн region/about_page/seminar_page кабидек — фақат widget:
+  # list/string/text (object-виджет ва YAML-якор ЙЎҚ). Google-форманинг
+  # iframe манзили шаблонда қаттиқ ёзилган, бу ерда йўқ.
+  - name: feedback_page
+    label: "Фикрингизни қолдиринг — саҳифа контенти"
+    i18n: true
+    files:
+      - name: feedback_page
+        label: "Фикр-мулоҳаза саҳифаси: hero, кириш матни, сўровнома, алоқа"
+        file: "_data/{{locale}}/feedback.yml"
+        i18n: true
+        fields:
+          - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
+          - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
+          - { name: hero_sub, label: "Hero: остки матн", widget: text, i18n: true }
+          - name: intro_paragraphs
+            label: "Кириш матни (сўровномадан олдин — фикр қолдириш нима учун керак)"
+            label_singular: "Абзац"
+            widget: list
+            i18n: true
+            summary: "{{fields.text}}"
+            fields:
+              - { name: text, label: "Матн", widget: text, i18n: true }
+          - { name: form_eyebrow, label: "Сўровнома блоки: eyebrow", widget: string, i18n: true }
+          - { name: form_h2, label: "Сўровнома блоки: сарлавҳа", widget: string, i18n: true }
+          - { name: form_note, label: "Форма остидаги изоҳ (ихтиёрий)", widget: text, required: false, i18n: true }
+          - { name: contacts_eyebrow, label: "Алоқа блоки: eyebrow", widget: string, i18n: true }
+          - { name: contacts_h2, label: "Алоқа блоки: сарлавҳа", widget: string, i18n: true }
 
   # ---- Регион ----
   - name: region

@@ -1,0 +1,18 @@
+# Feedback page (/feedback/) — the whole content lives here, edited in
+# Sveltia as its own collection (admin/config.yml → feedback_page). The
+# Google Form's iframe URL is hardcoded in the template, not here (not
+# CMS-editable).
+hero_eyebrow: "Contact"
+hero_title: "Leave your feedback"
+hero_sub: "Have you read the book? You can share your thoughts about the book, its findings, and the region's future. Every comment matters to us."
+
+intro_paragraphs:
+  - text: "\"Central Asia States 2050\" is the beginning of an open conversation about the region's future, not its conclusion. What you took away from the book — and what questions it raised — matters to us and helps improve future editions and related research."
+  - text: "Use the short form below to tell us which sections were most useful, what felt missing, and which topics about the region's future deserve deeper coverage. It only takes a few minutes."
+
+form_eyebrow: "Form"
+form_h2: "Feedback form"
+form_note: "Your responses are used only to improve the book's future editions and related research."
+
+contacts_eyebrow: "Other contacts"
+contacts_h2: "Get in touch"

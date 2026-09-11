@@ -7,12 +7,13 @@ nav_active: feedback
 ---
 {% assign L = site.active_lang %}{% assign D = site.default_lang %}
 {% assign t = site.data[L].ui | default: site.data[D].ui %}
+{% assign sd = site.data[L].feedback | default: site.data[D].feedback %}
 
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow">{{ t.feedback.hero_eyebrow }}</span>
-    <h1>{{ t.feedback.hero_title }}</h1>
-    <p class="sub">{{ t.feedback.hero_sub }}</p>
+    <span class="eyebrow">{{ sd.hero_eyebrow }}</span>
+    <h1>{{ sd.hero_title }}</h1>
+    <p class="sub">{{ sd.hero_sub }}</p>
   </div>
   <div class="horizon">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -30,30 +31,47 @@ nav_active: feedback
   </div>
 </section>
 
-<section class="section" id="form">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand">{{ t.feedback.form_eyebrow }}</span>
-      <h2>{{ t.feedback.form_h2 }}</h2>
-    </div>
-    <div class="form-embed" data-reveal>
-      <!-- GOOGLE FORM EMBED: вставьте сюда <iframe src="https://docs.google.com/forms/d/e/…/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe> -->
-      <div class="form-placeholder">{{ t.feedback.form_placeholder }}</div>
-    </div>
-  </div>
-</section>
+<div class="feedback-body-bg">
 
-<section class="section platform-cta" id="contacts">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand">{{ t.feedback.contacts_eyebrow }}</span>
-      <h2>{{ t.feedback.contacts_h2 }}</h2>
-    </div>
-    <div data-reveal>
-      <div class="feedback-links">
-        <a href="mailto:info@ca2050.one">info@ca2050.one</a>
-        <a href="https://ca2050.one" target="_blank" rel="noopener">ca2050.one</a>
+  {% if sd.intro_paragraphs and sd.intro_paragraphs.size > 0 %}
+  <section class="section" id="intro">
+    <div class="wrap">
+      <div class="feedback-intro" data-reveal>
+        {% for p in sd.intro_paragraphs %}<p>{{ p.text }}</p>{% endfor %}
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  {% endif %}
+
+  <section class="section tint" id="form">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow on-sand">{{ sd.form_eyebrow }}</span>
+        <h2>{{ sd.form_h2 }}</h2>
+      </div>
+      <div class="form-embed" data-reveal>
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdKdxkQW3ol7Wc8smMYYjNs0l2oyIK1byA81adNAfVrziaNzw/viewform?embedded=true"
+          title="{{ sd.form_h2 }}"
+          frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Юкланмоқда…</iframe>
+      </div>
+      {% if sd.form_note and sd.form_note != "" %}<p class="form-note">{{ sd.form_note }}</p>{% endif %}
+    </div>
+  </section>
+
+  <section class="section platform-cta" id="contacts">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow on-sand">{{ sd.contacts_eyebrow }}</span>
+        <h2>{{ sd.contacts_h2 }}</h2>
+      </div>
+      <div data-reveal>
+        <div class="feedback-links">
+          <a href="mailto:info@ca2050.one">info@ca2050.one</a>
+          <a href="https://ca2050.one" target="_blank" rel="noopener">ca2050.one</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
