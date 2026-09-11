@@ -305,35 +305,30 @@ a.theme-card:hover{background:var(--navy-2);}
 .youth-body p{color:var(--ink-soft); font-size:1.02rem;}
 .youth-body h2{font-size:clamp(1.5rem,2.2vw,1.9rem);}
 
-/* ===== YOUTH PAGE (/youth/) — warm gradient + delicate Central Asian geometric pattern ===== */
+/* ===== YOUTH PAGE (/youth/) — warm gradient + abstract "mahalla" skyline scene ===== */
 .youth-body-bg{
   position:relative;
   background:linear-gradient(160deg, var(--sand) 0%, #e4d7ae 48%, #cfe1dd 100%);
   overflow:hidden;
 }
-.youth-body-bg::before{
-  content:"";
-  position:absolute; inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M0 60L60 0L120 60L60 120Z' fill='none' stroke='%23141d38' stroke-width='1'/%3E%3Cpolygon points='60,26 65.36,47.07 84.04,35.96 72.93,54.64 94,60 72.93,65.36 84.04,84.04 65.36,72.93 60,94 54.64,72.93 35.96,84.04 47.07,65.36 26,60 47.07,54.64 35.96,35.96 54.64,47.07' fill='none' stroke='%23141d38' stroke-width='1'/%3E%3C/svg%3E");
-  background-size:120px 120px;
-  opacity:.07;
-  pointer-events:none;
+/* single wide illustrative scene (houses/domes/trees/figures/hills), anchored
+   to the bottom of the whole content area — not a repeating tile. Scales
+   with width via the SVG's own viewBox ratio (no explicit height set). */
+.youth-scene{
+  position:absolute; left:0; right:0; bottom:0; width:100%; height:auto;
+  display:block; opacity:.09; pointer-events:none; z-index:0;
 }
 .youth-body-bg > .section{position:relative; z-index:1; background:transparent;}
 .youth-body-bg > .section.tint{background:transparent;}
-@media (max-width:640px){
-  .youth-body-bg::before{opacity:.05; background-size:88px 88px;}
-}
 
 /* bigger, higher-contrast theme tags (youth page highlights block only) */
-.youth-tags-lg{gap:12px; margin-top:22px;}
+.youth-tags-lg{gap:14px; margin-top:26px;}
 .youth-tags-lg span{
-  background:var(--navy); color:var(--gold-soft); border:none;
-  font-size:.92rem; font-weight:700; padding:10px 20px; letter-spacing:.02em;
-  box-shadow:0 4px 14px rgba(20,29,56,.18);
+  background:var(--navy); color:var(--gold-soft); border:2px solid var(--gold);
+  font-size:1.05rem; font-weight:700; padding:14px 28px; letter-spacing:.03em;
+  border-radius:999px;
+  box-shadow:0 6px 18px rgba(20,29,56,.22);
 }
-
-.highlight-list{margin-top:22px;}
 
 /* key-concepts cards */
 .concept-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px;}
