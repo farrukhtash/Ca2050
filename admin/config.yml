@@ -406,6 +406,38 @@ collections:
               - { name: date, label: "Дата", widget: datetime, i18n: duplicate }
               - { name: source, label: "Источник", widget: string, required: false, i18n: duplicate }
 
+  # ---- Ёшлар боби (youth.html: кириш матни, асосий жиҳатлар, тушунчалар) ----
+  # Паттерн region/about_page/essays кабидек — фақат widget: list/string/text
+  # (object-виджет ва YAML-якор ЙЎҚ, directions_text'даги муаммони такрорламаслик учун).
+  - name: youth_content
+    label: "Ёшлар боби — саҳифа контенти"
+    i18n: true
+    files:
+      - name: youth_content
+        label: "Кейинги авлод гапиради: кириш, асосий жиҳатлар, тушунчалар"
+        file: "_data/{{locale}}/youth.yml"
+        i18n: true
+        fields:
+          - { name: intro_text, label: "1-блок: кириш матни (бир неча абзац)", widget: text, i18n: true }
+          - { name: highlights_intro, label: "2-блок: қисқа кириш жумласи", widget: string, required: false, i18n: true }
+          - name: highlights
+            label: "2-блок: асосий жиҳатлар рўйхати"
+            label_singular: "Жиҳат"
+            widget: list
+            i18n: true
+            summary: "{{fields.text}}"
+            fields:
+              - { name: text, label: "Матн", widget: string, i18n: true }
+          - name: concepts
+            label: "3-блок: асосий тушунчалар (карточкалар)"
+            label_singular: "Тушунча"
+            widget: list
+            i18n: true
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Тушунча номи (мас: Ҳашар)", widget: string, i18n: true }
+              - { name: description, label: "Қисқа тавсиф", widget: text, i18n: true }
+
   # ---- Ёшлар эсселари ----
   - name: essays
     label: "Ёшлар эсселари"

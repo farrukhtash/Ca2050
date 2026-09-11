@@ -82,10 +82,14 @@ youth:
   hero_eyebrow: "Featured chapter"
   hero_title: "The next generation speaks"
   hero_sub: "A collection of essays and reflections by the region's youth on the future through 2050."
-  intro_eyebrow: "The idea"
-  intro_h2: "The voice of youth"
-  intro_p: "Young people from across the region were invited to describe, in essay form, what their homelands could look like by 2050. Their reflections on civic culture, identity, health, and regional integration form one of the book's most distinctive chapters."
-  intro_tags: ["Identity", "Gender", "Ecology", "Technology"]
+  notes_eyebrow: "About the collection"
+  notes_h2: "Central Asia 2050: Notes from a future already underway"
+  notes_placeholder: "Content in preparation"
+  highlights_eyebrow: "Central themes"
+  highlights_h2: "Key highlights of the chapter"
+  highlights_tags: ["Identity", "Gender", "Ecology", "Technology"]
+  concepts_eyebrow: "Traditions"
+  concepts_h2: "Key concepts"
   essays_eyebrow: "Collection"
   essays_h2: "Essays & compositions"
   essays_placeholder: "Content in preparation — the collection of youth essays will be published here."

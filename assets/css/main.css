@@ -294,7 +294,7 @@ blockquote cite{
 a.theme-card{text-decoration:none; color:inherit; transition:background .2s ease;}
 a.theme-card:hover{background:var(--navy-2);}
 
-/* YOUTH */
+/* YOUTH (home page teaser) */
 .youth{background:var(--sand-2);}
 .youth-body{display:grid; grid-template-columns:.9fr 1.1fr; gap:48px; align-items:center;}
 .youth-tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px;}
@@ -304,6 +304,45 @@ a.theme-card:hover{background:var(--navy-2);}
 }
 .youth-body p{color:var(--ink-soft); font-size:1.02rem;}
 .youth-body h2{font-size:clamp(1.5rem,2.2vw,1.9rem);}
+
+/* ===== YOUTH PAGE (/youth/) — warm gradient + delicate Central Asian geometric pattern ===== */
+.youth-body-bg{
+  position:relative;
+  background:linear-gradient(160deg, var(--sand) 0%, #e4d7ae 48%, #cfe1dd 100%);
+  overflow:hidden;
+}
+.youth-body-bg::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M0 60L60 0L120 60L60 120Z' fill='none' stroke='%23141d38' stroke-width='1'/%3E%3Cpolygon points='60,26 65.36,47.07 84.04,35.96 72.93,54.64 94,60 72.93,65.36 84.04,84.04 65.36,72.93 60,94 54.64,72.93 35.96,84.04 47.07,65.36 26,60 47.07,54.64 35.96,35.96 54.64,47.07' fill='none' stroke='%23141d38' stroke-width='1'/%3E%3C/svg%3E");
+  background-size:120px 120px;
+  opacity:.07;
+  pointer-events:none;
+}
+.youth-body-bg > .section{position:relative; z-index:1; background:transparent;}
+.youth-body-bg > .section.tint{background:transparent;}
+@media (max-width:640px){
+  .youth-body-bg::before{opacity:.05; background-size:88px 88px;}
+}
+
+/* bigger, higher-contrast theme tags (youth page highlights block only) */
+.youth-tags-lg{gap:12px; margin-top:22px;}
+.youth-tags-lg span{
+  background:var(--navy); color:var(--gold-soft); border:none;
+  font-size:.92rem; font-weight:700; padding:10px 20px; letter-spacing:.02em;
+  box-shadow:0 4px 14px rgba(20,29,56,.18);
+}
+
+.highlight-list{margin-top:22px;}
+
+/* key-concepts cards */
+.concept-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px;}
+.concept-card{
+  background:rgba(250,248,242,.88); border:1px solid rgba(25,26,34,.10); border-radius:10px;
+  padding:26px 24px; box-shadow:0 10px 26px rgba(20,29,56,.10);
+}
+.concept-title{display:block; font-family:'PT Serif',serif; font-weight:700; font-size:1.25rem; color:var(--gold); margin-bottom:10px;}
+.concept-desc{color:var(--ink-soft); font-size:.96rem; line-height:1.6;}
 
 /* SEMINAR ANNOUNCEMENT (home teaser) */
 .seminar-photo img{

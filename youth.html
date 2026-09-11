@@ -7,7 +7,9 @@ nav_active: youth
 ---
 {% assign L = site.active_lang %}{% assign D = site.default_lang %}
 {% assign t = site.data[L].ui | default: site.data[D].ui %}
-{% assign essays = site.data[L].essays.essays | default: site.data[D].essays.essays %}
+{% assign yd = site.data[L].youth | default: site.data[D].youth %}
+{% assign highlights = yd.highlights %}
+{% assign concepts = yd.concepts %}
 
 <section class="hero">
   <div class="wrap">
@@ -31,38 +33,66 @@ nav_active: youth
   </div>
 </section>
 
-<section class="section" id="intro">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand">{{ t.youth.intro_eyebrow }}</span>
-      <h2>{{ t.youth.intro_h2 }}</h2>
+<div class="youth-body-bg">
+
+  <section class="section" id="notes">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow on-sand">{{ t.youth.notes_eyebrow }}</span>
+        <h2>{{ t.youth.notes_h2 }}</h2>
+      </div>
+      {% if yd.intro_text and yd.intro_text != "" %}
+      <div class="prose" data-reveal>{{ yd.intro_text | markdownify }}</div>
+      {% else %}
+      <div class="placeholder-note" data-reveal>{{ t.youth.notes_placeholder }}</div>
+      {% endif %}
     </div>
-    <div class="prose" data-reveal>
-      <p>{{ t.youth.intro_p }}</p>
-      <div class="youth-tags">
-        {% for tag in t.youth.intro_tags %}<span>{{ tag }}</span>{% endfor %}
+  </section>
+
+  <section class="section tint" id="highlights">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow on-sand">{{ t.youth.highlights_eyebrow }}</span>
+        <h2>{{ t.youth.highlights_h2 }}</h2>
+      </div>
+      {% if yd.highlights_intro and yd.highlights_intro != "" %}
+      <div class="prose" data-reveal><p>{{ yd.highlights_intro }}</p></div>
+      {% endif %}
+      {% if highlights and highlights.size > 0 %}
+      <ol class="recommend-list highlight-list" data-reveal>
+        {% for h in highlights %}
+        <li class="recommend-item">
+          <span class="recommend-num">{{ forloop.index }}</span>
+          <span class="recommend-text">{{ h.text }}</span>
+        </li>
+        {% endfor %}
+      </ol>
+      {% endif %}
+      {% if t.youth.highlights_tags and t.youth.highlights_tags.size > 0 %}
+      <div class="youth-tags youth-tags-lg" data-reveal>
+        {% for tag in t.youth.highlights_tags %}<span>{{ tag }}</span>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  {% if concepts and concepts.size > 0 %}
+  <section class="section" id="concepts">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow on-sand">{{ t.youth.concepts_eyebrow }}</span>
+        <h2>{{ t.youth.concepts_h2 }}</h2>
+      </div>
+      <div class="concept-grid" data-reveal>
+        {% for c in concepts %}
+        <div class="concept-card">
+          <span class="concept-title">{{ c.title }}</span>
+          <p class="concept-desc">{{ c.description }}</p>
+        </div>
+        {% endfor %}
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  {% endif %}
 
-<section class="section tint" id="essays">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand">{{ t.youth.essays_eyebrow }}</span>
-      <h2>{{ t.youth.essays_h2 }}</h2>
-    </div>
-    {% if essays and essays.size > 0 %}
-    <div class="quote-grid" data-reveal>
-      {% for e in essays %}
-      <blockquote class="quote-card">
-        <span>{{ e.excerpt | default: e.title }}</span>
-        <cite>{% if e.url and e.url != "" %}<a href="{{ e.url }}" target="_blank" rel="noopener">{{ e.author }}</a>{% else %}{{ e.author }}{% endif %}{% if e.country and e.country != "" %} · {{ e.country }}{% endif %}</cite>
-      </blockquote>
-      {% endfor %}
-    </div>
-    {% else %}
-    <div class="placeholder-note" data-reveal>{{ t.youth.essays_placeholder }}</div>
-    {% endif %}
-  </div>
-</section>
+</div>
