@@ -5,28 +5,28 @@ leaders:
     name: '[President full name]'
     position: '[President of the Republic of Kazakhstan]'
     country: Kazakhstan
-    order: 1
+    order: 2
   - photo: ''
     flag: ''
     quote: '"[A head of state''s statement will be placed here]"'
     name: '[President full name]'
     position: '[President of the Kyrgyz Republic]'
     country: Kyrgyzstan
-    order: 2
+    order: 3
   - photo: ''
     flag: ''
     quote: '"[A head of state''s statement will be placed here]"'
     name: '[President full name]'
     position: '[President of the Republic of Tajikistan]'
     country: Tajikistan
-    order: 3
+    order: 4
   - photo: ''
     flag: ''
     quote: '"[A head of state''s statement will be placed here]"'
     name: '[President full name]'
     position: '[President of Turkmenistan]'
     country: Turkmenistan
-    order: 4
+    order: 5
   - photo: /assets/images/uploads/14515701-a26b-2a2d-0285-bf8c09aa365a.jpg
     flag: /assets/images/uploads/images.jpg
     quote: '"[A head of state''s statement will be placed here]"'
