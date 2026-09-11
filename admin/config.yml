@@ -27,18 +27,194 @@ i18n:
   omit_default_locale_from_file_path: false
 
 collections:
-  # NB: строки интерфейса страниц (заголовки секций, кнопки) хранятся в
-  # _data/<locale>/ui.yml и правятся напрямую. В CMS они не заведены намеренно:
-  # неполное описание всех полей привело бы к перезаписи файла при сохранении.
+  # ---- Интерфейс матнлари (заголовки секций, eyebrow, тугмалар, плейсхолдерлар) ----
+  - name: ui_text
+    label: "Интерфейс матнлари"
+    i18n: true
+    files:
+      - name: ui_text
+        label: "Сайт бўйлаб интерфейс матнлари (nav, hero, тугмалар, плейсхолдерлар)"
+        file: "_data/{{locale}}/ui.yml"
+        i18n: true
+        fields:
+          - { name: brand_name, label: "Сайт номи (логотип ёнида, header/footer)", widget: string, i18n: true }
+          - { name: brand_tagline, label: "Сайт остки сарлавҳаси (tagline)", widget: string, i18n: true }
+          - { name: footer, label: "Футер матни (асосий, семинар саҳифасидан ташқари)", widget: string, i18n: true }
+          - name: nav
+            label: "Бош меню (header)"
+            widget: object
+            i18n: true
+            fields:
+              - { name: about, label: "Меню: «Китоб ҳақида»", widget: string, i18n: true }
+              - { name: directions, label: "Меню: «Йўналишлар» (дропдаун тугмаси)", widget: string, i18n: true }
+              - { name: all_directions, label: "Меню: «Барча йўналишлар» (эски майдон, ҳозир фойдаланилмайди)", widget: string, required: false, i18n: true }
+              - { name: youth, label: "Меню: «Кейинги авлод гапиради»", widget: string, i18n: true }
+              - { name: region, label: "Меню: «Бир минтақа»", widget: string, i18n: true }
+              - { name: seminar, label: "Меню: «Форсайт-семинар»", widget: string, i18n: true }
+              - { name: feedback, label: "Меню: «Фикрингизни қолдиринг»", widget: string, i18n: true }
+          - { name: countries, label: "Мамлакатлар рўйхати (бош саҳифа countries блоки)", widget: list, i18n: true }
+          - name: home
+            label: "Бош саҳифа"
+            widget: object
+            i18n: true
+            fields:
+              - { name: hero_eyebrow, label: "Hero: eyebrow (кичик ёрлиқ)", widget: string, i18n: true }
+              - { name: hero_title, label: "Hero: сарлавҳа (H1)", widget: string, i18n: true }
+              - { name: hero_sub, label: "Hero: остки матн", widget: text, i18n: true }
+              - { name: hero_cta, label: "Hero: тугма («Китобни юклаб олиш»)", widget: string, i18n: true }
+              - { name: hero_meta, label: "Hero: кичик изоҳ (217 бет · PDF ...)", widget: string, i18n: true }
+              - { name: more, label: "Умумий: «Батафсил →» ҳавола матни", widget: string, i18n: true }
+              - { name: about_eyebrow, label: "«Китоб ҳақида» блоки: eyebrow", widget: string, i18n: true }
+              - { name: about_h2, label: "«Китоб ҳақида» блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: about_p, label: "«Китоб ҳақида» блоки: матн", widget: text, i18n: true }
+              - { name: themes_eyebrow, label: "Йўналишлар блоки: eyebrow", widget: string, i18n: true }
+              - { name: themes_h2, label: "Йўналишлар блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: themes_all, label: "Йўналишлар блоки: «Барча йўналишлар →» ҳавола", widget: string, i18n: true }
+              - { name: youth_eyebrow, label: "Ёшлар блоки: eyebrow", widget: string, i18n: true }
+              - { name: youth_h2, label: "Ёшлар блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: youth_p, label: "Ёшлар блоки: матн", widget: text, i18n: true }
+              - { name: youth_tags, label: "Ёшлар блоки: теглар рўйхати", widget: list, i18n: true }
+              - { name: seminar_eyebrow, label: "Семинар блоки: eyebrow", widget: string, i18n: true }
+              - { name: seminar_h2, label: "Семинар блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: seminar_p, label: "Семинар блоки: матн", widget: text, i18n: true }
+              - { name: seminar_cta, label: "Семинар блоки: ҳавола матни", widget: string, i18n: true }
+              - { name: region_eyebrow, label: "«Бир минтақа» блоки: eyebrow", widget: string, i18n: true }
+              - { name: region_h2, label: "«Бир минтақа» блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: region_more, label: "«Бир минтақа» блоки: ҳавола матни", widget: string, i18n: true }
+              - { name: book_eyebrow, label: "Китоб/CTA блоки: eyebrow", widget: string, i18n: true }
+              - { name: book_h2, label: "Китоб/CTA блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: book_p, label: "Китоб/CTA блоки: матн", widget: text, i18n: true }
+              - { name: book_cta, label: "Китоб/CTA блоки: тугма («PDF юклаб олиш»)", widget: string, i18n: true }
+              - { name: feedback_eyebrow, label: "Алоқа блоки: eyebrow", widget: string, i18n: true }
+              - { name: feedback_h2, label: "Алоқа блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: feedback_p, label: "Алоқа блоки: матн", widget: text, i18n: true }
+              - { name: feedback_cta, label: "Алоқа блоки: тугма («Фикр билдириш»)", widget: string, i18n: true }
+          - name: about
+            label: "«Китоб ҳақида» саҳифаси"
+            widget: object
+            i18n: true
+            fields:
+              - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
+              - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
+              - { name: hero_sub, label: "Hero: остки матн", widget: text, i18n: true }
+              - { name: overview_eyebrow, label: "Умумий маълумот блоки: eyebrow", widget: string, i18n: true }
+              - { name: overview_h2, label: "Умумий маълумот блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: agencies_eyebrow, label: "Ташкилотчилар блоки: eyebrow", widget: string, i18n: true }
+              - { name: agencies_h2, label: "Ташкилотчилар блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: authors_eyebrow, label: "Муаллифлар блоки: eyebrow", widget: string, i18n: true }
+              - { name: authors_h2, label: "Муаллифлар блоки: сарлавҳа", widget: string, i18n: true }
+          - name: directions
+            label: "Йўналишлар саҳифалари (рўйхат ва ҳар бир йўналиш)"
+            widget: object
+            i18n: true
+            fields:
+              - { name: hero_eyebrow, label: "Рўйхат саҳифаси: hero eyebrow", widget: string, i18n: true }
+              - { name: hero_title, label: "Рўйхат саҳифаси: hero сарлавҳа", widget: string, i18n: true }
+              - { name: hero_sub, label: "Рўйхат саҳифаси: hero матни", widget: text, i18n: true }
+              - { name: card_more, label: "Рўйхат саҳифаси: карточка «Батафсил →» матни", widget: string, i18n: true }
+              - { name: detail_eyebrow, label: "Йўналиш саҳифаси: eyebrow", widget: string, i18n: true }
+              - { name: back, label: "Йўналиш саҳифаси: «← Барча йўналишлар» ҳаволаси", widget: string, i18n: true }
+              - { name: placeholder, label: "Йўналиш саҳифаси: контент бўш бўлганда чиқадиган изоҳ", widget: string, i18n: true }
+              - { name: intro_eyebrow, label: "Йўналиш саҳифаси: кириш блоки eyebrow", widget: string, i18n: true }
+              - { name: charts_eyebrow, label: "Йўналиш саҳифаси: диаграммалар блоки eyebrow", widget: string, i18n: true }
+              - { name: charts_h2, label: "Йўналиш саҳифаси: диаграммалар блоки сарлавҳаси", widget: string, i18n: true }
+              - { name: chart_open_label, label: "Диаграмма: катталаштириш тугмаси (aria-label)", widget: string, i18n: true }
+              - { name: lightbox_close_label, label: "Lightbox: ёпиш тугмаси (aria-label)", widget: string, i18n: true }
+              - { name: scenarios_eyebrow, label: "Сценарийлар блоки: eyebrow", widget: string, i18n: true }
+              - { name: scenarios_h2, label: "Сценарийлар блоки: сарлавҳаси", widget: string, i18n: true }
+              - { name: recommendations_eyebrow, label: "Тавсиялар блоки: eyebrow", widget: string, i18n: true }
+              - { name: recommendations_h2, label: "Тавсиялар блоки: сарлавҳаси", widget: string, i18n: true }
+              - { name: nav_prev, label: "Пагинация: «Олдинги йўналиш» ёрлиғи", widget: string, i18n: true }
+              - { name: nav_next, label: "Пагинация: «Кейинги йўналиш» ёрлиғи", widget: string, i18n: true }
+          - name: youth
+            label: "«Кейинги авлод гапиради» саҳифаси"
+            widget: object
+            i18n: true
+            fields:
+              - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
+              - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
+              - { name: hero_sub, label: "Hero: остки матн", widget: text, i18n: true }
+              - { name: intro_eyebrow, label: "Ғоя блоки: eyebrow", widget: string, i18n: true }
+              - { name: intro_h2, label: "Ғоя блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: intro_p, label: "Ғоя блоки: матн", widget: text, i18n: true }
+              - { name: intro_tags, label: "Ғоя блоки: теглар рўйхати", widget: list, i18n: true }
+              - { name: essays_eyebrow, label: "Эсселар блоки: eyebrow", widget: string, i18n: true }
+              - { name: essays_h2, label: "Эсселар блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: essays_placeholder, label: "Эсселар блоки: контент бўш бўлганда чиқадиган изоҳ", widget: text, i18n: true }
+          - name: region
+            label: "«Бир минтақа» саҳифаси"
+            widget: object
+            i18n: true
+            fields:
+              - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
+              - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
+              - { name: hero_sub, label: "Hero: остки матн", widget: text, i18n: true }
+              - { name: leaders_eyebrow, label: "Давлат раҳбарлари блоки: eyebrow", widget: string, i18n: true }
+              - { name: leaders_h2, label: "Давлат раҳбарлари блоки сарлавҳаси", widget: string, i18n: true }
+              - { name: leaders_placeholder, label: "Давлат раҳбарлари блоки: контент бўш бўлганда чиқадиган изоҳ", widget: text, i18n: true }
+              - { name: integration_eyebrow, label: "Интеграция янгиликлари блоки: eyebrow", widget: string, i18n: true }
+              - { name: integration_h2, label: "Интеграция янгиликлари блоки: сарлавҳаси", widget: string, i18n: true }
+              - { name: integration_placeholder, label: "Интеграция янгиликлари блоки: контент бўш бўлганда чиқадиган изоҳ", widget: text, i18n: true }
+          - name: feedback
+            label: "«Фикрингизни қолдиринг» саҳифаси"
+            widget: object
+            i18n: true
+            fields:
+              - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
+              - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
+              - { name: hero_sub, label: "Hero: остки матн", widget: text, i18n: true }
+              - { name: form_eyebrow, label: "Сўровнома блоки: eyebrow", widget: string, i18n: true }
+              - { name: form_h2, label: "Сўровнома блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: form_placeholder, label: "Сўровнома блоки: форма ҳали йўқлиги ҳақида изоҳ", widget: text, i18n: true }
+              - { name: contacts_eyebrow, label: "Алоқа блоки: eyebrow", widget: string, i18n: true }
+              - { name: contacts_h2, label: "Алоқа блоки: сарлавҳа", widget: string, i18n: true }
+          - name: seminar
+            label: "«Форсайт-семинар 2025» саҳифаси"
+            widget: object
+            i18n: true
+            fields:
+              - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
+              - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
+              - { name: hero_dates, label: "Hero: тадбир саналари", widget: string, i18n: true }
+              - { name: organizers, label: "Hero: ташкилотчилар қатори", widget: text, i18n: true }
+              - { name: about_eyebrow, label: "Семинар ҳақида блоки: eyebrow", widget: string, i18n: true }
+              - { name: about_h2, label: "Семинар ҳақида блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: about_p1, label: "Семинар ҳақида блоки: 1-абзац", widget: text, i18n: true }
+              - { name: about_p2, label: "Семинар ҳақида блоки: 2-абзац", widget: text, i18n: true }
+              - { name: gallery_eyebrow, label: "Медиатека блоки: eyebrow", widget: string, i18n: true }
+              - { name: gallery_h2, label: "Медиатека блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: quotes_eyebrow, label: "Иқтибослар блоки: eyebrow", widget: string, i18n: true }
+              - { name: quotes_h2, label: "Иқтибослар блоки: сарлавҳа", widget: string, i18n: true }
+              - name: quotes
+                label: "Иштирокчилар иқтибослари"
+                label_singular: "Иқтибос"
+                widget: list
+                i18n: true
+                summary: "{{fields.name}}"
+                fields:
+                  - { name: name, label: "Исм", widget: string, i18n: true }
+                  - { name: text, label: "Иқтибос матни", widget: text, i18n: true }
+              - { name: press_eyebrow, label: "ОАВ блоки: eyebrow", widget: string, i18n: true }
+              - { name: press_h2, label: "ОАВ блоки: сарлавҳа", widget: string, i18n: true }
+              - { name: press_group_articles, label: "ОАВ блоки: «Матбуотда» гуруҳ номи", widget: string, i18n: true }
+              - { name: press_group_video, label: "ОАВ блоки: «Видео» гуруҳ номи", widget: string, i18n: true }
+              - { name: press_group_telegram, label: "ОАВ блоки: «Telegram» гуруҳ номи", widget: string, i18n: true }
+              - { name: back_h2, label: "Якуний блок: сарлавҳа («Китоб билан танишинг»)", widget: string, i18n: true }
+              - { name: back_cta, label: "Якуний блок: тугма («Китоб ҳақида →»)", widget: string, i18n: true }
+              - { name: footer, label: "Семинар саҳифаси футери (асосий footerдан фарқли)", widget: string, i18n: true }
 
   # ---- Направления: контент страницы (переводимый) ----
   # ВАЖНО: список (widget: list), НЕ объект. Раньше здесь было 5 top-level
-  # object-полей (climate/water/.../demography, widget: object) — в Sveltia
-  # CMS верхнеуровневый object-виджет в file-коллекции не показывает вкладки
-  # языков (проверено на практике, несмотря на то что по документации
-  # i18n для object вроде бы поддерживается). List — тот же паттерн, что и
-  # у leaders/press/essays/authors ниже, там всё отображается корректно.
-  # Каждый элемент списка привязан к _directions/*.md через поле slug.
+  # object-полей (climate/water/.../demography, widget: object), и в CMS они
+  # не показывали вкладки языков на практике. Отдельная точечная проверка
+  # (изолированный конфиг с тестовым backend) позже показала, что object +
+  # i18n:true — включая ту же вложенность с list внутри и тот же YAML-якорь —
+  # в текущей версии Sveltia отображается корректно; точную причину прежнего
+  # сбоя (кэш конфига в браузере на момент проверки? другая версия сборки?)
+  # установить не удалось. Раз список ниже уже подтверждённо работает в
+  # продакшене — оставлен как есть, вместо повторного риска. См. также
+  # ui_text выше: там используется object per-секция, т.к. изолированная
+  # проверка подтвердила его надёжность для новой коллекции.
   - name: directions_text
     label: "Йўналишлар — контент"
     i18n: true
