@@ -4,25 +4,56 @@ directions:
     subtitle: ''
     stats:
       - value: 1,2 °C
+        label: Ўртача йиллик ҳарорат XX асрнинг ўрталаридан бери тахминан кўтарилган.
       - value: 20%
+        label: Қор қоплами қалинлиги тахминан камайди.
       - value: 20%
+        label: Минтақа аҳолисининг қарийб (ҳар 100 йилда бир марта бўладиган) сув тошқини хавфи юқори бўлган ҳудудларда яшайди.
       - value: 2021 / 2024
+        label: йилларда минтақа энг кучли қурғоқчиликни бошдан кечирди.
       - value: 2х
+        label: Марказий Осиёда ҳарорат дунёдаги ўртача кўрсаткичдан деярли тезроқ кўтарилмоқда, унда кўпроқ буғланиш, музликларнинг эриши, тартибсиз ёғингарчилик кузатилмоқда.
     intro: ''
     charts:
       - image: /assets/images/uploads/4. Климат.png
+        caption: Кабағалликда яшовчи ва сув тошқини хавфи юқори бўлган аҳоли. Манба:Жаҳон банки (2024 йил).
+        note: ''
       - image: /assets/images/uploads/6. Климат.png
+        caption: 'Марказий Осиё музликлари массаси балансининг ўлчанган ва қайта тикланган вақтли қаторлари. Манба: Barandun et. al (2020).'
+        note: ''
       - image: /assets/images/uploads/7. Климат.png
+        caption: 'Асосий тоғ тизмалари ва музликлар харитаси. Манба: Barandun et. al (2020).'
+        note: ''
       - image: /assets/images/uploads/5. Климат.png
+        caption: 'Марказий Осиёнинг барча беш давлатидаги тармоқлар бўйича умумий чиқиндилар, Net Zero ва Reference сценарийларида бирлаштирилган.Изоҳ: чапдаги график асосий сценарийни, ўнгдаги график эса паст углеродли ривожланиш сценарийини акс эттиради.'
+        note: ''
       - image: /assets/images/uploads/3. Климат.png
+        caption: '2065-2085 йилларда кутилаётган бир кунлик энг кўп ёғингарчилик ҳажми. Бу оралиқлар ҳар бир умумий ижтимоий-иқтисодий ривожланиш йўллари (Shared Socioeconomic Pathways, SSP) учун прогнозларнинг 10- (паст) 90- (юқори) фоизларини кўрсатади. Тарихда кузатилган оралиқлар – 1995 йилдан 2014 йилгача. Маълумот манбаси: ИОБП, 2025 йил.'
+        note: ''
     scenarios: []
     recommendations: []
   - slug: water
     title: Water resources
     subtitle: ''
-    stats: []
+    stats:
+      - value: 97%
+      - value: 11% гача
+      - value: 4,5 млрд $
+      - value: 5х
+      - value: 80%
+      - value: 40% +
+      - value: 2030 - 7% + / 2050 - 10% +
+      - value: 2030 - 20% / 2050 - 50%
+      - value: 123 млрд м3
+      - value: 10 млн
+      - value: 11 - 19 %
     intro: ''
-    charts: []
+    charts:
+      - image: /assets/images/uploads/1. ВОда.png
+      - image: /assets/images/uploads/2. Вода.png
+      - image: /assets/images/uploads/3. Вода.png
+      - image: /assets/images/uploads/4. вода.png
+      - image: /assets/images/uploads/5. вода.png
     scenarios: []
     recommendations: []
   - slug: energy
