@@ -9,8 +9,10 @@ nav_active: youth
 {% assign t = site.data[L].ui | default: site.data[D].ui %}
 {% assign yd = site.data[L].youth | default: site.data[D].youth %}
 {% assign concepts = yd.concepts %}
+{% assign tags = yd.tags %}
 
 <section class="hero">
+  {% include youth-scene.html svg_class="hero-scene" hills_back="#e3cd85" hills_mid="#faf8f2" structure_color="#faf8f2" figure_color="#e3cd85" %}
   <div class="wrap">
     <span class="eyebrow">{{ t.youth.hero_eyebrow }}</span>
     <h1>{{ t.youth.hero_title }}</h1>
@@ -34,43 +36,7 @@ nav_active: youth
 
 <div class="youth-body-bg">
 
-  <svg class="youth-scene" viewBox="0 0 1600 300" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
-    <path d="M0,230 Q200,195 400,215 T800,205 T1200,220 T1600,210 L1600,300 L0,300 Z" fill="#8fb3ac"/>
-    <path d="M0,260 Q250,235 500,250 T1000,245 T1600,255 L1600,300 L0,300 Z" fill="#c9ad74"/>
-    <g fill="#9c7a42">
-      <rect x="100" y="265" width="5" height="35"/><ellipse cx="102" cy="225" rx="11" ry="42"/>
-      <rect x="230" y="272" width="3" height="22"/><circle cx="231" cy="255" r="17"/>
-      <rect x="520" y="270" width="3" height="24"/><circle cx="521" cy="250" r="19"/>
-      <rect x="610" y="258" width="4" height="45"/><ellipse cx="612" cy="208" rx="10" ry="46"/>
-      <rect x="850" y="275" width="3" height="20"/><circle cx="851" cy="260" r="15"/>
-      <rect x="1150" y="270" width="3" height="24"/><circle cx="1151" cy="250" r="19"/>
-      <rect x="1250" y="255" width="4" height="40"/><ellipse cx="1252" cy="212" rx="10" ry="44"/>
-      <rect x="1500" y="248" width="5" height="48"/><ellipse cx="1502" cy="196" rx="12" ry="52"/>
-      <rect x="60" y="278" width="3" height="16"/><circle cx="61" cy="265" r="12"/>
-    </g>
-    <g fill="#9c7a42">
-      <rect x="160" y="235" width="64" height="55"/><polygon points="160,235 192,200 224,235"/>
-      <rect x="260" y="250" width="54" height="40"/><path d="M260,250 A27,27 0 0 1 314,250 Z"/>
-      <rect x="350" y="225" width="48" height="60"/><polygon points="350,225 374,190 398,225"/>
-      <rect x="450" y="258" width="34" height="32"/><polygon points="450,258 467,240 484,258"/>
-      <rect x="560" y="205" width="72" height="85"/><path d="M560,205 A36,36 0 0 1 632,205 Z"/><rect x="592" y="170" width="6" height="36"/>
-      <rect x="680" y="238" width="54" height="52"/><polygon points="680,238 707,205 734,238"/>
-      <rect x="790" y="262" width="32" height="28"/><polygon points="790,262 806,244 822,262"/>
-      <rect x="880" y="252" width="50" height="38"/><path d="M880,252 A25,25 0 0 1 930,252 Z"/>
-      <rect x="980" y="230" width="60" height="60"/><polygon points="980,230 1010,195 1040,230"/>
-      <rect x="1080" y="260" width="34" height="30"/><polygon points="1080,260 1097,242 1114,260"/>
-      <rect x="1160" y="222" width="64" height="68"/><polygon points="1160,222 1192,185 1224,222"/>
-      <rect x="1280" y="256" width="46" height="34"/><path d="M1280,256 A23,23 0 0 1 1326,256 Z"/>
-      <rect x="1370" y="240" width="54" height="50"/><polygon points="1370,240 1397,208 1424,240"/>
-    </g>
-    <g fill="#7d5f32" stroke="#7d5f32" stroke-width="3" stroke-linecap="round">
-      <circle cx="300" cy="284" r="3.5" stroke="none"/><line x1="300" y1="288" x2="300" y2="298"/>
-      <circle cx="520" cy="286" r="3.5" stroke="none"/><line x1="520" y1="290" x2="520" y2="300"/>
-      <circle cx="760" cy="284" r="3.5" stroke="none"/><line x1="760" y1="288" x2="760" y2="298"/>
-      <circle cx="1020" cy="286" r="3.5" stroke="none"/><line x1="1020" y1="290" x2="1020" y2="300"/>
-      <circle cx="1230" cy="284" r="3.5" stroke="none"/><line x1="1230" y1="288" x2="1230" y2="298"/>
-    </g>
-  </svg>
+  {% include youth-scene.html svg_class="youth-scene" hills_back="#8fb3ac" hills_mid="#c9ad74" structure_color="#9c7a42" figure_color="#7d5f32" %}
 
   <section class="section" id="notes">
     <div class="wrap">
@@ -95,9 +61,9 @@ nav_active: youth
       {% if yd.highlights_intro and yd.highlights_intro != "" %}
       <div class="prose" data-reveal><p>{{ yd.highlights_intro }}</p></div>
       {% endif %}
-      {% if t.youth.highlights_tags and t.youth.highlights_tags.size > 0 %}
+      {% if tags and tags.size > 0 %}
       <div class="youth-tags youth-tags-lg" data-reveal>
-        {% for tag in t.youth.highlights_tags %}<span>{{ tag }}</span>{% endfor %}
+        {% for tag in tags %}<span>{{ tag.text }}</span>{% endfor %}
       </div>
       {% endif %}
     </div>

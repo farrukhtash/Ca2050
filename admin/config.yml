@@ -420,6 +420,14 @@ collections:
         fields:
           - { name: intro_text, label: "1-блок: кириш матни (бир неча абзац)", widget: text, i18n: true }
           - { name: highlights_intro, label: "2-блок: кириш жумласи (теглар устида)", widget: string, required: false, i18n: true }
+          - name: tags
+            label: "2-блок: мавзу теглари (Ўзлик, Гендер, ...)"
+            label_singular: "Тег"
+            widget: list
+            i18n: true
+            summary: "{{fields.text}}"
+            fields:
+              - { name: text, label: "Матн", widget: string, i18n: true }
           - name: concepts
             label: "3-блок: асосий тушунчалар (карточкалар)"
             label_singular: "Тушунча"

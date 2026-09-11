@@ -3,6 +3,11 @@ intro_text: |-
 
   Young people from across the region's countries were invited to describe their homeland's future freely — as an essay, a personal observation, or an analysis. Their texts complement the book's formal analytical sections, adding a broader public perspective.
 highlights_intro: 'The collected essays cover the following central themes:'
+tags:
+  - text: Identity
+  - text: Gender
+  - text: Ecology
+  - text: Technology
 concepts:
   - title: Hashar
     description: Community or extended-family members working together for the common good, without payment — a traditional form of mutual aid and collective responsibility.
