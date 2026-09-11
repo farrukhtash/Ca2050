@@ -1,20 +1,17 @@
-# Youth chapter page content (youth.html). Block headings live in
-# _data/<locale>/ui.yml (under youth: notes_*, highlights_*, concepts_*) —
-# this file holds only the text/list content.
 intro_text: |-
   The book includes a dedicated chapter devoted to the region's youth — bringing together their essays and reflections on the future of Central Asia through 2050.
 
   Young people from across the region's countries were invited to describe their homeland's future freely — as an essay, a personal observation, or an analysis. Their texts complement the book's formal analytical sections, adding a broader public perspective.
-highlights_intro: "The collected essays are built around the following central themes:"
+highlights_intro: 'The collected essays are built around the following central themes:'
 highlights:
-  - text: "Civic culture and questions of identity"
-  - text: "Health and quality of life"
-  - text: "Regional integration and cooperation"
-  - text: "Ecology and technological change"
+  - text: Civic culture and questions of identity
+  - text: Health and quality of life
+  - text: Regional integration and cooperation
+  - text: Ecology and technological change
 concepts:
-  - title: "Hashar"
-    description: "Community or extended-family members working together for the common good, without payment — a traditional form of mutual aid and collective responsibility."
-  - title: "[Concept name]"
-    description: "[Description goes here]"
-  - title: "[Concept name]"
-    description: "[Description goes here]"
+  - title: Hashar
+    description: Community or extended-family members working together for the common good, without payment — a traditional form of mutual aid and collective responsibility.
+  - title: '[Concept name]'
+    description: '[Description goes here]'
+  - title: '[Concept name]'
+    description: '[Description goes here]'
