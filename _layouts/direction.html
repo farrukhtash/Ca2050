@@ -3,7 +3,20 @@ layout: default
 ---
 {% assign L = site.active_lang %}{% assign D = site.default_lang %}
 {% assign t = site.data[L].ui | default: site.data[D].ui %}
-{% assign dd = site.data[L].directions[page.slug] | default: site.data[D].directions[page.slug] %}
+{% comment %}
+  directions.yml is a list (see admin/config.yml note): a top-level object
+  widget per direction didn't show locale tabs in Sveltia CMS, so content
+  is a `directions:` list with a `slug` field instead. Look up the current
+  page's entry by slug, falling back to the whole default-locale list if
+  the current locale has none (mirrors the `| default:` pattern used
+  elsewhere, since `where` on a nil/absent list is itself nil, not an error).
+{% endcomment %}
+{% assign _matches = site.data[L].directions.directions | where: 'slug', page.slug %}
+{% assign dd = _matches | first %}
+{% unless dd %}
+  {% assign _matches = site.data[D].directions.directions | where: 'slug', page.slug %}
+  {% assign dd = _matches | first %}
+{% endunless %}
 {% assign dtitle = dd.title %}
 {% assign stats = dd.stats %}
 {% assign charts = dd.charts %}
@@ -184,19 +197,21 @@ layout: default
   <nav class="direction-pager">
     <div class="wrap direction-pager-inner">
       {% if prev_dir %}
+      {% capture prev_title %}{% include direction-title.html locale=L default_locale=D slug=prev_dir.slug %}{% endcapture %}
       <a class="pager-link prev" href="{{ prev_dir.url | relative_url }}">
         <span class="pager-arrow" aria-hidden="true">←</span>
         <span class="pager-text">
           <span class="pager-label">{{ t.directions.nav_prev }}</span>
-          <span class="pager-title">{{ site.data[L].directions[prev_dir.slug].title | default: site.data[D].directions[prev_dir.slug].title }}</span>
+          <span class="pager-title">{{ prev_title | strip }}</span>
         </span>
       </a>
       {% endif %}
       {% if next_dir %}
+      {% capture next_title %}{% include direction-title.html locale=L default_locale=D slug=next_dir.slug %}{% endcapture %}
       <a class="pager-link next" href="{{ next_dir.url | relative_url }}">
         <span class="pager-text">
           <span class="pager-label">{{ t.directions.nav_next }}</span>
-          <span class="pager-title">{{ site.data[L].directions[next_dir.slug].title | default: site.data[D].directions[next_dir.slug].title }}</span>
+          <span class="pager-title">{{ next_title | strip }}</span>
         </span>
         <span class="pager-arrow" aria-hidden="true">→</span>
       </a>

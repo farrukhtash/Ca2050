@@ -1,47 +1,53 @@
-# Йўналишлар контенти (калит = _directions/*.md файл номи).
-# title — саҳифа ва навигация сарлавҳаси (эски майдон, сақланган).
-# Қолган майдонлар — йўналиш саҳифасининг блоклари: subtitle (heroда,
-# ихтиёрий), stats (асосий кўрсаткичлар), intro (кириш матни),
-# charts (диаграммалар), scenarios (2050 йилгача сценарийлар),
-# recommendations (тавсиялар). Ҳар бири бўш бўлса, тегишли блок
-# саҳифада кўрсатилмайди.
-climate:
-  title: "Иқлим ўзгариши"
-  subtitle: ""
-  stats: []
-  intro: ""
-  charts: []
-  scenarios: []
-  recommendations: []
-water:
-  title: "Сув ресурслари"
-  subtitle: ""
-  stats: []
-  intro: ""
-  charts: []
-  scenarios: []
-  recommendations: []
-energy:
-  title: "Энергетика"
-  subtitle: ""
-  stats: []
-  intro: ""
-  charts: []
-  scenarios: []
-  recommendations: []
-transport:
-  title: "Транспорт"
-  subtitle: ""
-  stats: []
-  intro: ""
-  charts: []
-  scenarios: []
-  recommendations: []
-demography:
-  title: "Ижтимоий тараққиёт ва демография"
-  subtitle: ""
-  stats: []
-  intro: ""
-  charts: []
-  scenarios: []
-  recommendations: []
+# Йўналишлар контенти — рўйхат (list). Ҳар бир элемент `slug` орқали
+# _directions/*.md файли билан боғланади (climate.md ↔ slug: climate, ва ҳ.к.).
+# Sveltia CMS'да list widget сифатида таҳрирланади — MUHIM: object widget
+# ишлатилмайди, чунки file-коллекцияда юқори даражадаги object widget'лар
+# тил (i18n) ўтишларини кўрсатмайди (текширилди). List — leaders/press/
+# essays/authors'да ишлатилган ва тасдиқланган паттерн.
+#
+# Майдонлар: title — саҳифа ва меню сарлавҳаси; subtitle — heroдаги қисқа
+# тавсиф (ихтиёрий); stats — асосий кўрсаткичлар; intro — кириш матни;
+# charts — диаграммалар; scenarios — 2050 йилгача сценарийлар;
+# recommendations — тавсиялар. Ҳар бири бўш бўлса, тегишли блок саҳифада
+# кўрсатилмайди.
+directions:
+  - slug: climate
+    title: "Иқлим ўзгариши"
+    subtitle: ""
+    stats: []
+    intro: ""
+    charts: []
+    scenarios: []
+    recommendations: []
+  - slug: water
+    title: "Сув ресурслари"
+    subtitle: ""
+    stats: []
+    intro: ""
+    charts: []
+    scenarios: []
+    recommendations: []
+  - slug: energy
+    title: "Энергетика"
+    subtitle: ""
+    stats: []
+    intro: ""
+    charts: []
+    scenarios: []
+    recommendations: []
+  - slug: transport
+    title: "Транспорт"
+    subtitle: ""
+    stats: []
+    intro: ""
+    charts: []
+    scenarios: []
+    recommendations: []
+  - slug: demography
+    title: "Ижтимоий тараққиёт ва демография"
+    subtitle: ""
+    stats: []
+    intro: ""
+    charts: []
+    scenarios: []
+    recommendations: []

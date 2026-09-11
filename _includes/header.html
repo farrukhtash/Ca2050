@@ -17,7 +17,8 @@
         </button>
         <div class="nav-dropdown" id="dd-directions" role="menu">
           {% for dir in dirs %}
-          <a role="menuitem" href="{{ dir.url | relative_url }}">{{ site.data[L].directions[dir.slug].title | default: site.data[D].directions[dir.slug].title }}</a>
+          {% capture dtitle %}{% include direction-title.html locale=L default_locale=D slug=dir.slug %}{% endcapture %}
+          <a role="menuitem" href="{{ dir.url | relative_url }}">{{ dtitle | strip }}</a>
           {% endfor %}
         </div>
       </div>

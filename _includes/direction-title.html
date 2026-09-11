@@ -1,0 +1,6 @@
+{% comment %}
+  Looks up a direction's localized title by slug, with a whole-locale
+  fallback to the default language (mirrors the `| default:` pattern used
+  elsewhere on the site, adapted for the list-shaped directions data).
+  Usage: {% capture dtitle %}{% include direction-title.html locale=L default_locale=D slug=dir.slug %}{% endcapture %}{% assign dtitle = dtitle | strip %}
+{% endcomment %}{% assign _matches = site.data[include.locale].directions.directions | where: 'slug', include.slug %}{% assign _item = _matches | first %}{% unless _item %}{% assign _matches = site.data[include.default_locale].directions.directions | where: 'slug', include.slug %}{% assign _item = _matches | first %}{% endunless %}{{ _item.title }}

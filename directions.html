@@ -35,9 +35,10 @@ nav_active: directions
   <div class="wrap">
     <div class="dir-grid" data-reveal>
       {% for dir in dirs %}
+      {% capture dtitle %}{% include direction-title.html locale=L default_locale=D slug=dir.slug %}{% endcapture %}
       <a class="dir-card" href="{{ dir.url | relative_url }}">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="{{ dir.icon }}"/></svg>
-        <span class="dir-card-title">{{ site.data[L].directions[dir.slug].title | default: site.data[D].directions[dir.slug].title }}</span>
+        <span class="dir-card-title">{{ dtitle | strip }}</span>
         <span class="dir-card-more">{{ t.directions.card_more }}</span>
       </a>
       {% endfor %}

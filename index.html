@@ -63,9 +63,10 @@ hero_full: true
     </div>
     <div class="theme-grid" data-reveal>
       {% for dir in dirs %}
+      {% capture dtitle %}{% include direction-title.html locale=L default_locale=D slug=dir.slug %}{% endcapture %}
       <a class="theme-card" href="{{ dir.url | relative_url }}">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="{{ dir.icon }}"/></svg>
-        <span>{{ site.data[L].directions[dir.slug].title | default: site.data[D].directions[dir.slug].title }}</span>
+        <span>{{ dtitle | strip }}</span>
       </a>
       {% endfor %}
     </div>

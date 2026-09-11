@@ -1,46 +1,52 @@
-# Direction content (key = filename in _directions/*.md).
-# title — page & nav title (existing field, kept).
-# The rest are the direction page blocks: subtitle (hero, optional),
-# stats (key figures), intro (intro text), charts (diagrams),
-# scenarios (outlook to 2050), recommendations. Each block is hidden
-# on the page when its data is empty.
-climate:
-  title: "Climate change"
-  subtitle: ""
-  stats: []
-  intro: ""
-  charts: []
-  scenarios: []
-  recommendations: []
-water:
-  title: "Water resources"
-  subtitle: ""
-  stats: []
-  intro: ""
-  charts: []
-  scenarios: []
-  recommendations: []
-energy:
-  title: "Energy"
-  subtitle: ""
-  stats: []
-  intro: ""
-  charts: []
-  scenarios: []
-  recommendations: []
-transport:
-  title: "Transport"
-  subtitle: ""
-  stats: []
-  intro: ""
-  charts: []
-  scenarios: []
-  recommendations: []
-demography:
-  title: "Social development & demography"
-  subtitle: ""
-  stats: []
-  intro: ""
-  charts: []
-  scenarios: []
-  recommendations: []
+# Direction content — a list. Each item links to its _directions/*.md file
+# via `slug` (climate.md ↔ slug: climate, etc.). Edited in Sveltia CMS as a
+# list widget — IMPORTANT: no object widget is used here, because a
+# top-level object widget in a file collection doesn't show locale tabs in
+# Sveltia (verified in practice). List is the same pattern already used
+# (and working) for leaders/press/essays/authors below.
+#
+# Fields: title — page & nav title; subtitle — short hero blurb (optional);
+# stats — key figures; intro — intro text; charts — diagrams; scenarios —
+# outlook to 2050; recommendations. Each block is hidden on the page when
+# its data is empty.
+directions:
+  - slug: climate
+    title: "Climate change"
+    subtitle: ""
+    stats: []
+    intro: ""
+    charts: []
+    scenarios: []
+    recommendations: []
+  - slug: water
+    title: "Water resources"
+    subtitle: ""
+    stats: []
+    intro: ""
+    charts: []
+    scenarios: []
+    recommendations: []
+  - slug: energy
+    title: "Energy"
+    subtitle: ""
+    stats: []
+    intro: ""
+    charts: []
+    scenarios: []
+    recommendations: []
+  - slug: transport
+    title: "Transport"
+    subtitle: ""
+    stats: []
+    intro: ""
+    charts: []
+    scenarios: []
+    recommendations: []
+  - slug: demography
+    title: "Social development & demography"
+    subtitle: ""
+    stats: []
+    intro: ""
+    charts: []
+    scenarios: []
+    recommendations: []
