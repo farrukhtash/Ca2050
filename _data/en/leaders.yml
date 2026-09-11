@@ -1,13 +1,16 @@
 # Heads of state of Central Asia — 5 countries.
 # Order: `order` (alphabetical, neutral — no hierarchy).
 # photo/flag are uploaded via the CMS; a clean placeholder shows when empty.
+# country is used only by the flag switcher row (label, alt text); it is no
+# longer shown under the quote — that caption's `position` field carries the
+# full title, country name included, as one line.
 leaders:
   - country: "Kazakhstan"
     order: 1
     photo: ""
     flag: ""
     name: "[President full name]"
-    position: "[Head of state title]"
+    position: "[President of the Republic of Kazakhstan]"
     quote: >-
       "[A head of state's statement will be placed here]"
   - country: "Kyrgyzstan"
@@ -15,7 +18,7 @@ leaders:
     photo: ""
     flag: ""
     name: "[President full name]"
-    position: "[Head of state title]"
+    position: "[President of the Kyrgyz Republic]"
     quote: >-
       "[A head of state's statement will be placed here]"
   - country: "Tajikistan"
@@ -23,7 +26,7 @@ leaders:
     photo: ""
     flag: ""
     name: "[President full name]"
-    position: "[Head of state title]"
+    position: "[President of the Republic of Tajikistan]"
     quote: >-
       "[A head of state's statement will be placed here]"
   - country: "Turkmenistan"
@@ -31,7 +34,7 @@ leaders:
     photo: ""
     flag: ""
     name: "[President full name]"
-    position: "[Head of state title]"
+    position: "[President of Turkmenistan]"
     quote: >-
       "[A head of state's statement will be placed here]"
   - country: "Uzbekistan"
@@ -39,6 +42,6 @@ leaders:
     photo: ""
     flag: ""
     name: "[President full name]"
-    position: "[Head of state title]"
+    position: "[President of the Republic of Uzbekistan]"
     quote: >-
       "[A head of state's statement will be placed here]"

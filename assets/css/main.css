@@ -536,7 +536,6 @@ footer img{height:54px; width:auto; margin-bottom:12px; opacity:.9;}
 }
 .leader-name{font-family:'PT Serif',serif; font-weight:700; font-size:1.14rem; color:var(--ink);}
 .leader-position{font-size:.9rem; color:var(--ink-soft);}
-.leader-country{font-size:.74rem; text-transform:uppercase; letter-spacing:.12em; color:var(--teal); font-weight:600;}
 
 /* ===== REGION — INTEGRATION NEWS (card tiles) ===== */
 .news-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}

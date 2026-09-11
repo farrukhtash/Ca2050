@@ -154,8 +154,8 @@ collections:
               - { name: flag, label: "Флаг (маленький)", widget: image, required: false, media_folder: "/assets/images/uploads", public_folder: "/assets/images/uploads", i18n: duplicate }
               - { name: quote, label: "Цитата", widget: text, i18n: true }
               - { name: name, label: "Имя президента", widget: string, i18n: true }
-              - { name: position, label: "Должность", widget: string, i18n: true }
-              - { name: country, label: "Страна", widget: string, i18n: true }
+              - { name: position, label: "Должность (полностью, с названием страны — одной строкой, напр. «Ўзбекистон Республикаси Президенти»)", widget: string, i18n: true }
+              - { name: country, label: "Страна (только для флага-переключателя выше — под цитатой не выводится)", widget: string, i18n: true }
               - { name: order, label: "Порядок", widget: number, value_type: int, default: 99, i18n: duplicate }
       - name: integration_news
         label: "Интеграция: янгиликлар"
