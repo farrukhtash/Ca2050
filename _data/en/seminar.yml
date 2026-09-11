@@ -10,7 +10,7 @@ about_paragraphs:
 quotes_eyebrow: Voices from the seminar
 quotes_h2: Key quotes
 quotes:
-  - photo: /assets/images/uploads/beIQON17484134392974_l.webp
+  - photo: /assets/images/uploads/wlmiNr17484131524319_b.webp
     name: Nematov
     position: ''
     quote: '"[Insert Nematov''s quote here]"'
@@ -18,7 +18,7 @@ quotes:
     name: Fayziev
     position: ''
     quote: '"[Insert Fayziev''s quote here]"'
-  - photo: ''
+  - photo: /assets/images/uploads/beIQON17484134392974_l.webp
     name: Klaar
     position: ''
     quote: '"[Insert Klaar''s quote here]"'
@@ -30,6 +30,7 @@ quotes:
     name: Umarova
     position: ''
     quote: '"[Insert Umarova''s quote here]"'
+  - photo: ''
 gallery_eyebrow: Media gallery
 gallery_h2: The seminar in photos
 photos:
