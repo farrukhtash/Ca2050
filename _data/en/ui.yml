@@ -9,12 +9,6 @@ nav:
   region: One region
   seminar: Foresight Seminar
   feedback: Leave feedback
-countries:
-  - Kazakhstan
-  - Kyrgyzstan
-  - Tajikistan
-  - Turkmenistan
-  - Uzbekistan
 home:
   hero_eyebrow: Regional Foresight Dialogue · Tashkent, 2026
   hero_title: Central Asia States 2050
@@ -40,9 +34,6 @@ home:
   seminar_h2: Foresight Seminar 2025
   seminar_p: On 27–28 May 2025, Tashkent hosted a Foresight Seminar bringing together the region's analytical centers and independent experts. Photos, participants' reflections and media coverage are on a dedicated page.
   seminar_cta: Details & photos
-  region_eyebrow: The region
-  region_h2: One region
-  region_more: Leaders & integration →
   book_eyebrow: The book
   book_h2: Download the book
   book_p: 217 pages · PDF · summary in Uzbek and English.

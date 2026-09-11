@@ -52,7 +52,6 @@ collections:
               - { name: region, label: "Меню: «Бир минтақа»", widget: string, i18n: true }
               - { name: seminar, label: "Меню: «Форсайт-семинар»", widget: string, i18n: true }
               - { name: feedback, label: "Меню: «Фикрингизни қолдиринг»", widget: string, i18n: true }
-          - { name: countries, label: "Мамлакатлар рўйхати (бош саҳифа countries блоки)", widget: list, i18n: true }
           - name: home
             label: "Бош саҳифа"
             widget: object
@@ -78,9 +77,6 @@ collections:
               - { name: seminar_h2, label: "Семинар блоки: сарлавҳа", widget: string, i18n: true }
               - { name: seminar_p, label: "Семинар блоки: матн", widget: text, i18n: true }
               - { name: seminar_cta, label: "Семинар блоки: ҳавола матни", widget: string, i18n: true }
-              - { name: region_eyebrow, label: "«Бир минтақа» блоки: eyebrow", widget: string, i18n: true }
-              - { name: region_h2, label: "«Бир минтақа» блоки: сарлавҳа", widget: string, i18n: true }
-              - { name: region_more, label: "«Бир минтақа» блоки: ҳавола матни", widget: string, i18n: true }
               - { name: book_eyebrow, label: "Китоб/CTA блоки: eyebrow", widget: string, i18n: true }
               - { name: book_h2, label: "Китоб/CTA блоки: сарлавҳа", widget: string, i18n: true }
               - { name: book_p, label: "Китоб/CTA блоки: матн", widget: text, i18n: true }

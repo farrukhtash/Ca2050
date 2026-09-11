@@ -8,7 +8,6 @@ hero_full: true
 {% assign L = site.active_lang %}{% assign D = site.default_lang %}
 {% assign t = site.data[L].ui | default: site.data[D].ui %}
 {% assign dirs = site.directions | sort: 'order' %}
-{% assign countries = site.data[L].ui.countries | default: site.data[D].ui.countries %}
 
 <!-- HERO (fullscreen background carousel) -->
 <section class="home-hero" id="top">
@@ -106,20 +105,6 @@ hero_full: true
         <img src="{{ '/media/seminar-01.jpg' | relative_url }}" alt="{{ t.home.seminar_h2 }}">
       </div>
     </div>
-  </div>
-</section>
-
-<!-- REGION (teaser) -->
-<section class="countries" id="countries">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand">{{ t.home.region_eyebrow }}</span>
-      <h2>{{ t.home.region_h2 }}</h2>
-    </div>
-    <div class="country-grid" data-reveal>
-      {% for c in countries %}<div class="country-card"><span>{{ c }}</span></div>{% endfor %}
-    </div>
-    <a class="more-link" href="{{ '/region/' | relative_url }}" data-reveal>{{ t.home.region_more }}</a>
   </div>
 </section>
 
