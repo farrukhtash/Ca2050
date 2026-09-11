@@ -1,83 +1,85 @@
-# Interface strings — English.
-brand_name: "Central Asia 2050"
-brand_tagline: "Foresight platform"
-footer: "Central Asia States 2050 — Regional Foresight Dialogue · Tashkent, 2026"
-
+brand_name: Central Asia 2050
+brand_tagline: Foresight platform
+footer: Central Asia States 2050 — Regional Foresight Dialogue · Tashkent, 2026
 nav:
-  about: "The book"
-  directions: "Directions"
-  all_directions: "All directions"
-  youth: "Youth"
-  region: "One region"
-  seminar: "Foresight Seminar"
-  feedback: "Leave feedback"
-
-countries: ["Kazakhstan", "Kyrgyzstan", "Tajikistan", "Turkmenistan", "Uzbekistan"]
-
+  about: The book
+  directions: Directions
+  all_directions: All directions
+  youth: Youth
+  region: One region
+  seminar: Foresight Seminar
+  feedback: Leave feedback
+countries:
+  - Kazakhstan
+  - Kyrgyzstan
+  - Tajikistan
+  - Turkmenistan
+  - Uzbekistan
 home:
-  hero_eyebrow: "Regional Foresight Dialogue · Tashkent, 2026"
-  hero_title: "Central Asia States 2050"
-  hero_sub: "The result of the region's first foresight dialogue — visions of the future through 2050 across climate, water, energy, transport, and demography."
-  hero_cta: "Download the book"
-  hero_meta: "217 pages · PDF · summary in Uzbek and English"
-  more: "Read more →"
-  about_eyebrow: "About the book"
-  about_h2: "The region's first foresight dialogue"
-  about_p: "This book is the outcome of the first regional foresight dialogue in the history of independent Central Asia — experts from five countries jointly proposing visions of the future through 2050."
-  themes_eyebrow: "Research directions"
-  themes_h2: "In-depth analysis across five directions"
-  themes_all: "All directions →"
-  youth_eyebrow: "Featured chapter"
-  youth_h2: "The next generation speaks"
-  youth_p: "Young people from across the region were invited to describe, in essay form, what their homelands could look like by 2050 — forming one of the book's most distinctive chapters."
-  youth_tags: ["Identity", "Gender", "Ecology", "Technology"]
-  seminar_eyebrow: "Event"
-  seminar_h2: "Foresight Seminar 2025"
-  seminar_p: "On 27–28 May 2025, Tashkent hosted a Foresight Seminar bringing together the region's analytical centers and independent experts. Photos, participants' reflections and media coverage are on a dedicated page."
-  seminar_cta: "Details & photos"
-  region_eyebrow: "The region"
-  region_h2: "One region"
-  region_more: "Leaders & integration →"
-  book_eyebrow: "The book"
-  book_h2: "Download the book"
-  book_p: "217 pages · PDF · summary in Uzbek and English."
-  book_cta: "Download PDF"
-  feedback_eyebrow: "Feedback"
-  feedback_h2: "Leave your feedback"
-  feedback_p: "We welcome your comments and suggestions about the book."
-  feedback_cta: "Share feedback"
-
+  hero_eyebrow: Regional Foresight Dialogue · Tashkent, 2026
+  hero_title: Central Asia States 2050
+  hero_sub: The result of the region's first foresight dialogue — visions of the future through 2050 across climate, water, energy, transport, and demography.
+  hero_cta: Download the book
+  hero_meta: 217 pages · PDF · summary in Uzbek and English
+  more: Read more →
+  about_eyebrow: About the book
+  about_h2: The region's first foresight dialogue
+  about_p: This book is the outcome of the first regional foresight dialogue in the history of independent Central Asia — experts from five countries jointly proposing visions of the future through 2050.
+  themes_eyebrow: Research directions
+  themes_h2: In-depth analysis across five directions
+  themes_all: All directions →
+  youth_eyebrow: Featured chapter
+  youth_h2: The next generation speaks
+  youth_p: Young people from across the region were invited to describe, in essay form, what their homelands could look like by 2050 — forming one of the book's most distinctive chapters.
+  youth_tags:
+    - Identity
+    - Gender
+    - Ecology
+    - Technology
+  seminar_eyebrow: Event
+  seminar_h2: Foresight Seminar 2025
+  seminar_p: On 27–28 May 2025, Tashkent hosted a Foresight Seminar bringing together the region's analytical centers and independent experts. Photos, participants' reflections and media coverage are on a dedicated page.
+  seminar_cta: Details & photos
+  region_eyebrow: The region
+  region_h2: One region
+  region_more: Leaders & integration →
+  book_eyebrow: The book
+  book_h2: Download the book
+  book_p: 217 pages · PDF · summary in Uzbek and English.
+  book_cta: Download PDF
+  feedback_eyebrow: Feedback
+  feedback_h2: Leave your feedback
+  feedback_p: We welcome your comments and suggestions about the book.
+  feedback_cta: Share feedback
 about:
-  hero_eyebrow: "About the book"
-  hero_title: "The region's first foresight dialogue"
-  hero_sub: "The outcome of the first regional foresight dialogue in the history of independent Central Asia — visions of the future through 2050."
-  overview_eyebrow: "Overview"
-  overview_h2: "What the book is about"
-  agencies_eyebrow: "Organizers"
-  agencies_h2: "Organizers"
-  authors_eyebrow: "Authors"
-  authors_h2: "Authors of the book"
-
+  hero_eyebrow: About the book
+  hero_title: The region's first foresight dialogue
+  hero_sub: The outcome of the first regional foresight dialogue in the history of independent Central Asia — visions of the future through 2050.
+  overview_eyebrow: Overview
+  overview_h2: What the book is about
+  agencies_eyebrow: Organizers
+  agencies_h2: Organizers
+  authors_eyebrow: Authors
+  authors_h2: Authors of the book
 directions:
-  hero_eyebrow: "Research directions"
-  hero_title: "In-depth analysis across five directions"
-  hero_sub: "The book is built around priority tracks: climate, water, energy, transport, and social development & demography."
-  card_more: "Read more →"
-  detail_eyebrow: "Research direction"
-  back: "← All directions"
-  placeholder: "Content in preparation"
-  intro_eyebrow: "About this direction"
-  charts_eyebrow: "Research materials"
-  charts_h2: "Charts"
-  chart_open_label: "Enlarge"
-  lightbox_close_label: "Close"
-  scenarios_eyebrow: "Outlook to 2050"
-  scenarios_h2: "Scenarios"
-  recommendations_eyebrow: "Conclusions"
-  recommendations_h2: "Recommendations"
-  nav_prev: "Previous direction"
-  nav_next: "Next direction"
-
+  hero_eyebrow: Research directions
+  hero_title: In-depth analysis across five directions
+  hero_sub: 'The book is built around priority tracks: climate, water, energy, transport, and social development & demography.'
+  card_more: Read more →
+  detail_eyebrow: Research direction
+  back: ← All directions
+  placeholder: Content in preparation
+  intro_eyebrow: About this direction
+  charts_eyebrow: Research materials
+  charts_h2: Charts
+  chart_open_label: Enlarge
+  lightbox_close_label: Close
+  scenarios_eyebrow: Outlook to 2050
+  scenarios_h2: Scenarios
+  recommendations_eyebrow: Conclusions
+  recommendations_h2: Recommendations
+  nav_prev: Previous direction
+  nav_next: Next direction
 youth:
   hero_eyebrow: "Featured chapter"
   hero_title: "The next generation speaks"
@@ -90,65 +92,54 @@ youth:
   highlights_tags: ["Identity", "Gender", "Ecology", "Technology"]
   concepts_eyebrow: "Traditions"
   concepts_h2: "Key concepts"
-  essays_eyebrow: "Collection"
-  essays_h2: "Essays & compositions"
-  essays_placeholder: "Content in preparation — the collection of youth essays will be published here."
-
 region:
-  hero_eyebrow: "The region"
-  hero_title: "One region"
-  hero_sub: "Key statements by the leaders of Central Asia and news on regional integration."
-  leaders_eyebrow: "Heads of state"
-  leaders_h2: "Key statements by Central Asian leaders"
-  leaders_placeholder: "Content in preparation — official statements by the leaders will be added."
-  integration_eyebrow: "Regional integration"
-  integration_h2: "News on regional integration"
-  integration_placeholder: "Content in preparation — materials on regional integration will be published here."
-
+  hero_eyebrow: The region
+  hero_title: One region
+  hero_sub: Key statements by the leaders of Central Asia and news on regional integration.
+  leaders_eyebrow: Heads of state
+  leaders_h2: Key statements by Central Asian leaders
+  leaders_placeholder: Content in preparation — official statements by the leaders will be added.
+  integration_eyebrow: Regional integration
+  integration_h2: News on regional integration
+  integration_placeholder: Content in preparation — materials on regional integration will be published here.
 feedback:
-  hero_eyebrow: "Feedback"
-  hero_title: "Leave your feedback"
-  hero_sub: "Have you read the book? You can share your thoughts about the book, its findings, and the region's future. Every comment matters to us."
-  form_eyebrow: "Form"
-  form_h2: "Feedback form"
-  form_placeholder: "The Google Form will be embedded here (iframe). Currently in preparation."
-  contacts_eyebrow: "Other contacts"
-  contacts_h2: "Get in touch"
-
+  hero_eyebrow: Feedback
+  hero_title: Leave your feedback
+  hero_sub: Have you read the book? You can share your thoughts about the book, its findings, and the region's future. Every comment matters to us.
+  form_eyebrow: Form
+  form_h2: Feedback form
+  form_placeholder: The Google Form will be embedded here (iframe). Currently in preparation.
+  contacts_eyebrow: Other contacts
+  contacts_h2: Get in touch
 seminar:
-  hero_eyebrow: "Regional event · Tashkent"
-  hero_title: "Foresight Seminar 2025"
-  hero_dates: "27–28 May 2025, Tashkent"
-  organizers: "Organizers: Agency for Strategic Reforms, ISMI, MICA, the relevant agency of the Republic of Kazakhstan · Supported by the European Union"
-  about_eyebrow: "About the seminar"
-  about_h2: "A joint dialogue among regional experts"
-  about_p1: "As part of the Foresight Seminar, representatives of analytical centers and independent experts from the five countries gathered in Tashkent for two days to discuss scenarios for the region's future through 2050. The event became one of the key stages in preparing the book \"Central Asia States 2050.\""
-  about_p2: "Participants worked in group sessions on water and climate change, energy, transport links, and demography, shaping the key findings and recommendations for each track."
-  gallery_eyebrow: "Media gallery"
-  gallery_h2: "The seminar in photos"
-  quotes_eyebrow: "Voices from the seminar"
-  quotes_h2: "Key quotes"
+  hero_eyebrow: Regional event · Tashkent
+  hero_title: Foresight Seminar 2025
+  hero_dates: 27–28 May 2025, Tashkent
+  organizers: 'Organizers: Agency for Strategic Reforms, ISMI, MICA, the relevant agency of the Republic of Kazakhstan · Supported by the European Union'
+  about_eyebrow: About the seminar
+  about_h2: A joint dialogue among regional experts
+  about_p1: As part of the Foresight Seminar, representatives of analytical centers and independent experts from the five countries gathered in Tashkent for two days to discuss scenarios for the region's future through 2050. The event became one of the key stages in preparing the book "Central Asia States 2050."
+  about_p2: Participants worked in group sessions on water and climate change, energy, transport links, and demography, shaping the key findings and recommendations for each track.
+  gallery_eyebrow: Media gallery
+  gallery_h2: The seminar in photos
+  quotes_eyebrow: Voices from the seminar
+  quotes_h2: Key quotes
   quotes:
-    - name: "Nematov"
-      text: >-
-        "[Insert Nematov's quote here]"
-    - name: "Fayziev"
-      text: >-
-        "[Insert Fayziev's quote here]"
-    - name: "Klaar"
-      text: >-
-        "[Insert Klaar's quote here]"
-    - name: "Karazhanova"
-      text: >-
-        "[Insert Karazhanova's quote here]"
-    - name: "Umarova"
-      text: >-
-        "[Insert Umarova's quote here]"
-  press_eyebrow: "In the media"
-  press_h2: "The Foresight Seminar in the media"
-  press_group_articles: "Press articles"
-  press_group_video: "Video (YouTube)"
-  press_group_telegram: "Telegram"
-  back_h2: "Explore the book"
-  back_cta: "About the book →"
-  footer: "Central Asia States 2050 — Foresight Seminar 2025 · Tashkent"
+    - name: Nematov
+      text: '"[Insert Nematov''s quote here]"'
+    - name: Fayziev
+      text: '"[Insert Fayziev''s quote here]"'
+    - name: Klaar
+      text: '"[Insert Klaar''s quote here]"'
+    - name: Karazhanova
+      text: '"[Insert Karazhanova''s quote here]"'
+    - name: Umarova
+      text: '"[Insert Umarova''s quote here]"'
+  press_eyebrow: In the media
+  press_h2: The Foresight Seminar in the media
+  press_group_articles: Press articles
+  press_group_video: Video (YouTube)
+  press_group_telegram: Telegram
+  back_h2: Explore the book
+  back_cta: About the book →
+  footer: Central Asia States 2050 — Foresight Seminar 2025 · Tashkent

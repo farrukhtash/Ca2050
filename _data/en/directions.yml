@@ -1,52 +1,51 @@
-# Direction content — a list. Each item links to its _directions/*.md file
-# via `slug` (climate.md ↔ slug: climate, etc.). Edited in Sveltia CMS as a
-# list widget — IMPORTANT: no object widget is used here, because a
-# top-level object widget in a file collection doesn't show locale tabs in
-# Sveltia (verified in practice). List is the same pattern already used
-# (and working) for leaders/press/essays/authors below.
-#
-# Fields: title — page & nav title; subtitle — short hero blurb (optional);
-# stats — key figures; intro — intro text; charts — diagrams; scenarios —
-# outlook to 2050; recommendations. Each block is hidden on the page when
-# its data is empty.
 directions:
   - slug: climate
-    title: "Climate change"
-    subtitle: ""
-    stats: []
-    intro: ""
-    charts: []
+    title: Climate change
+    subtitle: ''
+    stats:
+      - value: 1,2 °C
+      - value: 20%
+      - value: 20%
+      - value: 2021 / 2024
+      - value: 2х
+    intro: ''
+    charts:
+      - image: /assets/images/uploads/4. Климат.png
+      - image: /assets/images/uploads/6. Климат.png
+      - image: /assets/images/uploads/7. Климат.png
+      - image: /assets/images/uploads/5. Климат.png
+      - image: /assets/images/uploads/3. Климат.png
     scenarios: []
     recommendations: []
   - slug: water
-    title: "Water resources"
-    subtitle: ""
+    title: Water resources
+    subtitle: ''
     stats: []
-    intro: ""
+    intro: ''
     charts: []
     scenarios: []
     recommendations: []
   - slug: energy
-    title: "Energy"
-    subtitle: ""
+    title: Energy
+    subtitle: ''
     stats: []
-    intro: ""
+    intro: ''
     charts: []
     scenarios: []
     recommendations: []
   - slug: transport
-    title: "Transport"
-    subtitle: ""
+    title: Transport
+    subtitle: ''
     stats: []
-    intro: ""
+    intro: ''
     charts: []
     scenarios: []
     recommendations: []
   - slug: demography
-    title: "Social development & demography"
-    subtitle: ""
+    title: Social development & demography
+    subtitle: ''
     stats: []
-    intro: ""
+    intro: ''
     charts: []
     scenarios: []
     recommendations: []
