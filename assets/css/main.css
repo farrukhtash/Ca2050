@@ -606,8 +606,19 @@ footer img{height:54px; width:auto; margin-bottom:12px; opacity:.9;}
 
 .leader-panels{position:relative; min-width:0;}
 .leader-panel{
-  display:flex; flex-direction:column; align-items:center; text-align:center;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
   max-width:720px; margin:0 auto;
+  /* fixed so .leader-nav (centered on this row via .leader-stage's
+     align-items:center) doesn't shift vertically when switching between
+     leaders with quotes of different lengths — sized to the longest
+     quote across all five leaders and all three locales (uz/en/ru;
+     currently the Turkmenistan uz quote, ~383 chars, also used as the
+     ru fallback), measured at the narrowest width within each bracket
+     below (worst case for wrapping), plus a small buffer.
+     justify-content:center balances the leftover space above/below the
+     (shorter) content instead of dumping it all below, so the nav
+     arrows land next to the visible card instead of in empty space. */
+  min-height:850px;
 }
 .leader-panel[hidden]{display:none;}
 .leader-photo{
@@ -868,6 +879,8 @@ a.news-card:hover .news-title{color:var(--gold);}
   .leader-nav{width:38px; height:38px;}
   .leader-nav svg{width:17px; height:17px;}
   .leader-photo{width:150px;}
+  /* narrower column wraps the longest quote onto many more lines */
+  .leader-panel{min-height:1220px;}
 }
 
 @media (prefers-reduced-motion: reduce){
