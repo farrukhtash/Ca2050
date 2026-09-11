@@ -1,11 +1,46 @@
-# Direction texts (key = filename in _directions/*.md).
+# Direction content (key = filename in _directions/*.md).
+# title — page & nav title (existing field, kept).
+# The rest are the direction page blocks: subtitle (hero, optional),
+# stats (key figures), intro (intro text), charts (diagrams),
+# scenarios (outlook to 2050), recommendations. Each block is hidden
+# on the page when its data is empty.
 climate:
   title: "Climate change"
+  subtitle: ""
+  stats: []
+  intro: ""
+  charts: []
+  scenarios: []
+  recommendations: []
 water:
   title: "Water resources"
+  subtitle: ""
+  stats: []
+  intro: ""
+  charts: []
+  scenarios: []
+  recommendations: []
 energy:
   title: "Energy"
+  subtitle: ""
+  stats: []
+  intro: ""
+  charts: []
+  scenarios: []
+  recommendations: []
 transport:
   title: "Transport"
+  subtitle: ""
+  stats: []
+  intro: ""
+  charts: []
+  scenarios: []
+  recommendations: []
 demography:
   title: "Social development & demography"
+  subtitle: ""
+  stats: []
+  intro: ""
+  charts: []
+  scenarios: []
+  recommendations: []

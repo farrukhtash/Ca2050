@@ -66,6 +66,17 @@ directions:
   detail_eyebrow: "Тадқиқот йўналиши"
   back: "← Барча йўналишлар"
   placeholder: "Контент тайёрланмоқда"
+  intro_eyebrow: "Йўналиш ҳақида"
+  charts_eyebrow: "Тадқиқот материаллари"
+  charts_h2: "Диаграммалар"
+  chart_open_label: "Катталаштириш"
+  lightbox_close_label: "Ёпиш"
+  scenarios_eyebrow: "2050 йилгача истиқболлар"
+  scenarios_h2: "Сценарийлар"
+  recommendations_eyebrow: "Хулосалар"
+  recommendations_h2: "Тавсиялар"
+  nav_prev: "Олдинги йўналиш"
+  nav_next: "Кейинги йўналиш"
 
 youth:
   hero_eyebrow: "Алоҳида боб"

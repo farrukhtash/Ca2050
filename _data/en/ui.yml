@@ -66,6 +66,17 @@ directions:
   detail_eyebrow: "Research direction"
   back: "← All directions"
   placeholder: "Content in preparation"
+  intro_eyebrow: "About this direction"
+  charts_eyebrow: "Research materials"
+  charts_h2: "Charts"
+  chart_open_label: "Enlarge"
+  lightbox_close_label: "Close"
+  scenarios_eyebrow: "Outlook to 2050"
+  scenarios_h2: "Scenarios"
+  recommendations_eyebrow: "Conclusions"
+  recommendations_h2: "Recommendations"
+  nav_prev: "Previous direction"
+  nav_next: "Next direction"
 
 youth:
   hero_eyebrow: "Featured chapter"

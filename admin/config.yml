@@ -31,21 +31,73 @@ collections:
   # _data/<locale>/ui.yml и правятся напрямую. В CMS они не заведены намеренно:
   # неполное описание всех полей привело бы к перезаписи файла при сохранении.
 
-  # ---- Направления: заголовки (переводимые) ----
+  # ---- Направления: контент страницы (переводимый) ----
+  # Один и тот же набор полей повторяется для каждого из 5 направлений
+  # (YAML-якорь &direction_content_fields ниже — чтобы не дублировать схему
+  # вручную 5 раз). Значения, разумеется, у каждого направления свои —
+  # якорь общий только для ОПИСАНИЯ полей в CMS.
   - name: directions_text
-    label: "Йўналишлар — заголовки"
+    label: "Йўналишлар — контент"
     i18n: true
     files:
       - name: directions_text
-        label: "Названия направлений"
+        label: "Йўналиш саҳифалари: сарлавҳа, статистика, матн, диаграммалар, сценарийлар, тавсиялар"
         file: "_data/{{locale}}/directions.yml"
         i18n: true
         fields:
-          - { name: climate, label: "Иқлим", widget: object, i18n: true, fields: [{ name: title, label: "Заголовок", widget: string, i18n: true }] }
-          - { name: water, label: "Сув", widget: object, i18n: true, fields: [{ name: title, label: "Заголовок", widget: string, i18n: true }] }
-          - { name: energy, label: "Энергетика", widget: object, i18n: true, fields: [{ name: title, label: "Заголовок", widget: string, i18n: true }] }
-          - { name: transport, label: "Транспорт", widget: object, i18n: true, fields: [{ name: title, label: "Заголовок", widget: string, i18n: true }] }
-          - { name: demography, label: "Демография", widget: object, i18n: true, fields: [{ name: title, label: "Заголовок", widget: string, i18n: true }] }
+          - name: climate
+            label: "Иқлим"
+            widget: object
+            i18n: true
+            fields: &direction_content_fields
+              - { name: title, label: "Сарлавҳа (саҳифа ва меню учун)", widget: string, i18n: true }
+              - { name: subtitle, label: "Қисқа тавсиф (heroда, ихтиёрий)", widget: string, required: false, i18n: true }
+              - name: stats
+                label: "Асосий кўрсаткичлар"
+                label_singular: "Кўрсаткич"
+                widget: list
+                required: false
+                i18n: true
+                summary: "{{fields.value}} — {{fields.label}}"
+                fields:
+                  - { name: value, label: "Қиймат (мас: -30%)", widget: string, i18n: duplicate }
+                  - { name: label, label: "Изоҳ", widget: string, i18n: true }
+              - { name: intro, label: "Кириш матни (2-3 абзац)", widget: text, required: false, i18n: true }
+              - name: charts
+                label: "Диаграммалар"
+                label_singular: "Диаграмма"
+                widget: list
+                required: false
+                i18n: true
+                summary: "{{fields.caption}}"
+                fields:
+                  - { name: image, label: "Расм", widget: image, media_folder: "/assets/images/uploads", public_folder: "/assets/images/uploads", i18n: duplicate }
+                  - { name: caption, label: "Подпись", widget: string, i18n: true }
+                  - { name: note, label: "Қисқа хулоса", widget: text, required: false, i18n: true }
+              - name: scenarios
+                label: "2050 йилгача сценарийлар"
+                label_singular: "Сценарий"
+                widget: list
+                required: false
+                i18n: true
+                summary: "{{fields.title}}"
+                fields:
+                  - { name: title, label: "Номи", widget: string, i18n: true }
+                  - { name: description, label: "Тавсиф", widget: text, i18n: true }
+                  - { name: outcome, label: "Асосий кўрсаткич / якуний натижа", widget: string, required: false, i18n: true }
+              - name: recommendations
+                label: "Тавсиялар"
+                label_singular: "Тавсия"
+                widget: list
+                required: false
+                i18n: true
+                summary: "{{fields.text}}"
+                fields:
+                  - { name: text, label: "Матн", widget: text, i18n: true }
+          - { name: water, label: "Сув", widget: object, i18n: true, fields: *direction_content_fields }
+          - { name: energy, label: "Энергетика", widget: object, i18n: true, fields: *direction_content_fields }
+          - { name: transport, label: "Транспорт", widget: object, i18n: true, fields: *direction_content_fields }
+          - { name: demography, label: "Демография", widget: object, i18n: true, fields: *direction_content_fields }
 
   # ---- Направления: структура (порядок, иконка) — не переводится ----
   - name: directions_meta

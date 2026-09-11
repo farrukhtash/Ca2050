@@ -130,6 +130,57 @@ document.querySelectorAll('[data-leaders]').forEach(root=>{
   show(0);
 });
 
+// Direction page: chart lightbox (self-contained, no external library)
+(function(){
+  const lightbox = document.querySelector('[data-lightbox]');
+  const triggers = Array.from(document.querySelectorAll('[data-chart]'));
+  if(!lightbox || !triggers.length) return;
+
+  const imgEl = lightbox.querySelector('[data-lightbox-img]');
+  const capEl = lightbox.querySelector('[data-lightbox-caption]');
+  const noteEl = lightbox.querySelector('[data-lightbox-note]');
+  const closeBtn = lightbox.querySelector('[data-lightbox-close]');
+  const prevBtn = lightbox.querySelector('[data-lightbox-prev]');
+  const nextBtn = lightbox.querySelector('[data-lightbox-next]');
+  let current = 0;
+  let lastFocused = null;
+
+  const render = (i)=>{
+    current = (i + triggers.length) % triggers.length;
+    const t = triggers[current];
+    if(imgEl){ imgEl.src = t.dataset.img || ''; imgEl.alt = t.dataset.caption || ''; }
+    if(capEl) capEl.textContent = t.dataset.caption || '';
+    if(noteEl) noteEl.textContent = t.dataset.note || '';
+  };
+  const open = (i)=>{
+    lastFocused = document.activeElement;
+    render(i);
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+    if(closeBtn) closeBtn.focus();
+  };
+  const close = ()=>{
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+    if(lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+  };
+
+  triggers.forEach((t, i)=>{ t.addEventListener('click', ()=>open(i)); });
+  if(closeBtn) closeBtn.addEventListener('click', close);
+  if(prevBtn) prevBtn.addEventListener('click', ()=>render(current - 1));
+  if(nextBtn) nextBtn.addEventListener('click', ()=>render(current + 1));
+
+  // Click on the backdrop (outside the image/caption/controls) closes it
+  lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) close(); });
+
+  document.addEventListener('keydown', (e)=>{
+    if(lightbox.hidden) return;
+    if(e.key === 'Escape') close();
+    else if(e.key === 'ArrowRight') render(current + 1);
+    else if(e.key === 'ArrowLeft') render(current - 1);
+  });
+})();
+
 // Hero background carousel (cross-fade)
 (function(){
   const slides = document.querySelectorAll('.home-hero .hero-slide');

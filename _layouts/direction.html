@@ -3,12 +3,27 @@ layout: default
 ---
 {% assign L = site.active_lang %}{% assign D = site.default_lang %}
 {% assign t = site.data[L].ui | default: site.data[D].ui %}
-{% assign dtitle = site.data[L].directions[page.slug].title | default: site.data[D].directions[page.slug].title %}
+{% assign dd = site.data[L].directions[page.slug] | default: site.data[D].directions[page.slug] %}
+{% assign dtitle = dd.title %}
+{% assign stats = dd.stats %}
+{% assign charts = dd.charts %}
+{% assign scenarios = dd.scenarios %}
+{% assign recs = dd.recommendations %}
+
+{% assign has_content = false %}
+{% if dd.subtitle and dd.subtitle != "" %}{% assign has_content = true %}{% endif %}
+{% if stats and stats.size > 0 %}{% assign has_content = true %}{% endif %}
+{% if dd.intro and dd.intro != "" %}{% assign has_content = true %}{% endif %}
+{% if charts and charts.size > 0 %}{% assign has_content = true %}{% endif %}
+{% if scenarios and scenarios.size > 0 %}{% assign has_content = true %}{% endif %}
+{% if recs and recs.size > 0 %}{% assign has_content = true %}{% endif %}
+
 <section class="hero">
   <div class="wrap">
     <a class="back-link" href="{{ '/directions/' | relative_url }}">{{ t.directions.back }}</a>
     <span class="eyebrow">{{ t.directions.detail_eyebrow }}</span>
     <h1>{{ dtitle }}</h1>
+    {% if dd.subtitle and dd.subtitle != "" %}<p class="sub">{{ dd.subtitle }}</p>{% endif %}
   </div>
   <div class="horizon">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -26,9 +41,167 @@ layout: default
   </div>
 </section>
 
+{% if stats and stats.size > 0 %}
+<section class="section stats-section">
+  <div class="wrap">
+    <div class="stats-row" data-reveal>
+      {% for s in stats %}
+      <div class="stat-item">
+        <span class="stat-value">{{ s.value }}</span>
+        <span class="stat-label">{{ s.label }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if dd.intro and dd.intro != "" %}
 <section class="section">
   <div class="wrap">
-    {{ content }}
+    <span class="eyebrow on-sand">{{ t.directions.intro_eyebrow }}</span>
+    <div class="prose direction-intro" data-reveal>{{ dd.intro | markdownify }}</div>
+  </div>
+</section>
+{% endif %}
+
+{% if charts and charts.size > 0 %}
+<section class="section tint" id="charts">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow on-sand">{{ t.directions.charts_eyebrow }}</span>
+      <h2>{{ t.directions.charts_h2 }}</h2>
+    </div>
+    <div class="chart-grid" data-reveal>
+      {% for c in charts %}
+      <figure class="chart-card">
+        <button type="button" class="chart-trigger" data-chart
+                data-img="{{ c.image | relative_url }}"
+                data-caption="{{ c.caption | escape }}"
+                data-note="{{ c.note | escape }}"
+                aria-label="{{ t.directions.chart_open_label }}: {{ c.caption | escape }}">
+          {% if c.image and c.image != "" %}
+          <img src="{{ c.image | relative_url }}" alt="{{ c.caption | escape }}" loading="lazy">
+          {% else %}
+          <div class="chart-cover-ph" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 19v-6l3-3 3 4 4-6v11"/></svg>
+          </div>
+          {% endif %}
+          <span class="chart-zoom" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </span>
+        </button>
+        <figcaption>
+          <span class="chart-caption">{{ c.caption }}</span>
+          {% if c.note and c.note != "" %}<span class="chart-note">{{ c.note }}</span>{% endif %}
+        </figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" data-lightbox hidden>
+  <button type="button" class="lightbox-close" data-lightbox-close aria-label="{{ t.directions.lightbox_close_label }}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  {% if charts.size > 1 %}
+  <button type="button" class="lightbox-nav prev" data-lightbox-prev aria-label="←">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  {% endif %}
+  <div class="lightbox-body">
+    <img data-lightbox-img src="" alt="">
+    <div class="lightbox-caption">
+      <span data-lightbox-caption></span>
+      <span data-lightbox-note class="lightbox-note"></span>
+    </div>
+  </div>
+  {% if charts.size > 1 %}
+  <button type="button" class="lightbox-nav next" data-lightbox-next aria-label="→">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+  {% endif %}
+</div>
+{% endif %}
+
+{% if scenarios and scenarios.size > 0 %}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow on-sand">{{ t.directions.scenarios_eyebrow }}</span>
+      <h2>{{ t.directions.scenarios_h2 }}</h2>
+    </div>
+    <div class="scenario-grid" data-reveal>
+      {% for sc in scenarios %}
+      <div class="scenario-card">
+        <span class="scenario-title">{{ sc.title }}</span>
+        <p class="scenario-desc">{{ sc.description }}</p>
+        {% if sc.outcome and sc.outcome != "" %}<span class="scenario-outcome">{{ sc.outcome }}</span>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if recs and recs.size > 0 %}
+<section class="section tint">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow on-sand">{{ t.directions.recommendations_eyebrow }}</span>
+      <h2>{{ t.directions.recommendations_h2 }}</h2>
+    </div>
+    <ol class="recommend-list" data-reveal>
+      {% for r in recs %}
+      <li class="recommend-item">
+        <span class="recommend-num">{{ forloop.index }}</span>
+        <span class="recommend-text">{{ r.text }}</span>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+{% endif %}
+
+{% unless has_content %}
+<section class="section">
+  <div class="wrap">
     <div class="placeholder-note" data-reveal>{{ t.directions.placeholder }}</div>
   </div>
 </section>
+{% endunless %}
+
+{% assign dirs = site.directions | sort: 'order' %}
+{% assign cur_index = nil %}
+{% for d in dirs %}{% if d.slug == page.slug %}{% assign cur_index = forloop.index0 %}{% endif %}{% endfor %}
+{% unless cur_index == nil %}
+  {% assign prev_dir = nil %}{% assign next_dir = nil %}
+  {% if cur_index > 0 %}{% assign prev_i = cur_index | minus: 1 %}{% assign prev_dir = dirs[prev_i] %}{% endif %}
+  {% assign next_i = cur_index | plus: 1 %}
+  {% if next_i < dirs.size %}{% assign next_dir = dirs[next_i] %}{% endif %}
+  {% if prev_dir or next_dir %}
+  <nav class="direction-pager">
+    <div class="wrap direction-pager-inner">
+      {% if prev_dir %}
+      <a class="pager-link prev" href="{{ prev_dir.url | relative_url }}">
+        <span class="pager-arrow" aria-hidden="true">←</span>
+        <span class="pager-text">
+          <span class="pager-label">{{ t.directions.nav_prev }}</span>
+          <span class="pager-title">{{ site.data[L].directions[prev_dir.slug].title | default: site.data[D].directions[prev_dir.slug].title }}</span>
+        </span>
+      </a>
+      {% endif %}
+      {% if next_dir %}
+      <a class="pager-link next" href="{{ next_dir.url | relative_url }}">
+        <span class="pager-text">
+          <span class="pager-label">{{ t.directions.nav_next }}</span>
+          <span class="pager-title">{{ site.data[L].directions[next_dir.slug].title | default: site.data[D].directions[next_dir.slug].title }}</span>
+        </span>
+        <span class="pager-arrow" aria-hidden="true">→</span>
+      </a>
+      {% endif %}
+    </div>
+  </nav>
+  {% endif %}
+{% endunless %}

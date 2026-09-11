@@ -1,11 +1,47 @@
-# Тексты направлений (ключ = имя файла в _directions/*.md).
+# Йўналишлар контенти (калит = _directions/*.md файл номи).
+# title — саҳифа ва навигация сарлавҳаси (эски майдон, сақланган).
+# Қолган майдонлар — йўналиш саҳифасининг блоклари: subtitle (heroда,
+# ихтиёрий), stats (асосий кўрсаткичлар), intro (кириш матни),
+# charts (диаграммалар), scenarios (2050 йилгача сценарийлар),
+# recommendations (тавсиялар). Ҳар бири бўш бўлса, тегишли блок
+# саҳифада кўрсатилмайди.
 climate:
   title: "Иқлим ўзгариши"
+  subtitle: ""
+  stats: []
+  intro: ""
+  charts: []
+  scenarios: []
+  recommendations: []
 water:
   title: "Сув ресурслари"
+  subtitle: ""
+  stats: []
+  intro: ""
+  charts: []
+  scenarios: []
+  recommendations: []
 energy:
   title: "Энергетика"
+  subtitle: ""
+  stats: []
+  intro: ""
+  charts: []
+  scenarios: []
+  recommendations: []
 transport:
   title: "Транспорт"
+  subtitle: ""
+  stats: []
+  intro: ""
+  charts: []
+  scenarios: []
+  recommendations: []
 demography:
   title: "Ижтимоий тараққиёт ва демография"
+  subtitle: ""
+  stats: []
+  intro: ""
+  charts: []
+  scenarios: []
+  recommendations: []
