@@ -97,8 +97,6 @@ collections:
               - { name: overview_h2, label: "Умумий маълумот блоки: сарлавҳа", widget: string, i18n: true }
               - { name: agencies_eyebrow, label: "Ташкилотчилар блоки: eyebrow", widget: string, i18n: true }
               - { name: agencies_h2, label: "Ташкилотчилар блоки: сарлавҳа", widget: string, i18n: true }
-              - { name: authors_eyebrow, label: "Муаллифлар блоки: eyebrow", widget: string, i18n: true }
-              - { name: authors_h2, label: "Муаллифлар блоки: сарлавҳа", widget: string, i18n: true }
           - name: directions
             label: "Йўналишлар саҳифалари (рўйхат ва ҳар бир йўналиш)"
             widget: object
@@ -247,6 +245,8 @@ collections:
         file: "_data/{{locale}}/authors.yml"
         i18n: true
         fields:
+          - { name: eyebrow, label: "Надзаголовок (eyebrow)", widget: string, i18n: true }
+          - { name: title, label: "Бўлим сарлавҳаси", widget: string, i18n: true }
           - name: authors
             label: "Авторы"
             label_singular: "Автор"

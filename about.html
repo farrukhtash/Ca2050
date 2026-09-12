@@ -10,7 +10,8 @@ header_pdf: true
 {% assign t = site.data[L].ui | default: site.data[D].ui %}
 {% assign about = site.data[L].about | default: site.data[D].about %}
 {% assign ag = site.data[L].agencies | default: site.data[D].agencies %}
-{% assign authors = site.data[L].authors.authors | default: site.data[D].authors.authors %}
+{% assign authors_data = site.data[L].authors | default: site.data[D].authors %}
+{% assign authors = authors_data.authors %}
 {% assign gr = site.data[L].gratitude | default: site.data[D].gratitude %}
 
 <!-- HERO -->
@@ -85,8 +86,8 @@ header_pdf: true
 <section class="section" id="authors">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-sand">{{ t.about.authors_eyebrow }}</span>
-      <h2>{{ t.about.authors_h2 }}</h2>
+      <span class="eyebrow on-sand">{{ authors_data.eyebrow }}</span>
+      <h2>{{ authors_data.title }}</h2>
     </div>
     <div class="author-grid" data-reveal>
       {% for a in authors %}
