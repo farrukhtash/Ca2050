@@ -11,6 +11,7 @@ header_pdf: true
 {% assign about = site.data[L].about | default: site.data[D].about %}
 {% assign ag = site.data[L].agencies | default: site.data[D].agencies %}
 {% assign authors = site.data[L].authors.authors | default: site.data[D].authors.authors %}
+{% assign gr = site.data[L].gratitude | default: site.data[D].gratitude %}
 
 <!-- HERO -->
 <section class="hero">
@@ -47,6 +48,19 @@ header_pdf: true
     </div>
   </div>
 </section>
+
+<!-- BLOCK: gratitude (hidden entirely when text is empty) -->
+{% if gr.text and gr.text != "" %}
+<section class="section gratitude" id="gratitude">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      {% if gr.eyebrow and gr.eyebrow != "" %}<span class="eyebrow on-sand">{{ gr.eyebrow }}</span>{% endif %}
+      <h2>{{ gr.title }}</h2>
+    </div>
+    <div class="prose" data-reveal>{{ gr.text | markdownify }}</div>
+  </div>
+</section>
+{% endif %}
 
 <!-- BLOCK 2: organizers -->
 <section class="section tint" id="agencies">

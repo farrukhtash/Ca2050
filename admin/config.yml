@@ -285,6 +285,14 @@ collections:
             fields:
               - { name: logo, label: "Логотип", widget: image, required: false, media_folder: "/assets/images/uploads", public_folder: "/assets/images/uploads", i18n: duplicate }
               - { name: name, label: "Название", widget: string, i18n: true }
+      - name: gratitude
+        label: "Блок: благодарности"
+        file: "_data/{{locale}}/gratitude.yml"
+        i18n: true
+        fields:
+          - { name: eyebrow, label: "Надзаголовок (eyebrow)", widget: string, required: false, i18n: true }
+          - { name: title, label: "Заголовок секции", widget: string, required: false, i18n: true }
+          - { name: text, label: "Текст (несколько абзацев)", widget: text, required: false, i18n: true }
 
   # ---- Форсайт-семинар (саҳифа контенти, бир коллекцияда) ----
   # Паттерн region/about_page/youth_content кабидек — фақат widget:

@@ -392,6 +392,14 @@ a.theme-card:hover{background:var(--navy-2);}
 .platform-cta .eyebrow.on-sand{color:var(--gold-soft);}
 .platform-cta-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
 .platform-cta p{color:rgba(250,248,242,.75); margin-bottom:16px; max-width:46ch;}
+
+/* GRATITUDE — about page, between "Китоб нима ҳақида" (sand) and
+   "Ташкилотчилар" (.tint/sand-2); navy so it doesn't share a background
+   with either neighbor, same dark-accent treatment as .platform-cta. */
+.gratitude{background:var(--navy); color:var(--white);}
+.gratitude .section-head h2{color:var(--white);}
+.gratitude .eyebrow.on-sand{color:var(--gold-soft);}
+.gratitude .prose p{color:rgba(250,248,242,.8);}
 .feedback-links{display:flex; gap:14px; flex-wrap:wrap; margin-top:4px;}
 .feedback-links a{
   display:inline-flex; align-items:center; gap:8px;
