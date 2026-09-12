@@ -187,18 +187,20 @@ document.querySelectorAll('[data-leaders]').forEach(root=>{
 // buttons scroll by one item's width. Touch swipe works natively via
 // overflow-x, no custom gesture handling needed.
 //
-// data-carousel-loop (opt-in, used by the press carousel) makes it
-// infinite in both directions. The item set is cloned once before and
-// once after the real (middle) set. A click always animates to an exact
-// item position (offsetLeft), tracked via a plain integer `pos` rather
-// than by reading scrollLeft back after the animation — reading scrollLeft
-// to decide "did we settle past the edge yet" is inherently racy (native
-// smooth-scroll + scroll-snap can still be settling when a scroll/'scroll'-
-// debounce fires). Instead, if the last click left `pos` pointing at a
-// clone, the NEXT click first re-homes scrollLeft instantly to the
-// pixel-identical spot in the real set (imperceptible, since clones are
-// exact copies) before animating the new step — correction is synchronous
-// and never races an in-flight animation.
+// data-carousel-loop (opt-in, used by the press/integration-news
+// carousels) makes it infinite in both directions. The item set is
+// cloned into `repeats` full copies before and after the real (middle)
+// set — see REPEATS below for why more than one copy is sometimes
+// needed. A click always animates to an exact item position (offsetLeft),
+// tracked via a plain integer `pos` rather than by reading scrollLeft back
+// after the animation — reading scrollLeft to decide "did we settle past
+// the edge yet" is inherently racy (native smooth-scroll + scroll-snap can
+// still be settling when a scroll/'scroll'-debounce fires). Instead, if
+// the last click left `pos` pointing at a clone, the NEXT click first
+// re-homes scrollLeft instantly to the pixel-identical spot in the real
+// set (imperceptible, since clones are exact copies) before animating the
+// new step — correction is synchronous and never races an in-flight
+// animation.
 document.querySelectorAll('[data-carousel]').forEach(root=>{
   const viewport = root.querySelector('.carousel-viewport');
   const track = root.querySelector('.carousel-track');
@@ -210,6 +212,18 @@ document.querySelectorAll('[data-carousel]').forEach(root=>{
   const next = root.querySelector('[data-carousel-next]');
 
   if(loop && realCount > 0){
+    // REPEATS: aligning a target item flush against the viewport's left
+    // edge only works if enough real content follows it to fill the rest
+    // of the visible row (up to 3 items wide, the widest breakpoint this
+    // component uses). With realCount below that (e.g. only 1-2 news
+    // cards), a single clone set doesn't leave enough trailing items —
+    // the browser clamps the scroll short of the target and the carousel
+    // reads as "stuck". Cloning enough full sets to cover the widest row
+    // (ceil(3 / realCount) of them) guarantees that buffer regardless of
+    // how few real items there are, while realCount >= 3 keeps the
+    // original single clone set (no extra DOM for normal-sized lists).
+    const maxVisible = 3;
+    const repeats = Math.max(1, Math.ceil(maxVisible / realCount));
     const makeClone = (el)=>{
       const clone = el.cloneNode(true);
       clone.setAttribute('aria-hidden', 'true');
@@ -217,13 +231,14 @@ document.querySelectorAll('[data-carousel]').forEach(root=>{
       return clone;
     };
     const originals = Array.from(track.children);
-    track.prepend(...originals.map(makeClone));
-    track.append(...originals.map(makeClone));
+    for(let r=0;r<repeats;r++) track.prepend(...originals.map(makeClone));
+    for(let r=0;r<repeats;r++) track.append(...originals.map(makeClone));
 
     // index into the real set (0..realCount-1); transiently -1 or realCount
     // right after a wrap step, until the following click re-homes it
     let pos = 0;
-    const targetLeft = (i)=> track.children[realCount + i].offsetLeft - track.offsetLeft;
+    const realOffset = realCount * repeats;
+    const targetLeft = (i)=> track.children[realOffset + i].offsetLeft - track.offsetLeft;
     const jumpTo = (left)=>{
       const behavior = viewport.style.scrollBehavior;
       viewport.style.scrollBehavior = 'auto';

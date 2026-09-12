@@ -177,10 +177,18 @@ nav_active: seminar
                 {% endif %}
               </div>
               <div class="news-body">
-                {% if n.date and n.date != "" %}<time class="news-date" datetime="{{ n.date }}">{{ n.date | date: "%d.%m.%Y" }}</time>{% endif %}
                 <h3 class="news-title">{{ n.title }}</h3>
+                {% assign has_meta = false %}
+                {% if n.source and n.source != "" %}{% assign has_meta = true %}{% endif %}
+                {% if n.date and n.date != "" %}{% assign has_meta = true %}{% endif %}
+                {% if has_meta %}
+                <div class="news-meta">
+                  {% if n.source and n.source != "" %}<span class="news-source">{{ n.source }}</span>{% endif %}
+                  {% if n.source and n.source != "" and n.date and n.date != "" %}<span class="news-meta-sep" aria-hidden="true">·</span>{% endif %}
+                  {% if n.date and n.date != "" %}<time class="news-date" datetime="{{ n.date }}">{{ n.date | date: "%d.%m.%Y" }}</time>{% endif %}
+                </div>
+                {% endif %}
                 {% if n.description and n.description != "" %}<p class="news-desc">{{ n.description }}</p>{% endif %}
-                {% if n.source and n.source != "" %}<span class="news-source">{{ n.source }}</span>{% endif %}
               </div>
             {% if has_url %}</a>{% else %}</div>{% endif %}
           </div>

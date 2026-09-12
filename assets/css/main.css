@@ -665,12 +665,17 @@ footer img{height:54px; width:auto; margin-bottom:12px; opacity:.9;}
 .leader-name{font-family:'PT Serif',serif; font-weight:700; font-size:1.14rem; color:var(--ink);}
 .leader-position{font-size:.9rem; color:var(--ink-soft);}
 
-/* ===== REGION — INTEGRATION NEWS (card tiles) ===== */
-.news-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+/* ===== NEWS CARDS (carousel) — shared by /seminar-2025/ "ОАВ нигоҳида"
+   (#press) and /region/ "Интеграция бўйича янгиликлар" (#integration).
+   Both are carousels built on .media-carousel/.carousel-item (see MEDIA
+   CAROUSEL below), so these rules are unscoped rather than duplicated
+   per page — same markup, same behavior on both. ===== */
 .news-card{
   display:flex; flex-direction:column; text-decoration:none; color:inherit;
   background:var(--white); border:1px solid rgba(25,26,34,.12); border-radius:8px;
   overflow:hidden; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  height:100%; /* fills the row height .carousel-track's flex-stretch already
+                  gives .carousel-item, so every card in the row lines up */
 }
 a.news-card:hover{transform:translateY(-3px); box-shadow:0 16px 34px rgba(20,29,56,.14); border-color:rgba(201,162,39,.5);}
 .news-cover{aspect-ratio:16/9; overflow:hidden; background:var(--sand-2);}
@@ -682,21 +687,19 @@ a.news-card:hover .news-cover img{transform:scale(1.04);}
 }
 .news-cover-ph svg{width:46px; height:46px; max-width:40%; max-height:40%; flex:none;}
 .news-body{padding:18px 18px 20px; display:flex; flex-direction:column; gap:8px; flex:1;}
-.news-date{font-size:.74rem; text-transform:uppercase; letter-spacing:.1em; color:var(--teal); font-weight:600;}
 .news-title{font-family:'PT Serif',serif; font-weight:700; font-size:1.1rem; line-height:1.3; color:var(--ink); transition:color .2s ease;}
 a.news-card:hover .news-title{color:var(--gold);}
-.news-desc{font-size:.9rem; color:var(--ink-soft); line-height:1.5;}
-.news-source{margin-top:auto; padding-top:8px; font-size:.76rem; color:var(--ink-soft); font-weight:600;}
-
-/* Press carousel cards only (seminar page, #press) — clamp the description
-   to 10 lines so a long description can't inflate one card past the rest;
-   .news-card/.news-desc are shared with the /region/ news grid, so this is
-   scoped to #press rather than changed globally. height:100% makes the
-   card itself (not just the invisible .carousel-item wrapper, which the
-   row's flex stretch already equalizes) fill that equal height, so photo/
-   title/date/source line up the same way across every card in the row. */
-#press .news-card{height:100%;}
-#press .news-desc{
+/* compact metadata line (source + date) right under the title, styled
+   smaller/muted so it reads as metadata rather than body text */
+.news-meta{display:flex; align-items:center; gap:6px; flex-wrap:wrap;}
+.news-source{font-size:.76rem; color:var(--ink-soft); font-weight:600;}
+.news-date{font-size:.74rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); font-weight:600;}
+.news-meta-sep{color:var(--ink-soft); opacity:.5; font-size:.76rem;}
+/* description is last — clamped to 10 lines (any language, any length)
+   so one long entry can't inflate a card past the rest of the row; any
+   leftover space then falls below it, at the bottom of the card */
+.news-desc{
+  font-size:.9rem; color:var(--ink-soft); line-height:1.5;
   display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:10; overflow:hidden;
 }
 
@@ -877,10 +880,6 @@ a.news-card:hover .news-title{color:var(--gold);}
 @media (min-width:861px) and (max-width:1040px){
   .dir-grid, .agency-grid, .author-grid{grid-template-columns:repeat(2,1fr);}
 }
-
-/* region news cards responsive */
-@media (max-width:960px){ .news-grid{grid-template-columns:repeat(2,1fr);} }
-@media (max-width:600px){ .news-grid{grid-template-columns:1fr;} }
 
 /* region leaders responsive — keep all 5 flags visible, shrink gracefully */
 @media (max-width:560px){
