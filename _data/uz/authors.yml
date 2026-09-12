@@ -11,6 +11,11 @@ authors:
     country: ''
     contribution: Муҳаррир
     placeholder: false
+  - name: Лейла Шахназарова
+    role: ''
+    country: ''
+    contribution: Муҳаррир (рус тилида)
+    placeholder: false
   - name: Александр Воинов
     role: ''
     country: ''
@@ -20,4 +25,9 @@ authors:
     role: ''
     country: ''
     contribution: Саҳифаловчи
+    placeholder: false
+  - name: Масъуджон Махсудов
+    role: ''
+    country: ''
+    contribution: Таржимон (ўзбек тилига)
     placeholder: false
