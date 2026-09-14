@@ -272,48 +272,6 @@ document.querySelectorAll('[data-carousel]').forEach(root=>{
   if(next) next.addEventListener('click', ()=>scrollByItem(1));
 });
 
-// News-card title auto-fit (region "Интеграция бўйича янгиликлар" and
-// seminar "ОАВ нигоҳида" — both share .news-title): the 10-word cap is
-// applied server-side (see _includes/news-title-text.html), so this only
-// handles the remaining *line* limit. Long words can still overflow two
-// lines at the base font-size, so shrink it step by step (down to 80% of
-// base, never lower) until the title's full content height fits within
-// its clamped 2-line box; -webkit-line-clamp:2 in CSS is the backstop if
-// even the floor size doesn't fit. Runs after the carousel setup above
-// (so cloned cards get fitted too), on load, once web fonts finish
-// loading (metrics before that are unreliable), and on resize.
-(function(){
-  const MIN_RATIO = 0.8;
-  const STEP = 0.5;
-
-  const fitOne = (el)=>{
-    el.style.fontSize = '';
-    const base = parseFloat(getComputedStyle(el).fontSize);
-    if(!base) return;
-    const min = base * MIN_RATIO;
-    let size = base;
-    while(el.scrollHeight > el.clientHeight + 1 && size > min){
-      size = Math.max(min, size - STEP);
-      el.style.fontSize = size + 'px';
-    }
-  };
-
-  const fitAll = ()=>{
-    document.querySelectorAll('.news-title').forEach(fitOne);
-  };
-
-  fitAll();
-  if(document.fonts && document.fonts.ready){
-    document.fonts.ready.then(fitAll);
-  }
-
-  let resizeTimer = null;
-  window.addEventListener('resize', ()=>{
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(fitAll, 150);
-  }, { passive: true });
-})();
-
 // Participant quote cards (seminar page): click/tap expands the card to
 // fill the whole section (same behavior on desktop and mobile — hover no
 // longer expands). Closes via: repeat click on the card, the close button,

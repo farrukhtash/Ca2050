@@ -1,9 +1,0 @@
-{% comment %}
-  Truncates a news-card title to at most 10 words, appending an ellipsis
-  when cut. Shared by /seminar-2025/ "ОАВ нигоҳида" and /region/
-  "Интеграция бўйича янгиликлар" so both blocks apply the identical rule
-  automatically to every card, including ones added later via Sveltia.
-  (The remaining 2-line limit is handled separately — JS font-size
-  auto-fit with a CSS line-clamp:2 fallback, see main.css/main.js.)
-  Usage: {% capture title_text %}{% include news-title-text.html title=n.title %}{% endcapture %}
-{% endcomment %}{% assign _words = include.title | split: " " %}{% if _words.size > 10 %}{{ _words | slice: 0, 10 | join: " " }}…{% else %}{{ include.title }}{% endif %}

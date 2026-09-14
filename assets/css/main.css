@@ -695,14 +695,18 @@ a.news-card:hover .news-cover img{transform:scale(1.04);}
 }
 .news-cover-ph svg{width:46px; height:46px; max-width:40%; max-height:40%; flex:none;}
 .news-body{padding:18px 18px 20px; display:flex; flex-direction:column; gap:8px; flex:1;}
-/* Word-count truncation (10 words + "…") happens server-side via the
-   news-title-text include. This handles the remaining *line* limit: JS
-   (main.js) shrinks font-size toward 80% of this base size so a title
-   with long words still fits 2 lines; line-clamp is the CSS-only backstop
-   for the rare case where even the floor size doesn't fit. */
+/* Fixed to exactly 3 lines (height, not min-height, so it never shrinks
+   or grows with the text) so source/date/description start at the same
+   level in every card of a row, on any title length/language. A shorter
+   title just leaves blank space in the same reserved area instead of
+   pulling the row's other cards' content up. height = font-size(1.1rem)
+   × line-height(1.3) × 3 lines = 4.29rem. Overflowing text is clamped to
+   those same 3 lines with an ellipsis — a 4th line is never possible.
+   Font-size stays constant across every card (no per-card auto-fit). */
 .news-title{
   font-family:'PT Serif',serif; font-weight:700; font-size:1.1rem; line-height:1.3; color:var(--ink); transition:color .2s ease;
-  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
+  height:4.29rem;
+  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden;
 }
 a.news-card:hover .news-title{color:var(--gold);}
 /* compact metadata line (source + date) right under the title, styled
