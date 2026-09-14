@@ -1,15 +1,20 @@
-eyebrow: Authors
-title: Authors of the book
+eyebrow: Creative team
+title: Project contributors
 authors:
   - name: Aziza Umarova
-    role: Head of Zero Bureaucracy-2030 & Innovations Office at the Agency for Strategic Development and Reforms under the President of the Repulic of Uzbekistan
+    role: Head of the Zero Bureaucracy-2030 and Innovations Office at the Agency for Strategic Reforms under the President of the Republic of Uzbekistan
     country: ''
     contribution: Editor
     placeholder: false
   - name: Nariman Akhatov
-    role: Zero Bureaucracy-2030 & Innovations Office at the Agency for Strategic Development and Reforms under the President of the Repulic of Uzbekistan
+    role: Zero Bureaucracy-2030 and Innovations Office at the Agency for Strategic Reforms under the President of the Republic of Uzbekistan
     country: ''
     contribution: Editor
+    placeholder: false
+  - name: Leyla Shakhnazarova
+    role: ''
+    country: ''
+    contribution: Editor (Russian)
     placeholder: false
   - name: Alexander Voynov
     role: ''
@@ -20,4 +25,9 @@ authors:
     role: ''
     country: ''
     contribution: Typesetter
+    placeholder: false
+  - name: Masudjon Makhsudov
+    role: ''
+    country: ''
+    contribution: Translator (into Uzbek)
     placeholder: false
