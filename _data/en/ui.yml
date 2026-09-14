@@ -1,28 +1,28 @@
 brand_name: Central Asia 2050
 brand_tagline: Foresight platform
-footer: Central Asia States 2050 — Regional Foresight Dialogue · Tashkent, 2026
+footer: Central Asia States 2050 — Regional Foresight Dialogue
 nav:
   about: The book
-  directions: Directions
-  youth: Youth
+  directions: Tracks
+  youth: The next generation speaks
   region: One region
   seminar: Foresight Seminar
-  feedback: Leave feedback
+  feedback: Leave your feedback
 home:
-  hero_eyebrow: Regional Foresight Dialogue · Tashkent, 2026
+  hero_eyebrow: Regional foresight dialogue
   hero_title: Central Asia States 2050
-  hero_sub: The result of the region's first foresight dialogue — visions of the future through 2050 across climate, water, energy, transport, and demography.
+  hero_sub: 'The result of the first regional foresight dialogue — visions of the future through 2050: analysis and recommendations on climate, water, energy, transport, and demography.'
   hero_cta: Download the book
-  hero_meta: 217 pages · PDF · summary in Uzbek and English
+  hero_meta: PDF · summary in Uzbek, Russian, and English
   more: Read more →
   about_eyebrow: About the book
   about_h2: The region's first foresight dialogue
-  about_p: This book is the outcome of the first regional foresight dialogue in the history of independent Central Asia — experts from five countries jointly proposing visions of the future through 2050.
-  themes_eyebrow: Research directions
-  themes_h2: In-depth analysis across five directions
+  about_p: This book is the outcome of the first regional foresight dialogue in the history of independent Central Asia — experts from five countries jointly charting visions of the future through 2050.
+  themes_eyebrow: Research tracks
+  themes_h2: In-depth analysis across five priority tracks
   youth_eyebrow: Featured chapter
   youth_h2: The next generation speaks
-  youth_p: Young people from across the region were invited to describe, in essay form, what their homelands could look like by 2050 — forming one of the book's most distinctive chapters.
+  youth_p: Young people from across the region were invited to describe, in essay form, what their homeland could look like by 2050 — their reflections form one of the book's most distinctive chapters.
   youth_tags:
     - Identity
     - Gender
@@ -30,8 +30,8 @@ home:
     - Technology
   seminar_eyebrow: Event
   seminar_h2: Foresight Seminar 2025
-  seminar_p: On 27–28 May 2025, Tashkent hosted a Foresight Seminar bringing together the region's analytical centers and independent experts. Photos, participants' reflections and media coverage are on a dedicated page.
-  seminar_cta: Details & photos
+  seminar_p: On 27–28 May 2025, Tashkent hosted a Foresight Seminar bringing together the region's analytical centers and independent experts. Photos, participants' reflections, and media coverage are available on a dedicated page.
+  seminar_cta: Details and photos
   book_eyebrow: The book
   book_h2: Download the book
   book_p: 217 pages · PDF · summary in Uzbek and English.
@@ -48,14 +48,14 @@ about:
   overview_h2: What the book is about
   agencies_h2: Organizers
 directions:
-  hero_eyebrow: Research directions
-  hero_title: In-depth analysis across five directions
-  hero_sub: 'The book is built around priority tracks: climate, water, energy, transport, and social development & demography.'
+  hero_eyebrow: Research tracks
+  hero_title: In-depth analysis across five priority tracks
+  hero_sub: 'The book is built around four priority tracks and a dedicated youth chapter: climate, water, energy, transport, and social development and demography.'
   card_more: Read more →
-  detail_eyebrow: Research direction
-  back: ← All directions
+  detail_eyebrow: Research track
+  back: ← All tracks
   placeholder: Content in preparation
-  intro_eyebrow: About this direction
+  intro_eyebrow: About this track
   charts_eyebrow: Research materials
   charts_h2: Charts
   chart_open_label: Enlarge
@@ -64,21 +64,21 @@ directions:
   scenarios_h2: Scenarios
   recommendations_eyebrow: Conclusions
   recommendations_h2: Recommendations
-  nav_prev: Previous direction
-  nav_next: Next direction
+  nav_prev: Previous track
+  nav_next: Next track
 youth:
-  notes_eyebrow: "About the collection"
-  notes_h2: "Central Asia 2050: Notes from a future already underway"
+  notes_eyebrow: "When the next generation speaks..."
+  notes_h2: "Central Asia 2050: notes from a future already underway"
   notes_placeholder: "Content in preparation"
-  highlights_eyebrow: "Central themes"
+  highlights_eyebrow: "Key themes"
   highlights_h2: "Key highlights of the chapter"
   concepts_eyebrow: "Traditions"
   concepts_h2: "Key concepts"
 region:
-  hero_eyebrow: The region
+  hero_eyebrow: Central Asia
   hero_title: One region
-  hero_sub: Key statements by the leaders of Central Asia and news on regional integration.
+  hero_sub: Statements by the heads of state of Central Asia and news on regional integration.
   leaders_eyebrow: Heads of state
-  leaders_h2: Key statements by Central Asian leaders
+  leaders_h2: Central Asian heads of state on the region's future
   integration_eyebrow: Regional integration
   integration_h2: News on regional integration
