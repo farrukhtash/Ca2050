@@ -615,6 +615,17 @@ footer img{height:54px; width:auto; margin-bottom:12px; opacity:.9;}
 }
 .leader-nav:hover{border-color:var(--gold); color:var(--gold); background:rgba(201,162,39,.06);}
 .leader-nav svg{width:20px; height:20px;}
+/* Nudge the leader-block arrows down from align-items:start's default
+   (row top, level with the photo) to sit level with the small flag under
+   the photo instead — .leader-nav is shared with other carousels, so this
+   stays scoped to .leader-stage rather than changed on .leader-nav itself.
+   margin-top = (distance from panel top to the flag's own vertical
+   center) − (nav's own half-height): photo height (220×4/3=293.33px) +
+   .leader-flag-divider's 20px top margin + half its 30px height (15px),
+   minus half the 44px nav (22px) = 306.33px. Photo/flag positions are
+   fixed (see .leader-panel), so this offset is the same for every
+   leader — the arrows never move when switching between them. */
+.leader-stage .leader-nav{margin-top:306.33px;}
 
 .leader-panels{position:relative; min-width:0;}
 .leader-panel{
@@ -917,6 +928,9 @@ a.news-card:hover .news-title{color:var(--gold);}
   .leader-nav{width:38px; height:38px;}
   .leader-nav svg{width:17px; height:17px;}
   .leader-photo{width:150px;}
+  /* same idea as the desktop rule above, recomputed for the smaller
+     photo/nav at this width: (150×4/3=200) + 20 + 15 − 19 (half of 38px) = 216px */
+  .leader-stage .leader-nav{margin-top:216px;}
   /* narrower column wraps the longest quote onto many more lines */
   .leader-panel{min-height:1220px;}
 }
