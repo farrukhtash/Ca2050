@@ -67,8 +67,8 @@ nav_active: feedback
       </div>
       <div data-reveal>
         <div class="feedback-links">
-          <a href="mailto:info@ca2050.one">info@ca2050.one</a>
-          <a href="https://ca2050.one" target="_blank" rel="noopener">ca2050.one</a>
+          {% if sd.contact_email and sd.contact_email != "" %}<a href="mailto:{{ sd.contact_email }}">{{ sd.contact_email }}</a>{% endif %}
+          {% if sd.contact_website and sd.contact_website != "" %}<a href="https://{{ sd.contact_website }}" target="_blank" rel="noopener">{{ sd.contact_website }}</a>{% endif %}
         </div>
       </div>
     </div>

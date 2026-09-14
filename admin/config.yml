@@ -482,3 +482,5 @@ collections:
           - { name: form_note, label: "Форма остидаги изоҳ (ихтиёрий)", widget: text, required: false, i18n: true }
           - { name: contacts_eyebrow, label: "Алоқа блоки: eyebrow", widget: string, i18n: true }
           - { name: contacts_h2, label: "Алоқа блоки: сарлавҳа", widget: string, i18n: true }
+          - { name: contact_email, label: "Алоқа блоки: email манзили (барча тиллар учун бир хил)", widget: string, required: false, i18n: duplicate }
+          - { name: contact_website, label: "Алоқа блоки: сайт манзили, протоколсиз (мас: ca2050.uz — барча тиллар учун бир хил)", widget: string, required: false, i18n: duplicate }
