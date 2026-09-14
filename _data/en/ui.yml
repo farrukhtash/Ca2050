@@ -4,7 +4,6 @@ footer: Central Asia States 2050 — Regional Foresight Dialogue · Tashkent, 20
 nav:
   about: The book
   directions: Directions
-  all_directions: All directions
   youth: Youth
   region: One region
   seminar: Foresight Seminar
@@ -21,7 +20,6 @@ home:
   about_p: This book is the outcome of the first regional foresight dialogue in the history of independent Central Asia — experts from five countries jointly proposing visions of the future through 2050.
   themes_eyebrow: Research directions
   themes_h2: In-depth analysis across five directions
-  themes_all: All directions →
   youth_eyebrow: Featured chapter
   youth_h2: The next generation speaks
   youth_p: Young people from across the region were invited to describe, in essay form, what their homelands could look like by 2050 — forming one of the book's most distinctive chapters.
@@ -48,7 +46,6 @@ about:
   hero_sub: The outcome of the first regional foresight dialogue in the history of independent Central Asia — visions of the future through 2050.
   overview_eyebrow: Overview
   overview_h2: What the book is about
-  agencies_eyebrow: Organizers
   agencies_h2: Organizers
 directions:
   hero_eyebrow: Research directions
@@ -83,7 +80,5 @@ region:
   hero_sub: Key statements by the leaders of Central Asia and news on regional integration.
   leaders_eyebrow: Heads of state
   leaders_h2: Key statements by Central Asian leaders
-  leaders_placeholder: Content in preparation — official statements by the leaders will be added.
   integration_eyebrow: Regional integration
   integration_h2: News on regional integration
-  integration_placeholder: Content in preparation — materials on regional integration will be published here.
