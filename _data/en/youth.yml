@@ -1,20 +1,38 @@
-hero_eyebrow: Featured chapter
-hero_title: The next generation speaks
-hero_subtitle: A collection of essays and reflections by the region's youth on the future through 2050.
-intro_text: |-
-  The book includes a dedicated chapter devoted to the region's youth — bringing together their essays and reflections on the future of Central Asia through 2050.
+hero_eyebrow: Essay collection
+hero_title: When the next generation speaks...
+hero_subtitle: |-
+  In shaping visions of Central Asia's future, particular attention was given to the voices of the region's own people. Volunteers from across the region were invited to describe, in essay form, the future of their homelands through 2050. These essays form the basis of one of the book's key chapters — "When the next generation speaks..." — which explores questions of identity, gender, ecology, technology, and the values that will shape the future.
 
-  Young people from across the region's countries were invited to describe their homeland's future freely — as an essay, a personal observation, or an analysis. Their texts complement the book's formal analytical sections, adding a broader public perspective.
+  This is the new generation's own perspective on what it means to live in that future.
+intro_text: |-
+  Central Asia has long been seen as a crossroads of civilizations and a wellspring of vivid imagery. Long caravans crossed its boundless steppes, carrying goods and ideas from one place to another; the region was home to proud, martial peoples among whom the custom of bride kidnapping was at times observed. A land of soaring minarets and snow-capped mountains, of countless yurts and herds of horses, it became part of the backdrop of ancient geopolitics. Central Asia has rarely been given the opportunity to speak fully for itself: from the outside, it has more often been treated as a source of poetic imagery, a secondary consideration in the calculations of the continent's major powers, or simply a remote periphery. The region's own identity has long hung suspended between its storied past and a vague future shaped largely by others' imagination.
+
+  The essays collected here offer a different approach to this situation. Together they form a chorus of distinct voices, each articulating its own vision of the region's future. And each tells a story woven from the lives and aspirations of the millions of people who call Central Asia home.
+
+  The visions of the future portrayed in these essays do not deny the region's persistent and complex difficulties. Yet rather than dwelling on the past in the conventional way, these narratives are infused with a spirit of hope and forward momentum, grounded in memory and in the authors' own moral convictions.
+
+  The first of these threads allows the authors to draw on Central Asia's own experience and traditions. In their view, it is precisely these traditions that can best prepare the region for the decades ahead.
+
+  The second invites readers to reflect on a central question: "What kind of society could we become if we set aside our differences and disagreements and focused instead on what unites us?"
+
+  This is not an easy question, and the researchers, practitioners, and observers who authored this collection offer compelling answers to it.
+
+  Not all the authors are optimistic. Some point to the damage accumulated over years of short-sighted policymaking, environmental neglect, and bureaucratic disarray. The future depicted in their writing is neither utopia nor dystopia, but a real, contradictory, and shifting reality.
+
+  This is a warning from those who genuinely care about the region's problems and its future. By drawing attention to these issues, they hope to encourage society to focus on measures capable of preventing our development from veering onto the wrong and undesirable path.
+
+  Time is running short, and change must begin now.
 highlights_intro: 'The collected essays cover the following central themes:'
 tags:
   - text: Identity
   - text: Gender
   - text: Ecology
   - text: Technology
+  - text: Social trust
+  - text: Youth
+  - text: Entrepreneurship
 concepts:
-  - title: Hashar
-    description: Community or extended-family members working together for the common good, without payment — a traditional form of mutual aid and collective responsibility.
-  - title: '[Concept name]'
-    description: '[Description goes here]'
-  - title: '[Concept name]'
-    description: '[Description goes here]'
+  - title: Hashar (ashar, asar)
+    description: |-
+      Hashar is a traditional form of voluntary collective labor, widespread in Uzbekistan and other Central Asian countries and rooted in mutual aid and solidarity. Neighbors come together to clear irrigation ditches, repair roofs, or bring in the harvest before the cold sets in. The essay's
+      author argues that this very tradition means the region already has a working template for mutual assistance and the shared management of common resources — whether that means water today or data networks tomorrow.
