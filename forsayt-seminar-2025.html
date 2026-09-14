@@ -177,7 +177,8 @@ nav_active: seminar
                 {% endif %}
               </div>
               <div class="news-body">
-                <h3 class="news-title">{{ n.title }}</h3>
+                {% capture title_text %}{% include news-title-text.html title=n.title %}{% endcapture %}
+                <h3 class="news-title">{{ title_text | strip }}</h3>
                 {% assign has_meta = false %}
                 {% if n.source and n.source != "" %}{% assign has_meta = true %}{% endif %}
                 {% if n.date and n.date != "" %}{% assign has_meta = true %}{% endif %}
