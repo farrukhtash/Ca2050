@@ -601,7 +601,11 @@ footer img{height:54px; width:auto; margin-bottom:12px; opacity:.9;}
 .leader-flag:focus-visible{outline:none;}
 .leader-flag:focus-visible .leader-flag-img, .leader-flag:focus-visible .flag-ph{outline-color:var(--gold-soft);}
 
-.leader-stage{display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:14px;}
+/* align-items:start (not center): the nav arrows must sit at a fixed
+   row position regardless of which leader's quote is showing — see the
+   matching note on .leader-panel below for why centering was the actual
+   cause of the photo/arrows jumping between leaders. */
+.leader-stage{display:grid; grid-template-columns:auto 1fr auto; align-items:start; gap:14px;}
 .leader-nav{
   display:inline-flex; align-items:center; justify-content:center;
   width:44px; height:44px; flex-shrink:0;
@@ -614,18 +618,21 @@ footer img{height:54px; width:auto; margin-bottom:12px; opacity:.9;}
 
 .leader-panels{position:relative; min-width:0;}
 .leader-panel{
-  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center;
   max-width:720px; margin:0 auto;
-  /* fixed so .leader-nav (centered on this row via .leader-stage's
-     align-items:center) doesn't shift vertically when switching between
-     leaders with quotes of different lengths — sized to the longest
-     quote across all five leaders and all three locales (uz/en/ru;
-     currently the Turkmenistan uz quote, ~383 chars, also used as the
-     ru fallback), measured at the narrowest width within each bracket
-     below (worst case for wrapping), plus a small buffer.
-     justify-content:center balances the leftover space above/below the
-     (shorter) content instead of dumping it all below, so the nav
-     arrows land next to the visible card instead of in empty space. */
+  /* justify-content:flex-start (not center) pins the photo/flag to the
+     same fixed top position for every leader; the quote and name/position
+     below them stay in normal flow and simply run shorter or longer —
+     centering used to redistribute that same leftover space above the
+     photo too, which is what made the photo (and, via .leader-stage's own
+     align-items, the nav arrows) visibly jump between leaders with quotes
+     of very different lengths.
+     min-height is still sized to the longest quote across all five
+     leaders and all three locales (uz/en/ru; currently the Turkmenistan
+     uz quote, ~383 chars, also used as the ru fallback), measured at the
+     narrowest width within each bracket below (worst case for wrapping),
+     plus a small buffer — so the section's overall height stays constant
+     across leaders regardless of alignment. */
   min-height:850px;
 }
 .leader-panel[hidden]{display:none;}
