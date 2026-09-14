@@ -1,1 +1,33 @@
-# RU — пока пусто, показывается узбекская версия (фолбэк). Заполняется через CMS.
+eyebrow: Творческая команда
+title: Участники проекта
+authors:
+  - name: Азиза Умарова
+    role: Руководитель офиса «Ноль бюрократии — 2030» и инноваций Агентства стратегических реформ при Президенте Республики Узбекистан
+    country: ''
+    contribution: Редактор
+    placeholder: false
+  - name: Нариман Ахатов
+    role: Офис «Ноль бюрократии — 2030» и инноваций Агентства стратегических реформ при Президенте Республики Узбекистан
+    country: ''
+    contribution: Редактор
+    placeholder: false
+  - name: Лейла Шахназарова
+    role: ''
+    country: ''
+    contribution: Редактор русской версии
+    placeholder: false
+  - name: Александр Воинов
+    role: ''
+    country: ''
+    contribution: Дизайнер
+    placeholder: false
+  - name: Тимур Джалилов
+    role: ''
+    country: ''
+    contribution: Вёрстка
+    placeholder: false
+  - name: Масъуджон Махсудов
+    role: ''
+    country: ''
+    contribution: Переводчик на узбекский язык
+    placeholder: false
