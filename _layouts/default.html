@@ -8,8 +8,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% assign own_data = site.data[L][page.page_id] | default: site.data[D][page.page_id] %}
 {% if page.page_id and ui[page.page_id].hero_title %}
 <title>{{ ui[page.page_id].hero_title }} — {{ ui.brand_name }}</title>
+{% elsif page.page_id and own_data.tab_title %}
+<title>{{ own_data.tab_title }} — {{ ui.brand_name }}</title>
 {% else %}
 <title>{{ page.title | default: site.title }}</title>
 {% endif %}

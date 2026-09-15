@@ -314,6 +314,7 @@ collections:
         file: "_data/{{locale}}/youth.yml"
         i18n: true
         fields:
+          - { name: tab_title, label: "Браузер варағи сарлавҳаси (<title>)", widget: string, i18n: true }
           - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
           - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
           - { name: hero_subtitle, label: "Hero: остки матн", widget: text, i18n: true }
@@ -395,6 +396,7 @@ collections:
         file: "_data/{{locale}}/seminar.yml"
         i18n: true
         fields:
+          - { name: tab_title, label: "Браузер варағи сарлавҳаси (<title>)", widget: string, i18n: true }
           - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
           - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
           - { name: hero_dates, label: "Hero: тадбир саналари", widget: string, i18n: true }
@@ -466,6 +468,7 @@ collections:
         file: "_data/{{locale}}/feedback.yml"
         i18n: true
         fields:
+          - { name: tab_title, label: "Браузер варағи сарлавҳаси (<title>)", widget: string, i18n: true }
           - { name: hero_eyebrow, label: "Hero: eyebrow", widget: string, i18n: true }
           - { name: hero_title, label: "Hero: сарлавҳа", widget: string, i18n: true }
           - { name: hero_sub, label: "Hero: остки матн", widget: text, i18n: true }
