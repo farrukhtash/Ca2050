@@ -354,6 +354,11 @@ document.querySelectorAll('[data-carousel]').forEach(root=>{
   const fitAll = ()=> boxes.forEach(fit);
   fitAll();
 
+  // Re-measure once the real webfonts have swapped in: font metrics differ
+  // from the fallback font used for the first paint, so a value that just
+  // barely fit against the fallback can still need shrinking afterwards.
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
+
   let resizeTimer;
   window.addEventListener('resize', ()=>{
     clearTimeout(resizeTimer);
@@ -409,6 +414,7 @@ document.querySelectorAll('[data-carousel]').forEach(root=>{
   };
 
   cards.forEach(measure);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>cards.forEach(measure));
   cards.forEach(card=>{
     const btn = card.querySelector('[data-scenario-toggle]');
     if(!btn) return;
