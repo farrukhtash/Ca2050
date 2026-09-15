@@ -3,7 +3,7 @@ directions:
     title: Climate change
     subtitle: Understanding the dynamics of climate change is a key factor for strategic planning in Central Asia.
     stats:
-      - value: 1,2 °C
+      - value: 1.2 °C
         label: Approximate rise in average annual temperature since the mid-20th century.
       - value: 20%
         label: Approximate decrease in snow cover depth.
@@ -11,7 +11,7 @@ directions:
         label: Share of the region's population living in areas at high risk of (once-in-a-century) flooding.
       - value: 2021 / 2024
         label: Years in which the region experienced its most severe droughts.
-      - value: 2х
+      - value: 2x
         label: 'How much faster than the global average Central Asia''s temperature is rising, accompanied by increased evaporation, glacier melt, and erratic precipitation.'
     intro: |-
       Climate is becoming a "threat multiplier": it intensifies water scarcity, undermines food security, and heightens regional tensions through complex and at times unpredictable interdependencies.
@@ -87,15 +87,15 @@ directions:
         label: Share of Central Asia's water resources accounted for by surface water.
       - value: up to 11%
         label: Potential decline in Central Asia's GDP by 2050 due to the combined impact of climate and socioeconomic factors, if water management policy and practice remain unchanged.
-      - value: 4,5 млрд $
+      - value: $4.5 billion
         label: Approximate annual loss to countries of the region from the absence of effective transboundary cooperation.
-      - value: 5х
+      - value: 5x
         label: How many times higher the region's overall rate of water use is compared with the global average.
       - value: 80%
         label: Share of water used for irrigated agriculture exceeds this figure.
-      - value: 123 млрд м3
+      - value: 123 billion m³
         label: 'Estimated total annual volume of the region''s potential groundwater reserves, of which only 23% is currently used.'
-      - value: 10 млн
+      - value: 10 million
         label: People in the region lack access to safe drinking water.
     intro: |-
       Despite national reforms, the region still faces a pressing need to deepen dialogue and coordination in order to make effective use of its water potential.
@@ -158,11 +158,11 @@ directions:
     stats:
       - value: 80% / 50%
         label: 'Turkmenistan accounts for more than 80% of the region''s proven gas reserves and 50% of its gas production.'
-      - value: 155 млрд м3
+      - value: 155 billion m³
         label: Combined gas production across the five Central Asian republics in 2022 — nearly four times the volume of the European Union and comparable to Australia, the world's seventh-largest gas producer.
       - value: '"Central Asia–China"'
         label: 'The "Central Asia–China" pipeline: the largest share of exports is delivered to China through its three lines.'
-      - value: 2,8 млрд м3
+      - value: 2.8 billion m³
         label: Volume of gas per year Uzbekistan began importing from Russia starting in 2023.
       - value: Azerbaijan
         label: Since 2022, under a trilateral agreement, Turkmenistan has also begun supplying small volumes of gas to Azerbaijan via Iran.
