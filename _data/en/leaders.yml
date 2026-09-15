@@ -1,36 +1,36 @@
 leaders:
   - photo: /assets/images/uploads/kz1-3324-2_mediumThumb.jpg
     flag: /assets/images/uploads/images (1).jpg
-    quote: '"[A head of state''s statement will be placed here]"'
-    name: '[President full name]'
-    position: '[President of the Republic of Kazakhstan]'
+    quote: "«Amid geopolitical uncertainty and the erosion of the existing world order, this is, in truth, the only pragmatic approach. Our future depends on strengthening solidarity, mutual trust, and openness to the world. It is only on this foundation that we can secure Central Asia's renaissance as a dynamic, innovative, and culturally rich region.»"
+    name: Kassym-Jomart Tokayev
+    position: President of the Republic of Kazakhstan
     country: Kazakhstan
     order: 2
   - photo: /assets/images/uploads/DOS_5161.jpg
     flag: /assets/images/uploads/new-flag-kyrgyzstan-kyrgyz-original-260nw-2409846521.jpg
-    quote: '"[A head of state''s statement will be placed here]"'
-    name: '[President full name]'
-    position: '[President of the Kyrgyz Republic]'
+    quote: "«...the countries of Central Asia should begin the process of introducing a mutual visa-free regime among themselves and, for visitors from other countries, a single visa — similar to the Schengen visa — enabling free movement across all the countries of the region.»"
+    name: Sadyr Japarov
+    position: President of the Kyrgyz Republic
     country: Kyrgyzstan
     order: 3
   - photo: /assets/images/uploads/55512943786_a2546a7a88_b.jpg
     flag: /assets/images/uploads/images (3).jpg
-    quote: '"[A head of state''s statement will be placed here]"'
-    name: '[President full name]'
-    position: '[President of the Republic of Tajikistan]'
+    quote: "«At a time when the world is changing at a rapid pace, the need has arisen to shape a shared vision for the future of Central Asia.»"
+    name: Emomali Rahmon
+    position: President of the Republic of Tajikistan
     country: Tajikistan
     order: 4
   - photo: /assets/images/uploads/20-09 001.jpg
     flag: /assets/images/uploads/images (2).jpg
-    quote: '"[A head of state''s statement will be placed here]"'
-    name: '[President full name]'
-    position: '[President of Turkmenistan]'
+    quote: "«While preserving our identity, our independence, and our right to choose our own model of internal and external development, we are united in our resolve to transform our region into a flourishing, highly developed territory, deeply integrated into contemporary global relations. I am firmly convinced that only under such conditions can our states and peoples secure a worthy and reliable future.»"
+    name: Serdar Berdimuhamedov
+    position: President of Turkmenistan
     country: Turkmenistan
     order: 5
   - photo: /assets/images/uploads/14515701-a26b-2a2d-0285-bf8c09aa365a.jpg
     flag: /assets/images/uploads/images.jpg
-    quote: '"[A head of state''s statement will be placed here]"'
-    name: '[President full name]'
-    position: '[President of the Republic of Uzbekistan]'
+    quote: "«In this exceptionally complex era, Uzbekistan and the Central Asian region offer the international community an invaluable resource — stability, trust, and development.»"
+    name: Shavkat Mirziyoyev
+    position: President of the Republic of Uzbekistan
     country: Uzbekistan
     order: 1
