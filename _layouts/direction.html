@@ -138,8 +138,8 @@ layout: default
     <div class="scenario-grid" data-reveal>
       {% for sc in scenarios %}
       <div class="scenario-card">
-        <span class="scenario-title">{{ sc.title }}</span>
         <div class="scenario-collapse" data-scenario-desc>
+          <span class="scenario-title">{{ sc.title }}</span>
           <p class="scenario-desc">{{ sc.description }}</p>
           {% if sc.outcome and sc.outcome != "" %}<span class="scenario-outcome">{{ sc.outcome }}</span>{% endif %}
         </div>
