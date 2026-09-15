@@ -1,141 +1,225 @@
 directions:
   - slug: climate
     title: Climate change
-    subtitle: ''
+    subtitle: Understanding the dynamics of climate change is a key factor for strategic planning in Central Asia.
     stats:
       - value: 1,2 °C
-        label: Ўртача йиллик ҳарорат XX асрнинг ўрталаридан бери тахминан кўтарилган.
+        label: Approximate rise in average annual temperature since the mid-20th century.
       - value: 20%
-        label: Қор қоплами қалинлиги тахминан камайди.
+        label: Approximate decrease in snow cover depth.
       - value: 20%
-        label: Минтақа аҳолисининг қарийб (ҳар 100 йилда бир марта бўладиган) сув тошқини хавфи юқори бўлган ҳудудларда яшайди.
+        label: Share of the region's population living in areas at high risk of (once-in-a-century) flooding.
       - value: 2021 / 2024
-        label: йилларда минтақа энг кучли қурғоқчиликни бошдан кечирди.
+        label: Years in which the region experienced its most severe droughts.
       - value: 2х
-        label: Марказий Осиёда ҳарорат дунёдаги ўртача кўрсаткичдан деярли тезроқ кўтарилмоқда, унда кўпроқ буғланиш, музликларнинг эриши, тартибсиз ёғингарчилик кузатилмоқда.
-    intro: ''
+        label: 'How much faster than the global average Central Asia''s temperature is rising, accompanied by increased evaporation, glacier melt, and erratic precipitation.'
+    intro: |-
+      Climate is becoming a "threat multiplier": it intensifies water scarcity, undermines food security, and heightens regional tensions through complex and at times unpredictable interdependencies.
+
+      This interweaving of risks creates a high degree of uncertainty. This means that strategy must be both robust — resilient across a range of possible futures — and adaptive, capable of adjusting and recovering after change. This requires a clear understanding of the region's climate trends, familiarity with the projections, and an awareness of their limitations.
+
+      Temperatures are rising markedly, and this trend is set to continue.
+
+      More detail is available in the book.
     charts:
       - image: /assets/images/uploads/4. Климат.png
-        caption: Кабағалликда яшовчи ва сув тошқини хавфи юқори бўлган аҳоли. Манба:Жаҳон банки (2024 йил).
+        caption: 'Population living in poverty and in areas at high risk of flooding. Source: World Bank (2024).'
         note: ''
       - image: /assets/images/uploads/6. Климат.png
-        caption: 'Марказий Осиё музликлари массаси балансининг ўлчанган ва қайта тикланган вақтли қаторлари. Манба: Barandun et. al (2020).'
+        caption: 'Observed and reconstructed time series of glacier mass balance in Central Asia. Source: Barandun et al. (2020).'
         note: ''
       - image: /assets/images/uploads/7. Климат.png
-        caption: 'Асосий тоғ тизмалари ва музликлар харитаси. Манба: Barandun et. al (2020).'
+        caption: 'Map of major mountain ranges and glaciers. Source: Barandun et al. (2020).'
         note: ''
       - image: /assets/images/uploads/5. Климат.png
-        caption: 'Марказий Осиёнинг барча беш давлатидаги тармоқлар бўйича умумий чиқиндилар, Net Zero ва Reference сценарийларида бирлаштирилган.Изоҳ: чапдаги график асосий сценарийни, ўнгдаги график эса паст углеродли ривожланиш сценарийини акс эттиради.'
+        caption: 'Total emissions by sector across all five Central Asian countries under the Net Zero and Reference scenarios. Note: the chart on the left reflects the baseline scenario, while the chart on the right reflects the low-carbon development scenario.'
         note: ''
       - image: /assets/images/uploads/3. Климат.png
-        caption: '2065-2085 йилларда кутилаётган бир кунлик энг кўп ёғингарчилик ҳажми. Бу оралиқлар ҳар бир умумий ижтимоий-иқтисодий ривожланиш йўллари (Shared Socioeconomic Pathways, SSP) учун прогнозларнинг 10- (паст) 90- (юқори) фоизларини кўрсатади. Тарихда кузатилган оралиқлар – 1995 йилдан 2014 йилгача. Маълумот манбаси: ИОБП, 2025 йил.'
+        caption: 'Projected maximum one-day precipitation for 2065–2085. These ranges show the 10th (low) to 90th (high) percentile of projections for each Shared Socioeconomic Pathway (SSP). Historical ranges cover 1995–2014. Data source: IPCC, 2025.'
         note: ''
-    scenarios: []
-    recommendations: []
+    scenarios:
+      - title: 'Regional risks:'
+        description: |-
+          Temperatures in Central Asia are rising nearly twice as fast as the global average, accompanied by increased evaporation, glacier melt, and erratic precipitation.
+
+          Extreme events — droughts, floods, and landslides — are occurring with increasing frequency, threatening infrastructure and vulnerable segments of the population.
+
+          Economic losses from water-related emergencies could reach 1.3% of GDP annually, while crop yields could decline by 30% by 2050.
+        outcome: 'Conclusion: without adaptation, the region faces chronic water instability and severe economic losses.'
+      - title: Agriculture in Central Asia is particularly vulnerable to climate change.
+        description: |-
+          Uzbekistan is grappling with land degradation and soil salinization, which, combined with shifting precipitation patterns, is reducing crop yields and threatening food security.
+
+          Tajikistan is experiencing the effects of high variability in water use, which affects irrigation and crop yields.
+
+          In Kazakhstan's northern regions, climate zones are shifting, affecting grain production and pasture quality.
+
+          Kyrgyzstan must contend with heat stress affecting agricultural crops, which is increasing irrigation demand against a backdrop of planned production growth.
+        outcome: While rising temperatures and increasingly variable precipitation are disrupting the customary conditions of agricultural production across the region, they are also opening strategic windows for early adaptation and innovation.
+      - title: 'Climate change is also affecting the power sector — particularly visible where dependence on hydropower is high:'
+        description: |-
+          In Tajikistan and Kyrgyzstan, shrinking glaciers and changing precipitation patterns are making river flow volumes harder to forecast, undermining the reliability of hydropower generation.
+
+          Uzbekistan's power system faces a dual pressure: rising demand during periods of extreme heat, combined with constraints on the water needed to cool thermal power plants.
+
+          In Kazakhstan, the energy sector faces both growing cooling demand and the need to shift toward renewable energy to reduce emissions.
+        outcome: Climate change is intensifying competition for water among sectors, which calls for careful, forward-looking planning.
+    recommendations:
+      - text: |-
+          Priority is given to "win-win" strategies that deliver benefits across a range of future climate scenarios, increase resilience, reduce vulnerability, and generate relevant co-benefits — such as improved water use, emergency preparedness, and better public health outcomes.
+      - text: 'Investment in transport, water supply, and energy must account for extreme weather events: new projects should be designed for increasing precipitation intensity and linked to disaster risk management systems. As a practical priority for protecting critical infrastructure, water supply, energy, and transport systems should be modernized with future climate conditions in mind.'
+      - text: |-
+          Early warning systems must be established, preparedness systems for floods, landslides, and avalanches developed, and climate risks integrated into the long-term development plans of key sectors. As a practical priority, comprehensive risk and vulnerability assessments are identified for the following sectors:
+          agriculture;
+          energy;
+          water resources;
+          healthcare —
+          with risk maps for each sector and the development of cross-sectoral action plans.
+      - text: |-
+          Climate-resilient practices must be introduced — crop diversification, efficient irrigation, soil conservation, crop rotation and fertilization, and afforestation.
+          As a practical priority for this track, long-term programs for reforestation and combating desertification are envisaged: land restoration, halting soil degradation, and forming a unified regional strategy for adapting to climate and demographic change.
+      - text: 'Agricultural strategies must be aligned with the real availability of water resources: this requires either securing water for planned initiatives or adapting agricultural practices to water scarcity. As a practical priority, a coordinated agricultural and water policy is identified: transitioning to sustainable agricultural practices, expanding the cultivation of less water-intensive crops, and reducing dependence on irrigation.'
   - slug: water
     title: Water resources
-    subtitle: Кучайиб бораётган иқлим босими шароитида сувни барқарор бошқариш иқтисодий ўсиш ва минтақавий барқарорлик учун ҳал қилувчи шартга айланмоқда.
+    subtitle: Amid intensifying climate pressure, sustainable water management is becoming a decisive condition for economic growth and regional stability.
     stats:
       - value: 97%
-        label: Марказий Осиё сув ресурсларининг қисми ер усти сувлари ҳисобига тўғри келади.
-      - value: 11% гача
-        label: Агар сувни бошқариш сиёсати ва амалиёти ўзгармай қолса, 2050 йилга бориб, Марказий Осиёда умумий иқлимий ва ижтимоийиқтисодий омиллар натижасида ЯИМ камайиши мумкин
+        label: Share of Central Asia's water resources accounted for by surface water.
+      - value: up to 11%
+        label: Potential decline in Central Asia's GDP by 2050 due to the combined impact of climate and socioeconomic factors, if water management policy and practice remain unchanged.
       - value: 4,5 млрд $
-        label: Самарали трансчегаравий ҳамкорлик йўқлиги минтақадаги давлатларга ҳар йили тахминан миқдорида зарар олиб келади.
+        label: Approximate annual loss to countries of the region from the absence of effective transboundary cooperation.
       - value: 5х
-        label: Минтақада умумий сувдан фойдаланиш даражаси жаҳондаги ўртача кўрсаткичидан тахминан кўп.
+        label: How many times higher the region's overall rate of water use is compared with the global average.
       - value: 80%
-        label: Сувнинг дан ортиқ қисми суғориладиган деҳқончиликка сарфланади
+        label: Share of water used for irrigated agriculture exceeds this figure.
       - value: 123 млрд м3
-        label: Минтақада ер ости сувларининг эҳтимолий захираларининг умумий ҳажми йилига баҳоланмоқда, бунда атиги 23 фоизидан фойдаланилади.
+        label: 'Estimated total annual volume of the region''s potential groundwater reserves, of which only 23% is currently used.'
       - value: 10 млн
-        label: Минтақада киши хавфсиз ичимлик сувидан маҳрум.
-    intro: ''
+        label: People in the region lack access to safe drinking water.
+    intro: |-
+      Despite national reforms, the region still faces a pressing need to deepen dialogue and coordination in order to make effective use of its water potential.
+
+      The region's challenges extend far beyond simple water scarcity, touching on economic stability, public health, social cohesion, and transboundary relations.
+
+      Rising temperatures increase the water requirements of agricultural crops, placing further strain on water systems and raising the risk of water scarcity.
+
+      Effective groundwater management requires a comprehensive and sustainable approach that includes improved monitoring and regulation of water use. Overlapping and duplicated mandates among government agencies hinder optimal decision-making.
     charts:
       - image: /assets/images/uploads/1. ВОда.png
-        caption: 'Марказий Осиёда сув танқислиги муаммоларининг стратегик хулосаси. Манба: Жаҳон банки, 2024 йил.'
+        caption: 'Strategic overview of water scarcity challenges in Central Asia. Source: World Bank, 2024.'
         note: ''
       - image: /assets/images/uploads/2. Вода.png
-        caption: 'Сув ресурслари бўйича чекланган минтақавий ҳамкорликнинг харажатлари. Манба: Adelphi and CAREC (2017).'
+        caption: 'Costs of limited regional cooperation on water resources. Source: Adelphi and CAREC (2017).'
         note: ''
       - image: /assets/images/uploads/3. Вода.png
-        caption: 'Марказий Осиёда суғориладиган ерлар майдони – мамлакатлар кесимида Марказий Осиё бўйича умумий (10,1 млн га) майдондаги улуши (фоиз). Манба: Жаҳон банки, 2024 йил.'
+        caption: "Irrigated land area in Central Asia — each country's share (%) of the region's total area (10.1 million ha). Source: World Bank, 2024."
         note: ''
       - image: /assets/images/uploads/4. вода.png
-        caption: 'Сув омборлари каскадининг мувофиқлаштирилган ва оптималлаштирилган иши ҳозирда ҳам, иқлим ўзгариши шароитида ҳам сув ва энергетика хавфсизлигини таъминлашга хизмат қилади. Манба: Жаҳон банки, 2020.'
+        caption: 'Coordinated and optimized operation of the reservoir cascade supports water and energy security both under current conditions and under climate change. Source: World Bank, 2020.'
         note: ''
       - image: /assets/images/uploads/5. вода.png
-        caption: 'арказий Осиё мамлакатлари бўйича оқова сувлар, йиғиладиган, тозаланадиган ва қайта ишлатиладиган сувлар. Манба: Жаҳон банки, 2024 йил.'
+        caption: 'Wastewater across Central Asian countries: volumes collected, treated, and reused. Source: World Bank, 2024.'
         note: ''
-    scenarios: []
-    recommendations: []
+    scenarios:
+      - title: The impact of climate change
+        description: 'Unilateral development by upstream countries, combined with a lack of regional cooperation, creates serious risks for Central Asia. The first risk stems from unilateral projects being carried out in Afghanistan. For example, once construction of the Qosh-Tepa Canal is complete, an estimated 10–16 billion m³ of water is expected to be diverted from the Amu Darya each year — a development that would significantly affect water supply for agriculture in Uzbekistan and Turkmenistan, as well as hydropower generation at the Tuyamuyun Hydro Complex (THC), located on the same border. Inflow to the THC is projected to fall by 25%, water delivery to agriculture to shrink by roughly 6%, and annual hydropower generation to decline by roughly 22%. This illustrates how closely tied the energy sector is to upstream water withdrawals.'
+        outcome: This cluster of risks stems from a lack of cooperation in the region — from insufficient trust among states, inadequate capacity of regional institutions, and the absence of effective coordination for the joint use of water resources.
+      - title: Global and regional uncertainty in energy, economics, demography, and geopolitics
+        description: |-
+          Sustainable water management is becoming more complex under the influence of various external factors. Changes in energy prices and geopolitical shifts can sharply increase the cost of pumping water, raising the burden on the economics of water supply, on state budgets, and on end users.
+
+          Agricultural losses could push countries toward strategies of food self-sufficiency, increasing demand for water and intensifying competition between hydropower and irrigation.
+
+          Demographic factors also add to the uncertainty: population growth, migration (including from neighboring countries), fertility rates, prosperity, and education all directly affect water consumption.
+        outcome: Mass migration could cause an unexpected surge in demand for water and electricity, creating additional challenges for resource planning and management.
+    recommendations:
+      - text: |-
+          To address the identified challenges and create conditions for the region's sustainable development, governments have focused on four key areas:
+          improving water use efficiency;
+          introducing new financial instruments;
+          digitalizing the water sector;
+          modernizing and rehabilitating existing water infrastructure.
+      - text: |-
+          Governments could revise the rules governing the operation of water infrastructure to find compromise solutions and ensure effective management amid climate change and shrinking glacier reserves. Existing approaches include:
+          joint investment by upstream and downstream countries in reservoirs, the creation of shared infrastructure, and the development of coordinated operating rules;
+          the protection and management of groundwater to partially offset the loss of snow and glacier reserves during the summer and winter seasons.
+      - text: The further development of Central Asian countries depends on making the most efficient use of existing water and energy resources amid climate change, population growth, and rising demand. During the Soviet era (1960s–1980s), a unified water-energy system and interconnected infrastructure were built, forming the basis for cooperation and coordinated commitments among the countries of the region. After the collapse of the Soviet Union, these states developed new water-energy relations that accounted for state sovereignty and market principles.
+      - text: "Many of Central Asia's water facilities — reservoirs, hydropower plants, canals, and water intake structures — are located on the border between two states and are jointly operated or maintained. To manage them effectively, countries conclude bilateral agreements governing joint operation, maintenance, and financing. The key elements of successful cooperation are improved monitoring, water accounting, and transparent data exchange. Digital technologies and remote sensing can complement traditional measurements, improving the completeness and reliability of data."
+      - text: Effective water resource management requires revising irrigation norms, optimally allocating water among agricultural crops, and redesigning cropping patterns to reflect local hydro-climatic conditions and market opportunities. This helps not only to reduce water scarcity but also to encourage water conservation and improve agricultural productivity. Additional investment aimed at improving irrigation efficiency is essential for ensuring food security and sustainable economic growth.
+      - text: To increase investment in water infrastructure and improve service quality, countries are exploring mechanisms for private-sector participation. Approaches already in use include handing pumping stations over to investors for modernization and operation, as well as managing on-farm irrigation systems at the level of agricultural water-user clusters.
+      - text: Reducing water demand and easing water scarcity in the region requires investment in modernizing irrigation infrastructure and adopting advanced technologies such as drip and sprinkler irrigation. Combined with water accounting and the introduction of consumption limits, these measures will help promote more rational water use and reduce losses.
+      - text: |-
+          Existing reservoir infrastructure has considerable potential to improve efficiency through flexible management strategies and data-driven approaches. Research shows, for example, that incorporating seasonal hydrometeorological forecasts into operational decision-making at the Nurek Reservoir could increase annual
+          hydropower generation by 13–14%, while also helping to reduce flood risk. This example demonstrates that transparent, data-driven approaches can simultaneously achieve several goals: optimizing energy supply, managing water risks, and equitably allocating water among competing sectors.
   - slug: energy
     title: Energy
-    subtitle: ''
+    subtitle: Among Central Asia's energy resources, natural gas and electricity hold particular strategic importance.
     stats:
       - value: 80% / 50%
-        label: Туркманистон минтақадаги тасдиқланган газ захираларининг 80 фоиздан зиёд қисмига ва газ қазиб чиқаришнинг 50 фоизга эга.
+        label: 'Turkmenistan accounts for more than 80% of the region''s proven gas reserves and 50% of its gas production.'
       - value: 155 млрд м3
-        label: 2022 йилда Марказий Осиёнинг бешта республикасида умумий газ қазиб чиқариш ташкил қилди – бу Европа Иттифоқидаги ҳажмдан қарийб тўрт баробар кўпроқ ва дунёдаги еттинчи йирик газ ишлаб чиқарувчи Австралия кўрсаткичларига яқин.
-      - value: “Марказий Осиё – Хитой”
-        label: Экспортнинг энг катта қисми учта қувурлар орқали Хитойга етказиб берилади.
+        label: Combined gas production across the five Central Asian republics in 2022 — nearly four times the volume of the European Union and comparable to Australia, the world's seventh-largest gas producer.
+      - value: '"Central Asia–China"'
+        label: 'The "Central Asia–China" pipeline: the largest share of exports is delivered to China through its three lines.'
       - value: 2,8 млрд м3
-        label: 2023 йилдан бошлаб Ўзбекистон Россиядан йилига гача газ импорт қилишни бошлади.
-      - value: Озарбайжон
-        label: 2022 йилдан бошлаб Туркманистон Эрон орқали уч томонлама битим доирасида Озарбайжонга ҳам кичик ҳажмда газ етказиб бера бошлади.
-    intro: ''
+        label: Volume of gas per year Uzbekistan began importing from Russia starting in 2023.
+      - value: Azerbaijan
+        label: Since 2022, under a trilateral agreement, Turkmenistan has also begun supplying small volumes of gas to Azerbaijan via Iran.
+    intro: |-
+      Regional integration of energy and transport can deliver substantial economic benefits — chiefly by reducing the need for investment in power generation and lowering fuel costs.
+
+      Despite renewed interest in regional cooperation, the potential for interconnection and energy trade remains largely untapped. Key obstacles include the absence of an effective regional trading platform, outdated infrastructure, and institutional fragmentation. Strengthening cooperation on electricity, gas, and other energy resources would enhance the region's energy security, transparency, and resilience — a necessary condition for sustaining the economic well-being of a rapidly growing population.
+
+      Since 2018, surplus gas volumes in the region have been shrinking as production has slowed markedly while domestic consumption grows rapidly. Uzbekistan and Kazakhstan, as the region's leading exporters, have sought to maintain a positive trade balance in recent years, but preliminary data indicate that Uzbekistan became a net gas importer in 2023 for the first time since independence. Turkmenistan — particularly as it develops the second stage of the Galkynysh gas field — retains substantial untapped export potential, though the fate of the proposed Line D pipeline, with an annual capacity of 30 billion m³, remains uncertain.
     charts:
       - image: /assets/images/uploads/1. Энергетика.png
-        caption: 'Марказий Осиё мамлакатлари бўйича оқова сувлар, йиғиладиган, тозаланадиган ва қайта ишлатиладиган сувлар. Манба: Жаҳон банки, 2024 йил. Эслатма: газ ишлаб чиқариш миқдори кулранг, унинг истеъмоли сариқ рангда; қизил чизиқ эса газ экспорти даражасини кўрсатади.'
+        caption: 'Wastewater across Central Asian countries: volumes collected, treated, and reused. Source: World Bank, 2024. Note: gas production volume is shown in grey, consumption in yellow; the red line indicates the level of gas exports.'
         note: ''
       - image: /assets/images/uploads/2. энергетика.png
-        caption: 'Марказий 2022 йилда Марказий Осиёда ички ва ташқи ҳудудий газ савдоси. Манба: Энергетика институтининг 2024 йил бўйича дунё энергетикасининг статистик таҳлили, Халқаро энергетика агентлиги.кўрсатади.'
+        caption: 'Intraregional and external gas trade in Central Asia, 2022. Source: Statistical Review of World Energy 2024, Energy Institute; International Energy Agency.'
         note: ''
       - image: /assets/images/uploads/3. энеретика.png
-        caption: Давлатлар кесимида энергия ишлаб чиқариш, 2025 йил, ПЖ.
+        caption: Energy production by country, 2025, PJ.
         note: ''
       - image: /assets/images/uploads/4. Энергетика.png
-        caption: 'Марказий Осиёда паст углеродли сиёсат йўли: асосий босқичлар ва имкониятлар. Орқа фонда – секторлар бўйича умумий чиқиндилар (MtCO2eq). Манба: Жаҳон банкининг энергетика тизими модели. Изоҳ: Диаграмма энергияни истеъмол қиладиган асосий секторларга эътибор қаратади ва кончилик, қишлоқ хўжалиги, водород ишлаб чиқариш ҳамда энергетика секторидаги ишларнинг чиқиндиларини қамраб олмайди (жойида бажариладиган ишлар).'
+        caption: 'Central Asia''s low-carbon policy pathway: key milestones and opportunities. In the background — total emissions by sector (MtCO2eq). Source: World Bank energy system model. Note: the chart focuses on the main energy-consuming sectors and does not cover emissions from mining, agriculture, hydrogen production, or on-site energy-sector operations.'
         note: ''
-    scenarios: []
-    recommendations: []
-  - slug: transport
-    title: Transport
-    subtitle: ''
-    stats:
-      - value: 10 млн тонна
-        label: Ўрта коридор орқали юк ташиш ҳажми 2030 йилгача ўсиши прогноз қилинмоқда.
-      - value: 900 км
-        label: “Хитой – Қирғизистон – Ўзбекистон” темир йўли Шарқий Осиё ва Европани боғловчи йўлни қисқартиради
-      - value: 500 минг TEU
-        label: Қозоғистонда йилига қувватга эга “Хоргос” қуруқлик порти ташкил этилди
-      - value: 30%
-        label: Қирғизистон ва Тожикистонда автойўлларнинг йил бўйи фойдаланиш учун яроқсиз
-      - value: 4х
-        label: 2050 йилга бориб Марказий Осиё орқали транзит ташиш ҳажми баробарга ортиши
-    intro: ''
-    charts: []
-    scenarios: []
-    recommendations: []
-  - slug: demography
-    title: Social development & demography
-    subtitle: ''
-    stats:
-      - value: 144 млн
-        label: 2050 йилга келиб, минтақанинг аҳолиси нафардан ошади.
-      - value: 71 млн
-        label: Шу билан бирга, меҳнатга лаёқатли аҳоли сони (15 ёшдан 64 ёшгача) етади.
-      - value: 0–14
-        label: Ҳозирги вақтда Марказий Осиё аҳолисининг қарийб учдан бири ёшли ёшлардир
-    intro: ''
-    charts:
-      - image: /assets/images/uploads/1. Демография.png
-        caption: Марказий Осиё аҳолисининг жорий ва прогноз қилинган ўсиш сценарийлари (2000–2050 йиллар)
-        note: ''
-      - image: /assets/images/uploads/2. Демография.png
-      - image: /assets/images/uploads/3. Демография.png
-      - image: /assets/images/uploads/4. Демография.png
-      - image: /assets/images/uploads/5. Демография.png
-      - image: /assets/images/uploads/6. Демография.png
-    scenarios: []
-    recommendations: []
+    scenarios:
+      - title: Financial and market constraints
+        description: |-
+          Weak financial performance in the energy sector is slowing the deployment of renewable energy and other technologies.
+          The sector is in transition: market reforms are ongoing, but low price signals are constraining investment.
+        outcome: Private investors face regulatory and market uncertainty, as well as data gaps, which slows the deployment of technologies and the transfer of knowledge.
+      - title: Risk of energy shortages
+        description: Insufficient infrastructure investment, climate change (seasonal droughts), and the absence of regional coordination could deepen winter gas and electricity shortages in Tajikistan, Kyrgyzstan, and Uzbekistan.
+        outcome: The situation is likely to improve only by the early 2030s, once new hydropower capacity comes online in Tajikistan and Kyrgyzstan and solar and wind generation are developed at scale in Uzbekistan.
+      - title: Air pollution
+        description: |-
+          Air quality is particularly poor in cities, where PM2.5 concentrations are frequently 6 to 12 times higher than the WHO-recommended level of 5 µg/m³.
+          In major cities (Bishkek, Dushanbe, Tashkent, Almaty), PM2.5 levels are twice the WHO interim target of 35 µg/m³.
+          Pollution levels are lower in rural areas owing to lower population density, but ongoing urbanization is intensifying the problem.
+        outcome: 'Electric vehicles and heat pumps are expected to see widespread adoption: by 2050, the number of electric vehicles could reach 20 million, and the share of households using heat pumps is expected to exceed 50%.'
+    recommendations:
+      - text: |-
+          Reducing costs and increasing economic benefits:
+          countries can lower electricity generation costs, import inexpensive electricity during periods of peak demand, and export surplus generation during periods of low demand, thereby making efficient use of differences in timing and seasonal demand.
+          Regional electricity and gas trade is projected to generate economic benefits of up to US$6.4 billion between 2020 and 2030.
+      - text: |-
+          Strengthening energy security:
+          interconnected grids enable diversification of supply sources and reduce dependence on a single fuel type or domestic production, thereby enhancing the resilience of regional energy systems.
+      - text: |-
+          Integrating renewable energy sources:
+          regional trade facilitates the integration of variable renewable sources — including solar power in Uzbekistan and wind power in Kazakhstan — balancing generation and demand across borders.
+      - text: |-
+          Reducing pollution and greenhouse gas emissions:
+          replacing polluting fuels at scale with imports of clean hydro and renewable power, or with gas, reduces air pollution and greenhouse gas emissions.
+      - text: |-
+          Optimizing the efficient use of infrastructure:
+          cross-border trade allows for maximum utilization of existing and new energy assets, reducing the need for additional domestic investment.
+      - text: |-
+          Institutionalizing cooperation through the establishment of a Central Asian Energy Council.
+          To ensure regional energy security, the existing mechanism of consultative meetings among energy ministers should be transformed into a standing Energy Council.
+          This would allow a shift from consultation to practical, systematic cooperation, help form a unified approach to managing regional energy resources, and create an institutional foundation for long-term, binding decisions.
+      - text: Developing and implementing long-term national strategies covering energy policy, financing, and incentive mechanisms.
+      - text: Establishing and developing competitive electricity markets.
