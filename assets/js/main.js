@@ -320,6 +320,116 @@ document.querySelectorAll('[data-carousel]').forEach(root=>{
   });
 })();
 
+// Direction pages: key-stats values ("80% / 50%", "Azerbaijan", a long
+// pipeline name...) must fit inside a fixed 2-line box without ever being
+// clipped or ellipsized. CSS alone can't guarantee this for arbitrary
+// translated text, so: fix the box height to 2 lines of the *base* size
+// (so all cards in a row stay aligned), then shrink font-size step by step
+// until the value's measured box fits, down to a floor of 40% of base.
+(function(){
+  const boxes = Array.from(document.querySelectorAll('.stat-value-box'));
+  if(!boxes.length) return;
+
+  const MIN_SCALE = 0.4;
+  const STEP = 0.04;
+
+  const fit = (box)=>{
+    const value = box.querySelector('.stat-value');
+    if(!value) return;
+    value.style.fontSize = '';
+    const baseSize = parseFloat(getComputedStyle(value).fontSize);
+    const lineHeight = parseFloat(getComputedStyle(value).lineHeight) || baseSize * 1.15;
+    box.style.height = Math.round(lineHeight * 2) + 'px';
+
+    let scale = 1;
+    while(
+      scale > MIN_SCALE &&
+      (value.scrollHeight > box.clientHeight + 1 || value.scrollWidth > box.clientWidth + 1)
+    ){
+      scale -= STEP;
+      value.style.fontSize = (baseSize * scale) + 'px';
+    }
+  };
+
+  const fitAll = ()=> boxes.forEach(fit);
+  fitAll();
+
+  // Re-measure once the real webfonts have swapped in: font metrics differ
+  // from the fallback font used for the first paint, so a value that just
+  // barely fit against the fallback can still need shrinking afterwards.
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
+
+  let resizeTimer;
+  window.addEventListener('resize', ()=>{
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(fitAll, 150);
+  });
+})();
+
+// Direction pages: scenario descriptions collapse to 6 lines with a
+// toggle button (shown only when the text actually overflows that height).
+// max-height is measured in px from the live line-height rather than fixed
+// in CSS, so it works the same across uz/en/ru regardless of text length,
+// and the toggle button is hidden entirely for scenarios short enough to
+// already fit.
+(function(){
+  const cards = Array.from(document.querySelectorAll('.scenario-card'));
+  if(!cards.length) return;
+
+  const LINES = 6;
+
+  const measure = (card)=>{
+    const desc = card.querySelector('[data-scenario-desc]');
+    const btn = card.querySelector('[data-scenario-toggle]');
+    if(!desc || !btn) return;
+
+    const wasExpanded = card.classList.contains('is-expanded');
+    desc.style.maxHeight = 'none';
+    const lineHeight = parseFloat(getComputedStyle(desc).lineHeight) || 20;
+    const collapsedHeight = Math.round(lineHeight * LINES);
+    const fullHeight = desc.scrollHeight;
+
+    if(fullHeight <= collapsedHeight + 1){
+      btn.hidden = true;
+      card.classList.remove('is-expanded');
+      desc.style.maxHeight = 'none';
+      return;
+    }
+
+    btn.hidden = false;
+    desc.dataset.collapsedHeight = collapsedHeight;
+    desc.dataset.fullHeight = fullHeight;
+    desc.style.maxHeight = (wasExpanded ? fullHeight : collapsedHeight) + 'px';
+  };
+
+  const setExpanded = (card, expanded)=>{
+    const desc = card.querySelector('[data-scenario-desc]');
+    const btn = card.querySelector('[data-scenario-toggle]');
+    if(!desc || !btn) return;
+    card.classList.toggle('is-expanded', expanded);
+    btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    btn.setAttribute('aria-label', expanded ? btn.dataset.labelLess : btn.dataset.labelMore);
+    const target = expanded ? desc.dataset.fullHeight : desc.dataset.collapsedHeight;
+    if(target) desc.style.maxHeight = target + 'px';
+  };
+
+  cards.forEach(measure);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>cards.forEach(measure));
+  cards.forEach(card=>{
+    const btn = card.querySelector('[data-scenario-toggle]');
+    if(!btn) return;
+    btn.addEventListener('click', ()=>{
+      setExpanded(card, !card.classList.contains('is-expanded'));
+    });
+  });
+
+  let resizeTimer;
+  window.addEventListener('resize', ()=>{
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(()=>cards.forEach(measure), 150);
+  });
+})();
+
 // Hero background carousel (cross-fade)
 (function(){
   const slides = document.querySelectorAll('.home-hero .hero-slide');

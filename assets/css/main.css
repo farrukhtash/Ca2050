@@ -754,7 +754,20 @@ a.news-card:hover .news-title{color:var(--gold);}
   background:var(--white); padding:28px 20px;
   display:flex; flex-direction:column; align-items:center; text-align:center; gap:6px;
 }
-.stat-value{font-family:'PT Serif',serif; font-weight:700; font-size:clamp(1.8rem,4vw,2.6rem); color:var(--gold); line-height:1;}
+/* Fixed-height 2-line box so cards align; height and .stat-value font-size
+   are set by fitStatValues() in main.js (measured from the live layout, so
+   it stays correct across languages/breakpoints). The CSS values below are
+   just the pre-JS fallback. */
+.stat-value-box{
+  width:100%; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+.stat-value{
+  display:block; width:100%;
+  font-family:'PT Serif',serif; font-weight:700; font-size:clamp(1.8rem,4vw,2.6rem); color:var(--gold);
+  line-height:1.15; text-align:center;
+  overflow-wrap:break-word; word-break:break-word; hyphens:auto;
+}
 .stat-label{font-size:.82rem; color:var(--ink-soft); max-width:24ch;}
 @media (max-width:700px){ .stats-row{grid-template-columns:repeat(2,1fr);} }
 @media (max-width:420px){ .stats-row{grid-template-columns:1fr;} }
@@ -787,7 +800,14 @@ a.news-card:hover .news-title{color:var(--gold);}
 }
 .chart-trigger:hover .chart-zoom{background:var(--gold); color:var(--navy);}
 .chart-card figcaption{padding:14px 16px 18px; display:flex; flex-direction:column; gap:6px;}
-.chart-caption{font-weight:600; font-size:.92rem; color:var(--ink);}
+/* Grid view only: clamp to 3 lines so chart cards line up; the lightbox
+   caption (.lightbox-caption) is a separate, unclamped element that always
+   gets the full text via data-caption. */
+.chart-caption{
+  font-weight:600; font-size:.92rem; color:var(--ink); line-height:1.4;
+  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3;
+  overflow:hidden; min-height:calc(1.4em * 3);
+}
 .chart-note{font-size:.86rem; color:var(--ink-soft); line-height:1.5;}
 
 .lightbox{
@@ -835,7 +855,25 @@ a.news-card:hover .news-title{color:var(--gold);}
 .scenario-card:nth-child(4n+3){border-top-color:var(--navy-2);}
 .scenario-card:nth-child(4n+4){border-top-color:#8a7130;}
 .scenario-title{font-family:'PT Serif',serif; font-weight:700; font-size:1.1rem; color:var(--ink);}
-.scenario-desc{color:var(--ink-soft); font-size:.94rem; line-height:1.55;}
+/* Collapsed to 6 lines by default; max-height (in px, measured from the
+   live line-height) is set by initScenarioToggles() in main.js so the
+   animation has a real value to transition to/from instead of 'none'. */
+.scenario-desc{
+  color:var(--ink-soft); font-size:.94rem; line-height:1.55;
+  overflow:hidden; transition:max-height .35s ease;
+}
+.scenario-toggle{
+  align-self:center; flex:none; width:40px; height:30px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--sand-2); border:1px solid rgba(25,26,34,.15); border-radius:6px;
+  color:var(--ink-soft); cursor:pointer; padding:0;
+  transition:background .2s ease, border-color .2s ease, color .2s ease;
+}
+.scenario-toggle:hover{background:var(--gold-soft); border-color:var(--gold); color:var(--ink);}
+.scenario-toggle:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+.scenario-toggle[hidden]{display:none;}
+.scenario-toggle svg{width:16px; height:16px; transition:transform .25s ease;}
+.scenario-toggle[aria-expanded="true"] svg{transform:rotate(180deg);}
 .scenario-outcome{
   margin-top:auto; padding-top:10px; border-top:1px solid rgba(25,26,34,.08);
   font-size:.82rem; font-weight:700; color:var(--teal);
