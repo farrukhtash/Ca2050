@@ -23,6 +23,9 @@ layout: default
 {% assign scenarios = dd.scenarios %}
 {% assign recs = dd.recommendations %}
 
+{% capture scenario_more_label %}{% case L %}{% when 'ru' %}Показать полностью{% when 'en' %}Show more{% else %}Тўлиқ кўрсатиш{% endcase %}{% endcapture %}
+{% capture scenario_less_label %}{% case L %}{% when 'ru' %}Свернуть{% when 'en' %}Show less{% else %}Йиғиштириш{% endcase %}{% endcapture %}
+
 {% assign has_content = false %}
 {% if dd.subtitle and dd.subtitle != "" %}{% assign has_content = true %}{% endif %}
 {% if stats and stats.size > 0 %}{% assign has_content = true %}{% endif %}
@@ -47,7 +50,7 @@ layout: default
     <div class="stats-row" data-reveal>
       {% for s in stats %}
       <div class="stat-item">
-        <span class="stat-value">{{ s.value }}</span>
+        <div class="stat-value-box"><span class="stat-value">{{ s.value }}</span></div>
         <span class="stat-label">{{ s.label }}</span>
       </div>
       {% endfor %}
@@ -136,7 +139,14 @@ layout: default
       {% for sc in scenarios %}
       <div class="scenario-card">
         <span class="scenario-title">{{ sc.title }}</span>
-        <p class="scenario-desc">{{ sc.description }}</p>
+        <p class="scenario-desc" data-scenario-desc>{{ sc.description }}</p>
+        <button type="button" class="scenario-toggle" data-scenario-toggle hidden
+                aria-expanded="false"
+                aria-label="{{ scenario_more_label }}"
+                data-label-more="{{ scenario_more_label }}"
+                data-label-less="{{ scenario_less_label }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
         {% if sc.outcome and sc.outcome != "" %}<span class="scenario-outcome">{{ sc.outcome }}</span>{% endif %}
       </div>
       {% endfor %}
