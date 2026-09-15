@@ -855,13 +855,13 @@ a.news-card:hover .news-title{color:var(--gold);}
 .scenario-card:nth-child(4n+3){border-top-color:var(--navy-2);}
 .scenario-card:nth-child(4n+4){border-top-color:#8a7130;}
 .scenario-title{font-family:'PT Serif',serif; font-weight:700; font-size:1.1rem; color:var(--ink);}
-/* Collapsed to 6 lines by default; max-height (in px, measured from the
-   live line-height) is set by initScenarioToggles() in main.js so the
-   animation has a real value to transition to/from instead of 'none'. */
-.scenario-desc{
-  color:var(--ink-soft); font-size:.94rem; line-height:1.55;
-  overflow:hidden; transition:max-height .35s ease;
-}
+.scenario-desc{color:var(--ink-soft); font-size:.94rem; line-height:1.55;}
+/* Collapsed to 6 lines (measured off .scenario-desc's line-height) by
+   default; description AND outcome both live inside this wrapper, so both
+   are hidden together. max-height (in px) is set by initScenarioToggles()
+   in main.js so the animation has a real value to transition to/from
+   instead of 'none'. */
+.scenario-collapse{overflow:hidden; transition:max-height .35s ease;}
 .scenario-toggle{
   align-self:center; flex:none; width:40px; height:30px;
   display:flex; align-items:center; justify-content:center;
@@ -875,7 +875,7 @@ a.news-card:hover .news-title{color:var(--gold);}
 .scenario-toggle svg{width:16px; height:16px; transition:transform .25s ease;}
 .scenario-toggle[aria-expanded="true"] svg{transform:rotate(180deg);}
 .scenario-outcome{
-  margin-top:auto; padding-top:10px; border-top:1px solid rgba(25,26,34,.08);
+  display:block; margin-top:10px; padding-top:10px; border-top:1px solid rgba(25,26,34,.08);
   font-size:.82rem; font-weight:700; color:var(--teal);
 }
 

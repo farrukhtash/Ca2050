@@ -366,51 +366,56 @@ document.querySelectorAll('[data-carousel]').forEach(root=>{
   });
 })();
 
-// Direction pages: scenario descriptions collapse to 6 lines with a
-// toggle button (shown only when the text actually overflows that height).
-// max-height is measured in px from the live line-height rather than fixed
-// in CSS, so it works the same across uz/en/ru regardless of text length,
-// and the toggle button is hidden entirely for scenarios short enough to
-// already fit.
+// Direction pages: scenario description + outcome collapse together to a
+// ~6-line-tall window with a toggle button (shown only when the combined
+// content actually overflows that height). max-height is measured in px
+// from the live line-height rather than fixed in CSS, so it works the same
+// across uz/en/ru regardless of text length, and the toggle button is
+// hidden entirely for scenarios short enough to already fit.
 (function(){
   const cards = Array.from(document.querySelectorAll('.scenario-card'));
   if(!cards.length) return;
 
   const LINES = 6;
 
+  // [data-scenario-desc] is the wrapper around BOTH the description and the
+  // outcome — collapsing/expanding hides and reveals them together. The
+  // 6-line budget is still measured off the description paragraph's own
+  // line-height (the wrapper itself has no font styling of its own).
   const measure = (card)=>{
-    const desc = card.querySelector('[data-scenario-desc]');
+    const wrap = card.querySelector('[data-scenario-desc]');
+    const descText = wrap ? wrap.querySelector('.scenario-desc') : null;
     const btn = card.querySelector('[data-scenario-toggle]');
-    if(!desc || !btn) return;
+    if(!wrap || !descText || !btn) return;
 
     const wasExpanded = card.classList.contains('is-expanded');
-    desc.style.maxHeight = 'none';
-    const lineHeight = parseFloat(getComputedStyle(desc).lineHeight) || 20;
+    wrap.style.maxHeight = 'none';
+    const lineHeight = parseFloat(getComputedStyle(descText).lineHeight) || 20;
     const collapsedHeight = Math.round(lineHeight * LINES);
-    const fullHeight = desc.scrollHeight;
+    const fullHeight = wrap.scrollHeight;
 
     if(fullHeight <= collapsedHeight + 1){
       btn.hidden = true;
       card.classList.remove('is-expanded');
-      desc.style.maxHeight = 'none';
+      wrap.style.maxHeight = 'none';
       return;
     }
 
     btn.hidden = false;
-    desc.dataset.collapsedHeight = collapsedHeight;
-    desc.dataset.fullHeight = fullHeight;
-    desc.style.maxHeight = (wasExpanded ? fullHeight : collapsedHeight) + 'px';
+    wrap.dataset.collapsedHeight = collapsedHeight;
+    wrap.dataset.fullHeight = fullHeight;
+    wrap.style.maxHeight = (wasExpanded ? fullHeight : collapsedHeight) + 'px';
   };
 
   const setExpanded = (card, expanded)=>{
-    const desc = card.querySelector('[data-scenario-desc]');
+    const wrap = card.querySelector('[data-scenario-desc]');
     const btn = card.querySelector('[data-scenario-toggle]');
-    if(!desc || !btn) return;
+    if(!wrap || !btn) return;
     card.classList.toggle('is-expanded', expanded);
     btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     btn.setAttribute('aria-label', expanded ? btn.dataset.labelLess : btn.dataset.labelMore);
-    const target = expanded ? desc.dataset.fullHeight : desc.dataset.collapsedHeight;
-    if(target) desc.style.maxHeight = target + 'px';
+    const target = expanded ? wrap.dataset.fullHeight : wrap.dataset.collapsedHeight;
+    if(target) wrap.style.maxHeight = target + 'px';
   };
 
   cards.forEach(measure);
