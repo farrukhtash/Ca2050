@@ -223,3 +223,184 @@ directions:
           This would allow a shift from consultation to practical, systematic cooperation, help form a unified approach to managing regional energy resources, and create an institutional foundation for long-term, binding decisions.
       - text: Developing and implementing long-term national strategies covering energy policy, financing, and incentive mechanisms.
       - text: Establishing and developing competitive electricity markets.
+  - slug: transport
+    title: Transport
+    subtitle: Central Asia occupies a unique geostrategic position. This role was once played by the Great Silk Road, which linked Europe with China and India.
+    stats:
+      - value: 10 million tons
+        label: Projected freight volume via the Middle Corridor by 2030.
+      - value: 900 km
+        label: 'The China–Kyrgyzstan–Uzbekistan railway shortens the route connecting East Asia and Europe by this distance.'
+      - value: '500,000 TEU'
+        label: 'Annual capacity of the "Khorgos" dry port in Kazakhstan.'
+      - value: 30%
+        label: Share of roads in Kyrgyzstan and Tajikistan unsuitable for year-round use.
+      - value: 4x
+        label: Projected increase in transit freight volume through Central Asia by 2050.
+    intro: |-
+      Today, the transport routes of the Central Asian countries are being restored and modernized in line with contemporary economic, technological, and logistical standards.
+
+      Because the region is landlocked, transport and logistics connectivity must become one of the central pillars of its development. The time may have come to develop a unified regional transport strategy that brings together existing corridors, export routes, and domestic connections. In effect, this is about the central nodes of the Eurasian continent. At the same time, the region's current position in world trade falls well short of its potential: although annual trade turnover between Europe and East Asia exceeds US$1.5 trillion, Central Asia's share of it remains below 3%.
+
+      The gap between the region's potential and its actual standing stems from a number of factors — inadequate infrastructure development, institutional barriers, and a lack of coordination among the countries of the region. Yet it is precisely in this gap that enormous potential lies.
+    charts: []
+    scenarios:
+      - title: Developing Central Asia's transport system is bound up with geopolitical, institutional, and financial risks
+        description: Existing transport routes — including the northern route via Kazakhstan and Russia, and the central corridor via the Caucasus or China — show a high degree of dependence on external factors. Geopolitical instability, sanctions-related restrictions, infrastructure bottlenecks, and differing technical standards all create the risk of disrupted supply routes and rising logistics costs.
+        outcome: ''
+      - title: The region's financing needs are substantial
+        description: |-
+          According to the Asian Development Bank, modernizing transport systems will require
+          approximately US$500 billion by 2030. Under CAREC, 22 transport projects have already been implemented (worth US$6.1 billion between 2001 and 2024); China has invested more than US$20 billion under its Belt and Road Initiative; and the EU, under its Global Gateway program, has announced plans to invest up to €10 billion in developing the Trans-Caspian route.
+        outcome: 'This promising corridor comprises two main railway routes: Route I — via Termez–Mazar-i-Sharif–Herat to the ports of Bandar Abbas and Chabahar; Route II — via Termez–Naibobod–Maidan Shahr–Logar–Kharlachi, both still at the design and negotiation stage. The estimated cost of the Trans-Afghan Railway (647 km) to Pakistani ports is put at US$4.6 billion. Expected freight volume along these two corridors is around 10 million tons a year, potentially rising to 40 million tons over the following decade. Preliminary estimates suggest that transit time through this corridor would fall from 35 days to 3–5 days, while container shipping costs would nearly halve.'
+      - title: 'In some countries of the region — for example, Kyrgyzstan and Tajikistan — the bulk of external financing comes from a single partner'
+        description: While such a high concentration of resources makes it possible to implement major infrastructure projects, it also highlights the importance of diversifying funding sources and expanding public-private partnership (PPP) instruments to strengthen resilience.
+        outcome: ''
+      - title: Institutional development
+        description: According to World Bank and regional analytical data, in 2023 (the most recent available report) the Central Asian countries differ markedly on the Logistics Performance Index (LPI). Kazakhstan posts the best result, ranking 79th out of 139 countries with a score of 2.7 — the region's highest. Uzbekistan ranks 88th with a score of 2.6, reflecting moderate improvement in recent years. Tajikistan ranks 97th (around 2.5), remaining in the lower part of the ranking, while Kyrgyzstan — with a score of around 2.3 and a rank of 123rd — records the lowest logistics performance among the Central Asian countries.
+        outcome: ''
+      - title: Environmental modernization
+        description: |-
+          Road transport currently accounts for approximately 70% of the region's freight turnover, reflecting a heavy reliance on this mode of transport. At the same time, this creates
+          substantial scope for shifting toward rail and multimodal solutions, fully in line with the global "green logistics" agenda.
+        outcome: ''
+      - title: Social connectivity
+        description: |-
+          The development of trunk transport corridors is proceeding at a rapid pace, laying a solid foundation for future growth. At the same time, this underscores the importance of expanding
+          regional and local infrastructure, since doing so brings rural and mountainous areas into the overall transport system and allows a broader range of people to benefit from transit.
+        outcome: If the development of transport systems is carried out in coordination among the countries of the region, Central Asia could become one of Eurasia's key transit hubs. Forecasts suggest that, with successful project implementation, transit freight volumes could grow 3–4 times by 2050, the region's share of Eurasian transit could rise from 3% to 8–10%, and annual revenue from transport could reach US$25–30 billion. At the same time, increasing rail's share to 55–60% would cut the carbon footprint by 35–40%, while the transport and logistics sector's contribution to regional GDP could reach 1.5–2% annually.
+    recommendations:
+      - text: |-
+          Particular attention should be given to increasing rail's share of freight from the current 30% to 45–50% by 2035, which will require large-scale railway electrification, the procurement of modern rolling stock, and accelerated
+          development of container services. Establishing multimodal hubs and dry ports — such as Khorgos, Aktau, Tashkent, and Khujand — should be carried out in close coordination with national and regional transport networks, allowing for a unified system of freight distribution and reducing the burden on individual links. Key priorities remain the construction and reconstruction of international highways, improved access roads to logistics centers, and an expanded network of electrified railways.
+      - text: |-
+          Even where modern infrastructure exists, the region's transit potential may go unrealized without institutional reform. Adopting international digital standards such as e-TIR and e-CMR,
+          along with establishing electronic data exchange with neighboring countries (Kazakhstan, Kyrgyzstan, Tajikistan, and Afghanistan), would reduce transaction costs, speed up cargo clearance, and lower corruption risks. Another important priority is developing border-crossing infrastructure: building additional logistics centers and equipping them with modern cargo control and inspection equipment.
+      - text: 'Ensuring long-term sustainability requires diversifying funding sources by combining resources from the European Union, the ADB, the World Bank, the EBRD, and national funds. Developing public-private partnership mechanisms is particularly important, with their share of transport project financing expected to reach 20–25% by 2030. A key condition for this is greater transparency in managing external debt and the systematic evaluation of project effectiveness, taking into account their socioeconomic impact.'
+      - text: Uncoordinated action by individual states cannot unlock the region's full potential — this requires coordinated measures at the regional level. The absence of shared strategies leads to project duplication and undermines Central Asia's competitiveness as a unified transit space. An important step in this direction would be creating a regional coordination mechanism to standardize technical parameters, tariffs, and infrastructure access rules, while enabling joint financing.
+      - text: Successfully implementing transport and logistics projects in the region requires establishing the Council for Infrastructure Development proposed by the President of Uzbekistan, along with a dedicated Fund for financing priority regional projects. This systemic approach would help synchronize strategies and attract investment effectively.
+  - slug: demography
+    title: Social development and demography
+    subtitle: Central Asia is at a critical stage of demographic change.
+    stats:
+      - value: 144 million
+        label: Population of the region projected to exceed this figure by 2050.
+      - value: 71 million
+        label: Working-age population (15–64 years) projected to reach this figure.
+      - value: 0–14
+        label: Children in this age group account for nearly a third of Central Asia's population today.
+    intro: |-
+      Capturing the demographic dividend is not an automatic process but the result of sound investment and political will. It requires, above all, bold investment in education, health care, and expanding opportunities for young people and women. Only under these conditions can accelerated economic growth and the full realization of women's potential in the labor market be achieved.
+      Over the longer term, according to projections by the United Nations Department of Economic and Social Affairs (UN DESA) and the United Nations Population Fund (UNFPA), population growth will slow and the number of older people will rise — signaling a shift in countries' demographic structure and a limited window for capturing the demographic dividend.
+
+      At the same time, the growing share of older people in the overall population calls for additional investment in the social sphere and flexible policies capable of meeting the needs of both young and older generations simultaneously.
+
+      Fully integrating and implementing the concept of demographic resilience would make it possible to effectively manage changes in age structure, migration flows, fertility, and life expectancy across the region — underpinning sustainable development, economic stability, and social well-being.
+
+      By making strategic decisions today, Central Asia can turn its demographic momentum into a foundation for long-term prosperity, innovation, and regional solidarity.
+    charts:
+      - image: /assets/images/uploads/1. Демография.png
+        caption: Current and projected population growth scenarios for Central Asia (2000–2050)
+        note: ''
+      - image: /assets/images/uploads/2. Демография.png
+        caption: Current and projected population growth scenarios for the world (2000–2050).
+        note: ''
+      - image: /assets/images/uploads/3. Демография.png
+        caption: Current and projected population growth scenarios for Asia (2000–2050).
+        note: ''
+      - image: /assets/images/uploads/4. Демография.png
+        caption: Current and projected population growth scenarios for Europe (2000–2050).
+        note: ''
+      - image: /assets/images/uploads/5. Демография.png
+        caption: Labor force participation rate (2024).
+        note: ''
+      - image: /assets/images/uploads/6. Демография.png
+        caption: 'Share of youth not in education, employment, or training (NEET indicators, 2024).'
+        note: ''
+    scenarios:
+      - title: Population growth forecast
+        description: 'UN DESA demographic scenarios project sustained population growth for Central Asia through 2050. Even the region''s "low" scenario exceeds the "high" scenario for the world, for Asia, and especially for Europe. Under the "medium" growth projection, Central Asia''s working-age population (15–64) will grow from 50 million to 71 million, with its share of the total population rising from 62% today to 63% by 2050. By comparison, between 2023 and 2050 the working-age share is projected to fall from 67% to 64% in Asia and from 64% to 58% in Europe.'
+        outcome: ''
+      - title: Demographically sustainable development
+        description: According to the forecast, if labor force participation reaches the 2024 global average by 2050, an additional 2.4 million people could enter the labor market. Given the creation of decent jobs, this would contribute to GDP growth and help reduce poverty as well as gender, regional, and age-related inequality.
+        outcome: Key priorities include investment in health care, education, and skills development, as well as active employment policies geared toward the digital and green economies. Under these conditions, the region's young people would be able to realize their full potential, driving accelerated economic growth and progress toward the Sustainable Development Goals.
+      - title: Inclusive development
+        description: 'Without investment in an inclusive labor market, there is a risk of a "lost generation" denied opportunities for development.'
+        outcome: ''
+      - title: Gender equality and women's empowerment
+        description: |-
+          In Central Asia, the demographic dividend cannot be fully realized without the complete integration of women into the economy. The 22-percentage-point gap between the labor force participation rates of women and men (2024) points to substantial macroeconomic losses.
+
+          Key barriers include high fertility rates, limited access to family planning services, a shortage of childcare services, inflexible labor market conditions, caregiving responsibilities for elderly relatives, and factors that hinder women's education and careers. Together, these erode women's qualifications and push them toward informal employment.
+
+          A number of countries in the region have carried out reforms, including lifting bans on women's employment in heavy industry and introducing subsidies for women-led enterprises. Yet the principal barrier — unpaid domestic labor — persists, and legal measures alone cannot resolve it.
+        outcome: "Targeted investment in women's human capital — through the development of social infrastructure and gender-responsive employment — is the key to fully realizing the \"gender dividend.\""
+      - title: Active aging and longevity
+        description: |-
+          Women live longer than men, but employment in the informal sector and interruptions in their working lives leave them with smaller pension savings, contributing to the "feminization of poverty." Possible solutions include gender-responsive
+          pension reform, expanded social protection, the formalization of women's employment, and recognition of unpaid labor.
+        outcome: Using demographic projections to plan health and social protection systems is essential, as it allows for the timely reorientation of services toward gerontological care and supports opportunities for older people to remain employed and actively engaged in public life.
+      - title: Migration and mobility
+        description: |-
+          Migration plays an important role in Central Asia's development. Historically, the region has experienced large-scale migration flows — from rural-to-urban migration and Soviet-era resettlement to today's external and circular labor migration.
+          For Kyrgyzstan and Tajikistan, labor migration remains vital: both countries rank among the world leaders in remittances as a share of GDP, a large portion of which comes from current and former migrants.
+
+          A similar but somewhat less pronounced trend is observed in Uzbekistan. Kazakhstan, by contrast, is becoming a destination hub for migrants from neighboring countries. However, high levels of informal and irregular employment make migrants
+          one of the most vulnerable social groups, and their children often become "social orphans," facing risks of inadequate care and marginalization.
+        outcome: ''
+    recommendations:
+      - text: |-
+          Increasing investment in women's human capital.
+
+          Scaling up state and regional financing for health care, education, and skills development, with priority given to ensuring equal opportunities for women and disadvantaged young people, particularly in rural areas. It is also important to include support measures for girls, children with disabilities, and young women who are neither in education nor employment. Incorporating gender considerations into budgeting and reform processes will improve investment effectiveness and reduce inequality.
+
+          Integrating family-friendly and reproductive policies into labor market development strategies. This includes ensuring broad, convenient access to reproductive health services and introducing paid parental leave, flexible working hours, and affordable preschool education as family support measures. These initiatives simultaneously strengthen women's employment, fertility stability, labor productivity, and population well-being.
+      - text: |-
+          Economic integration and expanded opportunities for young people.
+
+          Developing youth employment strategies that reflect demographic trends. Programs for developing digital, green, and social skills are important, along with measures to expand youth access to the labor market, microfinance, mentorship, and startups — including cross-border innovation clusters.
+          Establishing regional scholarship and academic mobility programs. Interstate funds and exchange programs give young people, including those from rural and underserved communities, the opportunity to study at the region's leading universities,
+          while strengthening regional identity and building a network of future leaders.
+
+          Strengthening cross-border cooperation on youth policy and security. Programs for preventing extremism and fostering civic participation, media literacy, and critical thinking need to be developed, particularly in border areas with mixed ethnic composition. This strengthens young people's resilience and their role
+          in building a safe and inclusive region.
+      - text: |-
+          Expanding labor market participation and creating decent jobs.
+
+          Introducing regional mechanisms for skills recognition and unified educational standards. This will simplify cross-border employment and reduce the scale of informal migration.
+          Creating jobs in the green economy and the care sector. Investment in renewable energy, sustainable agriculture, waste recycling, and elderly and child care reduces unemployment and supports the Sustainable Development Goals.
+
+          Removing barriers to women's economic participation. Reforms are needed that simplify business registration, expand women's employment, and encourage employers to provide access to childcare and eldercare services.
+      - text: |-
+          Preparing for an aging population.
+
+          Modernizing pension and long-term care systems. This is essential to ensure financial sustainability, fairness, and unimpeded access to services for everyone — particularly women and informal-sector workers.
+
+          Promoting active aging. Retraining, mentorship, digital education, and the exchange of volunteering experience give older people the opportunity to contribute to economic and social development.
+
+          Expanding regional dialogue on aging. Joint demographic forecasting, statistical exchange, and expert consultations help adapt social and economic systems to changing conditions.
+      - text: |-
+          Safe and effective migration.
+
+          Coordinating migration policy and the protection of migrants' rights. Mutual recognition of qualifications, standardized labor contracts, and legal protection mechanisms are particularly important for women and young people.
+          Advancing the principle of extraterritoriality for social benefits and services. Bilateral and regional agreements should guarantee migrants and their families the preservation of accrued pension entitlements, as well as access to health care and education.
+
+          Facilitating mobility through digital ID and modern infrastructure. Such tools increase transparency and simplify movement for young people, students, and professionals.
+      - text: |-
+          Demography and climate resilience.
+
+          Integrating demographic factors into climate strategies.
+
+          This applies above all to urban planning, water supply, and food security.
+          Strengthening regional cooperation on natural resource management. Cooperation within the Aral Sea basin — on water, land, and ecosystems — is especially important.
+
+          Developing early warning systems that account for gender and age-specific needs. Women and young people should be at the center of demographic
+          adaptation efforts.
+      - text: |-
+          Applying demographic analysis in planning.
+
+          Strengthening regular population censuses and forecasting. This allows important changes to be captured in a timely manner and strategies to be adjusted accordingly.
+
+          Harmonizing statistical indicators. Aligned methodologies facilitate cross-border analysis and joint planning.
+
+          Establishing regional demographic centers. These would coordinate data analysis, research, and the preparation of evidence-based recommendations for sustainable development.
