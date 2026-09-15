@@ -1,39 +1,42 @@
-hero_eyebrow: Regional event · Tashkent
+hero_eyebrow: First regional event on foresight methodology
 hero_title: Foresight Seminar 2025
 hero_dates: 27–28 May 2025, Tashkent
-hero_organizers: 'Organizers: Agency for Strategic Reforms, ISMI, MICA, the relevant agency of the Republic of Kazakhstan · Supported by the European Union'
+hero_organizers: |-
+  Seminar organizers: the Agency for Strategic Development and Reforms under the President of the Republic of Uzbekistan, the Institute for Strategic and Interregional Studies under the President of the Republic of Uzbekistan, and the International Institute of Central Asia.
+
+  The seminar was organized with the financial support of the Delegation of the European Union to Uzbekistan.
 about_eyebrow: About the seminar
 about_h2: A joint dialogue among regional experts
 about_paragraphs:
-  - text: As part of the Foresight Seminar, representatives of analytical centers and independent experts from the five countries gathered in Tashkent for two days to discuss scenarios for the region's future through 2050. The event became one of the key stages in preparing the book "Central Asia States 2050."
-  - text: Participants worked in group sessions on water and climate change, energy, transport links, and demography, shaping the key findings and recommendations for each track.
+  - text: As part of the Foresight Seminar, representatives of analytical centers and independent experts from the five countries gathered in Tashkent for two days to discuss scenarios for the region's future through 2050. The event became one of the key milestones in preparing the book "Central Asia States 2050."
+  - text: Participants worked in group sessions on water and climate change, energy, transport connectivity, and demography, shaping key findings and recommendations for each track.
 quotes_eyebrow: Voices from the seminar
 quotes_h2: Key quotes
 quotes:
   - photo: /assets/images/uploads/wlmiNr17484131524319_b.jpg
-    name: Nematov
-    position: ''
-    quote: '"[Insert Nematov''s quote here]"'
+    name: Bakhodir Rakhmatov
+    position: former Director of the Agency for Strategic Development and Reforms under the President of the Republic of Uzbekistan
+    quote: "«Gathered here are not simply people, but those prepared to view the future not in abstract terms, but through the lens of data, strategy, decision-making, and reform.»"
   - photo: /assets/images/uploads/toivo_klaar.jpg
-    name: Fayziev
-    position: ''
-    quote: '"[Insert Fayziev''s quote here]"'
+    name: Toivo Klaar
+    position: Ambassador Extraordinary and Plenipotentiary of the European Union to Uzbekistan
+    quote: '«In the European Union, when we speak of cooperation among member states, we often use the phrase "Together we are stronger." We firmly believe that this principle applies equally to the countries of Central Asia.»'
   - photo: /assets/images/uploads/beIQON17484134392974_l.webp
-    name: Klaar
-    position: ''
-    quote: '"[Insert Klaar''s quote here]"'
+    name: Akramjon Nematov
+    position: First Deputy Director of the Institute for Strategic and Interregional Studies under the President of the Republic of Uzbekistan
+    quote: "«In recent years, dialogue among experts across the region has intensified considerably. Meetings of this kind, especially against the backdrop of growing and prolonged instability in world politics, offer an opportunity to get to know one another more closely and to discuss key questions of cooperation.»"
   - photo: /assets/images/uploads/lVladI17484149174974_b.jpg
-    name: Karazhanova
-    position: ''
-    quote: '"[Insert Karazhanova''s quote here]"'
+    name: Aziza Umarova
+    position: Head of the Zero Bureaucracy-2030 and Innovations Office at the Agency for Strategic Reforms under the President of the Republic of Uzbekistan
+    quote: "«It is important that the work of the seminar's participants not be confined to theory alone. The principal task is to prepare concrete recommendations for the desks of heads of state.»"
   - photo: /assets/images/uploads/eUh6RL17484139719633_b.jpg
-    name: Umarova
-    position: ''
-    quote: '"[Insert Umarova''s quote here]"'
+    name: Sherzod Fayziev
+    position: Deputy Director of the International Institute of Central Asia
+    quote: "«We have counted nearly 300 initiatives put forward by heads of state. This is evidence of a serious commitment to developing regional cooperation and addressing shared challenges.»"
   - photo: /assets/images/uploads/gDLkHw17484149215956_b.jpg
-    name: Аида Каражанова
-    position: ''
-    quote: «Форсайт – жорий тенденциялар таҳлили ҳамда экспертлар фикрига таянган ҳолда келажак сценарийларини яратиш ва юзага келиши мумкин бўлган хатарларни ҳисобга олишга ёрдам берадиган стратегик прогнозлаш усулидир.»
+    name: Aida Karazhanova
+    position: Foresight expert
+    quote: "«Foresight is a method of strategic forecasting that, drawing on the analysis of current trends and expert judgment, helps build scenarios for the future and account for risks that may arise.»"
 gallery_eyebrow: Media gallery
 gallery_h2: The seminar in photos
 photos:
@@ -48,26 +51,26 @@ press_eyebrow: In the media
 press_h2: The Foresight Seminar in the media
 press:
   - image: /assets/images/uploads/hoN0sTMWhAXOvjmau4hfSHcl76rS_OLq.webp
-    title: The Foresight Seminar draws attention from regional analysts
-    description: A short overview of the topics and conclusions discussed at the event — shown here as a sample.
+    title: Five nations, one blood
+    description: For centuries, five kindred peoples lived side by side, drawing water from the same irrigation canal. But fate divided the land into national republics and drew borders between them. Today we are beginning to realize that we were, in truth, one family.
     url: https://kun.uz/kr/news/2025/06/03/jonim-u-qonim-beshlik
     date: 2025-06-03T05:00:00
     source: Kun.uz
   - image: /assets/images/uploads/sAyIIs17484129310155_l.webp
-    title: Coverage of the "Central Asia States 2050" book in progress
-    description: A brief note on the book taking shape from the Foresight Seminar's outcomes — shown here as a sample.
+    title: Development scenarios for the region through 2050 are being prepared
+    description: 'The first regional foresight seminar, "Central Asia – 2050," is taking place in Tashkent. Experts from the five countries are discussing the region''s future from the standpoint of climate change, demography, and sustainable development. The proposals put forward may be brought before heads of state for discussion.'
     url: https://www.gazeta.uz/ru/2025/05/28/foresight-central-asia/
     date: 2025-05-28T05:00:00
     source: Gazeta.uz
   - image: /assets/images/uploads/OmJnzlvH1zHqb1KPEfI51uUnJ2dGhAOA_front.jpg
-    title: Тошкентда “Марказий Осиё – 2050” форсайт-семинари ўз ишини бошлади
-    description: ''
+    title: Foresight seminar "Central Asia – 2050" opens in Tashkent
+    description: 'On 27 May this year, the capital hosted the first regional foresight seminar, "Foresight Central Asia 2050: Charting Pathways to Shared Prosperity and Stability." The seminar brought together representatives of all five countries of the region — government bodies, analytical and research centers, and independent experts.'
     url: https://uza.uz/posts/724253
     date: 2025-05-28T05:00:00
     source: ЎзА
   - image: /assets/images/uploads/OmJnzlvH1zHqb1KPEfI51uUnJ2dGhAOA_front.jpg
-    title: Туркманистон Тошкентдаги биринчи минтақавий форсайт-семинарда иштирок этди
-    description: ''
+    title: Turkmenistan takes part in first regional foresight seminar in Tashkent
+    description: 'On 27–28 May this year, Turkmenistan took part in the first regional foresight seminar, "Foresight Central Asia 2050: Charting Pathways to Shared Prosperity and Stability," held in Tashkent.'
     url: https://turkmenportal.com/ru/news/91519-turkmenistan-prinyal-uchastie-v-pervom-regionalnom-forsaitseminare-v-tashkente
     date: 2025-05-28T05:00:00
     source: ТуркменПортал
