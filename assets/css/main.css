@@ -854,7 +854,7 @@ a.news-card:hover .news-title{color:var(--gold);}
 .scenario-card:nth-child(4n+2){border-top-color:var(--teal);}
 .scenario-card:nth-child(4n+3){border-top-color:var(--navy-2);}
 .scenario-card:nth-child(4n+4){border-top-color:#8a7130;}
-.scenario-title{font-family:'PT Serif',serif; font-weight:700; font-size:1.1rem; color:var(--ink);}
+.scenario-title{display:block; font-family:'PT Serif',serif; font-weight:700; font-size:1.1rem; color:var(--ink); margin-bottom:8px;}
 .scenario-desc{color:var(--ink-soft); font-size:.94rem; line-height:1.55;}
 /* Collapsed to 6 lines (measured off .scenario-desc's line-height) by
    default; description AND outcome both live inside this wrapper, so both

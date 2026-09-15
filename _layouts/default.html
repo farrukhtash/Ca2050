@@ -1,13 +1,46 @@
 {% assign L = site.active_lang %}{% assign D = site.default_lang %}
 {% assign ui = site.data[L].ui | default: site.data[D].ui %}
+{% comment %}
+  canon = page.url with any leading /<lang>/ segment stripped, so the
+  language switcher and hreflang alternates can rebuild locale-prefixed
+  paths from a single locale-agnostic base. Must match the prefix as a
+  whole path SEGMENT (via split), never as a bare substring — a
+  substring removal (e.g. remove_first: '/en') also matches inside
+  words like "energy" (".../directions/energy/" contains "/en" right
+  before "ergy/"), corrupting the path. jekyll-polyglot's own page.url
+  is already locale-agnostic in this setup (verified: no page.url ever
+  carries a /en//ru/ prefix), so in practice this block is a no-op
+  safety net — but it keeps canon correct even if that ever changes.
+{% endcomment %}
 {% assign canon = page.url %}
-{% if L != D %}{% assign pfx = '/' | append: L %}{% assign canon = page.url | remove_first: pfx %}{% endif %}
+{% if L != D %}
+  {% assign _segs = page.url | split: '/' %}
+  {% if _segs[1] == L %}
+    {% assign _rest = _segs | slice: 2, 999999 %}
+    {% assign canon = _rest | join: '/' | prepend: '/' %}
+  {% endif %}
+{% endif %}
 {% if canon == '' %}{% assign canon = '/' %}{% endif %}
 <!DOCTYPE html>
 <html lang="{{ site.active_lang }}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% comment %}
+  Language switch: keep the reader's scroll position instead of dropping
+  them at the top of the new-locale page. main.js saves {index, offset}
+  for the nearest <main.site-main> section (not raw pixels — page length
+  differs per locale) into sessionStorage right before navigating, then
+  restores it here on load. The page stays hidden (via this class, set
+  synchronously before first paint) until that restore runs, so there is
+  no flash-at-top-then-jump; a hard timeout below guarantees the page is
+  revealed even if main.js fails to load.
+{% endcomment %}
+<style>html.scroll-restoring body{visibility:hidden;}</style>
+<script>
+try{ if(sessionStorage.getItem('caScrollAnchor')) document.documentElement.classList.add('scroll-restoring'); }catch(e){}
+setTimeout(function(){ document.documentElement.classList.remove('scroll-restoring'); }, 2000);
+</script>
 {% assign own_data = site.data[L][page.page_id] | default: site.data[D][page.page_id] %}
 {% if page.page_id and ui[page.page_id].hero_title %}
 <title>{{ ui[page.page_id].hero_title }} — {{ ui.brand_name }}</title>

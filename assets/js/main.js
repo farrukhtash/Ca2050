@@ -52,17 +52,76 @@ document.getElementById('siteNav').querySelectorAll('a').forEach(a=>{
   });
 });
 
-// Language switcher: build correct hrefs from the canonical path.
-// (data-canon is a data attribute, so it is never locale-rewritten by polyglot.)
+// Language switcher: build correct hrefs from the canonical path
+// (data-canon is a data attribute, so it is never locale-rewritten by
+// polyglot), and preserve scroll position across the switch. Page length
+// differs per locale (translations run shorter/longer), so raw pixels
+// aren't reusable — instead we remember which top-level <section> under
+// <main class="site-main"> was at the header line when the reader clicked,
+// plus how far into it they'd scrolled, and re-find "that same section" by
+// index on the new page (every page layout renders the same sections in
+// the same order regardless of locale, only the text differs). The
+// corresponding html.scroll-restoring / inline script in the <head> keeps
+// the page hidden until restoreScrollAnchor() below runs, so there's no
+// flash-at-top before the jump.
+const SCROLL_ANCHOR_KEY = 'caScrollAnchor';
+const headerOffset = ()=>{
+  const h = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 64;
+  return h + 12;
+};
+
 (function(){
   const sw = document.querySelector('.langswitch');
   if(!sw) return;
   const def = sw.dataset.default;
   const canon = sw.dataset.canon || '/';
+
+  const saveScrollAnchor = ()=>{
+    try{
+      const sections = Array.from(document.querySelectorAll('main.site-main > section'));
+      const offsetLine = headerOffset();
+      let index = -1, offset = 0;
+      for(let i = 0; i < sections.length; i++){
+        const top = sections[i].getBoundingClientRect().top;
+        if(top <= offsetLine){ index = i; offset = offsetLine - top; }
+        else break;
+      }
+      if(index >= 0) sessionStorage.setItem(SCROLL_ANCHOR_KEY, JSON.stringify({ index, offset, t: Date.now() }));
+      else sessionStorage.removeItem(SCROLL_ANCHOR_KEY);
+    }catch(e){}
+  };
+
   sw.querySelectorAll('a[data-lang]').forEach(a=>{
     const l = a.dataset.lang;
     a.setAttribute('href', l === def ? canon : '/' + l + canon);
+    a.addEventListener('click', saveScrollAnchor);
   });
+})();
+
+// Runs the restore side of the mechanism above: consumes the saved anchor
+// (one-shot — cleared as soon as it's read) and reveals the page, whether
+// or not a usable anchor was found. Every early-return path still calls
+// reveal(), so a missing/stale/corrupt anchor just falls back to staying
+// at the top, same as the pre-existing behavior.
+(function(){
+  const reveal = ()=>{ document.documentElement.classList.remove('scroll-restoring'); };
+  let raw = null;
+  try{
+    raw = sessionStorage.getItem(SCROLL_ANCHOR_KEY);
+    sessionStorage.removeItem(SCROLL_ANCHOR_KEY);
+  }catch(e){}
+  if(!raw) return reveal();
+
+  let anchor;
+  try{ anchor = JSON.parse(raw); }catch(e){ return reveal(); }
+  if(!anchor || typeof anchor.index !== 'number' || Date.now() - anchor.t > 15000) return reveal();
+
+  const sections = Array.from(document.querySelectorAll('main.site-main > section'));
+  if(!sections.length) return reveal();
+  const target = sections[Math.min(anchor.index, sections.length - 1)];
+  const top = target.getBoundingClientRect().top + window.scrollY - headerOffset() + (anchor.offset || 0);
+  window.scrollTo(0, Math.max(0, top));
+  reveal();
 })();
 
 // Scroll-reveal
@@ -366,21 +425,27 @@ document.querySelectorAll('[data-carousel]').forEach(root=>{
   });
 })();
 
-// Direction pages: scenario description + outcome collapse together to a
-// ~6-line-tall window with a toggle button (shown only when the combined
-// content actually overflows that height). max-height is measured in px
-// from the live line-height rather than fixed in CSS, so it works the same
-// across uz/en/ru regardless of text length, and the toggle button is
-// hidden entirely for scenarios short enough to already fit.
+// Direction pages: the whole scenario card body (title + description +
+// outcome) collapses together to a ~6-line-tall window with a toggle
+// button (shown only when the combined content actually overflows that
+// height). Because title/description/outcome all live inside the same
+// fixed-height wrapper, the button ends up at the same vertical offset in
+// every card of a row regardless of how long each title happens to be —
+// before, the title sat outside the collapsible box as its own
+// variable-height element, which is what made the button "float". Height
+// is measured in px from the live line-height rather than fixed in CSS,
+// so it works the same across uz/en/ru regardless of text length, and the
+// toggle button is hidden entirely for scenarios short enough to already
+// fit.
 (function(){
   const cards = Array.from(document.querySelectorAll('.scenario-card'));
   if(!cards.length) return;
 
   const LINES = 6;
 
-  // [data-scenario-desc] is the wrapper around BOTH the description and the
-  // outcome — collapsing/expanding hides and reveals them together. The
-  // 6-line budget is still measured off the description paragraph's own
+  // [data-scenario-desc] is the wrapper around the title, description and
+  // outcome together — collapsing/expanding hides and reveals all three at
+  // once. The 6-line budget is still measured off the description paragraph's own
   // line-height (the wrapper itself has no font styling of its own).
   const measure = (card)=>{
     const wrap = card.querySelector('[data-scenario-desc]');
