@@ -1,0 +1,10 @@
+# Cloudflare Pages override for the `prod` branch (https://ca2050.info).
+#
+# Jekyll merges config files left-to-right, so only keys listed here
+# override _config.yml — everything else (languages, collections, etc.)
+# stays exactly as defined there. GitHub Actions / GitHub Pages never
+# pass this file, so the ca2050.uz sandbox build is unaffected.
+#
+# Cloudflare Pages build command must be:
+#   bundle exec jekyll build --config _config.yml,_config.prod.yml
+url: "https://ca2050.info"
