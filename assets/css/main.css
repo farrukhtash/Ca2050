@@ -58,12 +58,10 @@ body.has-hero-full .site-header.scrolled{
 .site-header .wrap{
   height:100%; display:flex; align-items:center; justify-content:space-between; gap:20px;
 }
-/* Logo: gold PNG wordmark (assets/header/logo-header-gold.png). Reads
-   cleanly both on the solid navy header and transparent over the photo
-   hero on the homepage (checked against both hero photos — both have a
-   dark top edge under the header's navy overlay), so a white-variant
-   swap isn't wired in; assets/header/logo-header-white.png is available
-   if a future hero image needs it. */
+/* Logo: light-gold SVG mark (assets/header/logo-header.svg, #FFDD9D fill).
+   Reads cleanly both on the solid navy header and transparent over the
+   photo hero on the homepage (checked against both hero photos — both
+   have a dark top edge under the header's navy overlay). */
 .brand-mark{
   display:inline-flex; align-items:center; flex-shrink:0; text-decoration:none;
   transition:filter .2s ease;
