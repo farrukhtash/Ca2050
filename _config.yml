@@ -16,7 +16,7 @@ plugins:
 
 languages: ["uz", "en", "ru"]
 default_lang: "uz"
-exclude_from_localization: ["assets", "admin", "media", "CNAME", "markaziy-osiyo-2050_uz.pdf", "favicon"]
+exclude_from_localization: ["assets", "admin", "media", "CNAME", "markaziy-osiyo-2050_uz.pdf", "markaziy-osiyo-2050_ru.pdf", "markaziy-osiyo-2050_en.pdf", "favicon"]
 parallel_localization: false
 
 collections:

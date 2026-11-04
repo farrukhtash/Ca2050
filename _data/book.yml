@@ -1,0 +1,9 @@
+# Файлы книги по языкам. Добавление языка = добавить строку сюда
+# и положить PDF в корень репозитория.
+files:
+  - lang: uz
+    file: markaziy-osiyo-2050_uz.pdf
+  - lang: ru
+    file: markaziy-osiyo-2050_ru.pdf
+  - lang: en
+    file: markaziy-osiyo-2050_en.pdf

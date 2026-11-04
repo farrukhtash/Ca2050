@@ -13,7 +13,7 @@ home:
   hero_title: Central Asia States 2050
   hero_sub: 'The result of the first regional foresight dialogue — visions of the future through 2050: analysis and recommendations on climate, water, energy, transport, and demography.'
   hero_cta: Download the book
-  hero_meta: PDF · summary in Uzbek, Russian, and English
+  hero_meta: "PDF · in Uzbek, Russian, and English"
   more: Read more →
   about_eyebrow: About the book
   about_h2: The region's first foresight dialogue
@@ -34,8 +34,9 @@ home:
   seminar_cta: Details and photos
   book_eyebrow: The book
   book_h2: Download the book
-  book_p: 217 pages · PDF · summary in Uzbek and English.
+  book_p: "217 pages · PDF · in Uzbek, Russian, and English."
   book_cta: Download PDF
+  book_other_langs: "In other languages:"
   feedback_eyebrow: Feedback
   feedback_h2: Leave your feedback
   feedback_p: We welcome your comments and suggestions about the book.

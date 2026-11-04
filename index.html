@@ -2,7 +2,6 @@
 layout: default
 page_id: home
 title: "Марказий Осиё давлатлари 2050 — Минтақавий форсайт-мулоқот"
-header_pdf: true
 hero_full: true
 ---
 {% assign L = site.active_lang %}{% assign D = site.default_lang %}
@@ -28,7 +27,7 @@ hero_full: true
     <h1>{{ t.home.hero_title }}</h1>
     <p class="sub">{{ t.home.hero_sub }}</p>
     <div class="cta-row">
-      <a href="{{ '/markaziy-osiyo-2050_uz.pdf' | relative_url }}" class="btn-gold" download>{{ t.home.hero_cta }}</a>
+      {% include book-download.html label=t.home.hero_cta %}
       <span class="meta-note">{{ t.home.hero_meta }}</span>
     </div>
   </div>
@@ -115,7 +114,7 @@ hero_full: true
       <span class="eyebrow on-sand">{{ t.home.book_eyebrow }}</span>
       <h2>{{ t.home.book_h2 }}</h2>
       <p>{{ t.home.book_p }}</p>
-      <a href="{{ '/markaziy-osiyo-2050_uz.pdf' | relative_url }}" class="btn-gold" download>{{ t.home.book_cta }}</a>
+      {% include book-download.html label=t.home.book_cta %}
     </div>
     <div data-reveal>
       <span class="eyebrow on-sand">{{ t.home.feedback_eyebrow }}</span>
