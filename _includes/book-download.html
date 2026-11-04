@@ -1,22 +1,9 @@
 {% comment %}
-  Book download: primary gold button for the active locale's PDF (falls back
-  to the default locale's), plus small secondary links to the other
-  languages. Files are listed in _data/book.yml (not in the CMS).
+  Book download button: the active locale's PDF (falls back to the default
+  locale's). Files are listed in _data/book.yml (not in the CMS).
   Usage: {% include book-download.html label=t.home.hero_cta %}
 {% endcomment %}
 {% assign _files = site.data.book.files %}
-{% assign _ui = site.data[site.active_lang].ui | default: site.data[site.default_lang].ui %}
 {% assign _primary = _files | where: 'lang', site.active_lang | first %}
 {% unless _primary %}{% assign _primary = _files | where: 'lang', site.default_lang | first %}{% endunless %}
-{% if _primary %}
-<div class="book-download">
-  <a href="{{ '/' | append: _primary.file | relative_url }}" class="btn-gold" hreflang="{{ _primary.lang }}" download>{{ include.label }}</a>
-  {% if _files.size > 1 %}
-  <div class="book-langs">
-    <span class="book-langs-label">{{ _ui.home.book_other_langs }}</span>
-    {% assign _n = 0 %}
-    {% for f in _files %}{% unless f.lang == _primary.lang %}{% if _n > 0 %}<span class="book-langs-sep" aria-hidden="true">·</span>{% endif %}<a href="{{ '/' | append: f.file | relative_url }}" hreflang="{{ f.lang }}" lang="{{ f.lang }}" download>{{ site.data.langmeta[f.lang].name }}</a>{% assign _n = _n | plus: 1 %}{% endunless %}{% endfor %}
-  </div>
-  {% endif %}
-</div>
-{% endif %}
+{% if _primary %}<a href="{{ '/' | append: _primary.file | relative_url }}" class="btn-gold" hreflang="{{ _primary.lang }}" download>{{ include.label }}</a>{% endif %}

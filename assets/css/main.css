@@ -254,21 +254,6 @@ body.has-hero-full .site-header.scrolled{
 .btn-outline:hover{border-color:var(--gold); background:rgba(201,162,39,.08);}
 .meta-note{font-size:.78rem; color:rgba(250,248,242,.5);}
 
-/* Book download: gold button + quiet links to the other languages. Colors
-   come from currentColor (muted via opacity), so it reads on both the dark
-   hero photo and the platform-cta block without hard-coded colors. */
-.book-download{display:flex; flex-direction:column; align-items:flex-start; gap:10px;}
-.book-langs{
-  display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 8px;
-  font-size:.85rem; line-height:1.4; color:inherit; opacity:.78;
-}
-.book-langs a{color:inherit; text-decoration:none;}
-.book-langs a:hover, .book-langs a:focus-visible{text-decoration:underline;}
-.book-langs-sep{opacity:.6;}
-.home-hero .cta-row{flex-direction:column; gap:12px;}
-.home-hero .book-download{align-items:center;}
-.home-hero .book-langs{justify-content:center;}
-
 /* horizon divider - signature element */
 .horizon{
   position:relative; height:72px; margin-top:8px;
