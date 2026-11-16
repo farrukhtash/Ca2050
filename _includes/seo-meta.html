@@ -18,6 +18,9 @@
   {%- assign _dd = site.data[L].directions.directions | where: 'slug', page.slug | first -%}
   {%- unless _dd -%}{%- assign _dd = site.data[D].directions.directions | where: 'slug', page.slug | first -%}{%- endunless -%}
   {%- assign _src = _dd.subtitle | default: _dd.intro -%}
+  {%- comment -%}One-line subtitles come out far under ~120 chars, so continue with the track intro.{%- endcomment -%}
+  {%- assign _sub_len = _dd.subtitle | normalize_whitespace | size -%}
+  {%- if _sub_len < 120 and _dd.subtitle and _dd.intro -%}{%- assign _src = _dd.subtitle | append: ' ' | append: _dd.intro -%}{%- endif -%}
 {%- elsif page.page_id -%}
   {%- assign _src = own_data.description | default: ui[page.page_id].description | default: ui[page.page_id].hero_sub | default: own_data.hero_sub | default: own_data.hero_subtitle | default: own_data.about_paragraphs.first.text | default: own_data.intro_paragraphs.first.text -%}
 {%- endif -%}
