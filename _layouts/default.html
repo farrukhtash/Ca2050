@@ -42,7 +42,9 @@ try{ if(sessionStorage.getItem('caScrollAnchor')) document.documentElement.class
 setTimeout(function(){ document.documentElement.classList.remove('scroll-restoring'); }, 2000);
 </script>
 {% assign own_data = site.data[L][page.page_id] | default: site.data[D][page.page_id] %}
-{% capture page_title %}{% if page.page_id and ui[page.page_id].hero_title %}{{ ui[page.page_id].hero_title }} — {{ ui.brand_name }}{% elsif page.page_id and own_data.tab_title %}{{ own_data.tab_title }} — {{ ui.brand_name }}{% else %}{{ page.title | default: site.title }}{% endif %}{% endcapture %}
+{% comment %}Direction detail pages have no page_id: take the track name from directions.yml (locale, falling back to default) instead of the uz front-matter title.{% endcomment %}
+{% if page.collection == 'directions' %}{% assign _dir = site.data[L].directions.directions | where: 'slug', page.slug | first %}{% unless _dir %}{% assign _dir = site.data[D].directions.directions | where: 'slug', page.slug | first %}{% endunless %}{% endif %}
+{% capture page_title %}{% if page.page_id and ui[page.page_id].hero_title %}{{ ui[page.page_id].hero_title }} — {{ ui.brand_name }}{% elsif page.page_id and own_data.tab_title %}{{ own_data.tab_title }} — {{ ui.brand_name }}{% elsif _dir.title %}{{ _dir.title }} — {{ ui.brand_name }}{% else %}{{ page.title | default: site.title }}{% endif %}{% endcapture %}
 <title>{{ page_title }}</title>
 {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
 {% include seo-meta.html canon=canon title=page_title %}
