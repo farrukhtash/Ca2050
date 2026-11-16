@@ -42,13 +42,10 @@ try{ if(sessionStorage.getItem('caScrollAnchor')) document.documentElement.class
 setTimeout(function(){ document.documentElement.classList.remove('scroll-restoring'); }, 2000);
 </script>
 {% assign own_data = site.data[L][page.page_id] | default: site.data[D][page.page_id] %}
-{% if page.page_id and ui[page.page_id].hero_title %}
-<title>{{ ui[page.page_id].hero_title }} — {{ ui.brand_name }}</title>
-{% elsif page.page_id and own_data.tab_title %}
-<title>{{ own_data.tab_title }} — {{ ui.brand_name }}</title>
-{% else %}
-<title>{{ page.title | default: site.title }}</title>
-{% endif %}
+{% capture page_title %}{% if page.page_id and ui[page.page_id].hero_title %}{{ ui[page.page_id].hero_title }} — {{ ui.brand_name }}{% elsif page.page_id and own_data.tab_title %}{{ own_data.tab_title }} — {{ ui.brand_name }}{% else %}{{ page.title | default: site.title }}{% endif %}{% endcapture %}
+<title>{{ page_title }}</title>
+{% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
+{% include seo-meta.html canon=canon title=page_title %}
 {% I18n_Headers %}
 {% comment %}I18n_Headers covers default + x-default; add the non-default alternates (already locale-prefixed, so not re-localized).{% endcomment %}
 {% for lang in site.languages %}{% if lang != D %}<link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}/{{ lang }}{{ canon }}">
@@ -65,6 +62,7 @@ setTimeout(function(){ document.documentElement.classList.remove('scroll-restori
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+{% if page.page_id == 'home' %}{% include jsonld-home.html canon=canon %}{% endif %}
 </head>
 <body{% if page.hero_full %} class="has-hero-full"{% endif %}>
 

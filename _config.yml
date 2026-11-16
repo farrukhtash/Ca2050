@@ -1,6 +1,6 @@
 title: "Марказий Осиё давлатлари 2050 — Минтақавий форсайт-мулоқот"
-description: "Минтақавий форсайт-мулоқот натижаси — 2050 йилгача бўлган келажак манзаралари"
-url: "https://ca2050.uz"
+description: "Минтақа тарихидаги биринчи форсайт-мулоқот натижаси: иқлим, сув, энергетика, транспорт ва демография бўйича 2050 йилгача бўлган келажак манзаралари ва тавсиялар."
+url: "https://ca2050.info"
 
 footer_uz: "Марказий Осиё давлатлари 2050 — Минтақавий форсайт-мулоқот · Тошкент, 2026"
 footer_en: "Central Asia States 2050 — Regional Foresight Dialogue · Tashkent, 2026"
@@ -16,7 +16,7 @@ plugins:
 
 languages: ["uz", "en", "ru"]
 default_lang: "uz"
-exclude_from_localization: ["assets", "admin", "media", "CNAME", "markaziy-osiyo-2050_uz.pdf", "markaziy-osiyo-2050_ru.pdf", "markaziy-osiyo-2050_en.pdf", "favicon"]
+exclude_from_localization: ["assets", "admin", "media", "CNAME", "markaziy-osiyo-2050_uz.pdf", "markaziy-osiyo-2050_ru.pdf", "markaziy-osiyo-2050_en.pdf", "favicon", "robots.txt", "sitemap.xml", "404.html"]
 parallel_localization: false
 
 collections:

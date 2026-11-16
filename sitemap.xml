@@ -1,0 +1,33 @@
+---
+---
+{%- comment -%}
+  Hand-rolled instead of jekyll-sitemap (which doesn't understand polyglot's
+  per-locale URLs). One <url> per public page/direction per locale, each with
+  hreflang alternates for every locale + x-default. Rendered once (this file
+  is in exclude_from_localization), so it lists all locales itself.
+  Skipped: anything whose URL doesn't end in "/" (404.html, robots.txt,
+  sitemap.xml), /admin/, and pages with `sitemap: false` or `noindex: true`.
+{%- endcomment -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- assign entries = site.pages | concat: site.directions -%}
+{%- for e in entries -%}
+  {%- assign u = e.url -%}
+  {%- assign last = u | slice: -1 -%}
+  {%- assign head = u | slice: 0, 7 -%}
+  {%- if last != '/' or head == '/admin/' or e.sitemap == false or e.noindex -%}{%- continue -%}{%- endif -%}
+  {%- for lang in site.languages -%}
+    {%- assign pfx = '' -%}
+    {%- if lang != site.default_lang -%}{%- assign pfx = lang | prepend: '/' -%}{%- endif %}
+  <url>
+    <loc>{{ site.url }}{{ pfx }}{{ u | xml_escape }}</loc>
+    {%- for alt in site.languages -%}
+      {%- assign apfx = '' -%}
+      {%- if alt != site.default_lang -%}{%- assign apfx = alt | prepend: '/' -%}{%- endif %}
+    <xhtml:link rel="alternate" hreflang="{{ alt }}" href="{{ site.url }}{{ apfx }}{{ u | xml_escape }}"/>
+    {%- endfor %}
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ u | xml_escape }}"/>
+  </url>
+  {%- endfor -%}
+{%- endfor %}
+</urlset>

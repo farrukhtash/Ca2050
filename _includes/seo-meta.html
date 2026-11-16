@@ -1,0 +1,51 @@
+{%- comment -%}
+  <head> SEO block: meta description + Open Graph + Twitter card.
+  Variables come from _layouts/default.html (L, D, ui, own_data) plus params:
+    canon — locale-agnostic page path ("/directions/energy/")
+    title — the page <title> text (reused as og:title)
+  NOT emitted here, on purpose: the canonical link and hreflang — jekyll-polyglot's
+  I18n_Headers tag (called in default.html) already prints a self-canonical per locale
+  plus uz/x-default hreflang (default.html adds en/ru), and a second canonical would
+  be a conflict.
+
+  Description source: for direction pages the track's subtitle (directions.yml);
+  otherwise the page's own data (description → hero_sub/hero_subtitle → first
+  intro paragraph), falling back to the home hero text so it is never empty.
+  Cut at a word boundary to <=160 chars (a fixed word count gives 100-230 chars
+  across uz/ru/en); "…" is appended only when something was cut.
+{%- endcomment -%}
+{%- if page.collection == 'directions' -%}
+  {%- assign _dd = site.data[L].directions.directions | where: 'slug', page.slug | first -%}
+  {%- unless _dd -%}{%- assign _dd = site.data[D].directions.directions | where: 'slug', page.slug | first -%}{%- endunless -%}
+  {%- assign _src = _dd.subtitle | default: _dd.intro -%}
+{%- elsif page.page_id -%}
+  {%- assign _src = own_data.description | default: ui[page.page_id].description | default: ui[page.page_id].hero_sub | default: own_data.hero_sub | default: own_data.hero_subtitle | default: own_data.about_paragraphs.first.text | default: own_data.intro_paragraphs.first.text -%}
+{%- endif -%}
+{%- assign _src = _src | default: ui.home.hero_sub -%}
+{%- assign _desc = _src | strip_html | normalize_whitespace -%}
+{%- if _desc.size > 160 -%}
+  {%- assign _words = _desc | truncate: 161, '' | split: ' ' -%}
+  {%- assign _keep = _words.size | minus: 1 -%}
+  {%- assign _desc = _words | slice: 0, _keep | join: ' ' | append: '…' -%}
+{%- endif -%}
+<meta name="description" content="{{ _desc | escape }}">
+{%- unless page.noindex -%}
+  {%- assign _prefix = '' -%}
+  {%- if L != D -%}{%- assign _prefix = L | prepend: '/' -%}{%- endif -%}
+  {%- case L -%}
+    {%- when 'ru' -%}{%- assign _og_locale = 'ru_RU' -%}
+    {%- when 'en' -%}{%- assign _og_locale = 'en_US' -%}
+    {%- when 'kk' -%}{%- assign _og_locale = 'kk_KZ' -%}
+    {%- else -%}{%- assign _og_locale = 'uz_UZ' -%}
+  {%- endcase %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ include.title | strip | escape }}">
+<meta property="og:description" content="{{ _desc | escape }}">
+<meta property="og:url" content="{{ site.url }}{{ _prefix }}{{ include.canon }}">
+<meta property="og:site_name" content="{{ ui.brand_name | escape }}">
+<meta property="og:locale" content="{{ _og_locale }}">
+<meta property="og:image" content="{{ site.url }}/assets/og/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+{%- endunless %}

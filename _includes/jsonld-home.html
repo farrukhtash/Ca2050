@@ -1,0 +1,20 @@
+{%- comment -%}
+  Structured data for the home page only (called from default.html when
+  page.page_id == 'home'): WebSite + Book in one @graph. Every string goes
+  through | jsonify so quotes/backslashes in translated text can't break the JSON.
+  The PDF is the book file for the active locale (fallback: default locale),
+  from _data/book.yml.
+{%- endcomment -%}
+{%- assign _prefix = '' -%}
+{%- if L != D -%}{%- assign _prefix = L | prepend: '/' -%}{%- endif -%}
+{%- assign _home = site.url | append: _prefix | append: include.canon -%}
+{%- assign _pdf = site.data.book.files | where: 'lang', L | first -%}
+{%- unless _pdf -%}{%- assign _pdf = site.data.book.files | where: 'lang', D | first -%}{%- endunless -%}
+{%- assign _pdf_url = site.url | append: '/' | append: _pdf.file -%}
+{%- assign _img = site.url | append: '/assets/og/og-default.jpg' %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebSite","name":{{ ui.brand_name | jsonify }},"url":{{ _home | jsonify }},"inLanguage":{{ L | jsonify }}},
+{"@type":"Book","name":{{ ui.home.hero_title | jsonify }},"description":{{ ui.home.hero_sub | jsonify }},"inLanguage":{{ L | jsonify }},"url":{{ _home | jsonify }},"image":{{ _img | jsonify }},"encoding":{"@type":"MediaObject","encodingFormat":"application/pdf","contentUrl":{{ _pdf_url | jsonify }},"inLanguage":{{ L | jsonify }}}}
+]}
+</script>
